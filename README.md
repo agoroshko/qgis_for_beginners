@@ -1,2 +1,2 @@
-# qgis_for_beginners
-QGIS for beginners
+# QGIS for beginners
+Основы геоинформационных систем в программе QGIS
