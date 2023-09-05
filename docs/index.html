@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Андрей Горошко">
+<meta name="author" content="Андрей Горошко, Ирина Воробъева, Виктор Немич">
 
 <title>Основы геоинформационных систем в QGIS</title>
 <style>
@@ -176,7 +176,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Автор</div>
     <div class="quarto-title-meta-contents">
-             <p>Андрей Горошко </p>
+             <p>Андрей Горошко, Ирина Воробъева, Виктор Немич </p>
           </div>
   </div>
     
@@ -195,12 +195,12 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="введение" class="level1 unnumbered">
 <h1 class="unnumbered">Введение</h1>
-<p>В настоящее время QGIS является наиболее популярной программой для работы с геоинформационными системами с открытым исходным кодом. Она бесплатна для коммерческого и некоммерческого использования а по функционалу и стабильности стоит в одном ряду с платными продуктами. Недостатком этого программного продукта является малое количество обучающих курсов на русском языке, что в определенной степени компенсируется обширным сообществом, в том числе и в России. Настоящее пособие поможет студентам и всем желающим войти в мир географических информационных систем путем выполнения практических заданий в программе QGIS. Выполняемые задания относятся к области лесного хозяйства, однако получаемые навыки работы подходят для многих областей использования ГИС и являются универсальными.<br>
+<p>В настоящее время QGIS является наиболее популярной программой с открытым исходным кодом для работы с геоинформационными системами. Она бесплатна для коммерческого и некоммерческого использования а по функционалу и стабильности стоит в одном ряду с платными продуктами. Недостатком этого программного продукта является малое количество обучающих курсов на русском языке, что в определенной степени компенсируется обширным сообществом, в том числе и в России. Настоящее пособие поможет студентам и всем желающим войти в мир географических информационных систем путем выполнения практических заданий в программе QGIS. Выполняемые задания относятся к области лесного хозяйства, однако получаемые навыки работы подходят для многих областей использования ГИС и являются универсальными.<br>
 Для примеров используется программный продукт QGIS версии 3.28.7 LTR как наиболее стабильный и актуальный на данный момент. Его можно загрузить с официального сайта <a href="https://qgis.org/ru/site/" class="uri">https://qgis.org/ru/site/</a> Настоящее руководство можно использовать для выполнения заданий и в других версиях программы QGIS.</p>
 <p>Книга создана при помощи Quarto, языка R и RStudio.</p>
 Первая дата публикации:
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
-<span property="dct:title">Основы геоинформационных систем в QGIS</span> by <span property="cc:attributionName">Горошко А.А.</span> is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a>
+<span property="dct:title">Основы геоинформационных систем в QGIS</span> by <span property="cc:attributionName">Горошко А.А., Воробъева И.А., Немич В.Н.</span> is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a>
 </p>
 
 
