@@ -1,0 +1,25 @@
+# Дополнительные ресурсы {.unnumbered}
+
+Список дополнительных ресурсов для изучения темы.
+
+## Книги / сайты на русском языке
+ - [Основы геоинформатики: практикум в QGIS](https://aentin.github.io/qgis-course/)
+ - Коросов А. В., Зорина А. А. Экологические приложения Quantum GIS: учебное пособие для студентов биологических специальностей. – Петрозаводск: Издательство ПетрГУ, 2016. ― 211 с.
+ - [GIS-Lab](https://gis-lab.info/)
+ 
+## YouTube
+ - [KartenX](https://www.youtube.com/@KartenX/featured)
+ - [УРОКИ QGIS](https://www.youtube.com/@urokiqgis)
+ - [Александр Фадеев - Территория ГИС](https://www.youtube.com/@territoriyagis)
+
+## Telegram
+ - [QGIS взаимопомощь](https://t.me/QGIS_mutual_aid)
+ - [спбгеотех](https://t.me/spbgeotex)
+ - [gislab](https://t.me/gislab)
+
+
+
+
+
+
+

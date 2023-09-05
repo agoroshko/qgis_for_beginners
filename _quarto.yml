@@ -1,0 +1,32 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Основы геоинформационных систем в QGIS"
+  subtitle: "Геоинформационные системы в лесном хозяйстве"
+  author: "Андрей Горошко"
+  date: today
+  license: Лицензия
+  chapters:
+    - index.qmd
+    - chapter0_resources.qmd
+    - chapter1_georeferencing.qmd
+    - chapter2_vectorization.qmd
+    - chapter3_attributes.qmd
+    - chapter4_thematic_maps.qmd
+    - chapter5_queries.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    lang: ru
+    number-sections: true
+  pdf:
+    documentclass: scrreprt
+
+
+
