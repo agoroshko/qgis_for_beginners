@@ -16,6 +16,7 @@ book:
     - chapter3_attributes.qmd
     - chapter4_thematic_maps.qmd
     - chapter5_queries.qmd
+    - chapter6_spatial_operations.qmd
     - references.qmd
   navbar: 
     logo: "./cover.png"
