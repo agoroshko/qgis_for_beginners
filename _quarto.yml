@@ -23,6 +23,7 @@ book:
     logo: "./cover.png"
 
 bibliography: references.bib
+number-sections: true
 
 format:
   html:
