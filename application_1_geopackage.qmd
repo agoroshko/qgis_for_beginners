@@ -1,4 +1,4 @@
-# Приложение 1. Файлы GeoPackage (.gpkg) {#sec-gpkg}
+# Приложение. Файлы GeoPackage {#sec-gpkg}
 
 Каждый файл GeoPackage (.gpkg) является базой данных SQLite с поддержкой [следующих данных](https://www.geopackage.org/):
 
