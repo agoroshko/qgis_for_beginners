@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Андрей Горошко, Ирина Воробъева, Виктор Немич">
 
-<title>Основы геоинформационных систем в QGIS</title>
+<title>Основы геоинформационных систем в QGIS - 7&nbsp; Приложение. Файлы GeoPackage</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapter0_resources.html" rel="next">
+<link href="./references.html" rel="next">
+<link href="./chapter6_spatial_operations.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -88,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Введение</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./application_1_geopackage.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Приложение. Файлы GeoPackage</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
@@ -110,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Введение</span></a>
   </div>
 </li>
@@ -158,7 +158,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link">
+  <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Приложение. Файлы GeoPackage</span></span></a>
   </div>
 </li>
@@ -174,40 +174,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Содержание</h2>
-   
-  <ul>
-  <li><a href="#введение" id="toc-введение" class="nav-link active" data-scroll-target="#введение">Введение</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Основы геоинформационных систем в QGIS</h1>
-<p class="subtitle lead">Геоинформационные системы в лесном хозяйстве</p>
+<h1 class="title"><span id="sec-gpkg" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Приложение. Файлы GeoPackage</span></span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Автор</div>
-    <div class="quarto-title-meta-contents">
-             <p>Андрей Горошко, Ирина Воробъева, Виктор Немич </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Дата публикации</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">3 октября 2023 г.</p>
-    </div>
-  </div>
   
     
   </div>
@@ -215,18 +196,16 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="введение" class="level1 unnumbered">
-<h1 class="unnumbered">Введение</h1>
-<p>В настоящее время QGIS является наиболее популярной программой с открытым исходным кодом для работы с геоинформационными системами. Она бесплатна для коммерческого и некоммерческого использования а по функционалу и стабильности стоит в одном ряду с платными продуктами. Недостатком этого программного продукта является малое количество обучающих курсов на русском языке, что в определенной степени компенсируется обширным сообществом, в том числе и в России. Настоящее пособие поможет студентам и всем желающим войти в мир географических информационных систем путем выполнения практических заданий в программе QGIS. Выполняемые задания относятся к области лесного хозяйства, однако получаемые навыки подходят для многих областей использования ГИС и являются универсальными.<br>
-Для примеров используется программный продукт QGIS версии 3.28 LTR как наиболее стабильный и актуальный на данный момент. Его можно загрузить с официального сайта <a href="https://qgis.org/ru/site/" class="uri">https://qgis.org/ru/site/</a> Настоящее руководство можно использовать для выполнения заданий и в других версиях программы QGIS.</p>
-<p>Книга создана при помощи Quarto, языка R и RStudio.</p>
-Первая дата публикации: 03.10.2023
-<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
-<span property="dct:title">Основы геоинформационных систем в QGIS</span> by <span property="cc:attributionName">Горошко А.А., Воробъева И.А., Немич В.Н.</span> is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a>
-</p>
+<p>Каждый файл GeoPackage (.gpkg) является базой данных SQLite с поддержкой <a href="https://www.geopackage.org/">следующих данных</a>:</p>
+<ul>
+<li>векторные геометрии;</li>
+<li>растровые данные;</li>
+<li>таблицы атрибутов (без геометрий).</li>
+</ul>
+<p>В отличие от шейп-файлов, которые представлены набором отдельных файлов работающих вместе (.shp, .shx, .dbf и т.д.), файл GeoPackage является единственным файлом с расширением <strong>.gpkg</strong>. Более того, один файл способен хранить в себе несколько слоев данных (при использовании шейп-файлов каждый слой должен храниться отдельно), а объем файла не ограничен (шейп-файлы ограничены объемом 2 GB). С подробным сравнением форматов можно ознакомиться по <a href="https://mapscaping.com/shapefiles-vs-geopackage/">ссылке</a>.<br>
+Несмотря на преимущества формата GeoPackage, он не так популярен как шейп-файлы. В QGIS процесс работы с данными несущественно зависит от формата их хранения, за исключением одной особенности. При работе с GeoPackage каждый векторный слой имеет ключь - поле <strong>fid</strong> которое содержит уникальное целое значение для каждой геометрии. Если такое поле не создано, после сохранения файла оно будет добавлено автоматически. При работе с геометриями объектов, в поле могут появляться повторяющиеся значения. Такой слой не может быть сохранен, о чем программа предупредит пользователя. Для исправления ошибки устраните дубликаты в поле <strong>fid</strong> (отсутствующие значения так же недопустимы) или удалите поле полностью. В последнем случае оно автоматически будет добавлено после сохранения слоя.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -464,10 +443,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./chapter6_spatial_operations.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter0_resources.html" class="pagination-link">
-        <span class="nav-page-text">Дополнительные ресурсы</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">Библиографический список</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

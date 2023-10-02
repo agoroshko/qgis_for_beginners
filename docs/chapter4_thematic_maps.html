@@ -42,11 +42,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 20,
   "language": {
     "search-no-results-text": "Поиск не дал результатов",
@@ -64,10 +64,25 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="././cover.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Основы геоинформационных систем в QGIS</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools ms-auto">
+</div>
+          <div id="quarto-search" class="" title="Поиск"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -83,14 +98,9 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Основы геоинформационных систем в QGIS</a> 
-    </div>
-      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Поиск"></div>
@@ -142,6 +152,18 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./chapter6_spatial_operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Приложение. Файлы GeoPackage</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Библиографический список</span></a>
   </div>
@@ -157,14 +179,18 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#система-координат-проекта" id="toc-система-координат-проекта" class="nav-link active" data-scroll-target="#система-координат-проекта"><span class="header-section-number">4.1</span> Система координат проекта</a></li>
-  <li><a href="#простые-надписи" id="toc-простые-надписи" class="nav-link" data-scroll-target="#простые-надписи"><span class="header-section-number">4.2</span> Простые надписи</a></li>
-  <li><a href="#составные-надписи" id="toc-составные-надписи" class="nav-link" data-scroll-target="#составные-надписи"><span class="header-section-number">4.3</span> Составные надписи</a></li>
-  <li><a href="#простая-символика" id="toc-простая-символика" class="nav-link" data-scroll-target="#простая-символика"><span class="header-section-number">4.4</span> Простая символика</a></li>
-  <li><a href="#символизация-по-уникальным-значениям" id="toc-символизация-по-уникальным-значениям" class="nav-link" data-scroll-target="#символизация-по-уникальным-значениям"><span class="header-section-number">4.5</span> Символизация по уникальным значениям</a></li>
-  <li><a href="#символизация-по-диапазонам-значений" id="toc-символизация-по-диапазонам-значений" class="nav-link" data-scroll-target="#символизация-по-диапазонам-значений"><span class="header-section-number">4.6</span> Символизация по диапазонам значений</a></li>
-  <li><a href="#cимволизация-на-основе-правил" id="toc-cимволизация-на-основе-правил" class="nav-link" data-scroll-target="#cимволизация-на-основе-правил"><span class="header-section-number">4.7</span> Cимволизация на основе правил</a></li>
-  <li><a href="#добавление-тем" id="toc-добавление-тем" class="nav-link" data-scroll-target="#добавление-тем"><span class="header-section-number">4.8</span> Добавление тем</a></li>
-  <li><a href="#создание-и-заполнение-макета" id="toc-создание-и-заполнение-макета" class="nav-link" data-scroll-target="#создание-и-заполнение-макета"><span class="header-section-number">4.9</span> Создание и заполнение макета</a></li>
+  <li><a href="#sec-simple_labels" id="toc-sec-simple_labels" class="nav-link" data-scroll-target="#sec-simple_labels"><span class="header-section-number">4.2</span> Обычные подписи</a></li>
+  <li><a href="#подписи-на-основе-правил" id="toc-подписи-на-основе-правил" class="nav-link" data-scroll-target="#подписи-на-основе-правил"><span class="header-section-number">4.3</span> Подписи на основе правил</a></li>
+  <li><a href="#настройки-стиля-объектов" id="toc-настройки-стиля-объектов" class="nav-link" data-scroll-target="#настройки-стиля-объектов"><span class="header-section-number">4.4</span> Настройки стиля объектов</a></li>
+  <li><a href="#простая-символика" id="toc-простая-символика" class="nav-link" data-scroll-target="#простая-символика"><span class="header-section-number">4.5</span> Простая символика</a>
+  <ul class="collapse">
+  <li><a href="#простая-заливка" id="toc-простая-заливка" class="nav-link" data-scroll-target="#простая-заливка"><span class="header-section-number">4.5.1</span> Простая заливка</a></li>
+  </ul></li>
+  <li><a href="#символизация-по-уникальным-значениям" id="toc-символизация-по-уникальным-значениям" class="nav-link" data-scroll-target="#символизация-по-уникальным-значениям"><span class="header-section-number">4.6</span> Символизация по уникальным значениям</a></li>
+  <li><a href="#символизация-по-диапазонам-значений" id="toc-символизация-по-диапазонам-значений" class="nav-link" data-scroll-target="#символизация-по-диапазонам-значений"><span class="header-section-number">4.7</span> Символизация по диапазонам значений</a></li>
+  <li><a href="#cимволизация-на-основе-правил" id="toc-cимволизация-на-основе-правил" class="nav-link" data-scroll-target="#cимволизация-на-основе-правил"><span class="header-section-number">4.8</span> Cимволизация на основе правил</a></li>
+  <li><a href="#добавление-тем" id="toc-добавление-тем" class="nav-link" data-scroll-target="#добавление-тем"><span class="header-section-number">4.9</span> Добавление тем</a></li>
+  <li><a href="#создание-и-заполнение-макета" id="toc-создание-и-заполнение-макета" class="nav-link" data-scroll-target="#создание-и-заполнение-макета"><span class="header-section-number">4.10</span> Создание и заполнение макета</a></li>
   </ul>
 </nav>
     </div>
@@ -188,7 +214,20 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Важной частью географических информационных систем является возможность визуализации информации. Графический анализ позволяет устранить ошибки данных или выявить закономерности. Раздел посвящен возможностям визуализации в программе QGIS. Для выполнения заданий из этого раздела загрузите необходимые файлы по <strong>ссылке</strong> (!!!добавить ссылку!!!). Обратите внимание, загруженные файлы сохранены в формате .gpkg (GeoPackage). Особенности этого формата были рассмотрены в предыдущем разделе (!!! добавить описание !!!).<br>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Уведомление
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Для выполнения заданий из этого раздела загрузите файлы по <a href="https://github.com/agoroshko/qgis_for_beginners/tree/main/files/%D1%81h4_C%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D1%85%20%D0%BA%D0%B0%D1%80%D1%82">ссылке</a></p>
+</div>
+</div>
+<p>Важной частью географических информационных систем является возможность визуализации информации. Графический анализ позволяет устранить ошибки данных или выявить закономерности. Раздел посвящен возможностям визуализации в программе QGIS. Для выполнения заданий из этого раздела загрузите необходимые файлы. Обратите внимание, загруженные файлы сохранены в формате .gpkg (GeoPackage). Особенности этого формата рассмотрены в приложении (<a href="application_1_geopackage.html"><span>Глава&nbsp;7</span></a>).<br>
 Исходные данные представлены четырьмя слоями, которые содержат информацию о части Караульного лесничества: kvartala.gpkg - границы кварталов; videla.gpkg - границы лесных выделов с таксационными характеристиками; roads.gpkg - дороги; rivers.gpkg - реки. Перечисленные слои будут использоваться для создания тематических карт.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -196,7 +235,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание
+Задание 4.1
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -233,43 +272,184 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание
+Задание 4.2
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Какая зона UTM подходит вашему проекту? Выберите подходящую систему координат проекта: WGS 84 / UTM zone 45N (EPSG:32645); WGS 84 / UTM zone 46N (EPSG:32646); WGS 84 / UTM zone 46S (EPSG:32746).</li>
+<li>Какая зона UTM подходит вашему проекту? Выберите подходящую систему координат из следующих: WGS 84 / UTM zone 45N (EPSG:32645); WGS 84 / UTM zone 46N (EPSG:32646); WGS 84 / UTM zone 46S (EPSG:32746).</li>
 <li>Задайте систему кооридинат проекта WGS 84 / Pseudo-Mercator (EPSG:3857).</li>
 </ol>
 </div>
 </div>
-<p>Координаты курсора</p>
+<p>Координаты положения курсора отображаются посередине в нижней части главного окна программы, рядом с текущим масштабом. Формат отображаемых координат настраивается в меню <strong>“Проект” &gt; “Свойства…” &gt; “Общие” &gt; “Отображение координат…”</strong>. Географические координаты могут быть отображены в десятичных градусах, градусах и минутах или градусах, минутах и секундах (пункт “Coordinate format”). Так же настраиваются единицы измерения: метры или градусы (degrees) и точность координат.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 4.3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Измените формат отображаемых координат в нижней части экрана. Формат отображения координат должен быть следующим: <img src="./icons/14_координаты.png" class="img-fluid" alt="Координаты"></p>
+</div>
+</div>
 </section>
-<section id="простые-надписи" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="простые-надписи"><span class="header-section-number">4.2</span> Простые надписи</h2>
-<p>Надписи из одного поля</p>
+<section id="sec-simple_labels" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="sec-simple_labels"><span class="header-section-number">4.2</span> Обычные подписи</h2>
+<p>Подписи объектов существенно увеличивают информативность карты. Они настраиваются отдельно для каждого слоя в меню <strong>“Свойства…” &gt; “Надписи”</strong>. Существует несколько режимов отображения подписей: <strong>“Без подписей”, “Обычные подписи”, “Подписи на основе правил”, “Препятствие для подписей”</strong>. В этом и слдующем подразделах будут рассмотрены “Обычные подписи” и “Подписи на основе правил”. Рассмотрим подписи объектов на примере слоя “kvartala” (проект с этим слоем был создан в начале раздела). При настройке “Обычных подписей” основным параметром является <strong>“Значение”</strong>, которым будет подписан каждый объект в этом слое. Слой лесных кварталов содержит поле “kvartal” в котором записан номер квартала для каждого объекта. В этом не сложно убедиться, если открыть таблицу атрибутов слоя. Именно это поле указывается в пункте <strong>“Значение”</strong>. Таким образом каждый квартал получает подпись из соответствующего поля атрибутивной таблицы - номер квартала <a href="#fig-labels">Рисунок&nbsp;<span>4.2</span></a>.</p>
+<div id="fig-labels" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./gif/23_Подписи.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;4.2: Подписи слоя “kvartala”</figcaption>
+</figure>
+</div>
+<p>Остальные настройки не влияют на содержание подписей, только на их оформление. Внесенные изменения сразу отображаются в верхней части окна под названием “Образец текста”. Пункт “Текст” позволяет настроить шрифт, размер и цвет текста. “Форматирование” настраивает регистр, отступы, перенос подписей по строкам, форматы чисел. Крайне полезными настройками является “Буферизация” и “Фон”, позволяющие строить буфер (по умолчанию белого цвета) вокруг подписей, так повышается их видимость на фоне других объектов. Пункт “Размещение” настраивает положение подписей относительно объекта. Чаще всего подписи размещают на некотором расстоянии от точечных объектов или внутри полигонов. “Отрисовка” позволяет задать масштаб карты для отображения подписей. При большом количестве подписей они могут накладываться друг на друга. В этом случае по умолчанию часть подписей не будет видна, что бы изменить это поведение перейдите в пунк <strong>“Настройки размещения подписей”</strong> в правом верхнем углу окна и поставьте чек-бокс “Показывать все подписи для всех слоев (включая наложения)” <a href="#fig-labels2">Рисунок&nbsp;<span>4.3</span></a>.</p>
+<div id="fig-labels2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./gif/24_наложение подписей.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;4.3: Наложение подписей</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 4.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Измените подписи слоя “kvartala”. Установите шрифт - Liberation Sans, размер - 20, цвет текста - зеленый, буфер вокруг подписей - белый.</p>
+</div>
+</div>
+<p>В некоторых случаях требуется отобразить подписи сразу из нескольких полей, например номер выдела и площадь. Настроить такую подпись возможно в редакторе выражений <img src="./icons/11_Редактор выражений расширенный.png" class="img-fluid" alt="Редактор выражений"> (левый верхний угол окна). Создадим подписи объектов слоя “videla” из полей “videl” (номер выдела) и “s_ga” (площадь в гектарах) разделенных тире. Перейдите в окно “Редактор выражений” в центральной части в пункте “Поля и значения” найдите поля “videl” и “s_ga”. После двойного клика они будут перенесены в левую часть окна, где и формируется выражение. Разделите их символом “Сцепление строк” <img src="./icons/15_сцепление строк.png" class="img-fluid" alt="Сцепление строк"> что бы получилось следующее выражение: <strong>“videl” || ’ - ’ || “s_ga”</strong> (<a href="#fig-concatenate">Рисунок&nbsp;<span>4.4</span></a>). Результатом выражения отображается в нижнем левом угул окна, пункт “Просмотр:”. Если в этом пункте отображается надпись “Ошибочное выражение” следует исправить выражение.</p>
+<div id="fig-concatenate" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/19_Объединение полей.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;4.4: Создание подписи из нескольких полей</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 4.5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Создайте подписи слоя “videla” из полей “videl” и “el_lesa” (преобладающая порода) по примеру выше.</p>
+</div>
+</div>
 </section>
-<section id="составные-надписи" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="составные-надписи"><span class="header-section-number">4.3</span> Составные надписи</h2>
-<p>Надписи, состоящие из нескольких полей</p>
+<section id="подписи-на-основе-правил" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="подписи-на-основе-правил"><span class="header-section-number">4.3</span> Подписи на основе правил</h2>
+<p>Использование режима “Обычные подписи” удобно, когда все объекты слоя должны быть подписаны одинаково. Если же часть объектов должна остаться без подписей или подписи должны изменяться по условию - применяют режим “Подписи на основе правил”. Рассмотрим работу с этим режимом на примере слоя “videla” который содержит границы выделов и таксационную характеристику каждого из них. Основной настройкой здесь является задание логического правила, согласно которому будут отобраны объекты. Перейдите в режим “Подписи на основе правил” и добавьте новое правило нажав на символ <img src="./icons/12_добавить новую связь.png" class="img-fluid" alt="Добавить правило">. В верхней части окна “Edit Rule” задается правило, в нижней - настраивается подпись. Рассмотрим врхнюю часть окна, поскольку настройка подписи была рассмотрена выше в <a href="#sec-simple_labels"><span>Глава&nbsp;4.2</span></a>.<br>
+В пункте “Описание” вводится название правила. У каждого правила может быть два режима “Поиск” и “Иначе для всех остальных объектов”. Второй пункт используется, когда создано несколько правил и требуется добавить подписи для всех остальных объектов. Для создания правила используется окно “Конструктор выражений” <img src="./icons/11_Редактор выражений расширенный.png" class="img-fluid" alt="Конструктор выражений">. Логические условия задаются на основе атрибутов объектов. Для примера составим выражение в котором будут подписаны лесные выдела с площадью более 4 га: <code>"s_ga" &gt; 4</code>. Функция “Проверка” позволяет узнать количество объектов, попадающих под это условие <a href="#fig-labels_rules">Рисунок&nbsp;<span>4.5</span></a>. Более подробно создание логических выражений будет рассмотрено в <a href="chapter5_queries.html"><span>Глава&nbsp;5</span></a>.</p>
+<div id="fig-labels_rules" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./gif/25_подписи на основе правил.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;4.5: Создание подписей на основе правил</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 4.6
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Создайте подписи слоя “videla”. Добавьте номер выдела только для тех выделов, в которых средний возраст насаждения более 100 лет (средний возраст - поле “A_let”).</p>
+</div>
+</div>
 </section>
-<section id="простая-символика" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="простая-символика"><span class="header-section-number">4.4</span> Простая символика</h2>
+<section id="настройки-стиля-объектов" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="настройки-стиля-объектов"><span class="header-section-number">4.4</span> Настройки стиля объектов</h2>
+<p>Одним из ключевых имнструментов визуализиции пространственных данных является раскраска объектов цветом. Все объекты слоя могут быть окрашены одинаково или, в зависимости от значений атрибутов, иметь разные цвета. В программе QGIS настройка стиля отображения объектов производится в контекстном меню панели слоев <strong>“Свойства…” &gt; “Стиль”</strong>. Существует несколько режимов отображения объектов: <strong>“Без отрисовки”</strong> объекты будут не видны но надписи объектов будут отображаться; <strong>“Простая символика”</strong> задает единый стиль для всех объектов слоя; “Символизация по уникальным значениям” позволяет задать стиль отображения в зависимости от значений качественного атрибута (преобладающая порода, класс бонитета и т.д.); <strong>“Символизация по диапазонам значений”</strong> задает стиль в зависимости от количественного атрибута (средний возраст насаждения, средний диаметр, запас и т.д.). <strong>“Символизация на основе правил”</strong> позволяет задать гибкие правила для отображения стиля объектов по нескольким атрибутам. Настройка символики несколько видоизменяется в зависимости от типа геометрии слоя. Для точек будет задаваться стиль маркера, для линий - стиль линии, для полигонов - стиль заливки. Особенности геометрий объектов отражаются на особенностях их отображения. Упомянутые выше режимы отображения объектов рассмотрены далее на примере полигонального слоя “videla” из созданного ранее проекта.</p>
 </section>
-<section id="символизация-по-уникальным-значениям" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="символизация-по-уникальным-значениям"><span class="header-section-number">4.5</span> Символизация по уникальным значениям</h2>
+<section id="простая-символика" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="простая-символика"><span class="header-section-number">4.5</span> Простая символика</h2>
+<p>В режиме “Простая символика” все объекты отображаются в одном стиле, который может быть простым (состоит из одного слоя) так и сложным (состоящим из двух и более слоев). По умолчанию единственным слоем является “Простая заливка”. Комбинируя несколько простых слоев возможно создать сложный стиль отображения.</p>
+<section id="простая-заливка" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="простая-заливка"><span class="header-section-number">4.5.1</span> Простая заливка</h3>
+<div id="fig-simple_fill" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/20_Простая заливка.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;4.6: Простая заливка</figcaption>
+</figure>
+</div>
+<p>Тип слоя “Простая заливка” (<a href="#fig-simple_fill">Рисунок&nbsp;<span>4.6</span></a>) позволяет настоить основных два цвета: “Цвет заливки” и “Цвет обводки”. Стиль заливки может быть сплошной, без заливки или разными видами штриховки. Для обводки объектов настраивается толщина и стиль (сплошная, без обводки и штриховка).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 4.7
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Измените “Цвет заливки” и “Цвет обводки” слоя “videla” по вашему усмотрению.</p>
+</div>
+</div>
+<p>Комбинируя несколько слоев создаются сложные заливки. Для этого добавьте еще один слой нажав на символ <img src="./icons/12_добавить новую связь.png" class="img-fluid" alt="Добавить слой"> в правом верхнем углу. Верхний слой будет перекрывать нижний, поэтому он должен быть полупрозрачным или залит штриховкой. После настройки изображение в квадрате слева изменится, в соответствии с новым стилем штриховки <a href="#fig-two_layers">Рисунок&nbsp;<span>4.7</span></a>.</p>
+<div id="fig-two_layers" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./gif/26_два_слоя.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;4.7: Комбинирование двух слоев заливки</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 4.8
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Объедините два слоя заливки по примеру выше. Настройки выберите самостоятельно.</p>
+</div>
+</div>
+<p>Аналогичным образом применяются и комбинируются другие типы слоев.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 4.9
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Выберите любой тип слоя кроме “Простая заливка”, настройте его по своему усмотрению и оцените результат.</p>
+</div>
+</div>
 </section>
-<section id="символизация-по-диапазонам-значений" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="символизация-по-диапазонам-значений"><span class="header-section-number">4.6</span> Символизация по диапазонам значений</h2>
 </section>
-<section id="cимволизация-на-основе-правил" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="cимволизация-на-основе-правил"><span class="header-section-number">4.7</span> Cимволизация на основе правил</h2>
+<section id="символизация-по-уникальным-значениям" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="символизация-по-уникальным-значениям"><span class="header-section-number">4.6</span> Символизация по уникальным значениям</h2>
 </section>
-<section id="добавление-тем" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="добавление-тем"><span class="header-section-number">4.8</span> Добавление тем</h2>
+<section id="символизация-по-диапазонам-значений" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="символизация-по-диапазонам-значений"><span class="header-section-number">4.7</span> Символизация по диапазонам значений</h2>
 </section>
-<section id="создание-и-заполнение-макета" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="создание-и-заполнение-макета"><span class="header-section-number">4.9</span> Создание и заполнение макета</h2>
+<section id="cимволизация-на-основе-правил" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="cимволизация-на-основе-правил"><span class="header-section-number">4.8</span> Cимволизация на основе правил</h2>
+</section>
+<section id="добавление-тем" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="добавление-тем"><span class="header-section-number">4.9</span> Добавление тем</h2>
+</section>
+<section id="создание-и-заполнение-макета" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="создание-и-заполнение-макета"><span class="header-section-number">4.10</span> Создание и заполнение макета</h2>
 
 
 </section>
