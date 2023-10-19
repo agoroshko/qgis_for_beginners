@@ -18,6 +18,7 @@ book:
     - chapter5_queries.qmd
     - chapter6_spatial_operations.qmd
     - application_1_geopackage.qmd
+    - chapter7_DEM.qmd
     - references.qmd
   navbar: 
     logo: "./cover.png"
