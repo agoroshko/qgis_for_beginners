@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Основы геоинформационных систем в QGIS - 5&nbsp; Поиск объектов по атрибутивной информации</title>
+<title>Основы геоинформационных систем в QGIS - 5&nbsp; Поиск объектов по атрибутивной информации и пространственному положению</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -88,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter5_queries.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов по атрибутивной информации</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter5_queries.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов по атрибутивной информации и пространственному положению</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
@@ -147,19 +147,25 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter5_queries.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов по атрибутивной информации</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов по атрибутивной информации и пространственному положению</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter6_spatial_operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами.</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix_1_geopackage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Приложение 1. Файлы формата GeoPackage (.gpkg)</span></span></a>
+  <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Приложение. Файлы GeoPackage</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter7_DEM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа.</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -178,8 +184,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Содержание</h2>
    
   <ul>
-  <li><a href="#запросы-по-атрибутивной-информации" id="toc-запросы-по-атрибутивной-информации" class="nav-link active" data-scroll-target="#запросы-по-атрибутивной-информации"><span class="header-section-number">5.1</span> Запросы по атрибутивной информации</a></li>
-  <li><a href="#запросы-по-пространственному-положению" id="toc-запросы-по-пространственному-положению" class="nav-link" data-scroll-target="#запросы-по-пространственному-положению"><span class="header-section-number">5.2</span> Запросы по пространственному положению</a></li>
+  <li><a href="#выбор-объектов-по-значению" id="toc-выбор-объектов-по-значению" class="nav-link active" data-scroll-target="#выбор-объектов-по-значению"><span class="header-section-number">5.1</span> Выбор объектов по значению</a></li>
+  <li><a href="#выбор-объектов-по-выражению" id="toc-выбор-объектов-по-выражению" class="nav-link" data-scroll-target="#выбор-объектов-по-выражению"><span class="header-section-number">5.2</span> Выбор объектов по выражению</a></li>
+  <li><a href="#выбор-объектов-по-пространственному-положению" id="toc-выбор-объектов-по-пространственному-положению" class="nav-link" data-scroll-target="#выбор-объектов-по-пространственному-положению"><span class="header-section-number">5.3</span> Выбор объектов по пространственному положению</a></li>
   </ul>
 </nav>
     </div>
@@ -188,7 +195,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-queries" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов по атрибутивной информации</span></span></h1>
+<h1 class="title"><span id="sec-queries" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов по атрибутивной информации и пространственному положению</span></span></h1>
 </div>
 
 
@@ -203,12 +210,191 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Раздел подготавливается к выпуску.</p>
-<section id="запросы-по-атрибутивной-информации" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="запросы-по-атрибутивной-информации"><span class="header-section-number">5.1</span> Запросы по атрибутивной информации</h2>
+<p>Распространенной задачей в геоинформационных системах является поиск объектов по характеристикам (атрибутам) и пространственному положению. Для решения этой задачи пользуются логическими выражениями (предикатами) которые отделают искомые объекты от всех остальных. Аналогичные выражения уже использовались в <a href="chapter4_thematic_maps.html#sec-rules"><span>Глава&nbsp;4.8</span></a>. Для поиска объектов используется “Панель выбора объектов”, активировать которую можно в меню <strong>“Вид” &gt; “Панели инструментов” &gt; “Панель выбора объектов”</strong>.</p>
+<p>Описание таблицы атрибутов добавить.</p>
+<section id="выбор-объектов-по-значению" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="выбор-объектов-по-значению"><span class="header-section-number">5.1</span> Выбор объектов по значению</h2>
+<p>Простой способ выбора объектов по атрибутов реализуется при помощи инструмента “Выбрать объекты по значению”. В открывшемся окне представлен список полей слоя для каждого из которых возможно задать определенный фильтр. По умолчанию для всех полей активирован режим <strong>“Исключить поле”</strong> т.е. поле не участвует в фильтрации. Для текстовых полей дополнительная настройка <strong>“Case sensetive”</strong> включает чувствительность к регистру. Список доступных логических операций различен для текстовых и числовых полей.</p>
+<p>!Добавить рисунок логических операций (для текстового и числового поля, 2 картинки)</p>
+<p>Фильтр настраивается путем введения порогового значения в необходимое поле и выбора логической операции (равно, больше, меньше и т.д.). Все объекты удовлетворяющие условию будут выбраны. Фильтрация по нескольким полям объединяется оператором <strong>“И”</strong> т.е. будут выбраны объекты удовлетворяющие всем условиям. Фильтр для отбора выделов с преобладающей породой сосна и возрастом более 100 лет приведен на рисунке.</p>
+<p>!Рисунок. Фильтр объектов. сосна более 100 лет</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 5.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>При помощи инструмента “Выбор объектов по значению”, выберите выдела с преобладающей породой береза (поле “el_lesa”), типом леса “ВРТ” (поле “tip_lesa”) и средним возрастом более 80 лет (поле “A_let”). В результате должно быть выбрано 42 выдела.</p>
+</div>
+</div>
+<p>После выделения объектов их можно сохранить как отдельный слой, для этого перейдите в пункт меню «Правка» и выбирете пункт «Копировать объекты», после чего перейдите в тот же пунк «Правка» - «Вставить объекты как» - выберите пункт «Новый векторный слой». Сохраните новый слой в рабочую папку проекта. Теперь созданный слой содержит только выделенные объекты.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 5.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Сохраните выделенные объекты из предыдущего задания как новый векторный слой.</p>
+</div>
+</div>
+<p>Кроме опции “Выбрать объекты” доступны варианты модификации ранее выбранных объектов. “Добавить к текущей выборке” и “Удалить из текущей выборки” позволяют соответственно добавить или удлить отфильтрованные объекты из выбранных ранее, “Фильтровать текущую выборку” применяет фильтр к ранее выбранным объектам.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 5.3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Выберите 20 - 30 случайных выделов, используя инструмент “Выбор объектов” (!!добавить иконку!!). Отфильтруйте полученную выборку так, что бы остались выдела с преобладанием сосны (поле “el_lesa”). Для этого используйте инструмент “Выбрать по значению” &gt; “Фильтровать текущую выборку”.</p>
+</div>
+</div>
 </section>
-<section id="запросы-по-пространственному-положению" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="запросы-по-пространственному-положению"><span class="header-section-number">5.2</span> Запросы по пространственному положению</h2>
+<section id="выбор-объектов-по-выражению" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="выбор-объектов-по-выражению"><span class="header-section-number">5.2</span> Выбор объектов по выражению</h2>
+<p>Более гибкие возможности выбора объектов предоставляет инструмент “Выбрать объекты по выражению…”.</p>
+<p>Картинка окна.</p>
+<p>В левой части окна записывается логическое выражение (предикат). В средней части выбираются логические операторы и поля, участвующие в выражении (категории “Операторы” и “Поля и значения”). В правой части окна выводится справка по функциям. Иконка “Выбрать объекты” активирует выбор объектов по заданному выражению. Операторы для количественных и качественных переменных различаются. Для запросов к количественным переменным (площадь выдела, средний возраст и т.д.) применяются операторы: равно (=), не равно (&lt;&gt;), больше (&gt;), меньше (&lt;), больше или равно (&gt;=), меньше или равно (&lt;=). Для запросов к качественным переменным (элемент леса, тип леса и т.д.) используют операторы <strong>IS, IS NOT, IN</strong>.<br>
+Выражение для выбора выделов с площадью более 5 га: “s_ga” &gt; 5. Выражение для выбора выделов с типом леса “ВКТ”: <strong>“tip_lesa” IS ‘БРТ’</strong>. Выражение для выбора выделов где преобладающая порода НЕ сосна: <strong>“el_lesa” IS NOT ‘С’</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Обратите внимание!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>В конструкторе выражений названия полей записываются в двойных кавычках (“s_ga”), текст в одинарных (‘БРТ’).</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 5.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>При помощи инструмента “Выбрать по выражению” выберите выдела 1 группы возраста (поле “gr_vozr”). В результате должно быть выбрано 9 выделов.</p>
+</div>
+</div>
+<p>Пропущенные значения кодируются значением NULL.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 5.5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>При помощи инструмента “Выбрать по выражению” выберите выдела в которых пропущен запас на 1 га (поле “zapas_1ga”). В результате должно быть выбрано 64 выдела.</p>
+</div>
+</div>
+<p>Отдельная группа операторов позволяет объединить несколько условий в единое выражение, соединяя их одним из операторов: И (AND); ИЛИ (OR). Отдельно стоит рассмотреть оператор NOT, который меняет результат любого оператора на противоположный. Все перечисленные операторы могут принимать только два значения: правда или ложь. Если для конкретного объекта всё выражение принимает значение правда — этот объект соответствует условиям и попадает в выборку.<br>
+Для выбора выделов со средним возрастом от 50 до 70 лет конструируется следующее выражение: “A_let” &gt; 50 <strong>AND</strong> “A_let” &lt; 70. В этом случае было записано два условия соединенных через оператор «AND» (И). Такое выражение выбирает объекты, которые соответствуют <strong>И</strong> первому <strong>И</strong> второму условию.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 5.6
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>При помощи инструмента “Выбрать по выражению” выберите выдела со средним диаметром больше 40 см (поле “DBH_cm”) <strong>И</strong> преобладающей породой сосна. В результате должен быть выбран 21 выдел.</p>
+</div>
+</div>
+<p>Для объединения нескольких условий так же применяется оператор <strong>“OR”</strong> который используется когд объект должен удовлетворять хотя бы одному условию. Например, для выбора выделов со средней высотой более 30 м <strong>ИЛИ</strong> возрастом более 100 лет используется выражение: “H_m” &gt; 30 <strong>OR</strong> “A_let” &gt; 100.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 5.7
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>При помощи инструмента “Выбрать по выражению” выберите выдела с преобладающей породой осина <strong>ИЛИ</strong> выдела старше 140 лет. В результате должно быть выбрано 38 выделов.</p>
+</div>
+</div>
+<p>Для выбора нескольких значений качественной переменной используется оператор <strong>IN</strong> после которого в круглых скобках указывается список значений. Если значение атрибута соответствует хотя бы одному значению из списка - выдел попадает в выборку. Выбор выделов с типами леса ВКТ, ЗМ или КТП производится выражением: “tip_lesa” <strong>IN</strong> (‘ВКТ’, ‘ЗМ’, ‘КТП’).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 5.8
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>При помощи инструмента “Выбрать по выражению” выберите выдела с преобладающей породой березой, осиной или липой возрастом более 60 лет. В результате должно быть выбрано 59 выделов.</p>
+</div>
+</div>
+</section>
+<section id="выбор-объектов-по-пространственному-положению" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="выбор-объектов-по-пространственному-положению"><span class="header-section-number">5.3</span> Выбор объектов по пространственному положению</h2>
+<p>Выбор объектов по пространственному положению производится инструментом <strong>“Выбрать по расположению”</strong> который позволяет выбрать объекты одного слоя по пространственным отношениям к объектам другого слоя.</p>
+<p>!Добавить рисунок</p>
+<p>В пункте <strong>“Выбрать объекты слоя”</strong> назначается слой из которого выбираются объекты по условию пространственного отношения с другим слоем, который задается в пункте <strong>“по отношению к объектам слоя”</strong>. Необходимые пространственные отношения отмечаются чек-боксом в пункте <strong>“Геометрический предикат”</strong>. Пункт “Изменить текущую выборку” позволяет “создать новую выборку” или модифицировать уже выбранные объекты: “добавить к текущей выборке”; “выбрать в текущей выборке” или “удалить из текущей выборки”. Использование этой настройки позволяет проводить отбор объектов на основе атрибутивной информации и по пространственным отношениям.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 5.9
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Используя инструмент <strong>“Выбрать по расположению”</strong>, выберите только те выдела, которые пересекаются реками. Сохраните выдела как отдельный слой.</p>
+</div>
+</div>
+<p>Пункт “Изменить текущую выборку” позволяет “создать новую выборку” (по умолчанию) или модифицировать уже существующую: “добавить к текущей выборке”, “выбрать в текущей выборке”, “удалить из текущей выборки”. Последние 3 пункта позволяют объединить несколько пространственных запросов или комбинировать пространственный запрос с выбором по атрибутам.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 5.10
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Выберите выдела которые пересекаются реками или дорогами. Для этого объедините два пространственных запроса. В результате должен быть выбран 151 выдел. Сохраните выбранные объекты как новый векторный слой.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 5.11
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Выберите выдела которые пересекаются реками и преобладающая порода в которых не сосна. Для этого объедините пространственный запрос с запросом по атрибутам. В результате должно быть выбрано 19 выделов. Сохраните выбранные объекты как новый векторный слой.</p>
+</div>
+</div>
 
 
 </section>
@@ -455,7 +641,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./chapter6_spatial_operations.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами.</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

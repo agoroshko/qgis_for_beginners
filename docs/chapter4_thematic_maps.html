@@ -147,19 +147,25 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter5_queries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов по атрибутивной информации</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов по атрибутивной информации и пространственному положению</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter6_spatial_operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами.</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Приложение. Файлы GeoPackage</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter7_DEM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа.</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -180,7 +186,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#система-координат-проекта" id="toc-система-координат-проекта" class="nav-link active" data-scroll-target="#система-координат-проекта"><span class="header-section-number">4.1</span> Система координат проекта</a></li>
   <li><a href="#sec-simple_labels" id="toc-sec-simple_labels" class="nav-link" data-scroll-target="#sec-simple_labels"><span class="header-section-number">4.2</span> Обычные подписи</a></li>
-  <li><a href="#подписи-на-основе-правил" id="toc-подписи-на-основе-правил" class="nav-link" data-scroll-target="#подписи-на-основе-правил"><span class="header-section-number">4.3</span> Подписи на основе правил</a></li>
+  <li><a href="#sec-labels_by_rules" id="toc-sec-labels_by_rules" class="nav-link" data-scroll-target="#sec-labels_by_rules"><span class="header-section-number">4.3</span> Подписи на основе правил</a></li>
   <li><a href="#настройки-стиля-объектов" id="toc-настройки-стиля-объектов" class="nav-link" data-scroll-target="#настройки-стиля-объектов"><span class="header-section-number">4.4</span> Настройки стиля объектов</a></li>
   <li><a href="#простая-символика" id="toc-простая-символика" class="nav-link" data-scroll-target="#простая-символика"><span class="header-section-number">4.5</span> Простая символика</a>
   <ul class="collapse">
@@ -188,9 +194,9 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#символизация-по-уникальным-значениям" id="toc-символизация-по-уникальным-значениям" class="nav-link" data-scroll-target="#символизация-по-уникальным-значениям"><span class="header-section-number">4.6</span> Символизация по уникальным значениям</a></li>
   <li><a href="#символизация-по-диапазонам-значений" id="toc-символизация-по-диапазонам-значений" class="nav-link" data-scroll-target="#символизация-по-диапазонам-значений"><span class="header-section-number">4.7</span> Символизация по диапазонам значений</a></li>
-  <li><a href="#cимволизация-на-основе-правил" id="toc-cимволизация-на-основе-правил" class="nav-link" data-scroll-target="#cимволизация-на-основе-правил"><span class="header-section-number">4.8</span> Cимволизация на основе правил</a></li>
-  <li><a href="#добавление-тем" id="toc-добавление-тем" class="nav-link" data-scroll-target="#добавление-тем"><span class="header-section-number">4.9</span> Добавление тем</a></li>
-  <li><a href="#создание-и-заполнение-макета" id="toc-создание-и-заполнение-макета" class="nav-link" data-scroll-target="#создание-и-заполнение-макета"><span class="header-section-number">4.10</span> Создание и заполнение макета</a></li>
+  <li><a href="#sec-rules" id="toc-sec-rules" class="nav-link" data-scroll-target="#sec-rules"><span class="header-section-number">4.8</span> Cимволизация на основе правил</a></li>
+  <li><a href="#создание-и-заполнение-макета" id="toc-создание-и-заполнение-макета" class="nav-link" data-scroll-target="#создание-и-заполнение-макета"><span class="header-section-number">4.9</span> Создание и заполнение макета</a></li>
+  <li><a href="#добавление-легенды" id="toc-добавление-легенды" class="nav-link" data-scroll-target="#добавление-легенды"><span class="header-section-number">4.10</span> Добавление легенды</a></li>
   </ul>
 </nav>
     </div>
@@ -277,8 +283,15 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Какая зона UTM подходит вашему проекту? Выберите подходящую систему координат из следующих: WGS 84 / UTM zone 45N (EPSG:32645); WGS 84 / UTM zone 46N (EPSG:32646); WGS 84 / UTM zone 46S (EPSG:32746).</li>
-<li>Задайте систему кооридинат проекта WGS 84 / Pseudo-Mercator (EPSG:3857).</li>
+<li>Какая зона UTM подходит вашему проекту? Выберите подходящую систему координат из следующих:</li>
+</ol>
+<ul>
+<li>WGS 84 / UTM zone 45N (EPSG:32645);</li>
+<li>WGS 84 / UTM zone 46N (EPSG:32646);</li>
+<li>WGS 84 / UTM zone 46S (EPSG:32746).</li>
+</ul>
+<ol start="2" type="1">
+<li>Задайте систему координат проекта WGS 84 / Pseudo-Mercator (EPSG:3857).</li>
 </ol>
 </div>
 </div>
@@ -347,9 +360,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="подписи-на-основе-правил" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="подписи-на-основе-правил"><span class="header-section-number">4.3</span> Подписи на основе правил</h2>
-<p>Использование режима “Обычные подписи” удобно, когда все объекты слоя должны быть подписаны одинаково. Если же часть объектов должна остаться без подписей или подписи должны изменяться по условию - применяют режим “Подписи на основе правил”. Рассмотрим работу с этим режимом на примере слоя “videla” который содержит границы выделов и таксационную характеристику каждого из них. Основной настройкой здесь является задание логического правила, согласно которому будут отобраны объекты. Перейдите в режим “Подписи на основе правил” и добавьте новое правило нажав на символ <img src="./icons/12_добавить новую связь.png" class="img-fluid" alt="Добавить правило">. В верхней части окна “Edit Rule” задается правило, в нижней - настраивается подпись. Рассмотрим врхнюю часть окна, поскольку настройка подписи была рассмотрена выше в <a href="#sec-simple_labels"><span>Глава&nbsp;4.2</span></a>.<br>
+<section id="sec-labels_by_rules" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="sec-labels_by_rules"><span class="header-section-number">4.3</span> Подписи на основе правил</h2>
+<p>Использование режима “Обычные подписи” удобно, когда все объекты слоя должны быть подписаны одинаково. Если же часть объектов должна остаться без подписей или подписи должны изменяться по условию - применяют режим “Подписи на основе правил”. Рассмотрим работу с этим режимом на примере слоя “videla” который содержит границы выделов и таксационную характеристику каждого из них. Основной настройкой здесь является задание логического правила, согласно которому будут отобраны объекты. Перейдите в режим “Подписи на основе правил” и добавьте новое правило нажав на символ <img src="./icons/12_добавить новую связь.png" class="img-fluid" alt="Добавить правило">. В верхней части окна “Edit Rule” задается правило, в нижней - настраивается подпись. Рассмотрим врхнюю часть окна, поскольку настройка подписи была рассмотрена выше (<a href="#sec-simple_labels"><span>Глава&nbsp;4.2</span></a>).<br>
 В пункте “Описание” вводится название правила. У каждого правила может быть два режима “Поиск” и “Иначе для всех остальных объектов”. Второй пункт используется, когда создано несколько правил и требуется добавить подписи для всех остальных объектов. Для создания правила используется окно “Конструктор выражений” <img src="./icons/11_Редактор выражений расширенный.png" class="img-fluid" alt="Конструктор выражений">. Логические условия задаются на основе атрибутов объектов. Для примера составим выражение в котором будут подписаны лесные выдела с площадью более 4 га: <code>"s_ga" &gt; 4</code>. Функция “Проверка” позволяет узнать количество объектов, попадающих под это условие <a href="#fig-labels_rules">Рисунок&nbsp;<span>4.5</span></a>. Более подробно создание логических выражений будет рассмотрено в <a href="chapter5_queries.html"><span>Глава&nbsp;5</span></a>.</p>
 <div id="fig-labels_rules" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -438,18 +451,165 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="символизация-по-уникальным-значениям" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="символизация-по-уникальным-значениям"><span class="header-section-number">4.6</span> Символизация по уникальным значениям</h2>
+<p>Признаки (характеристики) объектов подразделяются на два больших класса: <strong>количественные и качественные</strong>. Количественные признаки это числовые измерения характеристик объекта (например средний возраст, средняя высота, средний диаметр древостоя), качественные - принадлежность к той или иной категории (преобладающая порода, тип леса, класс бонитета).<br>
+Для отображения <strong>качественных</strong> признаков используется <strong>символизация по уникальным значениям</strong>, при этом каждому уникальному значению задается определенный стиль. Для примера раскрасим слой выделов по преобладающей породе (поле “el_lesa”). Перейдите в пункт <strong>“Свойства слоя” &gt; “Стиль” &gt; “Символизация по уникальным значениям”</strong>, в пункте “Значение” указывается поле для классификации (“el_lesa”). После нажатия “Классифицировать” каждому уникальному значению поля будет присвоен определенный стиль. По умолчанию для раскраски применяются случайные цвета (“Random colors”), определенный набор цветов задается в пункте “Градиент” (<a href="#fig-unique_values">Рисунок&nbsp;<span>4.8</span></a>).</p>
+<div id="fig-unique_values" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><video src="./videos/vid_4_Уникальные%20значения.mp4" class="img-fluid" controls=""><a href="./videos/vid_4_Уникальные значения.mp4">Video</a></video></p>
+<figcaption class="figure-caption">Рисунок&nbsp;4.8: Символизация по уникальным значениям преобладающей породы</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 4.10
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Выберите слой “videla” и примените режим символизации по уникальным значениям для типа леса (поле “tip_lesa”).</p>
+</div>
+</div>
 </section>
 <section id="символизация-по-диапазонам-значений" class="level2" data-number="4.7">
 <h2 data-number="4.7" class="anchored" data-anchor-id="символизация-по-диапазонам-значений"><span class="header-section-number">4.7</span> Символизация по диапазонам значений</h2>
+<p>Для <strong>количественных</strong> признаков применяется режим <strong>символизация по диапазонам значений</strong>. Диапазон значений признака разбивается на интервалы каждый из которых окрашивается согласно выбранному градиенту цвета. В пункте “Значение” выбирается поле с количественными значениями, в пункте “Градиент” задается градиент цвета который может быть выбран из предустановленного списка или создан вручную по двойному клику.<br>
+Ключевым моментом является разбиение числовой переменной на классы (интервалы), которое определяется режимом (“Fixed Interval”, “Logarithmic Scale” и др.) с возможностью выбора количества классов. Увеличение количества классов приводит к более подробному отображению изменений переменной. Способ разбиения на классы часто определяется распределением переменной, которое изображено во вкладке “Диаграмма рассеяния”. После установки всех параметров и нажатия “Классифицировать”, интервалы и соответствующие им стили отображения появятся на экране в виде таблицы со столбцами “Знак”, “Значения” и “Легенда” (<a href="#fig-diapazon_values">Рисунок&nbsp;<span>4.9</span></a>).</p>
+<div id="fig-diapazon_values" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/4_1_Диапазоны значений.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;4.9: Символизация по диапазонам значений площади выдела</figcaption>
+</figure>
+</div>
+<p>В столбце “Знак” возможно отключить видимость отдельного интервала или изменить стиль. В столбце “Значения” отображааются границы интервала, которые возможно изменить вручную. Столбец “Легенда” отображает подписи в легенде, которые так же возможно изменить вручную.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 4.11
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Примените режим символизации по диапазонам значений для среднего возраста (поле “A_let”) слоя “videla” как показано на рисунке ниже (<a href="#fig-diapazon_values_task">Рисунок&nbsp;<span>4.10</span></a>).</p>
+</div>
+</div>
+<div id="fig-diapazon_values_task" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/4_2_Диапазоны значений задание.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;4.10: Пример символизации по диапазонам значений</figcaption>
+</figure>
+</div>
 </section>
-<section id="cимволизация-на-основе-правил" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="cимволизация-на-основе-правил"><span class="header-section-number">4.8</span> Cимволизация на основе правил</h2>
+<section id="sec-rules" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="sec-rules"><span class="header-section-number">4.8</span> Cимволизация на основе правил</h2>
+<p><strong>Символизация на основе правил</strong> по принципу своей работы схожа с режимом “Подписи на основе правил” (<a href="#sec-labels_by_rules"><span>Глава&nbsp;4.3</span></a>) и позволяет гибко настроить группировку объектов по стилю. В основе этого режима лежат логические выражения, которые разбивают множество объектов на группы для каждой из которых задается свой стиль отображения.</p>
+<div id="fig-rules_viz" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/4_3_символизация на основе правил.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;4.11: Cимволизация на основе правил по среднему возрасту и преобладающей породе</figcaption>
+</figure>
+</div>
+<p>Логические выражения (правила) добавляются при помощи символа <strong>“Добавить правило”</strong>. В пункте <strong>“надпись”</strong> задается называние для правила. В пункте <strong>“Поиск”</strong> задается логическое правило, которое определяет группу объектов, для которых будет задан стиль отображения. Пункт “Иначе для всех остальных объектов” позволяет задать стиль для объектов, не входящих ни в одну группу. Настройка <strong>“В пределах масштаба”</strong> позволяет применять стиль только для определенного диапазона масштаба. В пункте <strong>“Знак”</strong> задается стиль отображения.<br>
+Для примера окрасим сосняки более 100 лет и менее 100 лет в разные цвета. Для остальных выделов оставим видимыми только контуры. Первое правило будет иметь вид <strong>“el_lesa” = ‘С’ AND “A_let” &lt; 100</strong> (выбор выделов с преобладающей породой сосна И средним возрастом менее 100 лет). Второе правило вида <strong>“el_lesa” = ‘С’ AND “A_let” &gt;= 100</strong> задает стиль для сосняков со средним возрастом большим или равным 100 лет. В третьем правиле выбирается пункт <strong>“Иначе для всех остальных объектов”</strong> и задается стиль для всех объектов не попавших в первые два правила (<a href="#fig-rules_viz">Рисунок&nbsp;<span>4.11</span></a>).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 4.12
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Повторите пример визуализации по преобладающей породе и возрасту, котороый размещен выше. Результат должен соответствовать рисунку ниже. (<a href="#fig-rules_viz_task">Рисунок&nbsp;<span>4.12</span></a>)</p>
+</div>
+</div>
+<div id="fig-rules_viz_task" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/4_4_символизация по правилам задание.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;4.12: Результат символизации по преоблаюадей породе и возрасту</figcaption>
+</figure>
+</div>
 </section>
-<section id="добавление-тем" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="добавление-тем"><span class="header-section-number">4.9</span> Добавление тем</h2>
+<section id="создание-и-заполнение-макета" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="создание-и-заполнение-макета"><span class="header-section-number">4.9</span> Создание и заполнение макета</h2>
+<p>После задания соответствующего стиля объектов переходят к созданию карты. Кроме самого изображения земной поверхности карты и планы могут содержать легенду, координатную сетку, указатель на север, масштаб или масштабную линейку. В главном окне программы задается требуемый стиль отображения карты после чего карта оформляется в пункте меню <strong>“Проект” &gt; “Создать макет…”</strong> вводится название макета и открывается новое окно с белым прямоугольником, который является листом будующей карты. Новые элементы добавляются в меню <strong>“Добавить элемент”</strong>, основные инструменты редактирования макета расположены в панеле слева. Добавленные элементы макета и их свойства отображаются в панеле справа “Элементы” и “Свойства элемента”.<br>
+Основным элементом макета является карта, которая добавляется в меню <strong>“Добавить элемент” &gt; “Добавить карту”</strong> после чего выделяется область на белом листе, куда карта будет добавлена.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Обратите внимание!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Печать карты производится только в границах белого листа. Элементы выходящие за эти границы не будут напечатаны.</p>
+</div>
+</div>
+<p>После добавления карты новый элемент с названием “Карта 1” появится в панеле “Элементы”. Панель “Свойства элемента” позволяет изменять настройки добавленной карты (масштаб, систему координат и т.д.). Область, занятая картой, изменяется при помощи инструмента “Выделить/переместить элемент”, предвигать карту внутри области возможно при помощи инструмента “Перемещение содержимого элемента” (<a href="#fig-maket">Рисунок&nbsp;<span>4.13</span></a>).</p>
+<div id="fig-maket" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><video src="./videos/4_2_макет.mp4" class="img-fluid" controls=""><a href="./videos/4_2_макет.mp4">Video</a></video></p>
+<figcaption class="figure-caption">Рисунок&nbsp;4.13: Использование макета для создания карты</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 4.13
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Создайте новый макет. Добавьте карту так, что бы она занимала приблизительно 80% площади листа.</p>
+</div>
+</div>
+<p>Аналогичным образом добавляется масштабная линейка и другие элементы. Для этого перейдите в пункт “Добавить элемент” и выберите необходимый (так же добавить большинство элементов макета возможно при помощи панели слева).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 4.14
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Добавьте в макет масштабную линейку, указатель “север-юг” и надпись “План лесонасаждений”.</p>
+</div>
+</div>
+<p>Для настройки свойств определенного элемента его необходимо выделить в панеле “Элементы” после чего свойства появятся в окне “Свойства элемента”. После оформления карты обычно сохраняют в виде изображения. Для этого перейдите в пункт <strong>“Макет” &gt; “Экспорт в изображение”</strong> и сохраните результат в папку проекта.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 4.15
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Добавьте координатную сетку на карту (система координат EPSG:4326 - WGS84). В свойствах масштабной линейки измените единицы измерения на километры. У надписи “План лесонасаждений” увеличьте размер шрифта до 30. Сохраните карту в виде изображения. Пример итоговой карты приведен на рисунке ниже (<a href="#fig-maket_task">Рисунок&nbsp;<span>4.14</span></a>).</p>
+</div>
+</div>
+<div id="fig-maket_task" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/4_5_макет задание.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;4.14: Пример плана лесонасаждений</figcaption>
+</figure>
+</div>
+<p>Макет со всеми добаленными элементами сохраняется в файле проекта. При необходимости внесения изменений достаточно открыть сохраненный макет, внести изменения и сохранить карту повторно.</p>
 </section>
-<section id="создание-и-заполнение-макета" class="level2" data-number="4.10">
-<h2 data-number="4.10" class="anchored" data-anchor-id="создание-и-заполнение-макета"><span class="header-section-number">4.10</span> Создание и заполнение макета</h2>
+<section id="добавление-легенды" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="добавление-легенды"><span class="header-section-number">4.10</span> Добавление легенды</h2>
 
 
 </section>
@@ -696,7 +856,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./chapter5_queries.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов по атрибутивной информации</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов по атрибутивной информации и пространственному положению</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
