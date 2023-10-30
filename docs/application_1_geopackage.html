@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./chapter7_DEM.html" rel="next">
 <link href="./chapter6_spatial_operations.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -147,19 +147,25 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter5_queries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов по атрибутивной информации</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов по атрибутивной информации и пространственному положению</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter6_spatial_operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами.</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Приложение. Файлы GeoPackage</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter7_DEM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа.</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -203,7 +209,7 @@ ul.task-list li input[type="checkbox"] {
 <li>таблицы атрибутов (без геометрий).</li>
 </ul>
 <p>В отличие от шейп-файлов, которые представлены набором отдельных файлов работающих вместе (.shp, .shx, .dbf и т.д.), файл GeoPackage является единственным файлом с расширением <strong>.gpkg</strong>. Более того, один файл способен хранить в себе несколько слоев данных (при использовании шейп-файлов каждый слой должен храниться отдельно), а объем файла не ограничен (шейп-файлы ограничены объемом 2 GB). С подробным сравнением форматов можно ознакомиться по <a href="https://mapscaping.com/shapefiles-vs-geopackage/">ссылке</a>.<br>
-Несмотря на преимущества формата GeoPackage, он не так популярен как шейп-файлы. В QGIS процесс работы с данными несущественно зависит от формата их хранения, за исключением одной особенности. При работе с GeoPackage каждый векторный слой имеет ключь - поле <strong>fid</strong> которое содержит уникальное целое значение для каждой геометрии. Если такое поле не создано, после сохранения файла оно будет добавлено автоматически. При работе с геометриями объектов, в поле могут появляться повторяющиеся значения. Такой слой не может быть сохранен, о чем программа предупредит пользователя. Для исправления ошибки устраните дубликаты в поле <strong>fid</strong> (отсутствующие значения так же недопустимы) или удалите поле полностью. В последнем случае оно автоматически будет добавлено после сохранения слоя.</p>
+Несмотря на преимущества формата GeoPackage, он не так популярен как шейп-файлы. В QGIS процесс работы с данными несущественно зависит от формата их хранения, за исключением одной особенности. При работе с GeoPackage каждый векторный слой имеет ключь - поле <strong>fid</strong> которое содержит уникальное целое значение для каждой геометрии. Если такое поле не создано, после сохранения файла оно будет добавлено автоматически. При работе с геометриями объектов, в поле могут появляться повторяющиеся значения. Такой слой не может быть сохранен, о чем программа предупредит пользователя. Для исправления ошибки устраните дубликаты в поле <strong>fid</strong> (отсутствующие значения так же недопустимы) или удалите поле полностью. В последнем случае оно будет автоматически добавлено после сохранения слоя.</p>
 
 
 
@@ -444,12 +450,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./chapter6_spatial_operations.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами.</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">Библиографический список</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter7_DEM.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа.</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
