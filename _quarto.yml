@@ -8,6 +8,7 @@ book:
   author: "Андрей Горошко, Ирина Воробьева, Виктор Немич"
   date: today
   license: Лицензия
+  doi: 10.5281/zenodo.10034638
   chapters:
     - index.qmd
     - chapter0_resources.qmd

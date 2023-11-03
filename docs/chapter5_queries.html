@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Основы геоинформационных систем в QGIS - 5&nbsp; Поиск объектов по атрибутивной информации и пространственному положению</title>
+<title>Основы геоинформационных систем в QGIS - 5&nbsp; Поиск объектов</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -79,6 +79,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
         <div class="quarto-navbar-tools ms-auto">
+    <a href="./Основы-геоинформационных-систем-в-QGIS.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
           <div id="quarto-search" class="" title="Поиск"></div>
       </div> <!-- /container-fluid -->
@@ -88,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter5_queries.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов по атрибутивной информации и пространственному положению</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter5_queries.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
@@ -147,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter5_queries.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов по атрибутивной информации и пространственному положению</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -195,7 +196,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-queries" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов по атрибутивной информации и пространственному положению</span></span></h1>
+<h1 class="title"><span id="sec-queries" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов</span></span></h1>
 </div>
 
 
@@ -210,27 +211,33 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Распространенной задачей в геоинформационных системах является поиск объектов по характеристикам (атрибутам) и пространственному положению. Для решения этой задачи пользуются логическими выражениями (предикатами) которые отделают искомые объекты от всех остальных. Аналогичные выражения уже использовались в <a href="chapter4_thematic_maps.html#sec-rules"><span>Глава&nbsp;4.8</span></a>. Для поиска объектов используется “Панель выбора объектов” <img src="./icons/5_1_Панель выбора объектов.png" class="img-fluid" alt="Панель выбора объектов"> размещенная в главном окне программы. Если панель не активна, перейдите в меню <strong>“Вид” &gt; “Панели инструментов” &gt; “Панель выбора объектов”</strong> и активируйте ее.</p>
+<p>Распространенной задачей в геоинформационных системах является поиск объектов по характеристикам (атрибутам) и пространственному положению. Для решения этой задачи пользуются логическими выражениями (предикатами) которые отделают искомые объекты от всех остальных. Аналогичные выражения уже использовались в <a href="chapter4_thematic_maps.html#sec-rules"><span>Глава&nbsp;4.8</span></a>. Для поиска объектов используется “Панель выбора объектов” <img src="./icons/5_1_Панель выбора объектов.png" class="img-fluid" alt="Панель выбора объектов"> размещенная в главном окне программы. Если панель не активна, перейдите в меню <strong>“Вид” &gt; “Панели инструментов” &gt; “Панель выбора объектов”</strong> и активируйте ее. Некоторые инструменты панели скрыты во вкладках (<a href="#fig-choices">Рисунок&nbsp;<span>5.1</span></a>).</p>
+<div id="fig-choices" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/5_7_Выбор объектов.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;5.1: Инструменты панели выбора объектов</figcaption>
+</figure>
+</div>
 <section id="выбор-объектов-по-значению" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="выбор-объектов-по-значению"><span class="header-section-number">5.1</span> Выбор объектов по значению</h2>
-<p>Простой способ выбора объектов по атрибутов реализуется при помощи инструмента <strong>“Выбрать объекты по значению”</strong> (горячая клавиша F3). В открывшемся окне представлен список полей слоя для каждого из которых возможно задать определенный фильтр. По умолчанию для всех полей активирован режим <strong>“Исключить поле”</strong> т.е. поле не участвует в фильтрации. Для текстовых полей дополнительная настройка <strong>“Case sensetive”</strong> включает чувствительность к регистру (прописные и заглавные буквы будут блиять на результаты поиска). Список доступных логических операций различен для текстовых и числовых полей (<a href="#fig-choice_1">Рисунок&nbsp;<span>5.1</span></a>, <a href="#fig-choice_2">Рисунок&nbsp;<span>5.2</span></a>).</p>
+<p>Простой способ выбора объектов по атрибутов реализуется при помощи инструмента <strong>“Выбрать объекты по значению”</strong> который активируется при помощи горячей клавиши F3 или выбором из “панели выбора объектов”. В открывшемся окне представлен список полей слоя для каждого из которых возможно задать определенный фильтр. По умолчанию для всех полей активирован режим <strong>“Исключить поле”</strong> т.е. поле не участвует в фильтрации. Для текстовых полей дополнительная настройка <strong>“Case sensetive”</strong> включает чувствительность к регистру (прописные и заглавные буквы будут блиять на результаты поиска). Список доступных логических операций различен для текстовых и числовых полей (<a href="#fig-choice_1">Рисунок&nbsp;<span>5.2</span></a>, <a href="#fig-choice_2">Рисунок&nbsp;<span>5.3</span></a>).</p>
 <div id="fig-choice_1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./pictures/5_1_Выбор объектов по значению.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;5.1: Выбор объектов по значению для числового поля: площадь выдела (s_ga)</figcaption>
+<figcaption class="figure-caption">Рисунок&nbsp;5.2: Выбор объектов по значению для числового поля: площадь выдела (s_ga)</figcaption>
 </figure>
 </div>
 <div id="fig-choice_2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./pictures/5_2_Выбор объектов по значению.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;5.2: Выбор объектов по значению для текстового поля: состав насаждений (sostav)</figcaption>
+<figcaption class="figure-caption">Рисунок&nbsp;5.3: Выбор объектов по значению для текстового поля: состав насаждений (sostav)</figcaption>
 </figure>
 </div>
-<p>Фильтр настраивается путем введения порогового значения в необходимое поле и выбора логической операции (равно, больше, меньше и т.д.). Все объекты удовлетворяющие условию будут выбраны. Фильтрация по нескольким полям объединяется оператором <strong>“И”</strong> т.е. будут выбраны только те объекты, которые удовлетворяют всем введенным условиям. Фильтр для отбора выделов с преобладающей породой сосна и возрастом более 100 лет приведен на рисунке ниже (<a href="#fig-choice_3">Рисунок&nbsp;<span>5.3</span></a>).</p>
+<p>Фильтр настраивается путем введения порогового значения в необходимое поле и выбора логической операции (равно, больше, меньше и т.д.). Все объекты удовлетворяющие условию будут выбраны. Фильтрация по нескольким полям объединяется оператором <strong>“И”</strong> т.е. будут выбраны только те объекты, которые удовлетворяют всем введенным условиям. Фильтр для отбора выделов с преобладающей породой сосна и возрастом более 100 лет приведен на рисунке ниже (<a href="#fig-choice_3">Рисунок&nbsp;<span>5.4</span></a>).</p>
 <div id="fig-choice_3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./pictures/5_3_Выбор объектов по значению.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;5.3: Выбор выделов со средним возрастом более 100 лет и преобладающей породой сосна</figcaption>
+<figcaption class="figure-caption">Рисунок&nbsp;5.4: Выбор выделов со средним возрастом более 100 лет и преобладающей породой сосна</figcaption>
 </figure>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -260,11 +267,11 @@ ul.task-list li input[type="checkbox"] {
 <p>Сохраните выделенные объекты из предыдущего задания как новый векторный слой.</p>
 </div>
 </div>
-<p>Кроме опции <strong>“Выбрать объекты”</strong> доступны варианты модификации уже созданной выборки. <strong>“Добавить к текущей выборке”</strong> и <strong>“Удалить из текущей выборки”</strong> позволяют соответственно добавить объекты к уже существующей выборке или удалить из нее, <strong>“Фильтровать текущую выборку”</strong> применяет фильтр к ранее выбранным объектам (<a href="#fig-choice_mode">Рисунок&nbsp;<span>5.4</span></a>).</p>
+<p>Кроме опции <strong>“Выбрать объекты”</strong> доступны варианты модификации уже созданной выборки. <strong>“Добавить к текущей выборке”</strong> и <strong>“Удалить из текущей выборки”</strong> позволяют соответственно добавить объекты к уже существующей выборке или удалить из нее, <strong>“Фильтровать текущую выборку”</strong> применяет фильтр к ранее выбранным объектам (<a href="#fig-choice_mode">Рисунок&nbsp;<span>5.5</span></a>).</p>
 <div id="fig-choice_mode" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./pictures/5_4_Режим выбора объектов.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;5.4: Варианты модификации выборки</figcaption>
+<figcaption class="figure-caption">Рисунок&nbsp;5.5: Варианты модификации выборки</figcaption>
 </figure>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -283,11 +290,11 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="выбор-объектов-по-выражению" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="выбор-объектов-по-выражению"><span class="header-section-number">5.2</span> Выбор объектов по выражению</h2>
-<p>Более гибкие возможности выбора объектов предоставляет инструмент <strong>“Выбрать объекты по выражению…”</strong> (<a href="#fig-choice_query">Рисунок&nbsp;<span>5.5</span></a>).</p>
+<p>Более гибкие возможности выбора объектов предоставляет инструмент <strong>“Выбрать объекты по выражению…”</strong> (<a href="#fig-choice_query">Рисунок&nbsp;<span>5.6</span></a>).</p>
 <div id="fig-choice_query" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./pictures/5_5_Выбор объектов по выражению.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;5.5: Окно инструмента “Выбрать объекты по выражению”</figcaption>
+<figcaption class="figure-caption">Рисунок&nbsp;5.6: Окно инструмента “Выбрать объекты по выражению”</figcaption>
 </figure>
 </div>
 <p>В левой части окна записывается логическое выражение (предикат). В средней части выбираются логические операторы и поля, участвующие в выражении (категории “Операторы” и “Поля и значения”). В правой части окна выводится справка по функциям. Иконка “Выбрать объекты” активирует выбор объектов по заданному выражению. Операторы для количественных и качественных переменных различаются. Для запросов к количественным переменным (площадь выдела, средний возраст и т.д.) применяются операторы: <strong>равно (=), не равно (&lt;&gt;), больше (&gt;), меньше (&lt;), больше или равно (&gt;=), меньше или равно (&lt;=)</strong>. Для запросов к качественным переменным (элемент леса, тип леса и т.д.) используют операторы <strong>IS, IS NOT, IN</strong>.<br>
@@ -315,10 +322,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>При помощи инструмента “Выбрать по выражению” выберите выдела 1 группы возраста (поле “gr_vozr”). В результате должно быть выбрано 9 выделов.</p>
+<p>При помощи инструмента “Выбрать по выражению” выберите выдела первой группы возраста (поле “gr_vozr”). В таблице атрибутов выдела первой группы возраста (молодняки) имеют значение 1 в соответствующем поле. В результате должно быть выбрано 9 выделов.</p>
 </div>
 </div>
-<p>Пропущенные значения кодируются значением NULL.</p>
+<p>Пропущенные значения кодируются значением NULL. При поиске пропущенных значений в качестве оператора используется <code>IS</code> вместо знака равенства Например, для поиска выделов с пропущенным средним возрастом, выражение будет выглядеть так: <code>"A_let" IS NULL</code>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -329,7 +336,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>При помощи инструмента “Выбрать по выражению” выберите выдела в которых пропущен запас на 1 га (поле “zapas_1ga”). В результате должно быть выбрано 64 выдела.</p>
+<p>При помощи инструмента “Выбрать по выражению” выберите выдела в которых пропущен запас на 1 га (поле “zapas_1ga”). В результате должно быть выбрано 74 выдела.</p>
 </div>
 </div>
 <p>Отдельная группа операторов позволяет объединить несколько условий в единое выражение, соединяя их одним из операторов: <strong>И (AND); ИЛИ (OR)</strong>. Отдельно стоит рассмотреть оператор NOT, который меняет результат любого оператора на противоположный. Все перечисленные операторы могут принимать только два значения: правда или ложь. Если для конкретного объекта всё выражение принимает значение правда — этот объект соответствует условиям и попадает в выборку.<br>
@@ -361,7 +368,7 @@ ul.task-list li input[type="checkbox"] {
 <p>При помощи инструмента “Выбрать по выражению” выберите выдела с преобладающей породой осина <strong>ИЛИ</strong> выдела старше 140 лет. В результате должно быть выбрано 38 выделов.</p>
 </div>
 </div>
-<p>Для выбора нескольких значений качественной переменной используется оператор <strong>IN</strong> после которого в круглых скобках указывается список значений. Если значение атрибута соответствует хотя бы одному значению из списка - выдел попадает в выборку. Выбор выделов с типами леса ВКТ, ЗМ или КТП производится выражением: <code>"tip_lesa" **IN** ('ВКТ', 'ЗМ', 'КТП')</code>.</p>
+<p>Для выбора нескольких значений качественной переменной используется оператор <strong>IN</strong> после которого в круглых скобках указывается список значений. Если значение атрибута соответствует хотя бы одному значению из списка - выдел попадает в выборку. Выбор выделов с типами леса ВКТ, ЗМ или КТП производится выражением: <code>"tip_lesa" IN ('ВКТ', 'ЗМ', 'КТП')</code>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -372,17 +379,17 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>При помощи инструмента “Выбрать по выражению” выберите выдела с преобладающей породой береза, осина или липа, возрастом более 60 лет. В результате должно быть выбрано 59 выделов.</p>
+<p>При помощи инструмента “Выбрать по выражению” выберите выдела с преобладающей породой береза, осина, липа (для выбора всех трех пород используйте оператор <code>IN</code>) и возрастом более 60 лет. В результате должно быть выбрано 137 выделов.</p>
 </div>
 </div>
 </section>
 <section id="выбор-объектов-по-пространственному-положению" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="выбор-объектов-по-пространственному-положению"><span class="header-section-number">5.3</span> Выбор объектов по пространственному положению</h2>
-<p>Выбор объектов по пространственному положению производится инструментом <strong>“Выбрать по расположению”</strong> <img src="./icons/5_3_Выбор объектов по пространственному положению.png" class="img-fluid" alt="Выбор объектов по пространственному положению"> который позволяет выбрать объекты одного слоя по пространственным отношениям к объектам другого слоя (<a href="#fig-spat_query">Рисунок&nbsp;<span>5.6</span></a>).</p>
+<p>Выбор объектов по пространственному положению производится инструментом <strong>“Выбрать по расположению”</strong> <img src="./icons/5_3_Выбор объектов по пространственному положению.png" class="img-fluid" alt="Выбор объектов по пространственному положению"> который позволяет выбрать объекты одного слоя по пространственным отношениям к объектам другого слоя (<a href="#fig-spat_query">Рисунок&nbsp;<span>5.7</span></a>).</p>
 <div id="fig-spat_query" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./pictures/5_6_Выбрать по расположению.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;5.6: Окно инструмента “Выбрать по расположению”</figcaption>
+<figcaption class="figure-caption">Рисунок&nbsp;5.7: Окно инструмента “Выбрать по расположению”</figcaption>
 </figure>
 </div>
 <p>В пункте <strong>“Выбрать объекты слоя”</strong> назначается слой из которого выбираются объекты по условию пространственного отношения с другим слоем, который задается в пункте <strong>“по отношению к объектам слоя”</strong>. Необходимые пространственные отношения отмечаются чек-боксом в пункте <strong>“Геометрический предикат”</strong>. Пункт <strong>“Изменить текущую выборку”</strong> позволяет <strong>“создать новую выборку”</strong> или модифицировать уже выбранные объекты.</p>
