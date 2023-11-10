@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.340">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Основы геоинформационных систем в QGIS - 8&nbsp; Цифровая модель рельефа.</title>
+<title>Основы геоинформационных систем в QGIS - 7&nbsp; Цифровая модель рельефа.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./application_1_geopackage.html" rel="prev">
+<link href="./chapter8_satellite_data.html" rel="next">
+<link href="./chapter6_spatial_operations.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -57,7 +57,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "дополнительных результата(-ов) в этом документе",
     "search-clear-button-title": "Очистить",
     "search-detached-cancel-button-title": "Отменить",
-    "search-submit-button-title": "Найти"
+    "search-submit-button-title": "Найти",
+    "search-label": "Поиск"
   }
 }</script>
 
@@ -88,10 +89,10 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter7_DEM.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа.</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter7_DEM.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа.</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -147,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter5_queries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов по атрибутивной информации и пространственному положению</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -158,14 +159,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Приложение. Файлы GeoPackage</span></span></a>
+  <a href="./chapter7_DEM.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа.</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter7_DEM.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа.</span></span></a>
+  <a href="./chapter8_satellite_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Работа с космическими снимками</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Приложение. Файлы GeoPackage</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -184,7 +191,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Содержание</h2>
    
   <ul>
-  <li><a href="#загрузка-растровых-данных." id="toc-загрузка-растровых-данных." class="nav-link active" data-scroll-target="#загрузка-растровых-данных."><span class="header-section-number">8.1</span> Загрузка растровых данных.</a></li>
+  <li><a href="#загрузка-растровых-данных." id="toc-загрузка-растровых-данных." class="nav-link active" data-scroll-target="#загрузка-растровых-данных."><span class="header-section-number">7.1</span> Загрузка растровых данных.</a></li>
+  <li><a href="#визуализация" id="toc-визуализация" class="nav-link" data-scroll-target="#визуализация"><span class="header-section-number">7.2</span> Визуализация</a></li>
+  <li><a href="#калькулятор-растров" id="toc-калькулятор-растров" class="nav-link" data-scroll-target="#калькулятор-растров"><span class="header-section-number">7.3</span> Калькулятор растров</a></li>
+  <li><a href="#обрезка-растра-по-границе-векторного-слоя" id="toc-обрезка-растра-по-границе-векторного-слоя" class="nav-link" data-scroll-target="#обрезка-растра-по-границе-векторного-слоя"><span class="header-section-number">7.4</span> Обрезка растра по границе векторного слоя</a></li>
+  <li><a href="#зональная-статистика" id="toc-зональная-статистика" class="nav-link" data-scroll-target="#зональная-статистика"><span class="header-section-number">7.5</span> Зональная статистика</a></li>
+  <li><a href="#расчет-топографических-индексов." id="toc-расчет-топографических-индексов." class="nav-link" data-scroll-target="#расчет-топографических-индексов."><span class="header-section-number">7.6</span> Расчет топографических индексов.</a></li>
+  <li><a href="#создание-многоканального-изображения." id="toc-создание-многоканального-изображения." class="nav-link" data-scroll-target="#создание-многоканального-изображения."><span class="header-section-number">7.7</span> Создание многоканального изображения.</a></li>
+  <li><a href="#фильтр-по-нескольким-растрам." id="toc-фильтр-по-нескольким-растрам." class="nav-link" data-scroll-target="#фильтр-по-нескольким-растрам."><span class="header-section-number">7.8</span> Фильтр по нескольким растрам.</a></li>
+  <li><a href="#конвертация-растра-в-вектор" id="toc-конвертация-растра-в-вектор" class="nav-link" data-scroll-target="#конвертация-растра-в-вектор"><span class="header-section-number">7.9</span> Конвертация растра в вектор</a></li>
+  <li><a href="#создание-изолиний" id="toc-создание-изолиний" class="nav-link" data-scroll-target="#создание-изолиний"><span class="header-section-number">7.10</span> Создание изолиний</a></li>
+  <li><a href="#оформление-изолиний" id="toc-оформление-изолиний" class="nav-link" data-scroll-target="#оформление-изолиний"><span class="header-section-number">7.11</span> Оформление изолиний</a></li>
   </ul>
 </nav>
     </div>
@@ -193,7 +210,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа.</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа.</span></h1>
 </div>
 
 
@@ -208,9 +225,275 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>в разработке</p>
-<section id="загрузка-растровых-данных." class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="загрузка-растровых-данных."><span class="header-section-number">8.1</span> Загрузка растровых данных.</h2>
+<p>(Заметки: сначала примеры на 1-слойном растре, потом добавить туда экспозицию, крутизну, TPI и проделать операции с многоканальным растром, модель заменить на NASA DEM)</p>
+<p>Цифровая модель рельефа это растр в каждой ячейке которого записана средняя высота поверхности земли. В этом разделе используется цифровая модель ASTER GDEM с пространственным разрешением 30 метров на пиксель.</p>
+<section id="загрузка-растровых-данных." class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="загрузка-растровых-данных."><span class="header-section-number">7.1</span> Загрузка растровых данных.</h2>
+<p>Загрузка растровых данных производится через пункт <strong>“Слой” &gt; “Добавить слой” &gt; “Добавить растровый слой”</strong> или перетаскиванием файла растра в окно программы.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 7.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Создайте новый проект. Загрузите слои “kvartala”, “videla” и растр “DEM”. !!ссылка.</p>
+</div>
+</div>
+</section>
+<section id="визуализация" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="визуализация"><span class="header-section-number">7.2</span> Визуализация</h2>
+<p>Настройки отображения растра устанавливаются в контекстном меню слоя <strong>“Свойства..” &gt; “Стиль”</strong>. В пункте “Изображение” настраивается режим отображения. Для количественных данных используются режимы “Одноканальное серое” и “Одноканальное псевдоцветное”. Классифицированные изображения визуализируют при помощи режима “Палитра / Уникальные значения”. Для многоканальных растров используют режим “Многоканальное цветное”. Режимы “Теневой рельеф” и “Изолинии” применяются для цифровых моделей рельефа.</p>
+<p>!!Видео задания ниже</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 7.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Для слоя “DEM” измените стиль отображения. Примените режим “Одноканальное псевдоцветное”, задайте градиент “Magma”.</p>
+</div>
+</div>
+</section>
+<section id="калькулятор-растров" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="калькулятор-растров"><span class="header-section-number">7.3</span> Калькулятор растров</h2>
+<p>Инструмент <strong>“Растр” &gt; “Калькулятор растров…”</strong> позволяет проводить арифметические операции с растровыми изображениями. Для составления выражения используются каналы растров и арифметические операторы. Калькулятор растров так же используется для классификации изображения т.е. разбиения его на классы. Для примера, воспользуемся инструментом и разобьем (классифицируем) растровое изображение на 2 класса. Первый класс будет иметь метку 0, в него войдут все пиксели с высотой до 250 метров, второй класс будет содержать пиксели с высотой большей или равной 250 метров и иметь метку 1. Созданный растр будет иметь пиксели только с двумя значениями: 0 и 1 (до 250 и более 250 метров соответственно).</p>
+<p>!!Видео добавить</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 7.3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Проведите классификацию растра “DEM” по примеру выше.</p>
+</div>
+</div>
+<p>Аналогичным образом возможно разбить растр на несколько классов. Для примера разобъем растр цифровой модели рельефа “DEM” на 4 класса. Класс 1 - значения от 0 до 200 м, класс 2 - от 200 до 300 м, класс 3 - от 300 до 400, класс 4 - от 400 до 600 м. Распределение по классам осуществляется при помощи инструмента “Калькулятор растров”.<br>
+!!! Дописать подраздел</p>
+</section>
+<section id="обрезка-растра-по-границе-векторного-слоя" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="обрезка-растра-по-границе-векторного-слоя"><span class="header-section-number">7.4</span> Обрезка растра по границе векторного слоя</h2>
+<p>Часто требуется ограничить растровое изображение границами векторного слоя. Для выполнения этой операции возможно использовать два инструмента (они находятся во вкладке <strong>“Растр” &gt; “Извлечение”</strong>): <strong>“Обрезать растр по охвату…”</strong> и <strong>“Обрезать растр по маске…”</strong>. Первый обрезает растр по границе наиманьшего прямоугольника, в который попадает геометрия, второй - по границе собственно геометрии (полигона).<br>
+При использовании инструмента <strong>“Обрезать растр по охвату…”</strong> в пункте “Исходный слой” задается растр, который необходимо обрезать. “Охват обрезки” задается двумя парами координат (левый нижний и правый верхний углы прямоугольника), которые можно заполнить вручную, “Рассчитать из слоя” (в этом случае необходимо выбрать слой) задать “Текущий охват карты” или “Указать на карте” напрямую.</p>
+<p>!!Добавить картинку <strong>“Обрезать растр по охвату…”</strong></p>
+<p>Обрезанный растр возможно охранить как новый растровый слой. Для этого в контекстном меню временного слоя выберите пункт <strong>“Экспорт” &gt; “Сохранить как”</strong> формат <strong>“GeoTIFF”</strong>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 7.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Обрежьте растр “DEM” по охвату слоя “videla”. Сохраните новый растр.</p>
+</div>
+</div>
+<p>При использовании инструмента <strong>“Обрезать растр по маске…”</strong> в качестве “Исходного слоя” указывается растровое изображение, которое должно быть обрезано. В пункте “Слой маски” указывается векторный слой, по границам которого будет проведена обрезка. Чек-бокс “Только выделенные объекты” позволяет провести обрезку по границе выделенных объектов.</p>
+<p>!! Картинки инструмента <strong>“Обрезать растр по маске…”</strong></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 7.5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Обрежьте растр “DEM” по границе Караульного участкового лесничества (слой “uch_lesn”). Используйте инструмент <strong>“Обрезать растр по маске…”</strong>.</p>
+</div>
+</div>
+<p>!!!Добавить в проект слой “uch_lesn”, добавить пункт добавления нового векторного слоя.</p>
+</section>
+<section id="зональная-статистика" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="зональная-статистика"><span class="header-section-number">7.5</span> Зональная статистика</h2>
+<p>Зональная статистика предполагает разделение территории на несколько зон для каждой из которых извлекается значение из растрового слоя. Для выбора инструмента “Зональная статистика” активируйте <strong>“Панель инструментов”</strong>, в пункте <strong>“Анализ растров”</strong> выберите <strong>“Зональная статистика”</strong>. В пункте “Исходный слой” выбирается векторный слой с зонами, в пункте “Растровый слой” задается растр из которого будут извлечены значения для каждой зоны. Пункт “Статистики для расчета” позволяет выбрать несколько статистик, которые будут добавлены в атрибутивную информацию для каждой зоны (среднее, медиана и т.д.).<br>
+Рассчитайте максимальную, минимальную и среднюю высоту для каждого выдела. В пункте “Исходный слой” указывается векторный слой выделов (“videla”), в пункте растровый слой - слой “DEM”, префикс поля ввода - “dem_”. В пункте <strong>“Статистики расчета”</strong> указываются: <strong>“Среднее”; “Минимум”; “Максимум”</strong>. После выполнения появится новый векторный слой выделов (“Зональная статистика”) с добавленными колонками.</p>
+<p>!! Добавить видео выполнения задания</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 7.6
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Добавьте в слой выделов среднюю, максимальную и минимальную высоту над уровнем моря по примеру выше.</li>
+<li>Выберите выдела, которые находятся на высоте более 400 м, сохраните их как отдельный векторный слой.</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="расчет-топографических-индексов." class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="расчет-топографических-индексов."><span class="header-section-number">7.6</span> Расчет топографических индексов.</h2>
+<p>На основе цифровой модели рельефа возможен расчет экспозиции и крутизны склона а так же топографических индексов TPI, TRI и др. Для примера рассчитаем экспозицию, крутизну и TPI.<br>
+Для расчета экспозиции склона перейдите в пункт <strong>“Растр” &gt; “Анализ” &gt; “Экспозиция…”</strong>. В качестве исходного слоя выбирается цифровая модель рельефа (слой “DEM”), так же отметьте чек-боксы “Возвращать 0 в плоских областях…”. После применения инструмента в панеле слоев появится новый временный слой “Экспозиция” в каждой ячейке которого будет указана экспозиция склона в виде азимута (угол, отсчитываемый от северного направления географического меридиана). Равнинные участки будут иметь значние 0.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 7.7
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Рассчитайте экспозицию склона по примеру выше.</p>
+</div>
+</div>
+<p>Для расчета крутизны склона на основе цифровой модели рельефа используется инструмент <strong>“Растр” &gt; “Анализ” &gt; “Крутизна…”</strong>. В качестве исходного слоя выбирается цифровая модель рельефа (слой “DEM”), результат выполнения появится в панеле слоев в виде временного растрового слоя “Крутизна”.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 7.8
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Рассчитайте крутизну склона по примеру выше.</p>
+</div>
+</div>
+<p>Индекс топологического положения (TPI) позволяет выделить повышенные и пониженные участки рельефа относительно соседних участков. Для расчета индекса применяется инструмент <strong>“Растр” &gt; “Анализ” &gt; “Индекс топографического положения (TPI)…”</strong> В качестве исходного слоя выбирается цифровая модель рельефа (слой “DEM”), результат выполнения появится в панеле слоев в виде временного растрового слоя “Индекс топографического положения”. Для каждого пикселя цифровой модели рельефа оценивается положение относительно соседних пикселей. Значения близкие к нулю соответствуют равнинным местам. Положительные значения характеризуют водоразделы, отрицательные - водотоки.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 7.9
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Рассчитайте индекс топологического положения (TPI) по примеру выше.</p>
+</div>
+</div>
+</section>
+<section id="создание-многоканального-изображения." class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="создание-многоканального-изображения."><span class="header-section-number">7.7</span> Создание многоканального изображения.</h2>
+<p>Несколько изображений с одинаковыми пространственным разрешением, охватом и общей системой координат возможно объединить в одно многоканальное изображение. Таким образом в каждом пикселе изображения будет содержаться несколько переменных в виде отдельных каналов. Такая практика часто используется в мультиспектральных изображениях, получаемых со спутников.<br>
+Для объединения нескольких изображений в одно многоканальное используется инструмент <strong>“Растр” &gt; “Прочее” &gt; “Результат объединения…”</strong>. В пункте “Исходные слои” отмечаются слои для объединения.</p>
+<p>!! Картинка Исходные слои.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Обратите внимание!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Последовательность отмеченны слоев в пункте “Исходные слои” будет соответствовать последовательности каналов в многоканальном изображении. Первый растр будет соответствовать каналу №1, второй растр - каналу № 2 и т.д.</p>
+</div>
+</div>
+<p>Для создания многоканального изображения необходимо поставить чек-бокс в пункте <strong>“Поместить каждый входной слой в отдельный канал”</strong>, иначе склейка изображений произойдет в виде мозайки. “Выходной тип данных” должен соответствовать данным растровых изображений. Результатом применения инструмента станет временный многоканальный растровый слой “Результат объединения”.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 7.10
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Объедините созданные в предыдущих заданиях растровые слои: 1 канал - “Экспозиция”; 2 канал - “Крутизна”, 3 канал - “Индекс топографического положения”; 4 канал - “DEM” в многоканальное изображение. Сохраните полученное изображение в папку проекта под названием “DEM_indexes”.</p>
+</div>
+</div>
+</section>
+<section id="фильтр-по-нескольким-растрам." class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="фильтр-по-нескольким-растрам."><span class="header-section-number">7.8</span> Фильтр по нескольким растрам.</h2>
+<p>Созданный многоканальный растр позволяет провдить фильтрацию сразу по нескольким каналам (переменным). Для этого используется <strong>“Растр” &gt; “Калькулятор растров”</strong>.</p>
+<p>!! Дополнить.</p>
+</section>
+<section id="конвертация-растра-в-вектор" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="конвертация-растра-в-вектор"><span class="header-section-number">7.9</span> Конвертация растра в вектор</h2>
+<p>Использование растра из предыдущего задания для конвертации классифицированного изображения в вектор.</p>
+</section>
+<section id="создание-изолиний" class="level2" data-number="7.10">
+<h2 data-number="7.10" class="anchored" data-anchor-id="создание-изолиний"><span class="header-section-number">7.10</span> Создание изолиний</h2>
+<p>Инструмент <strong>“Растр” &gt; “Извлечение” &gt; “Создать изолинии..** используется для построения изолиний (горизонталей). В пункте”Исходный слой” указывается цифровая модель рельефа, пункт </strong>”Расстояние между изолиниями”** определяет высоту сечения рельефа в метрах. Результатом применения инструмента является временный векторный слой горизонталей с атрибутом “ELEV” в котором указана высота каждой конкретной горизонтали.</p>
+<p>!! Картинка инструмента</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 7.11
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Создайте слой горизонталей с высотой сечения рельефа 10 метров, по примеру выше. Сохраните полученный векторный слой на диск под названием “Горизонтали”.</p>
+</div>
+</div>
+</section>
+<section id="оформление-изолиний" class="level2" data-number="7.11">
+<h2 data-number="7.11" class="anchored" data-anchor-id="оформление-изолиний"><span class="header-section-number">7.11</span> Оформление изолиний</h2>
+<p>!!Разная толщина и подписи горизонталей. !!Задание, создать макет с оформленными подписями горизонталей.</p>
+<p>Для оформления изолиний применяются “Символизация на основе правил” и “Подписи на основе правил” (вкладки “Стиль” и “Надписи” контекстного меню слоя). Символизация должна соответствовать следующим условиям: горизонтали оформляются коричневой линией; горизонтали, отметки которых кратны 50, оформляются утолщенной линией. Для второго условия применяется оператор <code>%</code> который возвращает остаток от деления. Для горизонталей, отметка которых кратна 50 метров, выражение <code>"ELEV" % 50</code> будет возвращать значение <strong>0</strong> (“ELEV” - поле в слое “Горизонтали” которое содержит отметку для каждой горизонтали).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 7.12
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Настройте стиль слоя “Горизонтали” так, что бы горизонтали с отметками кратными 50 имели толщину линий 0.46, а все остальные горизонтали толщину 0.1. Цвет горизонталей коричневый. Для этого перейдите в контекстрое меню слоя <strong>“Стиль” &gt; режим “Символизация на основе правил”</strong>.</p>
+</div>
+</div>
+<p>!! Рисунок с результатом выполнения задания</p>
+<p>Подписываются горизонтали кратные 50. В этом случае используюется режим “Подписи на основе правил” а так же выражение <code>"ELEV" % 50 = 0</code> по аналогии с предыдущим заданием. Для подписей так же настраивается “Размещение” подписей. “Режим” - параллельно, “Разрешенные позиции” - на линии. “Повтор подписей”: “Интервал” - 5000, “метры в масштабе”.</p>
+<p>!!Картинка настройки размещения подписей</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 7.13
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Добавьте подписи для горизонталей, отметки которых кратны 50. Для этого перейдите в меню слоя (<strong>“Стиль” &gt; “Надписи” &gt; режим “Подписи на основе правил”</strong>) и настройте подписи.</p>
+</div>
+</div>
+<p>! Картника результата задания.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 7.14
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Создайте макет который должен включать раскрашенную цифровую модель рельефа, горизонтали (без подпсей) и реки из слоя “rivers”. Результат должен быть сохранен в виде изображения и соответствовать рисунку ниже.</p>
+</div>
+</div>
+<p>!! Добавить настройка стиля для классифицированного изображения.</p>
 
 
 </section>
@@ -451,13 +734,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./application_1_geopackage.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Приложение. Файлы GeoPackage</span></span>
+      <a href="./chapter6_spatial_operations.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами.</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">Библиографический список</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter8_satellite_data.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Работа с космическими снимками</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

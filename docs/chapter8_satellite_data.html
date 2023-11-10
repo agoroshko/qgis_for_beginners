@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Андрей Горошко, Ирина Воробьева, Виктор Немич">
 
-<title>Основы геоинформационных систем в QGIS</title>
+<title>Основы геоинформационных систем в QGIS - 8&nbsp; Работа с космическими снимками</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapter0_resources.html" rel="next">
+<link href="./application_1_geopackage.html" rel="next">
+<link href="./chapter7_DEM.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -89,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Введение</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter8_satellite_data.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Работа с космическими снимками</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -111,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Введение</span></a>
   </div>
 </li>
@@ -165,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter8_satellite_data.html" class="sidebar-item-text sidebar-link">
+  <a href="./chapter8_satellite_data.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Работа с космическими снимками</span></span></a>
   </div>
 </li>
@@ -191,7 +191,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Содержание</h2>
    
   <ul>
-  <li><a href="#введение" id="toc-введение" class="nav-link active" data-scroll-target="#введение">Введение</a></li>
+  <li><a href="#комбинации-искуственных-цветов-и-оцифровка-объектов" id="toc-комбинации-искуственных-цветов-и-оцифровка-объектов" class="nav-link active" data-scroll-target="#комбинации-искуственных-цветов-и-оцифровка-объектов"><span class="header-section-number">8.1</span> Комбинации искуственных цветов и оцифровка объектов</a></li>
+  <li><a href="#индексы" id="toc-индексы" class="nav-link" data-scroll-target="#индексы"><span class="header-section-number">8.2</span> Индексы</a></li>
+  <li><a href="#классификация-по-индексам" id="toc-классификация-по-индексам" class="nav-link" data-scroll-target="#классификация-по-индексам"><span class="header-section-number">8.3</span> Классификация по индексам</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">8.4</span> </a></li>
   </ul>
 </nav>
     </div>
@@ -200,57 +203,36 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Основы геоинформационных систем в QGIS</h1>
-<p class="subtitle lead">Геоинформационные системы в лесном хозяйстве</p>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Работа с космическими снимками</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Автор</div>
-    <div class="quarto-title-meta-contents">
-             <p>Андрей Горошко, Ирина Воробьева, Виктор Немич </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Дата публикации</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">9 ноября 2023 г.</p>
-    </div>
-  </div>
   
     
-    <div>
-    <div class="quarto-title-meta-heading">Doi</div>
-    <div class="quarto-title-meta-contents">
-      <p class="doi">
-        <a href="https://doi.org/10.5281/zenodo.10034638">10.5281/zenodo.10034638</a>
-      </p>
-    </div>
-  </div>
   </div>
   
 
 </header>
 
-<section id="введение" class="level1 unnumbered">
-<h1 class="unnumbered">Введение</h1>
-<p>В настоящее время QGIS является наиболее популярной программой с открытым исходным кодом для работы с геоинформационными системами. Она бесплатна для коммерческого и некоммерческого использования а по функционалу и стабильности стоит в одном ряду с платными продуктами. Недостатком этого программного продукта является малое количество обучающих курсов на русском языке, что в определенной степени компенсируется обширным сообществом, в том числе и в России. Настоящее пособие поможет студентам и всем желающим войти в мир географических информационных систем путем выполнения практических заданий в программе QGIS. Выполняемые задания относятся к области лесного хозяйства, однако получаемые навыки подходят для многих областей использования ГИС и являются универсальными.<br>
-Для примеров используется программный продукт QGIS версии 3.28 LTR как наиболее стабильный и актуальный на данный момент (официальный сайт для загрузки программы <a href="https://qgis.org/ru/site/" class="uri">https://qgis.org/ru/site/</a>).</p>
-<p>Книга создана при помощи Quarto, языка R и RStudio.</p>
-Первая дата публикации: 03.10.2023
-<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
-<span property="dct:title">Основы геоинформационных систем в QGIS</span> by <span property="cc:attributionName">Горошко А.А., Воробьева И.А., Немич В.Н.</span> is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a>
-</p>
-<p>Горошко, А., Воробьева, И. и Немич, В. (2023) Основы геоинформационных систем в QGIS. Zenodo. doi: 10.5281/zenodo.10034639.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="https://zenodo.org/doi/10.5281/zenodo.10034638"><img src="https://zenodo.org/badge/687393748.svg" class="img-fluid figure-img"></a></p>
-</figure>
-</div>
+<p>!! Подготовить разные снимки для раздела (зима и лето)</p>
+<section id="комбинации-искуственных-цветов-и-оцифровка-объектов" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="комбинации-искуственных-цветов-и-оцифровка-объектов"><span class="header-section-number">8.1</span> Комбинации искуственных цветов и оцифровка объектов</h2>
+<p>Настройки яркости и контраста. Рассмотреть несколько комбинаций цветов. Выделение объектов по этим комбинациям (c подписями в атрибутах).</p>
+</section>
+<section id="индексы" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="индексы"><span class="header-section-number">8.2</span> Индексы</h2>
+<p>Рассчитать разные индексы. NDVI, NDWI, NDSI</p>
+</section>
+<section id="классификация-по-индексам" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="классификация-по-индексам"><span class="header-section-number">8.3</span> Классификация по индексам</h2>
+<p>Выделение растительности (по NDVI), полей и открытых участков (по снежному покрову - NDSI), водных объектов (по NDWI).</p>
+</section>
+<section id="section" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="section"><span class="header-section-number">8.4</span> </h2>
 
 
 </section>
@@ -491,10 +473,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./chapter7_DEM.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа.</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter0_resources.html" class="pagination-link">
-        <span class="nav-page-text">Дополнительные ресурсы</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./application_1_geopackage.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Приложение. Файлы GeoPackage</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
