@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Основы геоинформационных систем в QGIS - 6&nbsp; Пространственные операции с векторными объектами.</title>
+<title>Основы геоинформационных систем в QGIS - 6&nbsp; Пространственные операции с векторными объектами</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,13 +57,10 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "дополнительных результата(-ов) в этом документе",
     "search-clear-button-title": "Очистить",
     "search-detached-cancel-button-title": "Отменить",
-    "search-submit-button-title": "Найти",
-    "search-label": "Поиск"
+    "search-submit-button-title": "Найти"
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -91,10 +88,10 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter6_spatial_operations.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами.</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter6_spatial_operations.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -156,13 +153,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter6_spatial_operations.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter7_DEM.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -197,6 +194,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sec-buffer" id="toc-sec-buffer" class="nav-link" data-scroll-target="#sec-buffer"><span class="header-section-number">6.2</span> Создание буфера</a></li>
   <li><a href="#пересечение-полигонов" id="toc-пересечение-полигонов" class="nav-link" data-scroll-target="#пересечение-полигонов"><span class="header-section-number">6.3</span> Пересечение полигонов</a></li>
   <li><a href="#подсчеты-длины-площади-и-периметра-геометрий." id="toc-подсчеты-длины-площади-и-периметра-геометрий." class="nav-link" data-scroll-target="#подсчеты-длины-площади-и-периметра-геометрий."><span class="header-section-number">6.4</span> Подсчеты длины, площади и периметра геометрий.</a></li>
+  <li><a href="#арифметические-операции-с-атрибутами" id="toc-арифметические-операции-с-атрибутами" class="nav-link" data-scroll-target="#арифметические-операции-с-атрибутами"><span class="header-section-number">6.5</span> Арифметические операции с атрибутами</a></li>
   </ul>
 </nav>
     </div>
@@ -205,7 +203,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами.</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами</span></h1>
 </div>
 
 
@@ -288,8 +286,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="пересечение-полигонов" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="пересечение-полигонов"><span class="header-section-number">6.3</span> Пересечение полигонов</h2>
-<p>Часто требуется обрезать один слой по границам другого. Для выполнения такой операции применяется инструмент <strong>“Вектор” &gt; “Геообработка” &gt; “Отсечь…”</strong>. Алгоритм обрезает векторный слой (задается в пункте <strong>“Исходный слой”</strong>), используя полигоны дополнительного слоя (задается в пункте <strong>“Слой наложения”</strong>). В результат будут добавлены только те части объектов исходного слоя, которые перекрываются геометриями слоя наложения. Атрибуты исходного слоя остаются неизменными в отличие от инструмента <strong>“Вектор” &gt; “Геообработка” &gt; “Пересечение”</strong> в результате использования которого атрибуты результирующего слоя содержат атрибуты исходного слоя и слоя наложения.</p>
-<p>!! Результат показан на рисунке</p>
+<p>Часто требуется обрезать один слой по границам другого. Для выполнения такой операции применяется инструмент <strong>“Вектор” &gt; “Геообработка” &gt; “Отсечь…”</strong>. Алгоритм обрезает векторный слой (задается в пункте <strong>“Исходный слой”</strong>), используя полигоны дополнительного слоя (задается в пункте <strong>“Слой наложения”</strong>). В результат будут добавлены только те части объектов исходного слоя, которые перекрываются геометриями слоя наложения. Атрибуты исходного слоя остаются неизменными в отличие от инструмента <strong>“Вектор” &gt; “Геообработка” &gt; “Пересечение”</strong> в результате использования которого атрибуты результирующего слоя содержат атрибуты исходного слоя и слоя наложения (<a href="#fig-cut">Рисунок&nbsp;<span>6.6</span></a>).</p>
+<div id="fig-cut" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/6_6_инструмент отсечь.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;6.6: Инструмент “Отсечь”</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -300,10 +303,16 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Сохраните части выделов, которые попадают в стометровые буферы вокруг рек. Для этого примените инструмент “Отсечь…” к слоям “videla” и “буфер рек 100 м”.</p>
+<p>Сохраните части выделов, которые попадают в стометровые буферы вокруг рек. Для этого, по примеру выше, примените инструмент “Отсечь…” к слоям “videla” и “буфер рек 100 м”. Сохраните слой временный слой на диск под названием “Части выделов в водоохранной зоне”. Результат выполнения задания приведен на рисунке ниже (<a href="#fig-cut2">Рисунок&nbsp;<span>6.7</span></a>).</p>
 </div>
 </div>
-<p>Инструмент <strong>“Вектор” &gt; “Геообработка” &gt; “Разница”</strong> проводит обратную операцию. В результате из исходного слоя вырезаются области пересечения со слоем наложения.</p>
+<div id="fig-cut2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/6_7_части выделов в водоохранной зоне.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;6.7: Инструмент “Отсечь”</figcaption>
+</figure>
+</div>
+<p>Инструмент <strong>“Вектор” &gt; “Геообработка” &gt; “Разница”</strong> проводит обратную операцию. В результате из исходного слоя вырезаются области пересечения со слоем наложения. Новый временный слой будет иметь название “Разница”.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -314,15 +323,25 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Вырежите части выделов, которые попадают в стометровые буферы вокруг рек. Для этого примените инструмент “Разница…” к слоям “videla” и “буфер рек 100 м”. Результат выполнения задания приведен на рисунке ниже.</p>
+<p>Вырежите части выделов, которые попадают в стометровые буферы вокруг рек. Для этого примените инструмент “Разница…” к слоям “videla” и “буфер рек 100 м”. Результат выполнения задания приведен на рисунке ниже (<a href="#fig-diff">Рисунок&nbsp;<span>6.8</span></a>).</p>
 </div>
 </div>
-<p>!! Применение инструмента рисунок.</p>
+<div id="fig-diff" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/6_8_инструмент разница.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;6.8: Инструмент “Разница”</figcaption>
+</figure>
+</div>
 </section>
 <section id="подсчеты-длины-площади-и-периметра-геометрий." class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="подсчеты-длины-площади-и-периметра-геометрий."><span class="header-section-number">6.4</span> Подсчеты длины, площади и периметра геометрий.</h2>
-<p>Для подсчета длины геометрий, в таблице атрибутов создают новое поле (тип поля целое или десятичное число), его заполняют выражением “$length” которое вычисляет длину для каждой геометрии слоя. Единицы измерения длины (так же как периметра и площади) зависят от настроек проекта. Для их изменения перейдите в пункт меню <strong>“Проект” &gt; “Свойства” &gt; во вкладке слева “Общие” найдите раздел “Измерения”</strong>. Пункты “Единицы измерения расстояния” и “Единицы измерения площади” задают соответствующие единицы измерения.</p>
-<p>Видео добавления поля length</p>
+<p>Для подсчета длины геометрий, в таблице атрибутов создают новое поле (тип поля целое или десятичное число), его заполняют выражением <code>$length</code> которое вычисляет длину для каждой геометрии слоя. Единицы измерения длины (так же как периметра и площади) зависят от настроек проекта. Для их изменения перейдите в пункт меню <strong>“Проект” &gt; “Свойства” &gt; во вкладке слева “Общие” найдите раздел “Измерения”</strong>. Пункты <strong>“Единицы измерения расстояния”</strong> и <strong>“Единицы измерения площади”</strong> задают соответствующие единицы измерения.</p>
+<div id="fig-length" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><video src="./videos/6_1_длина%20дорог.mp4" class="img-fluid" controls=""><a href="./videos/6_1_длина дорог.mp4">Video</a></video></p>
+<figcaption class="figure-caption">Рисунок&nbsp;6.9: Подсчет длины дорог для слоя “roads”</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -333,10 +352,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>В слое “roads” создайте новое поле “length” (тип поля целое число). Заполните это поле длиной каждой из дорог в метрах.</p>
+<p>В слое <strong>“roads”</strong> создайте новое поле “length” (тип поля целое число). Заполните это поле длиной каждой из дорог в метрах. Сохраните изменения в слое. Cуммарная длина дорог должна составить <strong>17055 м</strong> (<a href="#fig-length">Рисунок&nbsp;<span>6.9</span></a>).</p>
 </div>
 </div>
-<p>Периметр и площадь геометрий вычисляются аналогично при помощи функций “<span class="math inline">\(perimetr" и "\)</span>area” соответственно.</p>
+<p>Периметр и площадь геометрий вычисляются аналогично при помощи функций <code>$perimetr</code> и <code>$area</code> соответственно.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -347,58 +366,60 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>В слое “videla” создайте два новых поля “perimetr” и “area” (тип поля десятичное число). Заполните эти поля значениями периметра и площади (в гектарах) для каждого выдела.</p>
+<p>В слое <strong>“videla”</strong> создайте два новых поля “perimetr” и “area” (тип поля десятичное число). Заполните эти поля значениями периметра (в метрах) и площади (в гектарах) для каждого выдела. Сумма периметров и площадей выделов должна составить <strong>335649,9 м и 1039,8 га</strong> соответственно.</p>
 </div>
 </div>
-<p>После выполнения задания 6.7 в слое “videla” будут находиться два поля с площадью. Поле “s_ga” это данные площади выдела по таксационным описаниям. Второе поле “area” было создано при выполнении задания 6.8. Для сравнения двух значений создайте новое поле “diff_area” (десятичное) куда будет записана разность значений двух полей (выражение <strong>“s_ga” - “area”</strong>). По разнице можно оценить насколько значения двух полей совпадают.</p>
+</section>
+<section id="арифметические-операции-с-атрибутами" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="арифметические-операции-с-атрибутами"><span class="header-section-number">6.5</span> Арифметические операции с атрибутами</h2>
+<p>После выполнения задания предыдущего задания в слое “videla” будут находиться два поля с площадью. Поле “s_ga” это данные площади выдела по таксационным описаниям. Второе поле “area” было создано при выполнении задания. Для сравнения двух значений создайте новое поле “diff_area” (десятичное) куда будет записана разность значений двух полей (выражение <code>"s_ga" -  "area"</code>). По разнице можно оценить насколько значения двух полей различаются.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 6.9
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>В слое “videla” создайте поле “diff_area”. Заполните это поле разностью полей “s_ga” - “area” (по примеру выше).</p>
-<p>Создайте карту, где выдела с разностью по абсолютному значению более 0.3 га будут окрашены в красный цвет. Обртите внимание - разность может быть как положительной, так и отрицательной.</p>
-</div>
-</div>
-<p>Пример полученной карты.</p>
-<p>Более корректно использовать относительную разность (в процентах) а так же абсолютные значения. Для этого создадим новое поле “diff_area_perc” (тип поля десятичное) и заполним его выражением <strong>abs(“area” * 100 / “s_ga” - 100)</strong>. Функция abs() возвращает абсолютное значение аргумента.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Задание 6.10
+Задание 6.7
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>В слое “videla” создайте поле “diff_area_perc”. Заполните это поле относительной разностью полей <strong>abs(“area” * 100 / “s_ga” - 100)</strong> (по примеру выше).</li>
-<li>Создайте карту, где выдела с разностью более 30 % (поле “diff_area_perc”) будут окрашены в красный цвет. Результат изображен на рисунке ниже (!Рисунок)</li>
+<li>В слое <strong>“videla”</strong> создайте поле “diff_area”. Заполните это поле выражением <code>"s_ga" - "area"</code> для подсчета различий между площадями.</li>
+<li>Создайте карту, где выдела с разностью по абсолютному значению более 0.3 га будут окрашены в красный цвет. Обртите внимание - разность может быть как положительной, так и отрицательной, для получения абсолютного значения используйте функцию <code>abs()</code>.</li>
+<li>Создайте новый макет и сохраните карту как изображение. Результат выполнения задания приведен на рисунке ниже (<a href="#fig-diff_03">Рисунок&nbsp;<span>6.10</span></a>).</li>
 </ul>
 </div>
 </div>
-<p>!!Рисунок с картой!! Лежит отдельным файлом</p>
+<div id="fig-diff_03" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/6_9_разница 0,3 га.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;6.10: Выдела с ошибкой площади более 0,3 га</figcaption>
+</figure>
+</div>
+<p>Более корректно использовать относительную разность (в процентах) а так же абсолютные значения. Для этого создадим новое поле “diff_area_perc” (тип поля десятичное) и заполним его выражением <code>abs("area" * 100 / "s_ga" - 100)</code>. Функция <code>abs()</code> возвращает абсолютное значение аргумента.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 6.11
+Задание 6.8
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Проведите анализ запаса насаждений в водоохранных зонах Караульного лесничества. Выполните следующие этапы задания: + Постройте буферные зоны радиусом 100 метров вокруг рек. + Создайте новый слой, содержащий части выделов, попадающих в водоохранные зоны. + Рассчитайте площади частей выделов. Для этого создайте новое поле “area_new”, заполните его площадью частей выделов (в гектарах). + Рассчитайте запас для частей выделов. Для этого создайте новое числовое поле “zapas_buffer”, заполните его произведением новой площади выдела на запас 1 га (поле “zapas_1ga”). + Сохраните таблицу с запасами в водоохранной зоне как табличный файл Excel (.xlsx).</p>
+<ul>
+<li>В слое <strong>“videla”</strong> создайте поле “diff_area_perc”. Заполните это поле относительной разностью полей <code>abs("area" * 100 / "s_ga" - 100)</code>.</li>
+<li>Создайте карту, где выдела с разностью более 15 % (поле “diff_area_perc”) будут окрашены в красный цвет.</li>
+<li>Создайте новый макет и сохраните карту как изображение. Результат выполнения задания приведен на рисунке ниже (<a href="#fig-diff_15">Рисунок&nbsp;<span>6.11</span></a>).</li>
+</ul>
 </div>
 </div>
-<p>!!Видео выполнения задания добавить!</p>
-<p>!! Добавить задания на основе osm и границ лесничеств КК. !!! Рассчитать протяженность дорог в границах какого-либо лесничества (суммарную протяженность показать в таблице). !!! Найти точки пересечения рек и дорог в границах лесничества.</p>
+<div id="fig-diff_15" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/6_10_разница 15 perc.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;6.11: Выдела с ошибкой площади более 15 %</figcaption>
+</figure>
+</div>
 
 
 </section>
@@ -645,7 +666,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./chapter7_DEM.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа.</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
