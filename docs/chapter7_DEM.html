@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Основы геоинформационных систем в QGIS - 7&nbsp; Цифровая модель рельефа.</title>
+<title>Основы геоинформационных систем в QGIS - 7&nbsp; Цифровая модель рельефа</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,8 +57,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "дополнительных результата(-ов) в этом документе",
     "search-clear-button-title": "Очистить",
     "search-detached-cancel-button-title": "Отменить",
-    "search-submit-button-title": "Найти",
-    "search-label": "Поиск"
+    "search-submit-button-title": "Найти"
   }
 }</script>
 
@@ -89,10 +88,10 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter7_DEM.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа.</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter7_DEM.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -154,13 +153,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter6_spatial_operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter7_DEM.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -193,15 +192,16 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#загрузка-растровых-данных." id="toc-загрузка-растровых-данных." class="nav-link active" data-scroll-target="#загрузка-растровых-данных."><span class="header-section-number">7.1</span> Загрузка растровых данных.</a></li>
   <li><a href="#визуализация" id="toc-визуализация" class="nav-link" data-scroll-target="#визуализация"><span class="header-section-number">7.2</span> Визуализация</a></li>
-  <li><a href="#калькулятор-растров" id="toc-калькулятор-растров" class="nav-link" data-scroll-target="#калькулятор-растров"><span class="header-section-number">7.3</span> Калькулятор растров</a></li>
+  <li><a href="#классификация-одноканального-изображения" id="toc-классификация-одноканального-изображения" class="nav-link" data-scroll-target="#классификация-одноканального-изображения"><span class="header-section-number">7.3</span> Классификация одноканального изображения</a></li>
   <li><a href="#обрезка-растра-по-границе-векторного-слоя" id="toc-обрезка-растра-по-границе-векторного-слоя" class="nav-link" data-scroll-target="#обрезка-растра-по-границе-векторного-слоя"><span class="header-section-number">7.4</span> Обрезка растра по границе векторного слоя</a></li>
   <li><a href="#зональная-статистика" id="toc-зональная-статистика" class="nav-link" data-scroll-target="#зональная-статистика"><span class="header-section-number">7.5</span> Зональная статистика</a></li>
   <li><a href="#расчет-топографических-индексов." id="toc-расчет-топографических-индексов." class="nav-link" data-scroll-target="#расчет-топографических-индексов."><span class="header-section-number">7.6</span> Расчет топографических индексов.</a></li>
   <li><a href="#создание-многоканального-изображения." id="toc-создание-многоканального-изображения." class="nav-link" data-scroll-target="#создание-многоканального-изображения."><span class="header-section-number">7.7</span> Создание многоканального изображения.</a></li>
-  <li><a href="#фильтр-по-нескольким-растрам." id="toc-фильтр-по-нескольким-растрам." class="nav-link" data-scroll-target="#фильтр-по-нескольким-растрам."><span class="header-section-number">7.8</span> Фильтр по нескольким растрам.</a></li>
-  <li><a href="#конвертация-растра-в-вектор" id="toc-конвертация-растра-в-вектор" class="nav-link" data-scroll-target="#конвертация-растра-в-вектор"><span class="header-section-number">7.9</span> Конвертация растра в вектор</a></li>
+  <li><a href="#классификация-многоканального-изображения" id="toc-классификация-многоканального-изображения" class="nav-link" data-scroll-target="#классификация-многоканального-изображения"><span class="header-section-number">7.8</span> Классификация многоканального изображения</a></li>
+  <li><a href="#конвертация-растрового-слоя-в-векторный" id="toc-конвертация-растрового-слоя-в-векторный" class="nav-link" data-scroll-target="#конвертация-растрового-слоя-в-векторный"><span class="header-section-number">7.9</span> Конвертация растрового слоя в векторный</a></li>
   <li><a href="#создание-изолиний" id="toc-создание-изолиний" class="nav-link" data-scroll-target="#создание-изолиний"><span class="header-section-number">7.10</span> Создание изолиний</a></li>
   <li><a href="#оформление-изолиний" id="toc-оформление-изолиний" class="nav-link" data-scroll-target="#оформление-изолиний"><span class="header-section-number">7.11</span> Оформление изолиний</a></li>
+  <li><a href="#создание-профиля" id="toc-создание-профиля" class="nav-link" data-scroll-target="#создание-профиля"><span class="header-section-number">7.12</span> Создание профиля</a></li>
   </ul>
 </nav>
     </div>
@@ -210,7 +210,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа.</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></h1>
 </div>
 
 
@@ -225,7 +225,6 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>(Заметки: сначала примеры на 1-слойном растре, потом добавить туда экспозицию, крутизну, TPI и проделать операции с многоканальным растром, модель заменить на NASA DEM)</p>
 <p>Цифровая модель рельефа это растр в каждой ячейке которого записана средняя высота поверхности земли. В этом разделе используется цифровая модель ASTER GDEM с пространственным разрешением 30 метров на пиксель.</p>
 <section id="загрузка-растровых-данных." class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="загрузка-растровых-данных."><span class="header-section-number">7.1</span> Загрузка растровых данных.</h2>
@@ -240,14 +239,19 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Создайте новый проект. Загрузите слои “kvartala”, “videla” и растр “DEM”. !!ссылка.</p>
+<p>Создайте новый проект под названием “DEM”. Загрузите слои “videla.gpkg”, “uch_lesn.gpkg” и растр “DEM.tif”. Ссылка для скачивания данных: https://disk.yandex.ru/d/xbXVOp86ipOVgA</p>
 </div>
 </div>
 </section>
 <section id="визуализация" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="визуализация"><span class="header-section-number">7.2</span> Визуализация</h2>
-<p>Настройки отображения растра устанавливаются в контекстном меню слоя <strong>“Свойства..” &gt; “Стиль”</strong>. В пункте “Изображение” настраивается режим отображения. Для количественных данных используются режимы “Одноканальное серое” и “Одноканальное псевдоцветное”. Классифицированные изображения визуализируют при помощи режима “Палитра / Уникальные значения”. Для многоканальных растров используют режим “Многоканальное цветное”. Режимы “Теневой рельеф” и “Изолинии” применяются для цифровых моделей рельефа.</p>
-<p>!!Видео задания ниже</p>
+<p>Настройки отображения растра устанавливаются в контекстном меню слоя <strong>“Свойства..” &gt; “Стиль”</strong>. В пункте <strong>“Изображение”</strong> настраивается режим отображения. Для количественных данных используются режимы <strong>“Одноканальное серое”</strong> и <strong>“Одноканальное псевдоцветное”</strong>. Классифицированные изображения визуализируют при помощи режима <strong>“Палитра / Уникальные значения”</strong>. Для многоканальных растров используют режим <strong>“Многоканальное цветное”</strong>. Режимы <strong>“Теневой рельеф”</strong> и <strong>“Изолинии”</strong> применяются для цифровых моделей рельефа.</p>
+<div id="fig-gradient" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><video src="./videos/7_1_градиент.mp4" class="img-fluid" controls=""><a href="./videos/7_1_градиент.mp4">Video</a></video></p>
+<figcaption class="figure-caption">Рисунок&nbsp;7.1: Настройка стиля отображения растра “DEM”</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -258,14 +262,20 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Для слоя “DEM” измените стиль отображения. Примените режим “Одноканальное псевдоцветное”, задайте градиент “Magma”.</p>
+<p>Для слоя “DEM” измените стиль отображения. По примеру выше примените режим “Одноканальное псевдоцветное”, задайте градиент “Magma” (<a href="#fig-gradient">Рисунок&nbsp;<span>7.1</span></a>).</p>
 </div>
 </div>
 </section>
-<section id="калькулятор-растров" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="калькулятор-растров"><span class="header-section-number">7.3</span> Калькулятор растров</h2>
-<p>Инструмент <strong>“Растр” &gt; “Калькулятор растров…”</strong> позволяет проводить арифметические операции с растровыми изображениями. Для составления выражения используются каналы растров и арифметические операторы. Калькулятор растров так же используется для классификации изображения т.е. разбиения его на классы. Для примера, воспользуемся инструментом и разобьем (классифицируем) растровое изображение на 2 класса. Первый класс будет иметь метку 0, в него войдут все пиксели с высотой до 250 метров, второй класс будет содержать пиксели с высотой большей или равной 250 метров и иметь метку 1. Созданный растр будет иметь пиксели только с двумя значениями: 0 и 1 (до 250 и более 250 метров соответственно).</p>
-<p>!!Видео добавить</p>
+<section id="классификация-одноканального-изображения" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="классификация-одноканального-изображения"><span class="header-section-number">7.3</span> Классификация одноканального изображения</h2>
+<p>Инструмент <strong>“Растр” &gt; “Калькулятор растров…”</strong> позволяет проводить арифметические операции с растровыми изображениями. Для составления выражения используются каналы растров и арифметические операторы. Калькулятор растров так же используется для классификации изображения т.е. разбиения его на классы. Для примера, воспользуемся инструментом и разобьем (классифицируем) растровый слой “DEM” на 2 класса. Первый класс будет иметь метку 0, в него войдут все пиксели с высотой до 250 метров, второй класс будет содержать пиксели с высотой большей или равной 250 метров и иметь метку 1.<br>
+Для такой классификации записывают выражение <code>"DEM@1"  &gt;= 250</code> в “Калькуляторе растров”. Каждый пиксель изображения проверяется на соответсвтие условию. Пикселям, соответсвтующим условию, присваивается значение 1, не соответствующим - 0. Созданный растр будет содержать пиксели только с двумя значениями: 0 и 1 (до 250 и более 250 метров соответственно) (<a href="#fig-classification2">Рисунок&nbsp;<span>7.2</span></a>).</p>
+<div id="fig-classification2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><video src="./videos/7_2_классификация%20на%202%20класса.mp4" class="img-fluid" controls=""><a href="./videos/7_2_классификация на 2 класса.mp4">Video</a></video></p>
+<figcaption class="figure-caption">Рисунок&nbsp;7.2: Классификация растра “DEM”</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -276,18 +286,11 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Проведите классификацию растра “DEM” по примеру выше.</p>
+<p>По примеру выше проведите классификацию растра “DEM” на 2 класса.</p>
 </div>
 </div>
-<p>Аналогичным образом возможно разбить растр на несколько классов. Для примера разобъем растр цифровой модели рельефа “DEM” на 4 класса. Класс 1 - значения от 0 до 200 м, класс 2 - от 200 до 300 м, класс 3 - от 300 до 400, класс 4 - от 400 до 600 м. Распределение по классам осуществляется при помощи инструмента “Калькулятор растров”.<br>
-!!! Дописать подраздел</p>
-</section>
-<section id="обрезка-растра-по-границе-векторного-слоя" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="обрезка-растра-по-границе-векторного-слоя"><span class="header-section-number">7.4</span> Обрезка растра по границе векторного слоя</h2>
-<p>Часто требуется ограничить растровое изображение границами векторного слоя. Для выполнения этой операции возможно использовать два инструмента (они находятся во вкладке <strong>“Растр” &gt; “Извлечение”</strong>): <strong>“Обрезать растр по охвату…”</strong> и <strong>“Обрезать растр по маске…”</strong>. Первый обрезает растр по границе наиманьшего прямоугольника, в который попадает геометрия, второй - по границе собственно геометрии (полигона).<br>
-При использовании инструмента <strong>“Обрезать растр по охвату…”</strong> в пункте “Исходный слой” задается растр, который необходимо обрезать. “Охват обрезки” задается двумя парами координат (левый нижний и правый верхний углы прямоугольника), которые можно заполнить вручную, “Рассчитать из слоя” (в этом случае необходимо выбрать слой) задать “Текущий охват карты” или “Указать на карте” напрямую.</p>
-<p>!!Добавить картинку <strong>“Обрезать растр по охвату…”</strong></p>
-<p>Обрезанный растр возможно охранить как новый растровый слой. Для этого в контекстном меню временного слоя выберите пункт <strong>“Экспорт” &gt; “Сохранить как”</strong> формат <strong>“GeoTIFF”</strong>.</p>
+<p>Аналогичным образом возможно разбить растр на несколько классов. Для примера разобъем растр цифровой модели рельефа “DEM” на 3 класса. Класс 1 - значения от 0 до 200 м, класс 2 - от 200 до 400 м, класс 3 - от 400 до 600 м. Распределение по классам осуществляется при помощи инструмента “Калькулятор растров”.<br>
+Упомянутую классификацию можно осуществить с помощью следующего выражения: <code>("DEM@1"  &gt; 0  AND "DEM@1"  &lt; 200)*1 + ("DEM@1"   &gt;=  200  AND "DEM@1"  &lt; 400)*2 +  ("DEM@1"   &gt;=  400  AND "DEM@1"  &lt; 600)*3</code>. Для объяснения действия выражения, рассмотрим его по частям. Часть выражения <code>("DEM@1"  &gt; 0  AND "DEM@1"  &lt; 200)</code> будет принимать значение 1 при высоте от 0 до 200 м (когда <strong>И</strong> одно <strong>И</strong> другое условие истинны). Во всех остальных случаях выражение будет принимать значение 0. Множитель рядом с выражением задает значение класса.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -298,11 +301,27 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Обрежьте растр “DEM” по охвату слоя “videla”. Сохраните новый растр.</p>
+<p>Классифицируйте раст “DEM” по 3 классам, как показано выше. К полученному изображению примените стиль отображения “Палитра / Уникальные значения”. Результат должен соответствовать изображению ниже (<a href="#fig-classification_task">Рисунок&nbsp;<span>7.3</span></a>).</p>
 </div>
 </div>
-<p>При использовании инструмента <strong>“Обрезать растр по маске…”</strong> в качестве “Исходного слоя” указывается растровое изображение, которое должно быть обрезано. В пункте “Слой маски” указывается векторный слой, по границам которого будет проведена обрезка. Чек-бокс “Только выделенные объекты” позволяет провести обрезку по границе выделенных объектов.</p>
-<p>!! Картинки инструмента <strong>“Обрезать растр по маске…”</strong></p>
+<div id="fig-classification_task" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/7_1_DEM_3_class.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;7.3: Результат выполнения задания</figcaption>
+</figure>
+</div>
+</section>
+<section id="обрезка-растра-по-границе-векторного-слоя" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="обрезка-растра-по-границе-векторного-слоя"><span class="header-section-number">7.4</span> Обрезка растра по границе векторного слоя</h2>
+<p>Часто требуется ограничить растровое изображение границами векторного слоя. Для выполнения этой операции возможно использовать два инструмента (они находятся во вкладке <strong>“Растр” &gt; “Извлечение”</strong>): <strong>“Обрезать растр по охвату…”</strong> и <strong>“Обрезать растр по маске…”</strong>. Первый обрезает растр по границе наиманьшего прямоугольника, в который попадает геометрия, второй - по границе собственно геометрии (полигона).<br>
+При использовании инструмента <strong>“Обрезать растр по охвату…”</strong> в пункте “Исходный слой” задается растр, который необходимо обрезать. “Охват обрезки” задается двумя парами координат (левый нижний и правый верхний углы прямоугольника), которые можно заполнить вручную, “Рассчитать из слоя” (в этом случае необходимо выбрать слой), задать “Текущий охват карты” или “Указать на карте” напрямую (<a href="#fig-crop_by_videla">Рисунок&nbsp;<span>7.4</span></a>).</p>
+<div id="fig-crop_by_videla" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/7_1_Обрезка по охвату.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;7.4: Окно инструмента “Обрезать растр по охвату”</figcaption>
+</figure>
+</div>
+<p>В результате применения инструмента появится новый временный растровый слой “Кадрированый (по охвату)”. Для сохранения временного слоя на диск в контекстном меню выберите пункт <strong>“Экспорт” &gt; “Сохранить как”</strong> формат <strong>“GeoTIFF”</strong>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -313,16 +332,17 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Обрежьте растр “DEM” по границе Караульного участкового лесничества (слой “uch_lesn”). Используйте инструмент <strong>“Обрезать растр по маске…”</strong>.</p>
+<p>Обрежьте растр “DEM” по охвату слоя “videla”. Сохраните новый растр в папку проекта под названием “DEM_crop_extend”.</p>
 </div>
 </div>
-<p>!!!Добавить в проект слой “uch_lesn”, добавить пункт добавления нового векторного слоя.</p>
-</section>
-<section id="зональная-статистика" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="зональная-статистика"><span class="header-section-number">7.5</span> Зональная статистика</h2>
-<p>Зональная статистика предполагает разделение территории на несколько зон для каждой из которых извлекается значение из растрового слоя. Для выбора инструмента “Зональная статистика” активируйте <strong>“Панель инструментов”</strong>, в пункте <strong>“Анализ растров”</strong> выберите <strong>“Зональная статистика”</strong>. В пункте “Исходный слой” выбирается векторный слой с зонами, в пункте “Растровый слой” задается растр из которого будут извлечены значения для каждой зоны. Пункт “Статистики для расчета” позволяет выбрать несколько статистик, которые будут добавлены в атрибутивную информацию для каждой зоны (среднее, медиана и т.д.).<br>
-Рассчитайте максимальную, минимальную и среднюю высоту для каждого выдела. В пункте “Исходный слой” указывается векторный слой выделов (“videla”), в пункте растровый слой - слой “DEM”, префикс поля ввода - “dem_”. В пункте <strong>“Статистики расчета”</strong> указываются: <strong>“Среднее”; “Минимум”; “Максимум”</strong>. После выполнения появится новый векторный слой выделов (“Зональная статистика”) с добавленными колонками.</p>
-<p>!! Добавить видео выполнения задания</p>
+<p>При использовании инструмента <strong>“Обрезать растр по маске…”</strong> в качестве “Исходного слоя” указывается растровое изображение, которое должно быть обрезано. В пункте “Слой маски” указывается векторный слой, по границам которого будет проведена обрезка. Чек-бокс <strong>“Только выделенные объекты”</strong> позволяет провести обрезку по границам выделенных объектов векторного слоя (<a href="#fig-crop_by_uchlesn">Рисунок&nbsp;<span>7.5</span></a>).</p>
+<div id="fig-crop_by_uchlesn" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/7_2_Обрезка растра по маске.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;7.5: Окно инструмента “Обрезать растр по маске”</figcaption>
+</figure>
+</div>
+<p>В результате применения инструмента появится новый временный растровый слоя “Кадрированный (по маске)”.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -333,11 +353,42 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>Обрежьте растр “DEM” по границе Караульного участкового лесничества (слой “uch_lesn”), используя инструмент <strong>“Обрезать растр по маске…”</strong>. Сохраните временный слой в папку проекта под названием “DEM_crop_mask”.</p>
+</div>
+</div>
+</section>
+<section id="зональная-статистика" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="зональная-статистика"><span class="header-section-number">7.5</span> Зональная статистика</h2>
+<p>Зональная статистика предполагает разделение территории на несколько зон для каждой из которых извлекается значение из растрового слоя. Для выбора инструмента <strong>“Зональная статистика”</strong> активируйте <strong>“Панель инструментов”</strong> <img src="./icons/7_1_панель инструментов.png" class="img-fluid" alt="Панель инструментов">, в пункте <strong>“Анализ растров”</strong> выберите <strong>“Зональная статистика”</strong>. В открывшемся окне пункт <strong>“Исходный слой”</strong> определяет векторный слой с зонами, в пункте <strong>“Растровый слой”</strong> задается растр из которого будут извлечены значения для каждой зоны. Пункт <strong>“Статистики для расчета”</strong> позволяет выбрать несколько статистик, которые будут добавлены в атрибутивную информацию для каждой зоны (среднее, медиана и т.д.).<br>
+Рассчитайте максимальную, минимальную и среднюю высоту для каждого выдела. В пункте <strong>“Исходный слой”</strong> указывается векторный слой выделов (“videla”), в пункте растровый слой - слой “DEM”, префикс поля ввода - “dem_”. В пункте <strong>“Статистики расчета”</strong> указываются: <strong>“Среднее”; “Минимум”; “Максимум”</strong>. После выполнения появится временный векторный слой “Зональная статистика” с рассчитанными показателями высоты для каждого выдела (поле “dem_count” - количество пикселей растрового слоя, попадающих в выдел; “dem_mean” - средняя высота для выдела; “dem_min” - минимальная высота для выдела; “dem_max” - максимальная высота для выдела) (<a href="#fig-zonal_stat">Рисунок&nbsp;<span>7.6</span></a>).</p>
+<div id="fig-zonal_stat" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><video src="./videos/7_3_зональная%20статистика.mp4" class="img-fluid" controls=""><a href="./videos/7_3_зональная статистика.mp4">Video</a></video></p>
+<figcaption class="figure-caption">Рисунок&nbsp;7.6: Настройка стиля отображения растра “DEM”</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 7.7
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li>Добавьте в слой выделов среднюю, максимальную и минимальную высоту над уровнем моря по примеру выше.</li>
-<li>Выберите выдела, которые находятся на высоте более 400 м, сохраните их как отдельный векторный слой.</li>
+<li>Окрасьте выдела, которые имеют среднюю высоту более 400 м, в красный цвет (режим стиля - “Символизация на основе правил”)</li>
+<li>Создайте макет и сохраните изображение, которое должно соответствовать рисунку ниже (<a href="#fig-task_dem_mean">Рисунок&nbsp;<span>7.7</span></a>).</li>
 </ol>
 </div>
+</div>
+<div id="fig-task_dem_mean" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/7_3_Выдела с высотой более 400.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;7.7: Результат выполнения задания</figcaption>
+</figure>
 </div>
 </section>
 <section id="расчет-топографических-индексов." class="level2" data-number="7.6">
@@ -350,7 +401,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 7.7
+Задание 7.8
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -364,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 7.8
+Задание 7.9
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -378,7 +429,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 7.9
+Задание 7.10
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -405,27 +456,28 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p>Для создания многоканального изображения необходимо поставить чек-бокс в пункте <strong>“Поместить каждый входной слой в отдельный канал”</strong>, иначе склейка изображений произойдет в виде мозайки. “Выходной тип данных” должен соответствовать данным растровых изображений. Результатом применения инструмента станет временный многоканальный растровый слой “Результат объединения”.</p>
+<p>!! Видео - настройка последовательности каналов.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 7.10
+Задание 7.11
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Объедините созданные в предыдущих заданиях растровые слои: 1 канал - “Экспозиция”; 2 канал - “Крутизна”, 3 канал - “Индекс топографического положения”; 4 канал - “DEM” в многоканальное изображение. Сохраните полученное изображение в папку проекта под названием “DEM_indexes”.</p>
+<p>Объедините созданные в предыдущих заданиях растровые слои в многоканальное изображение: 1 канал - “Экспозиция”; 2 канал - “Крутизна”, 3 канал - “Индекс топографического положения”; 4 канал - “DEM” в многоканальное изображение. Сохраните полученное изображение в папку проекта под названием “DEM_indexes”.</p>
 </div>
 </div>
 </section>
-<section id="фильтр-по-нескольким-растрам." class="level2" data-number="7.8">
-<h2 data-number="7.8" class="anchored" data-anchor-id="фильтр-по-нескольким-растрам."><span class="header-section-number">7.8</span> Фильтр по нескольким растрам.</h2>
+<section id="классификация-многоканального-изображения" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="классификация-многоканального-изображения"><span class="header-section-number">7.8</span> Классификация многоканального изображения</h2>
 <p>Созданный многоканальный растр позволяет провдить фильтрацию сразу по нескольким каналам (переменным). Для этого используется <strong>“Растр” &gt; “Калькулятор растров”</strong>.</p>
 <p>!! Дополнить.</p>
 </section>
-<section id="конвертация-растра-в-вектор" class="level2" data-number="7.9">
-<h2 data-number="7.9" class="anchored" data-anchor-id="конвертация-растра-в-вектор"><span class="header-section-number">7.9</span> Конвертация растра в вектор</h2>
+<section id="конвертация-растрового-слоя-в-векторный" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="конвертация-растрового-слоя-в-векторный"><span class="header-section-number">7.9</span> Конвертация растрового слоя в векторный</h2>
 <p>Использование растра из предыдущего задания для конвертации классифицированного изображения в вектор.</p>
 </section>
 <section id="создание-изолиний" class="level2" data-number="7.10">
@@ -438,7 +490,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 7.11
+Задание 7.12
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -456,7 +508,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 7.12
+Задание 7.13
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -472,7 +524,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 7.13
+Задание 7.14
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -486,7 +538,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 7.14
+Задание 7.15
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -494,6 +546,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p>!! Добавить настройка стиля для классифицированного изображения.</p>
+</section>
+<section id="создание-профиля" class="level2" data-number="7.12">
+<h2 data-number="7.12" class="anchored" data-anchor-id="создание-профиля"><span class="header-section-number">7.12</span> Создание профиля</h2>
+<p>!! Добавить текст.</p>
 
 
 </section>
@@ -735,7 +791,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./chapter6_spatial_operations.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами.</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
