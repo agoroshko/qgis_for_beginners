@@ -198,9 +198,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#расчет-топографических-индексов." id="toc-расчет-топографических-индексов." class="nav-link" data-scroll-target="#расчет-топографических-индексов."><span class="header-section-number">7.6</span> Расчет топографических индексов.</a></li>
   <li><a href="#создание-многоканального-изображения." id="toc-создание-многоканального-изображения." class="nav-link" data-scroll-target="#создание-многоканального-изображения."><span class="header-section-number">7.7</span> Создание многоканального изображения.</a></li>
   <li><a href="#классификация-многоканального-изображения" id="toc-классификация-многоканального-изображения" class="nav-link" data-scroll-target="#классификация-многоканального-изображения"><span class="header-section-number">7.8</span> Классификация многоканального изображения</a></li>
-  <li><a href="#конвертация-растрового-слоя-в-векторный" id="toc-конвертация-растрового-слоя-в-векторный" class="nav-link" data-scroll-target="#конвертация-растрового-слоя-в-векторный"><span class="header-section-number">7.9</span> Конвертация растрового слоя в векторный</a></li>
-  <li><a href="#создание-изолиний" id="toc-создание-изолиний" class="nav-link" data-scroll-target="#создание-изолиний"><span class="header-section-number">7.10</span> Создание изолиний</a></li>
-  <li><a href="#оформление-изолиний" id="toc-оформление-изолиний" class="nav-link" data-scroll-target="#оформление-изолиний"><span class="header-section-number">7.11</span> Оформление изолиний</a></li>
+  <li><a href="#создание-изолиний" id="toc-создание-изолиний" class="nav-link" data-scroll-target="#создание-изолиний"><span class="header-section-number">7.9</span> Создание изолиний</a></li>
+  <li><a href="#оформление-изолиний" id="toc-оформление-изолиний" class="nav-link" data-scroll-target="#оформление-изолиний"><span class="header-section-number">7.10</span> Оформление изолиний</a></li>
   </ul>
 </nav>
     </div>
@@ -534,12 +533,8 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 </section>
-<section id="конвертация-растрового-слоя-в-векторный" class="level2" data-number="7.9">
-<h2 data-number="7.9" class="anchored" data-anchor-id="конвертация-растрового-слоя-в-векторный"><span class="header-section-number">7.9</span> Конвертация растрового слоя в векторный</h2>
-<p>Использование растра из предыдущего задания для конвертации классифицированного изображения в вектор.</p>
-</section>
-<section id="создание-изолиний" class="level2" data-number="7.10">
-<h2 data-number="7.10" class="anchored" data-anchor-id="создание-изолиний"><span class="header-section-number">7.10</span> Создание изолиний</h2>
+<section id="создание-изолиний" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="создание-изолиний"><span class="header-section-number">7.9</span> Создание изолиний</h2>
 <p>Инструмент <strong>“Растр” &gt; “Извлечение” &gt; “Создать изолинии..** используется для построения изолиний (горизонталей). В пункте”Исходный слой” указывается цифровая модель рельефа, пункт </strong>”Расстояние между изолиниями”** определяет высоту сечения рельефа в метрах. Результатом применения инструмента является временный векторный слой горизонталей с атрибутом “ELEV” в котором указана высота каждой конкретной горизонтали.</p>
 <p>!! Картинка инструмента</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -556,8 +551,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="оформление-изолиний" class="level2" data-number="7.11">
-<h2 data-number="7.11" class="anchored" data-anchor-id="оформление-изолиний"><span class="header-section-number">7.11</span> Оформление изолиний</h2>
+<section id="оформление-изолиний" class="level2" data-number="7.10">
+<h2 data-number="7.10" class="anchored" data-anchor-id="оформление-изолиний"><span class="header-section-number">7.10</span> Оформление изолиний</h2>
 <p>!!Разная толщина и подписи горизонталей. !!Задание, создать макет с оформленными подписями горизонталей.</p>
 <p>Для оформления изолиний применяются “Символизация на основе правил” и “Подписи на основе правил” (вкладки “Стиль” и “Надписи” контекстного меню слоя). Символизация должна соответствовать следующим условиям: горизонтали оформляются коричневой линией; горизонтали, отметки которых кратны 50, оформляются утолщенной линией. Для второго условия применяется оператор <code>%</code> который возвращает остаток от деления. Для горизонталей, отметка которых кратна 50 метров, выражение <code>"ELEV" % 50</code> будет возвращать значение <strong>0</strong> (“ELEV” - поле в слое “Горизонтали” которое содержит отметку для каждой горизонтали).</p>
 <div class="callout callout-style-default callout-tip callout-titled">
