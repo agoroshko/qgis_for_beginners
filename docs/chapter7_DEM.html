@@ -535,8 +535,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="создание-изолиний" class="level2" data-number="7.9">
 <h2 data-number="7.9" class="anchored" data-anchor-id="создание-изолиний"><span class="header-section-number">7.9</span> Создание изолиний</h2>
-<p>Инструмент <strong>“Растр” &gt; “Извлечение” &gt; “Создать изолинии..** используется для построения изолиний (горизонталей). В пункте”Исходный слой” указывается цифровая модель рельефа, пункт </strong>”Расстояние между изолиниями”** определяет высоту сечения рельефа в метрах. Результатом применения инструмента является временный векторный слой горизонталей с атрибутом “ELEV” в котором указана высота каждой конкретной горизонтали.</p>
-<p>!! Картинка инструмента</p>
+<p>Инструмент <strong>“Растр” &gt; “Извлечение” &gt; “Создать изолинии..** используется для построения изолиний (горизонталей). В пункте”Исходный слой” указывается цифровая модель рельефа, пункт </strong>”Расстояние между изолиниями”** определяет высоту сечения рельефа в метрах. Результатом применения инструмента является временный векторный слой горизонталей с атрибутом “ELEV” в котором указана высота каждой конкретной горизонтали (<a href="#fig-make_izos">Рисунок&nbsp;<span>7.14</span></a>).</p>
+<div id="fig-make_izos" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/7_9_Создать изолинии.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;7.14: Инструмент “Создать изолинии”</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -547,14 +552,20 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Создайте слой горизонталей с высотой сечения рельефа 10 метров, по примеру выше. Сохраните полученный векторный слой на диск под названием “Горизонтали”.</p>
+<p>Создайте слой горизонталей с высотой сечения рельефа 20 метров, по примеру выше. Сохраните полученный векторный слой на диск под названием “Изолинии”.</p>
 </div>
 </div>
 </section>
 <section id="оформление-изолиний" class="level2" data-number="7.10">
 <h2 data-number="7.10" class="anchored" data-anchor-id="оформление-изолиний"><span class="header-section-number">7.10</span> Оформление изолиний</h2>
-<p>!!Разная толщина и подписи горизонталей. !!Задание, создать макет с оформленными подписями горизонталей.</p>
-<p>Для оформления изолиний применяются “Символизация на основе правил” и “Подписи на основе правил” (вкладки “Стиль” и “Надписи” контекстного меню слоя). Символизация должна соответствовать следующим условиям: горизонтали оформляются коричневой линией; горизонтали, отметки которых кратны 50, оформляются утолщенной линией. Для второго условия применяется оператор <code>%</code> который возвращает остаток от деления. Для горизонталей, отметка которых кратна 50 метров, выражение <code>"ELEV" % 50</code> будет возвращать значение <strong>0</strong> (“ELEV” - поле в слое “Горизонтали” которое содержит отметку для каждой горизонтали).</p>
+<p>!!Задание, создать макет с оформленными подписями горизонталей.</p>
+<p>Для оформления изолиний применяются режимы “Символизация на основе правил” и “Подписи на основе правил” (вкладки “Стиль” и “Надписи” контекстного меню слоя). Символизация должна соответствовать следующим условиям: - горизонтали оформляются линиями коричневого цвета; - горизонтали, отметки которых кратны 100 (каждая пятая горизонталь), оформляются утолщенной линией. Для второго условия применяется оператор <code>%</code> который возвращает остаток от деления. Для горизонталей, отметка которых кратна 100 метров, выражение <code>"ELEV" % 100</code> будет возвращать значение <strong>0</strong> (“ELEV” - поле в слое “Горизонтали” которое содержит отметку для каждой горизонтали) (<a href="#fig-make_izos_style">Рисунок&nbsp;<span>7.15</span></a>).</p>
+<div id="fig-make_izos_style" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/7_10_Оформление горизонталей.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;7.15: Создание стиля горизонталей</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -565,12 +576,22 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Настройте стиль слоя “Горизонтали” так, что бы горизонтали с отметками кратными 50 имели толщину линий 0.46, а все остальные горизонтали толщину 0.1. Цвет горизонталей коричневый. Для этого перейдите в контекстрое меню слоя <strong>“Стиль” &gt; режим “Символизация на основе правил”</strong>.</p>
+<p>Настройте стиль слоя “Горизонтали” так, что бы горизонтали с отметками кратными 100 имели толщину линий 0.4, а все остальные горизонтали толщину 0.1. Цвет горизонталей коричневый. Для этого перейдите в контекстрое меню слоя <strong>“Стиль” &gt; режим “Символизация на основе правил”</strong> (<a href="#fig-make_izos_task">Рисунок&nbsp;<span>7.16</span></a>).</p>
 </div>
 </div>
-<p>!! Рисунок с результатом выполнения задания</p>
-<p>Подписываются горизонтали кратные 50. В этом случае используюется режим “Подписи на основе правил” а так же выражение <code>"ELEV" % 50 = 0</code> по аналогии с предыдущим заданием. Для подписей так же настраивается “Размещение” подписей. “Режим” - параллельно, “Разрешенные позиции” - на линии. “Повтор подписей”: “Интервал” - 5000, “метры в масштабе”.</p>
-<p>!!Картинка настройки размещения подписей</p>
+<div id="fig-make_izos_task" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/7_11_Горизонтали.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;7.16: Результат выполнения задания по построению горизонталей</figcaption>
+</figure>
+</div>
+<p>Подписываются горизонтали кратные 50. В этом случае используюется режим “Подписи на основе правил” а так же выражение <code>"ELEV" % 100 = 0</code> по аналогии с предыдущим заданием. Для подписей так же настраивается “Размещение” подписей. “Режим” - параллельно, “Разрешенные позиции” - на линии. “Повтор подписей”: “Интервал” - 10 000, “метры в масштабе” (<a href="#fig-izos_labels">Рисунок&nbsp;<span>7.17</span></a>).</p>
+<div id="fig-izos_labels" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/7_12_Подписи горизонталей.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;7.17: Результат выполнения задания по построению горизонталей</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -581,24 +602,15 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Добавьте подписи для горизонталей, отметки которых кратны 50. Для этого перейдите в меню слоя (<strong>“Стиль” &gt; “Надписи” &gt; режим “Подписи на основе правил”</strong>) и настройте подписи.</p>
+<p>Добавьте подписи для горизонталей, отметки которых кратны 100. Для этого перейдите в контекстное меню слоя (<strong>“Стиль” &gt; “Надписи” &gt; режим “Подписи на основе правил”</strong>) и настройте подписи (<a href="#fig-izos_labels_task">Рисунок&nbsp;<span>7.18</span></a>).</p>
 </div>
 </div>
-<p>! Картника результата задания.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div id="fig-izos_labels_task" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/7_13_Подписи горизонталей результат задания.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;7.18: Результат выполнения задания (подписи горизонталей)</figcaption>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-Задание 7.16
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Создайте макет который должен включать раскрашенную цифровую модель рельефа, горизонтали (без подпсей) и реки из слоя “rivers”. Результат должен быть сохранен в виде изображения и соответствовать рисунку ниже.</p>
-</div>
-</div>
-<p>!! Добавить настройка стиля для классифицированного изображения.</p>
 
 
 </section>
