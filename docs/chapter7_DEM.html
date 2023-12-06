@@ -165,13 +165,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter8_satellite_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Космические снимки</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Работа с космическими снимками</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Приложение. Файлы GeoPackage</span></span></a>
+ <span class="menu-text">Приложения</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -196,8 +196,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#обрезка-растра-по-границе-векторного-слоя" id="toc-обрезка-растра-по-границе-векторного-слоя" class="nav-link" data-scroll-target="#обрезка-растра-по-границе-векторного-слоя"><span class="header-section-number">7.4</span> Обрезка растра по границе векторного слоя</a></li>
   <li><a href="#зональная-статистика" id="toc-зональная-статистика" class="nav-link" data-scroll-target="#зональная-статистика"><span class="header-section-number">7.5</span> Зональная статистика</a></li>
   <li><a href="#расчет-топографических-индексов." id="toc-расчет-топографических-индексов." class="nav-link" data-scroll-target="#расчет-топографических-индексов."><span class="header-section-number">7.6</span> Расчет топографических индексов.</a></li>
-  <li><a href="#создание-многоканального-изображения." id="toc-создание-многоканального-изображения." class="nav-link" data-scroll-target="#создание-многоканального-изображения."><span class="header-section-number">7.7</span> Создание многоканального изображения.</a></li>
-  <li><a href="#классификация-многоканального-изображения" id="toc-классификация-многоканального-изображения" class="nav-link" data-scroll-target="#классификация-многоканального-изображения"><span class="header-section-number">7.8</span> Классификация многоканального изображения</a></li>
+  <li><a href="#sec-multichannel_img" id="toc-sec-multichannel_img" class="nav-link" data-scroll-target="#sec-multichannel_img"><span class="header-section-number">7.7</span> Создание многоканального изображения</a></li>
+  <li><a href="#sec-multichannel_img_classif" id="toc-sec-multichannel_img_classif" class="nav-link" data-scroll-target="#sec-multichannel_img_classif"><span class="header-section-number">7.8</span> Классификация многоканального изображения</a></li>
   <li><a href="#создание-изолиний" id="toc-создание-изолиний" class="nav-link" data-scroll-target="#создание-изолиний"><span class="header-section-number">7.9</span> Создание изолиний</a></li>
   <li><a href="#оформление-изолиний" id="toc-оформление-изолиний" class="nav-link" data-scroll-target="#оформление-изолиний"><span class="header-section-number">7.10</span> Оформление изолиний</a></li>
   </ul>
@@ -466,8 +466,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="создание-многоканального-изображения." class="level2" data-number="7.7">
-<h2 data-number="7.7" class="anchored" data-anchor-id="создание-многоканального-изображения."><span class="header-section-number">7.7</span> Создание многоканального изображения.</h2>
+<section id="sec-multichannel_img" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="sec-multichannel_img"><span class="header-section-number">7.7</span> Создание многоканального изображения</h2>
 <p>Несколько изображений с одинаковыми пространственным разрешением, охватом и системой координат возможно объединить в одно многоканальное изображение. Таким образом в каждом пикселе изображения будет содержаться несколько переменных в виде отдельных каналов (слоев). Такая практика часто используется в мультиспектральных изображениях, получаемых со спутников.<br>
 Для объединения нескольких изображений в одно многоканальное используется инструмент <strong>“Растр” &gt; “Прочее” &gt; “Результат объединения…”</strong>. В пункте “Исходные слои” отмечаются слои для объединения.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -504,8 +504,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="классификация-многоканального-изображения" class="level2" data-number="7.8">
-<h2 data-number="7.8" class="anchored" data-anchor-id="классификация-многоканального-изображения"><span class="header-section-number">7.8</span> Классификация многоканального изображения</h2>
+<section id="sec-multichannel_img_classif" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="sec-multichannel_img_classif"><span class="header-section-number">7.8</span> Классификация многоканального изображения</h2>
 <p>Созданный многоканальный растр “DEM_indexes” позволяет провдить фильтрацию сразу по нескольким каналам (переменным). Для этого используется <strong>“Растр” &gt; “Калькулятор растров”</strong> который уже применялся для классификации растра “DEM” в предыдущем разделе (<a href="#sec-dem_classification"><span>Глава&nbsp;7.3</span></a>). В пункте “Каналы растра” отображаются растровые слои проекта в виде названия и номера канала отделенных символом “@”, которые возможно использовать в вырежении для классификации по нескольким каналам. Например, для выделения участков земли на высоте более 300 м и крутизной более 30 градусов используется выражение: <code>"DEM_indexes@2"&gt;30 AND "DEM_indexes@3"&gt;300</code> (2 канал - “slope”, 3 канал - “DEM_UTM”). Аналогично задается условие для выбороа участков на высоте от 200 до 300 метров с уклоном менее 20 градусов: <code>"DEM_indexes@2"&lt; 20 AND "DEM_indexes@3" &gt; 200 AND "DEM_indexes@3" &lt; 300</code> (<a href="#fig-multi_classification">Рисунок&nbsp;<span>7.12</span></a>).</p>
 <div id="fig-multi_classification" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -857,7 +857,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./chapter8_satellite_data.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Космические снимки</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Работа с космическими снимками</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

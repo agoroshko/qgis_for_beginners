@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Основы геоинформационных систем в QGIS - 9&nbsp; Приложение. Файлы GeoPackage</title>
+<title>Основы геоинформационных систем в QGIS - Приложения</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -88,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./application_1_geopackage.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Приложение. Файлы GeoPackage</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./application_1_geopackage.html">Приложения</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
@@ -165,13 +165,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter8_satellite_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Космические снимки</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Работа с космическими снимками</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Приложение. Файлы GeoPackage</span></span></a>
+ <span class="menu-text">Приложения</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -186,14 +186,20 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Содержание</h2>
+   
+  <ul>
+  <li><a href="#sec-gpkg" id="toc-sec-gpkg" class="nav-link active" data-scroll-target="#sec-gpkg">Формат данных GeoPackage</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-gpkg" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Приложение. Файлы GeoPackage</span></span></h1>
+<h1 class="title">Приложения</h1>
 </div>
 
 
@@ -208,6 +214,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="sec-gpkg" class="level2">
+<h2 class="anchored" data-anchor-id="sec-gpkg">Формат данных GeoPackage</h2>
 <p>Каждый файл GeoPackage (.gpkg) является базой данных SQLite с поддержкой <a href="https://www.geopackage.org/">следующих данных</a>:</p>
 <ul>
 <li>векторные геометрии;</li>
@@ -215,9 +223,10 @@ ul.task-list li input[type="checkbox"] {
 <li>таблицы атрибутов (без геометрий).</li>
 </ul>
 <p>В отличие от шейп-файлов, которые представлены набором отдельных файлов работающих вместе (.shp, .shx, .dbf и т.д.), файл GeoPackage является единственным файлом с расширением <strong>.gpkg</strong>. Более того, один файл способен хранить в себе несколько слоев данных (при использовании шейп-файлов каждый слой должен храниться отдельно), а объем файла не ограничен (шейп-файлы ограничены объемом 2 GB). С подробным сравнением форматов можно ознакомиться по <a href="https://mapscaping.com/shapefiles-vs-geopackage/">ссылке</a>.<br>
-Несмотря на преимущества формата GeoPackage, он не так популярен как шейп-файлы. В QGIS процесс работы с данными несущественно зависит от формата их хранения, за исключением одной особенности. При работе с GeoPackage каждый векторный слой имеет ключь - поле <strong>fid</strong> которое содержит уникальное целое значение для каждой геометрии. Если такое поле не создано, после сохранения файла оно будет добавлено автоматически. При работе с геометриями объектов, в поле могут появляться повторяющиеся значения. Такой слой не может быть сохранен, о чем программа предупредит пользователя. Для исправления ошибки устраните дубликаты в поле <strong>fid</strong> (отсутствующие значения так же недопустимы) или удалите поле полностью. В последнем случае оно будет автоматически добавлено после сохранения слоя.</p>
+Несмотря на преимущества формата GeoPackage, он не так популярен как шейп-файлы. В QGIS процесс работы с данными несущественно зависит от формата их хранения, за исключением одной особенности. При работе с файлами GeoPackage каждый векторный слой имеет ключь - поле <strong>fid</strong> которое содержит уникальное целое значение для каждой строки таблицы атрибутов. Если такое поле не создано, после сохранения файла оно будет добавлено автоматически. При работе с геометриями объектов, в поле могут появляться повторяющиеся значения. Такой слой не может быть сохранен, о чем программа предупредит пользователя. Для исправления ошибки устраните дубликаты в поле <strong>fid</strong> (отсутствующие значения так же недопустимы) или удалите поле полностью. В последнем случае оно будет автоматически добавлено после сохранения слоя.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -456,7 +465,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./chapter8_satellite_data.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Космические снимки</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Работа с космическими снимками</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

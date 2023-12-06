@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Основы геоинформационных систем в QGIS - 8&nbsp; Космические снимки</title>
+<title>Основы геоинформационных систем в QGIS - 8&nbsp; Работа с космическими снимками</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -61,6 +61,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -88,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter8_satellite_data.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Космические снимки</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter8_satellite_data.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Работа с космическими снимками</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
@@ -165,13 +167,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter8_satellite_data.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Космические снимки</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Работа с космическими снимками</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Приложение. Файлы GeoPackage</span></span></a>
+ <span class="menu-text">Приложения</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -190,10 +192,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Содержание</h2>
    
   <ul>
-  <li><a href="#комбинации-искуственных-цветов-и-оцифровка-объектов" id="toc-комбинации-искуственных-цветов-и-оцифровка-объектов" class="nav-link active" data-scroll-target="#комбинации-искуственных-цветов-и-оцифровка-объектов"><span class="header-section-number">8.1</span> Комбинации искуственных цветов и оцифровка объектов</a></li>
-  <li><a href="#индексы" id="toc-индексы" class="nav-link" data-scroll-target="#индексы"><span class="header-section-number">8.2</span> Индексы</a></li>
-  <li><a href="#классификация-по-индексам" id="toc-классификация-по-индексам" class="nav-link" data-scroll-target="#классификация-по-индексам"><span class="header-section-number">8.3</span> Классификация по индексам</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">8.4</span> </a></li>
+  <li><a href="#комбинации-искуственных-цветов" id="toc-комбинации-искуственных-цветов" class="nav-link active" data-scroll-target="#комбинации-искуственных-цветов"><span class="header-section-number">8.1</span> Комбинации искуственных цветов</a></li>
+  <li><a href="#индексы" id="toc-индексы" class="nav-link" data-scroll-target="#индексы"><span class="header-section-number">8.2</span> Индексы</a>
+  <ul class="collapse">
+  <li><a href="#ndvi" id="toc-ndvi" class="nav-link" data-scroll-target="#ndvi"><span class="header-section-number">8.2.1</span> NDVI</a></li>
+  <li><a href="#ndwi" id="toc-ndwi" class="nav-link" data-scroll-target="#ndwi"><span class="header-section-number">8.2.2</span> NDWI</a></li>
+  </ul></li>
+  <li><a href="#классификация-на-основе-индексов" id="toc-классификация-на-основе-индексов" class="nav-link" data-scroll-target="#классификация-на-основе-индексов"><span class="header-section-number">8.3</span> Классификация на основе индексов</a></li>
   </ul>
 </nav>
     </div>
@@ -202,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Космические снимки</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Работа с космическими снимками</span></h1>
 </div>
 
 
@@ -217,21 +222,233 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>!! Подготовить разные снимки для раздела (зима и лето)</p>
-<section id="комбинации-искуственных-цветов-и-оцифровка-объектов" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="комбинации-искуственных-цветов-и-оцифровка-объектов"><span class="header-section-number">8.1</span> Комбинации искуственных цветов и оцифровка объектов</h2>
-<p>Настройки яркости и контраста. Рассмотреть несколько комбинаций цветов. Выделение объектов по этим комбинациям (c подписями в атрибутах).</p>
+<p>Космические снимки Landsat доступны для анализа любому пользователю и находятся в открытом доступе на сайте геологической службы CША (USGS https://earthexplorer.usgs.gov).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 8.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Создайте новый проект и загрузите в него растровое изображение снимка “Landsat8.tif”. Файл находится по ссылке: https://disk.yandex.ru/d/iscEIWG0Bo9wCQ</p>
+</div>
+</div>
+<p>Характеристики каналов спутника Landsat-8 с пространственным разрешением 30 м на пиксель, приведены в таблице ниже.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="gwsdhoaadp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+  
+  <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
+  <thead style="border-style: none;">
+    
+    <tr class="gt_col_headings" style="border-style: none; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;">
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Номер канала" style="border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" bgcolor="#FFFFFF" valign="bottom" align="right">Номер канала</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Диапазон длин волн, мкм" style="border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" bgcolor="#FFFFFF" valign="bottom" align="right">Диапазон длин волн, мкм</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Название канала" style="border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; text-align: left;" bgcolor="#FFFFFF" valign="bottom" align="left">Название канала</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body" style="border-style: none; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3;">
+    <tr style="border-style: none;"><td headers="band" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">1</td>
+<td headers="vave" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">0.43-0.45</td>
+<td headers="name" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Coastal Aerosol</td></tr>
+    <tr style="border-style: none;"><td headers="band" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">2</td>
+<td headers="vave" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">0.45-0.51</td>
+<td headers="name" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Blue</td></tr>
+    <tr style="border-style: none;"><td headers="band" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">3</td>
+<td headers="vave" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">0.53-0.59</td>
+<td headers="name" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Green</td></tr>
+    <tr style="border-style: none;"><td headers="band" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">4</td>
+<td headers="vave" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">0.64-0.67</td>
+<td headers="name" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Red</td></tr>
+    <tr style="border-style: none;"><td headers="band" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">5</td>
+<td headers="vave" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">0.85-0.88</td>
+<td headers="name" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Near-infrared</td></tr>
+    <tr style="border-style: none;"><td headers="band" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">6</td>
+<td headers="vave" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">1.57-1.65</td>
+<td headers="name" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">SWIR1</td></tr>
+    <tr style="border-style: none;"><td headers="band" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">7</td>
+<td headers="vave" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">2.11-2.29</td>
+<td headers="name" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">SWIR2</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+<section id="комбинации-искуственных-цветов" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="комбинации-искуственных-цветов"><span class="header-section-number">8.1</span> Комбинации искуственных цветов</h2>
+<p>Снимки содержат в отдельных каналах интенсивность излучения в определенной части спектра. Благодаря тому, что улавливаемые длины волн выходят за пределы видимого диапазона, возможен лучший анализ объектов на поврехности земли. Отображение поверхности земли в искуственных цветах позволяет учитываться спектральные характеристики объектов, выходящие за приделы выдимого диапазона. Для анализа состояния растительности особенно полезен ближний инфрокрасный диапазон (NIR) в котором наблюдается существенное отражение вегетативными органами растений при их нормальном состоянии и снижение отражения при повреждении.<br>
+Для окраски растра в естественные цвета перейдите в пункт контекстного меню панели слоев <strong>“Свойства слоя” &gt; “Стиль”</strong>, в пункте “Изображение” укажите режим “Многоканальное цветное” и задайте последовательность каналов <strong>4-3-2</strong> (здесь и в дальнейшем последовательность каналов указывается по порядку <strong>красный-зеленый-синий</strong>) <a href="#fig-nat_col">Рисунок&nbsp;<span>8.1</span></a>.</p>
+<div id="fig-nat_col" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/8_1_Естественные цвета.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;8.1: Настройка естественных цветов снимка</figcaption>
+</figure>
+</div>
+<p>Для задания нескольких комбинаций цветов для одного слоя возможно создать его дубликат. Для этого в контекстном меню панели слоев выберите пункт “Дублировать слой”. Дубликат слоя появится в панеле слоев (<a href="#fig-duble_layer">Рисунок&nbsp;<span>8.2</span></a>).</p>
+<div id="fig-duble_layer" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/8_2_Дублирование слоя.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;8.2: Настройка естественных цветов снимка</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 8.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Продублируйте слой “Landsat8”. Задайте в качестве стиля слоя “Landsat8 копия” комбинацию естественных цветов 4-3-2. Переименуйте слой в “Landsat8 4-3-2”.</p>
+</div>
+</div>
+<p>Анализ растительности часто проводится в комбинации каналов 5-4-3, при этом растительность отображается оттенками красного (хвойные леса принимают более темные оттенки, чем лиственные), городская застройка зелеными цветами, лед, снег и облака — белым или светло голубым.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 8.3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Продублируйте слой “Landsat8”. Задайте в качестве стиля слоя “Landsat8 копия” комбинацию искуственных цветов 5-4-3. Переименуйте слой в “Landsat8 5-4-3”.</p>
+</div>
+</div>
 </section>
 <section id="индексы" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="индексы"><span class="header-section-number">8.2</span> Индексы</h2>
-<p>Рассчитать разные индексы. NDVI, NDWI, NDSI</p>
+<p>Расчет индексов проводится в калькуляторе растров.</p>
+<section id="ndvi" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="ndvi"><span class="header-section-number">8.2.1</span> NDVI</h3>
+<p>Для расчета <strong>Normalized Difference Vegetation Index (NDVI)</strong> на основе снимка Landsat8 используются каналы b4 (red) и b5 (Near-infrared) по формуле: <span class="math display">\[NDVI = (b5-b4)/(b5+b4)\]</span> где b4 - четвертый канал снимка Landsat8;<br>
+b5 - пятый канал снимка Landsat8.</p>
+<p>В калькуляторе растра это выражение будет иметь следующий вид:<br>
+<code>("Landsat8@5"-"Landsat8@4") / ( "Landsat8@5"+"Landsat8@4")</code>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 8.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Для слоя “Landsat8” рассчитайте NDVI. Новый слой сохраните на диск под названием “Landsat8_NDVI”.</p>
+</div>
+</div>
+<p>Диапазонам значений NDVI соответствует определенная характеристика поверхности земли (таблица ниже).</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="vqnpbslips" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+  
+  <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
+  <thead style="border-style: none;">
+    
+    <tr class="gt_col_headings" style="border-style: none; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3;">
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="NDVI" style="border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" bgcolor="#FFFFFF" valign="bottom" align="right">NDVI</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Характеристика поверхности" style="border-style: none; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 6px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; text-align: left;" bgcolor="#FFFFFF" valign="bottom" align="left">Характеристика поверхности</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body" style="border-style: none; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3;">
+    <tr style="border-style: none;"><td headers="ndvi" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">0.7</td>
+<td headers="type" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Густая растительность</td></tr>
+    <tr style="border-style: none;"><td headers="ndvi" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">0.5</td>
+<td headers="type" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Разряженная растительность</td></tr>
+    <tr style="border-style: none;"><td headers="ndvi" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">0.025</td>
+<td headers="type" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Открытая почва</td></tr>
+    <tr style="border-style: none;"><td headers="ndvi" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">0</td>
+<td headers="type" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Облака</td></tr>
+    <tr style="border-style: none;"><td headers="ndvi" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">-0.05</td>
+<td headers="type" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Снег и лед</td></tr>
+    <tr style="border-style: none;"><td headers="ndvi" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">-0.25</td>
+<td headers="type" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Вода</td></tr>
+    <tr style="border-style: none;"><td headers="ndvi" class="gt_row gt_right" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: right; font-variant-numeric: tabular-nums;" valign="middle" align="right">-0.5</td>
+<td headers="type" class="gt_row gt_left" style="border-style: none; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; text-align: left;" valign="middle" align="left">Искуственные материалы (бетон, асфальт...)</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+<p>Задайте стиль отображения слоя “Landsat8_NDVI”. Перейдите в <strong>“Свойства…” слоя &gt; “Стиль”</strong>. В пункте “Изображение” выберите режим “Одноканальное псевдоцветное”, в пункте “Интерполяция” - “Линейный”, градиент - “Greens”.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 8.5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Настройте стиль отображения слоя “Landsat8_NDVI” по примеру выше. Результат должен соответствовать рисунку ниже (<a href="#fig-task_ndvi">Рисунок&nbsp;<span>8.3</span></a>).</p>
+</div>
+</div>
+<div id="fig-task_ndvi" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/8_3_Результат задания.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;8.3: Результат выполнения задания</figcaption>
+</figure>
+</div>
 </section>
-<section id="классификация-по-индексам" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="классификация-по-индексам"><span class="header-section-number">8.3</span> Классификация по индексам</h2>
-<p>Выделение растительности (по NDVI), полей и открытых участков (по снежному покрову - NDSI), водных объектов (по NDWI).</p>
+<section id="ndwi" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="ndwi"><span class="header-section-number">8.2.2</span> NDWI</h3>
+<p>Normalized Difference Water Index (NDWI) позволяет отделить поверхность воды от других объектов на снимке (водная поверхность имеет значение <strong>NDWI &gt; 0.3</strong>). Для расчета индекса на основе снимка “Landsat8” используются каналы b3 (Green) и b5 (Near-infrared) по формуле: Выделение растительности (по NDVI), полей и открытых участков (по снежному покрову - NDSI), водных объектов (по NDWI).</p>
+<p><span class="math display">\[NDVI = (b3-b5)/(b3+b5)\]</span> где b3 - третий канал снимка Landsat8;<br>
+b5 - пятый канал снимка Landsat8.</p>
+<p>В калькуляторе растра это выражение будет иметь следующий вид:<br>
+<code>("Landsat8@3"-"Landsat8@5") / ( "Landsat8@3"+"Landsat8@5")</code>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 8.6
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Для слоя “Landsat8” рассчитайте NDWI. Новый слой сохраните на диск под названием “Landsat8_NDWI”.</p>
+</div>
+</div>
 </section>
-<section id="section" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="section"><span class="header-section-number">8.4</span> </h2>
+</section>
+<section id="классификация-на-основе-индексов" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="классификация-на-основе-индексов"><span class="header-section-number">8.3</span> Классификация на основе индексов</h2>
+<p>Проведем классификацию территории, изображенной на снимке “Landsat8”, на основе NDVI и NDWI. Территория будет разбита на 3 класса: 1 класс - водная поверхность, пиксели со значением NDWI &gt; 0; 2 класс - территория занятая растительностью, пиксели со значением NDVI &gt; 0.3; 0 класс - все оставшиеся пиксели. Для проведения классификации создайте многоканальное изображение из двух растров “Landsat8_NDVI” и “Landsat8_NDWI” (<a href="chapter7_DEM.html#sec-multichannel_img"><span>Глава&nbsp;7.7</span></a>), назовите новое изображение “Landsat8_indexes” и сохраните в папку проекта.<br>
+Используйте калькулятор растров что бы провести классификацию изображения в соответствии с критериями выше (<a href="chapter7_DEM.html#sec-dem_classification"><span>Глава&nbsp;7.3</span></a>).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание 8.7
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Классифицируйте многканальное изображение “Landsat8_indexes” на 3 класса по примеру выше. Сохраните результат на диск под названием “Landsat8_classified”. Задайте изображению соответствующий стиль, что бы результат соответствовал рисунку ниже (<a href="#fig-task_classif_l8">Рисунок&nbsp;<span>8.4</span></a>).</p>
+</div>
+</div>
+<div id="fig-task_classif_l8" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./pictures/8_4_Результат классификации.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Рисунок&nbsp;8.4: Результат задания. Классификация изображения</figcaption>
+</figure>
+</div>
 
 
 </section>
@@ -478,7 +695,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./application_1_geopackage.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Приложение. Файлы GeoPackage</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Приложения</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
