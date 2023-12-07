@@ -240,7 +240,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="gwsdhoaadp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="aogmlisxaz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   
   <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
   <thead style="border-style: none;">
@@ -327,7 +327,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="индексы" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="индексы"><span class="header-section-number">8.2</span> Индексы</h2>
-<p>Расчет индексов проводится в калькуляторе растров.</p>
+<p>Расчет индексов производится в калькуляторе растров.</p>
 <section id="ndvi" class="level3" data-number="8.2.1">
 <h3 data-number="8.2.1" class="anchored" data-anchor-id="ndvi"><span class="header-section-number">8.2.1</span> NDVI</h3>
 <p>Для расчета <strong>Normalized Difference Vegetation Index (NDVI)</strong> на основе снимка Landsat8 используются каналы b4 (red) и b5 (Near-infrared) по формуле: <span class="math display">\[NDVI = (b5-b4)/(b5+b4)\]</span> где b4 - четвертый канал снимка Landsat8;<br>
@@ -351,7 +351,7 @@ b5 - пятый канал снимка Landsat8.</p>
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="vqnpbslips" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="rutskxspru" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   
   <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false" style="-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" bgcolor="#FFFFFF">
   <thead style="border-style: none;">
@@ -406,8 +406,8 @@ b5 - пятый канал снимка Landsat8.</p>
 </section>
 <section id="ndwi" class="level3" data-number="8.2.2">
 <h3 data-number="8.2.2" class="anchored" data-anchor-id="ndwi"><span class="header-section-number">8.2.2</span> NDWI</h3>
-<p>Normalized Difference Water Index (NDWI) позволяет отделить поверхность воды от других объектов на снимке (водная поверхность имеет значение <strong>NDWI &gt; 0.3</strong>). Для расчета индекса на основе снимка “Landsat8” используются каналы b3 (Green) и b5 (Near-infrared) по формуле: Выделение растительности (по NDVI), полей и открытых участков (по снежному покрову - NDSI), водных объектов (по NDWI).</p>
-<p><span class="math display">\[NDVI = (b3-b5)/(b3+b5)\]</span> где b3 - третий канал снимка Landsat8;<br>
+<p>Normalized Difference Water Index (NDWI) позволяет отделить поверхность воды от других объектов на снимке (водная поверхность имеет значение <strong>NDWI &gt; 0.3</strong>). Для расчета индекса на основе снимка “Landsat8” используются каналы b3 (Green) и b5 (Near-infrared) по формуле:</p>
+<p><span class="math display">\[NDWI = (b3-b5)/(b3+b5)\]</span> где b3 - третий канал снимка Landsat8;<br>
 b5 - пятый канал снимка Landsat8.</p>
 <p>В калькуляторе растра это выражение будет иметь следующий вид:<br>
 <code>("Landsat8@3"-"Landsat8@5") / ( "Landsat8@3"+"Landsat8@5")</code>.</p>
@@ -428,8 +428,8 @@ b5 - пятый канал снимка Landsat8.</p>
 </section>
 <section id="классификация-на-основе-индексов" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="классификация-на-основе-индексов"><span class="header-section-number">8.3</span> Классификация на основе индексов</h2>
-<p>Проведем классификацию территории, изображенной на снимке “Landsat8”, на основе NDVI и NDWI. Территория будет разбита на 3 класса: 1 класс - водная поверхность, пиксели со значением NDWI &gt; 0; 2 класс - территория занятая растительностью, пиксели со значением NDVI &gt; 0.3; 0 класс - все оставшиеся пиксели. Для проведения классификации создайте многоканальное изображение из двух растров “Landsat8_NDVI” и “Landsat8_NDWI” (<a href="chapter7_DEM.html#sec-multichannel_img"><span>Глава&nbsp;7.7</span></a>), назовите новое изображение “Landsat8_indexes” и сохраните в папку проекта.<br>
-Используйте калькулятор растров что бы провести классификацию изображения в соответствии с критериями выше (<a href="chapter7_DEM.html#sec-dem_classification"><span>Глава&nbsp;7.3</span></a>).</p>
+<p>Проведем классификацию территории, изображенной на снимке “Landsat8”, на основе NDVI и NDWI. Территория будет разбита на 3 класса: 1 класс - водная поверхность, пиксели со значением NDWI &gt; 0; 2 класс - территория занятая растительностью, пиксели со значением NDVI &gt; 0.3; 0 класс - все оставшиеся пиксели. Для проведения классификации создайте многоканальное изображение из двух растров “Landsat8_NDVI” и “Landsat8_NDWI” (см. <a href="chapter7_DEM.html#sec-multichannel_img"><span>Глава&nbsp;7.7</span></a>), назовите новое изображение “Landsat8_indexes” и сохраните в папку проекта.<br>
+Используйте калькулятор растров что бы провести классификацию изображения в соответствии с указанными критериями (см. <a href="chapter7_DEM.html#sec-dem_classification"><span>Глава&nbsp;7.3</span></a>).</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -440,7 +440,7 @@ b5 - пятый канал снимка Landsat8.</p>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Классифицируйте многканальное изображение “Landsat8_indexes” на 3 класса по примеру выше. Сохраните результат на диск под названием “Landsat8_classified”. Задайте изображению соответствующий стиль, что бы результат соответствовал рисунку ниже (<a href="#fig-task_classif_l8">Рисунок&nbsp;<span>8.4</span></a>).</p>
+<p>Классифицируйте многканальное изображение “Landsat8_indexes” на 3 класса по примеру выше. Сохраните результат на диск под названием “Landsat8_classified”. Задайте изображению соответствующий стиль (режим “Палитра/Уникальные значения”), что бы результат соответствовал рисунку ниже (<a href="#fig-task_classif_l8">Рисунок&nbsp;<span>8.4</span></a>).</p>
 </div>
 </div>
 <div id="fig-task_classif_l8" class="quarto-figure quarto-figure-center anchored">
@@ -449,6 +449,7 @@ b5 - пятый канал снимка Landsat8.</p>
 <figcaption class="figure-caption">Рисунок&nbsp;8.4: Результат задания. Классификация изображения</figcaption>
 </figure>
 </div>
+<p>В результате классификации на снимке выделено 3 класса объектов: водная поврежность, растительность и остальное (дороги, здания, открытая почва, редкая растительность и др.)</p>
 
 
 </section>
