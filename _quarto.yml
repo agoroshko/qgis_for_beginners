@@ -2,6 +2,9 @@ project:
   type: book
   output-dir: docs
 
+language:
+  section-title-appendices: "Приложения"
+
 book:
   title: "Основы геоинформационных систем в QGIS"
   subtitle: "Геоинформационные системы в лесном хозяйстве"
@@ -20,10 +23,12 @@ book:
     - chapter6_spatial_operations.qmd
     - chapter7_DEM.qmd
     - chapter8_satellite_data.qmd
-    - application_1_geopackage.qmd
     - references.qmd
+  appendices:
+    - application_1_geopackage.qmd
   navbar: 
     logo: "./cover.png"
+
 
 bibliography: references.bib
 number-sections: true
