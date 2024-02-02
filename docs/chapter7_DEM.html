@@ -170,16 +170,27 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Приложения</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Библиографический список</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Приложения</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Переключить раздел">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Формат данных GeoPackage</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -193,7 +204,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#загрузка-растровых-данных." id="toc-загрузка-растровых-данных." class="nav-link active" data-scroll-target="#загрузка-растровых-данных."><span class="header-section-number">7.1</span> Загрузка растровых данных.</a></li>
   <li><a href="#визуализация" id="toc-визуализация" class="nav-link" data-scroll-target="#визуализация"><span class="header-section-number">7.2</span> Визуализация</a></li>
   <li><a href="#sec-dem_classification" id="toc-sec-dem_classification" class="nav-link" data-scroll-target="#sec-dem_classification"><span class="header-section-number">7.3</span> Классификация одноканального изображения</a></li>
-  <li><a href="#обрезка-растра-по-границе-векторного-слоя" id="toc-обрезка-растра-по-границе-векторного-слоя" class="nav-link" data-scroll-target="#обрезка-растра-по-границе-векторного-слоя"><span class="header-section-number">7.4</span> Обрезка растра по границе векторного слоя</a></li>
+  <li><a href="#sec-dem_crop" id="toc-sec-dem_crop" class="nav-link" data-scroll-target="#sec-dem_crop"><span class="header-section-number">7.4</span> Обрезка растра по границе векторного слоя</a></li>
   <li><a href="#зональная-статистика" id="toc-зональная-статистика" class="nav-link" data-scroll-target="#зональная-статистика"><span class="header-section-number">7.5</span> Зональная статистика</a></li>
   <li><a href="#расчет-топографических-индексов." id="toc-расчет-топографических-индексов." class="nav-link" data-scroll-target="#расчет-топографических-индексов."><span class="header-section-number">7.6</span> Расчет топографических индексов.</a></li>
   <li><a href="#sec-multichannel_img" id="toc-sec-multichannel_img" class="nav-link" data-scroll-target="#sec-multichannel_img"><span class="header-section-number">7.7</span> Создание многоканального изображения</a></li>
@@ -309,8 +320,8 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 </section>
-<section id="обрезка-растра-по-границе-векторного-слоя" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="обрезка-растра-по-границе-векторного-слоя"><span class="header-section-number">7.4</span> Обрезка растра по границе векторного слоя</h2>
+<section id="sec-dem_crop" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="sec-dem_crop"><span class="header-section-number">7.4</span> Обрезка растра по границе векторного слоя</h2>
 <p>Часто требуется ограничить растровое изображение границами векторного слоя. Для выполнения этой операции возможно использовать два инструмента (они находятся во вкладке <strong>“Растр” &gt; “Извлечение”</strong>): <strong>“Обрезать растр по охвату…”</strong> и <strong>“Обрезать растр по маске…”</strong>. Первый обрезает растр по границе наиманьшего прямоугольника, в который попадает геометрия, второй - по границе собственно геометрии (полигона).<br>
 При использовании инструмента <strong>“Обрезать растр по охвату…”</strong> в пункте “Исходный слой” задается растр, который необходимо обрезать. “Охват обрезки” задается двумя парами координат (левый нижний и правый верхний углы прямоугольника), которые можно заполнить вручную, “Рассчитать из слоя” (в этом случае необходимо выбрать слой), задать “Текущий охват карты” или “Указать на карте” напрямую (<a href="#fig-crop_by_videla">Рисунок&nbsp;<span>7.4</span></a>).</p>
 <div id="fig-crop_by_videla" class="quarto-figure quarto-figure-center anchored">

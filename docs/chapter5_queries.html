@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.340">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Основы геоинформационных систем в QGIS - 5&nbsp; Поиск объектов</title>
+<title>Основы геоинформационных систем в QGIS 3.28 - 5&nbsp; Поиск объектов</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -41,13 +41,22 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "Поиск не дал результатов",
     "search-matching-documents-text": "Результаты поиска",
@@ -56,8 +65,10 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "дополнительный результат в этом документе",
     "search-more-matches-text": "дополнительных результата(-ов) в этом документе",
     "search-clear-button-title": "Очистить",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Отменить",
-    "search-submit-button-title": "Найти"
+    "search-submit-button-title": "Найти",
+    "search-label": "Поиск"
   }
 }</script>
 
@@ -68,44 +79,36 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     <img src="././cover.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Основы геоинформационных систем в QGIS</span>
+    <span class="navbar-title">Основы геоинформационных систем в QGIS 3.28</span>
     </a>
   </div>
-        <div class="quarto-navbar-tools ms-auto">
+        <div class="quarto-navbar-tools">
 </div>
           <div id="quarto-search" class="" title="Поиск"></div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter5_queries.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter5_queries.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Поиск"></div>
-        </div>
-        </div>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -170,20 +173,31 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Приложения</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Библиографический список</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Приложения</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Переключить раздел">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Формат данных GeoPackage</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -214,35 +228,53 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
 
-<p>Распространенной задачей в геоинформационных системах является поиск объектов по характеристикам (атрибутам) и пространственному положению. Для решения этой задачи пользуются логическими выражениями (предикатами) которые отделают искомые объекты от всех остальных. Аналогичные выражения уже использовались в <a href="chapter4_thematic_maps.html#sec-rules"><span>Глава&nbsp;4.8</span></a>. Для поиска объектов используется “Панель выбора объектов” <img src="./icons/5_1_Панель выбора объектов.png" class="img-fluid" alt="Панель выбора объектов"> размещенная в главном окне программы. Если панель не активна, перейдите в меню <strong>“Вид” &gt; “Панели инструментов” &gt; “Панель выбора объектов”</strong> и активируйте ее. Некоторые инструменты панели скрыты во вкладках (<a href="#fig-choices">Рисунок&nbsp;<span>5.1</span></a>).</p>
-<div id="fig-choices" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./pictures/5_7_Выбор объектов.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;5.1: Инструменты панели выбора объектов</figcaption>
+
+<p>Распространенной задачей в геоинформационных системах является поиск объектов по характеристикам (атрибутам) и пространственному положению. Для решения этой задачи пользуются логическими выражениями (предикатами) которые отделают искомые объекты от всех остальных. Аналогичные выражения уже использовались в <a href="chapter4_thematic_maps.html#sec-rules" class="quarto-xref"><span>Глава 4.8</span></a>. Для поиска объектов используется “Панель выбора объектов” <img src="./icons/5_1_Панель выбора объектов.png" class="img-fluid" alt="Панель выбора объектов"> размещенная в главном окне программы. Если панель не активна, перейдите в меню <strong>“Вид” &gt; “Панели инструментов” &gt; “Панель выбора объектов”</strong> и активируйте ее. Некоторые инструменты панели скрыты во вкладках (<a href="#fig-choices" class="quarto-xref">Рисунок&nbsp;<span>5.1</span></a>).</p>
+<div id="fig-choices" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-choices-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/5_7_Выбор объектов.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./pictures/5_7_Выбор объектов.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-choices-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;5.1: Инструменты панели выбора объектов
+</figcaption>
 </figure>
 </div>
 <section id="выбор-объектов-по-значению" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="выбор-объектов-по-значению"><span class="header-section-number">5.1</span> Выбор объектов по значению</h2>
-<p>Простой способ выбора объектов по атрибутов реализуется при помощи инструмента <strong>“Выбрать объекты по значению”</strong> который активируется при помощи горячей клавиши F3 или выбором из “панели выбора объектов”. В открывшемся окне представлен список полей слоя для каждого из которых возможно задать определенный фильтр. По умолчанию для всех полей активирован режим <strong>“Исключить поле”</strong> т.е. поле не участвует в фильтрации. Для текстовых полей дополнительная настройка <strong>“Case sensetive”</strong> включает чувствительность к регистру (прописные и заглавные буквы будут блиять на результаты поиска). Список доступных логических операций различен для текстовых и числовых полей (<a href="#fig-choice_1">Рисунок&nbsp;<span>5.2</span></a>, <a href="#fig-choice_2">Рисунок&nbsp;<span>5.3</span></a>).</p>
-<div id="fig-choice_1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./pictures/5_1_Выбор объектов по значению.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;5.2: Выбор объектов по значению для числового поля: площадь выдела (s_ga)</figcaption>
+<p>Простой способ выбора объектов по атрибутов реализуется при помощи инструмента <strong>“Выбрать объекты по значению”</strong> который активируется при помощи горячей клавиши F3 или выбором из “панели выбора объектов”. В открывшемся окне представлен список полей слоя для каждого из которых возможно задать определенный фильтр. По умолчанию для всех полей активирован режим <strong>“Исключить поле”</strong> т.е. поле не участвует в фильтрации. Для текстовых полей дополнительная настройка <strong>“Case sensetive”</strong> включает чувствительность к регистру (прописные и заглавные буквы будут блиять на результаты поиска). Список доступных логических операций различен для текстовых и числовых полей (<a href="#fig-choice_1" class="quarto-xref">Рисунок&nbsp;<span>5.2</span></a>, <a href="#fig-choice_2" class="quarto-xref">Рисунок&nbsp;<span>5.3</span></a>).</p>
+<div id="fig-choice_1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-choice_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/5_1_Выбор объектов по значению.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="./pictures/5_1_Выбор объектов по значению.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-choice_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;5.2: Выбор объектов по значению для числового поля: площадь выдела (s_ga)
+</figcaption>
 </figure>
 </div>
-<div id="fig-choice_2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./pictures/5_2_Выбор объектов по значению.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;5.3: Выбор объектов по значению для текстового поля: состав насаждений (sostav)</figcaption>
+<div id="fig-choice_2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-choice_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/5_2_Выбор объектов по значению.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><img src="./pictures/5_2_Выбор объектов по значению.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-choice_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;5.3: Выбор объектов по значению для текстового поля: состав насаждений (sostav)
+</figcaption>
 </figure>
 </div>
-<p>Фильтр настраивается путем введения порогового значения в необходимое поле и выбора логической операции (равно, больше, меньше и т.д.). Все объекты удовлетворяющие условию будут выбраны. Фильтрация по нескольким полям объединяется оператором <strong>“И”</strong> т.е. будут выбраны только те объекты, которые удовлетворяют всем введенным условиям. Фильтр для отбора выделов с преобладающей породой сосна и возрастом более 100 лет приведен на рисунке ниже (<a href="#fig-choice_3">Рисунок&nbsp;<span>5.4</span></a>).</p>
-<div id="fig-choice_3" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./pictures/5_3_Выбор объектов по значению.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;5.4: Выбор выделов со средним возрастом более 100 лет и преобладающей породой сосна</figcaption>
+<p>Фильтр настраивается путем введения порогового значения в необходимое поле и выбора логической операции (равно, больше, меньше и т.д.). Все объекты удовлетворяющие условию будут выбраны. Фильтрация по нескольким полям объединяется оператором <strong>“И”</strong> т.е. будут выбраны только те объекты, которые удовлетворяют всем введенным условиям. Фильтр для отбора выделов с преобладающей породой сосна и возрастом более 100 лет приведен на рисунке ниже (<a href="#fig-choice_3" class="quarto-xref">Рисунок&nbsp;<span>5.4</span></a>).</p>
+<div id="fig-choice_3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-choice_3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/5_3_Выбор объектов по значению.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><img src="./pictures/5_3_Выбор объектов по значению.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-choice_3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;5.4: Выбор выделов со средним возрастом более 100 лет и преобладающей породой сосна
+</figcaption>
 </figure>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -272,11 +304,15 @@ ul.task-list li input[type="checkbox"] {
 <p>Сохраните выделенные объекты из предыдущего задания как новый векторный слой.</p>
 </div>
 </div>
-<p>Кроме опции <strong>“Выбрать объекты”</strong> доступны варианты модификации уже созданной выборки. <strong>“Добавить к текущей выборке”</strong> и <strong>“Удалить из текущей выборки”</strong> позволяют соответственно добавить объекты к уже существующей выборке или удалить из нее, <strong>“Фильтровать текущую выборку”</strong> применяет фильтр к ранее выбранным объектам (<a href="#fig-choice_mode">Рисунок&nbsp;<span>5.5</span></a>).</p>
-<div id="fig-choice_mode" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./pictures/5_4_Режим выбора объектов.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;5.5: Варианты модификации выборки</figcaption>
+<p>Кроме опции <strong>“Выбрать объекты”</strong> доступны варианты модификации уже созданной выборки. <strong>“Добавить к текущей выборке”</strong> и <strong>“Удалить из текущей выборки”</strong> позволяют соответственно добавить объекты к уже существующей выборке или удалить из нее, <strong>“Фильтровать текущую выборку”</strong> применяет фильтр к ранее выбранным объектам (<a href="#fig-choice_mode" class="quarto-xref">Рисунок&nbsp;<span>5.5</span></a>).</p>
+<div id="fig-choice_mode" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-choice_mode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/5_4_Режим выбора объектов.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><img src="./pictures/5_4_Режим выбора объектов.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-choice_mode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;5.5: Варианты модификации выборки
+</figcaption>
 </figure>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -295,11 +331,15 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="выбор-объектов-по-выражению" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="выбор-объектов-по-выражению"><span class="header-section-number">5.2</span> Выбор объектов по выражению</h2>
-<p>Более гибкие возможности выбора объектов предоставляет инструмент <strong>“Выбрать объекты по выражению…”</strong> (<a href="#fig-choice_query">Рисунок&nbsp;<span>5.6</span></a>).</p>
-<div id="fig-choice_query" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./pictures/5_5_Выбор объектов по выражению.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;5.6: Окно инструмента “Выбрать объекты по выражению”</figcaption>
+<p>Более гибкие возможности выбора объектов предоставляет инструмент <strong>“Выбрать объекты по выражению…”</strong> (<a href="#fig-choice_query" class="quarto-xref">Рисунок&nbsp;<span>5.6</span></a>).</p>
+<div id="fig-choice_query" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-choice_query-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/5_5_Выбор объектов по выражению.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6"><img src="./pictures/5_5_Выбор объектов по выражению.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-choice_query-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;5.6: Окно инструмента “Выбрать объекты по выражению”
+</figcaption>
 </figure>
 </div>
 <p>В левой части окна записывается логическое выражение (предикат). В средней части выбираются логические операторы и поля, участвующие в выражении (категории “Операторы” и “Поля и значения”). В правой части окна выводится справка по функциям. Иконка “Выбрать объекты” активирует выбор объектов по заданному выражению. Операторы для количественных и качественных переменных различаются. Для запросов к количественным переменным (площадь выдела, средний возраст и т.д.) применяются операторы: <strong>равно (=), не равно (&lt;&gt;), больше (&gt;), меньше (&lt;), больше или равно (&gt;=), меньше или равно (&lt;=)</strong>. Для запросов к качественным переменным (элемент леса, тип леса и т.д.) используют операторы <strong>IS, IS NOT, IN</strong>.<br>
@@ -390,11 +430,15 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="выбор-объектов-по-пространственному-положению" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="выбор-объектов-по-пространственному-положению"><span class="header-section-number">5.3</span> Выбор объектов по пространственному положению</h2>
-<p>Выбор объектов по пространственному положению производится инструментом <strong>“Выбрать по расположению”</strong> <img src="./icons/5_3_Выбор объектов по пространственному положению.png" class="img-fluid" alt="Выбор объектов по пространственному положению"> который позволяет выбрать объекты одного слоя по пространственным отношениям к объектам другого слоя (<a href="#fig-spat_query">Рисунок&nbsp;<span>5.7</span></a>).</p>
-<div id="fig-spat_query" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./pictures/5_6_Выбрать по расположению.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;5.7: Окно инструмента “Выбрать по расположению”</figcaption>
+<p>Выбор объектов по пространственному положению производится инструментом <strong>“Выбрать по расположению”</strong> <img src="./icons/5_3_Выбор объектов по пространственному положению.png" class="img-fluid" alt="Выбор объектов по пространственному положению"> который позволяет выбрать объекты одного слоя по пространственным отношениям к объектам другого слоя (<a href="#fig-spat_query" class="quarto-xref">Рисунок&nbsp;<span>5.7</span></a>).</p>
+<div id="fig-spat_query" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-spat_query-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/5_6_Выбрать по расположению.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7"><img src="./pictures/5_6_Выбрать по расположению.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-spat_query-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;5.7: Окно инструмента “Выбрать по расположению”
+</figcaption>
 </figure>
 </div>
 <p>В пункте <strong>“Выбрать объекты слоя”</strong> назначается слой из которого выбираются объекты по условию пространственного отношения с другим слоем, который задается в пункте <strong>“по отношению к объектам слоя”</strong>. Необходимые пространственные отношения отмечаются чек-боксом в пункте <strong>“Геометрический предикат”</strong>. Пункт <strong>“Изменить текущую выборку”</strong> позволяет <strong>“создать новую выборку”</strong> или модифицировать уже выбранные объекты.</p>
@@ -440,6 +484,15 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Рисунок&nbsp;5.1: Инструменты панели выбора объектов</span>
+<span class="glightbox-desc lightbox-desc-2">Рисунок&nbsp;5.2: Выбор объектов по значению для числового поля: площадь выдела (s_ga)</span>
+<span class="glightbox-desc lightbox-desc-3">Рисунок&nbsp;5.3: Выбор объектов по значению для текстового поля: состав насаждений (sostav)</span>
+<span class="glightbox-desc lightbox-desc-4">Рисунок&nbsp;5.4: Выбор выделов со средним возрастом более 100 лет и преобладающей породой сосна</span>
+<span class="glightbox-desc lightbox-desc-5">Рисунок&nbsp;5.5: Варианты модификации выборки</span>
+<span class="glightbox-desc lightbox-desc-6">Рисунок&nbsp;5.6: Окно инструмента “Выбрать объекты по выражению”</span>
+<span class="glightbox-desc lightbox-desc-7">Рисунок&nbsp;5.7: Окно инструмента “Выбрать по расположению”</span>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -522,10 +575,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -535,8 +587,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -549,6 +610,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -592,6 +772,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -617,6 +798,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -678,17 +885,43 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter4_thematic_maps.html" class="pagination-link">
+      <a href="./chapter4_thematic_maps.html" class="pagination-link  aria-label=" &lt;span="" тематических="" карт&lt;="" span&gt;"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cоздание тематических карт</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter6_spatial_operations.html" class="pagination-link">
+      <a href="./chapter6_spatial_operations.html" class="pagination-link" aria-label="<span class='chapter-number'>6</span>&nbsp; <span class='chapter-title'>Пространственные операции с векторными объектами</span>">
         <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","loop":false});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
 
 
 
