@@ -1,12 +1,14 @@
 project:
   type: book
   output-dir: docs
+  
+lightbox: true
 
 language:
   section-title-appendices: "Приложения"
 
 book:
-  title: "Основы геоинформационных систем в QGIS"
+  title: "Основы геоинформационных систем в QGIS 3.28"
   subtitle: "Геоинформационные системы в лесном хозяйстве"
   author: "Андрей Горошко, Ирина Воробьева, Виктор Немич"
   date: today

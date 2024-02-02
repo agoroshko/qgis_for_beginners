@@ -6,6 +6,7 @@
  - [Основы геоинформатики: практикум в QGIS](https://aentin.github.io/qgis-course/)
  - Коросов А. В., Зорина А. А. Экологические приложения Quantum GIS: учебное пособие для студентов биологических специальностей. – Петрозаводск: Издательство ПетрГУ, 2016. ― 211 с.
  - [GIS-Lab](https://gis-lab.info/)
+ - [Картетика](https://cartetika.ru/tpost/mrnz02bza1-gis-tutoriali-po-qgis-i-ne-tolko)
  
 ## YouTube
  - [KartenX](https://www.youtube.com/@KartenX/featured)
@@ -17,6 +18,7 @@
  - [спбгеотех](https://t.me/spbgeotex)
  - [gislab](https://t.me/gislab)
  - [Спутник ДЗЗ](https://t.me/sputnikDZZ)
+ - [Вася Швалев PRO QGIS](https://t.me/proqgis)
 
 
 
