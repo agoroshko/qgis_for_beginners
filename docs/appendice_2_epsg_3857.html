@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Основы геоинформационных систем в QGIS 3.28 - Приложение A — Формат данных GeoPackage</title>
+<title>Основы геоинформационных систем в QGIS 3.28 - Приложение B — Система координат WGS 84 / Pseudo-Mercator (EPSG:3857)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="prev">
+<link href="./appendice_1_geopackage.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -95,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./application_1_geopackage.html">Приложения</a></li><li class="breadcrumb-item"><a href="./application_1_geopackage.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Формат данных GeoPackage</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendice_1_geopackage.html">Приложения</a></li><li class="breadcrumb-item"><a href="./appendice_2_epsg_3857.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Система координат WGS 84 / Pseudo-Mercator (EPSG:3857)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -184,8 +184,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link active">
+  <a href="./appendice_1_geopackage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Формат данных GeoPackage</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendice_2_epsg_3857.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Система координат WGS 84 / Pseudo-Mercator (EPSG:3857)</span></span></a>
   </div>
 </li>
       </ul>
@@ -201,9 +207,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./application_1_geopackage.html">Приложения</a></li><li class="breadcrumb-item"><a href="./application_1_geopackage.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Формат данных GeoPackage</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendice_1_geopackage.html">Приложения</a></li><li class="breadcrumb-item"><a href="./appendice_2_epsg_3857.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Система координат WGS 84 / Pseudo-Mercator (EPSG:3857)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-gpkg" class="quarto-section-identifier">Приложение A — Формат данных GeoPackage</span></h1>
+<h1 class="title"><span id="sec-epsg3857" class="quarto-section-identifier">Приложение B — Система координат WGS 84 / Pseudo-Mercator (EPSG:3857)</span></h1>
 </div>
 
 
@@ -220,14 +226,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Каждый файл GeoPackage (.gpkg) является базой данных SQLite с поддержкой <a href="https://www.geopackage.org/">следующих данных</a>:</p>
-<ul>
-<li>векторные геометрии;</li>
-<li>растровые данные;</li>
-<li>таблицы атрибутов (без геометрий).</li>
-</ul>
-<p>В отличие от шейп-файлов, которые представлены набором отдельных файлов работающих вместе (.shp, .shx, .dbf и т.д.), файл GeoPackage является единственным файлом с расширением <strong>.gpkg</strong>. Более того, один файл способен хранить в себе несколько слоев данных (при использовании шейп-файлов каждый слой должен храниться отдельно), а объем файла не ограничен (шейп-файлы ограничены объемом 2 GB). С подробным сравнением форматов можно ознакомиться по <a href="https://mapscaping.com/shapefiles-vs-geopackage/">ссылке</a>.<br>
-Несмотря на преимущества формата GeoPackage, он не так популярен как шейп-файлы. В QGIS процесс работы с данными несущественно зависит от формата их хранения, за исключением одной особенности. При работе с файлами GeoPackage каждый векторный слой имеет ключь - поле <strong>fid</strong> которое содержит уникальное целое значение для каждой строки таблицы атрибутов. Если такое поле не создано, после сохранения файла оно будет добавлено автоматически. При работе с геометриями объектов, в поле могут появляться повторяющиеся значения. Такой слой не может быть сохранен, о чем программа предупредит пользователя. Для исправления ошибки устраните дубликаты в поле <strong>fid</strong> (отсутствующие значения так же недопустимы) или удалите поле полностью. В последнем случае оно будет автоматически добавлено после сохранения слоя.</p>
+<p>Описание СК</p>
 
 
 
@@ -621,8 +620,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./references.html" class="pagination-link  aria-label=" библиографический="" список"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Библиографический список</span>
+      <a href="./appendice_1_geopackage.html" class="pagination-link  aria-label=" &lt;span="" данных="" geopackage&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Формат данных GeoPackage</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

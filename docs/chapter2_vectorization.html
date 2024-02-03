@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.340">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Основы геоинформационных систем в QGIS - 2&nbsp; Векторизация</title>
+<title>Основы геоинформационных систем в QGIS 3.28 - 2&nbsp; Векторизация</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -41,13 +41,22 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "Поиск не дал результатов",
     "search-matching-documents-text": "Результаты поиска",
@@ -56,8 +65,10 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "дополнительный результат в этом документе",
     "search-more-matches-text": "дополнительных результата(-ов) в этом документе",
     "search-clear-button-title": "Очистить",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Отменить",
-    "search-submit-button-title": "Найти"
+    "search-submit-button-title": "Найти",
+    "search-label": "Поиск"
   }
 }</script>
 
@@ -68,44 +79,36 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     <img src="././cover.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Основы геоинформационных систем в QGIS</span>
+    <span class="navbar-title">Основы геоинформационных систем в QGIS 3.28</span>
     </a>
   </div>
-        <div class="quarto-navbar-tools ms-auto">
+        <div class="quarto-navbar-tools">
 </div>
           <div id="quarto-search" class="" title="Поиск"></div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter2_vectorization.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Векторизация</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter2_vectorization.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Векторизация</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Поиск"></div>
-        </div>
-        </div>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -170,20 +173,31 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Приложения</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Библиографический список</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Приложения</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Переключить раздел">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Формат данных GeoPackage</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -218,12 +232,14 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>Векторизация изображения — перевод из растрового формата в векторный. При этом все объекты плана отображаются в виде точек, линий или полигонов, а у каждого объекта имеются атрибутивные данные, которые содержат дополнительные характеристики.</p>
 <section id="создание-векторного-слоя" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="создание-векторного-слоя"><span class="header-section-number">2.1</span> Создание векторного слоя</h2>
-<p>Мы начнем оцифровку с линейных объектов. В перечень их входят дороги и ручьи. Для начала создадим дополнительный векторный слой, на котором будем отмечать ручьи, для этого переходим во вкладку <strong>“Слой” &gt; “Создать слой” &gt; “Создать слой Shapefile…”</strong>. В поле имя файла следует нажать на иконку <strong>…</strong>, после чего выбрать папку для сохранения файла, ввести название (например “Дороги”, в зависимости от содержащихся в слое объектов).</p>
+<p>Начните оцифровку с линейных объектов. В перечень их входят дороги и ручьи. Для начала создадим дополнительный векторный слой, на котором будем отмечать ручьи, для этого переходим во вкладку <strong>“Слой” &gt; “Создать слой” &gt; “Создать слой Shapefile…”</strong>. В поле имя файла следует нажать на иконку <strong>…</strong>, после чего выбрать папку для сохранения файла, ввести название (например “Дороги”, в зависимости от содержащихся в слое объектов).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -237,32 +253,40 @@ ul.task-list li input[type="checkbox"] {
 <p>При создании нового векторного слоя всегда явно указывайте путь его сохранения. Для этого в поле <strong>“Имя файла”</strong> нажмите <strong>…</strong>, выберите папку для сохранения и затем введите название файла. <strong>Сохраните файл в папку проекта!</strong></p>
 </div>
 </div>
-<p>В поле <strong>“Тип геометрии”</strong> необходимо выбрать какой тип геометрии будет содержать создаваемый слой. Один слой может содержать объекты только одного типа: точечная, линия или полигон (площадная). Задайте тип геометрии <strong>“Линия”</strong>, в области «Новое поле» введите “Имя” - <strong>“name”</strong>, «Тип» – <strong>“Текст”</strong>, размер можно оставить без изменений (80 символов). После этого нажимаем на иконку <strong>“Добавить в список полей”</strong>, поле с заданными параметрами появится в области <strong>“Список полей”</strong>. Теперь слой содержит два поля: <strong>id</strong> - создается по умолчанию и добавленное поле <strong>name</strong> в которое будут записываться названия объектов. Для удаления полей предусмотрена иконка <strong>“Удалить поле”</strong> (<a href="#fig-makelayer">Рисунок&nbsp;<span>2.1</span></a>). После задания всех параметов нажмите <strong>ОК</strong>, новый слой будет сохранен на диск и появится в панеле <strong>“Слои”</strong>.</p>
-<div id="fig-makelayer" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./gif/8_make_roads.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;2.1: Создание векторного слоя</figcaption>
+<p>В поле <strong>“Тип геометрии”</strong> необходимо выбрать какой тип геометрии будет содержать создаваемый слой. Один слой может содержать объекты только одного типа: точечная, линия или полигон (площадная). Задайте тип геометрии <strong>“Линия”</strong>, в области «Новое поле» введите “Имя” - <strong>“name”</strong>, «Тип» – <strong>“Текст”</strong>, размер можно оставить без изменений (80 символов). После этого нажимаем на иконку <strong>“Добавить в список полей”</strong>, поле с заданными параметрами появится в области <strong>“Список полей”</strong>. Теперь слой содержит два поля: <strong>id</strong> - создается по умолчанию и добавленное поле <strong>name</strong> в которое будут записываться названия объектов. Для удаления полей предусмотрена иконка <strong>“Удалить поле”</strong> (<a href="#fig-makelayer" class="quarto-xref">Рисунок&nbsp;<span>2.1</span></a>). После задания всех параметов нажмите <strong>ОК</strong>, новый слой будет сохранен на диск и появится в панеле <strong>“Слои”</strong>.</p>
+<div id="fig-makelayer" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-makelayer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./gif/8_make_roads.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./gif/8_make_roads.gif" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-makelayer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;2.1: Создание векторного слоя
+</figcaption>
 </figure>
 </div>
-<p>Список полей отражает атрибуты (характеристики), которые возможно заполнить при создании объекта. Создавая очередной векторный слой, полезно задать минимальное необходимое количество полей, характеризующий каждый отдельный объект. Дополнительные поля можно добавить в любой момент после создания векторного слоя в контекстном меню <strong>“Открыть таблицу атрибутов”</strong>. Несмотря на то, что добавить или удалить поля атрибутивных данных можно после создания слоя, тип отдельного поля и его настройки (имя, длина, точность) изменить невозможно. Поэтому к настройкам полей нужно подходить внимательно. Тип поля может быть текстовым, целочисленным, десятичным числом или датой. <strong>“Размер”</strong> поля определяет количество символов, которое может храниться в этом поле, <strong>“Точность”</strong> - количество знаков после запятой (<a href="#fig-makelayer">Рисунок&nbsp;<span>2.1</span></a>).</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<p>Список полей отражает атрибуты (характеристики), которые возможно заполнить при создании объекта. Создавая очередной векторный слой, полезно задать минимальное необходимое количество полей, характеризующий каждый отдельный объект. Дополнительные поля можно добавить в любой момент после создания векторного слоя в контекстном меню <strong>“Открыть таблицу атрибутов”</strong>. Несмотря на то, что добавить или удалить поля атрибутивных данных можно после создания слоя, тип отдельного поля и его настройки (имя, длина, точность) изменить невозможно. Поэтому к настройкам полей нужно подходить внимательно. Тип поля может быть текстовым, целочисленным, десятичным числом или датой. <strong>“Размер”</strong> поля определяет количество символов, которое может храниться в этом поле, <strong>“Точность”</strong> - количество знаков после запятой (<a href="#fig-makelayer" class="quarto-xref">Рисунок&nbsp;<span>2.1</span></a>).</p>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 2.1
+Задание&nbsp;2.1
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Создайте новый слой “Дороги.shp”, как показано выше. Сохраните его в папку с проектом.</p>
 </div>
 </div>
-<p>Завершив настройку нового слоя, нажимаем «ОК». Новый слой автоматически появится в «Панели слоев» основного окна QGIS. Отображение слоев на карте зависит от их порядка в панели слоев, поэтому векторные слои должны быть всегда выше чем растровые. Отключить видимость слоя можно сняв chekbox (флажок) слева от него (<a href="#fig-layerpanel">Рисунок&nbsp;<span>2.2</span></a>).</p>
-<div id="fig-layerpanel" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./gif/9_layers_panel.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;2.2: Переключение видимости слоев</figcaption>
+<p>Завершив настройку нового слоя, нажимаем «ОК». Новый слой автоматически появится в «Панели слоев» основного окна QGIS. Отображение слоев на карте зависит от их порядка в панели слоев, поэтому векторные слои должны быть всегда выше чем растровые. Отключить видимость слоя можно сняв chekbox (флажок) слева от него (<a href="#fig-layerpanel" class="quarto-xref">Рисунок&nbsp;<span>2.2</span></a>).</p>
+<div id="fig-layerpanel" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-layerpanel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./gif/9_layers_panel.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="./gif/9_layers_panel.gif" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-layerpanel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;2.2: Переключение видимости слоев
+</figcaption>
 </figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -284,18 +308,26 @@ ul.task-list li input[type="checkbox"] {
 <p>Для векторизации используют панель <strong>“Инструменты оцифровки”</strong> <img src="./icons/5_инструменты оцифровки.png" class="img-fluid" alt="инструменты оцифровки"><br>
 Выбор слоя для добавления или изменения геометрий произволится в <strong>Панеле слоев</strong>. Выделяем созданный векторный слой (Дороги), в <strong>“Инструментах оцифровки”</strong> нажимаем на иконку <strong>“Режим редактирования”</strong> <img src="./icons/7_режим редактирования.png" class="img-fluid" alt="Режим редактирования">. После активации режима редактирования <strong>“Инструменты оцифровки”</strong> становятся активны и появляется возможность добавлять или изменять объекты слоя. <strong>“Режим редактирования”</strong> выполняет роль предохранителя. Пока он не активирован, слой находится в режиме просмотра и не может быть изменен. Таким образом данные защищены от нежелательных случайных изменений.<br>
 Панель <strong>“Инструменты оцифровки”</strong> состоит из следующих инструментов: <strong>“Сохранить правки слоя”</strong> - при нажатии сохраняются изменения в объектах слоя; <strong>“Добавить объект”</strong> - позволяет добавить объект (точка, линия или полигон в зависимости от типа геометрии слоя); <strong>“Инструмент правки вершин”</strong> - позволяет передвигать или удалять отдельные вершины геометрий; <strong>“Удалить выделенное”</strong>; <strong>“Отменить”</strong> и другие.<br>
-Находим на плане дорогу и применяя инструмент <strong>“Добавить объект”</strong> добавляем линию, отмечая точки вдоль изображения дороги на растровом слое. Во время добавления объекта масштаб карты можно менять прокруткой колеса мышки, перемещаться по плану — удерживая клавишу пробел. Добавление объекта завершается нажатием правой кнопки мыши, после чего появится окно ввода атрибутивной информации этого объекта. Если у дороги на плане есть название, его следует ввести в поле <strong>“name”</strong>. В противном случае поля можно не заполнять и просто нажать <strong>ОК</strong>. Первый объект в виде дороги будет добавлен (<a href="#fig-vectorization">Рисунок&nbsp;<span>2.3</span></a>).</p>
-<div id="fig-vectorization" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./gif/5_add_road.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;2.3: Оцифровка линий</figcaption>
+Находим на плане дорогу и применяя инструмент <strong>“Добавить объект”</strong> добавляем линию, отмечая точки вдоль изображения дороги на растровом слое. Во время добавления объекта масштаб карты можно менять прокруткой колеса мышки, перемещаться по плану — удерживая клавишу пробел. Добавление объекта завершается нажатием правой кнопки мыши, после чего появится окно ввода атрибутивной информации этого объекта. Если у дороги на плане есть название, его следует ввести в поле <strong>“name”</strong>. В противном случае поля можно не заполнять и просто нажать <strong>ОК</strong>. Первый объект в виде дороги будет добавлен (<a href="#fig-vectorization" class="quarto-xref">Рисунок&nbsp;<span>2.3</span></a>).</p>
+<div id="fig-vectorization" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vectorization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./gif/5_add_road.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><img src="./gif/5_add_road.gif" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vectorization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;2.3: Оцифровка линий
+</figcaption>
 </figure>
 </div>
-<p>По умолчанию вновь созданные слои имеют тонкие линии и случайный цвет. Эти настройки можно изменить в контекстном меню слоя (правый «клик» в панеле слоев), пункт <strong>“Свойства” &gt; “Стиль”</strong>. В этом окне можно изменить цвет и толщину линии. Так же существует масса других настроек, они будут рассмотрены в последующих разделах. Измените цвет и увеличьте толщину линий до 0,86 (<a href="#fig-roadstyle">Рисунок&nbsp;<span>2.4</span></a>).</p>
-<div id="fig-roadstyle" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./gif/6_road_style.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;2.4: Настройка стиля линий</figcaption>
+<p>По умолчанию вновь созданные слои имеют тонкие линии и случайный цвет. Эти настройки можно изменить в контекстном меню слоя (правый «клик» в панеле слоев), пункт <strong>“Свойства” &gt; “Стиль”</strong>. В этом окне можно изменить цвет и толщину линии. Так же существует масса других настроек, они будут рассмотрены в последующих разделах. Измените цвет и увеличьте толщину линий до 0,86 (<a href="#fig-roadstyle" class="quarto-xref">Рисунок&nbsp;<span>2.4</span></a>).</p>
+<div id="fig-roadstyle" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-roadstyle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./gif/6_road_style.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><img src="./gif/6_road_style.gif" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-roadstyle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;2.4: Настройка стиля линий
+</figcaption>
 </figure>
 </div>
 <p>Для сохранения прогресса векторизации рекомендуется периодически использовать инструмент <strong>“Сохранить правки слоя”</strong> <img src="./icons/6_сохранить правки слоя.png" class="img-fluid" alt="сохранить правки">, который записывает все изменения в файл. Таким образом прогресс не будет потерян, но после сохранения отменить изменения будет невозможно.</p>
@@ -312,13 +344,13 @@ ul.task-list li input[type="checkbox"] {
 <p>Используйте инструмент <strong>“Сохранить правки слоя”</strong> с осторожностью, охраненные изменения <strong>невозможно</strong> будет отменить!</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 2.2
+Задание&nbsp;2.2
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -329,20 +361,24 @@ ul.task-list li input[type="checkbox"] {
 <section id="топология-объектов" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="топология-объектов"><span class="header-section-number">2.3</span> Топология объектов</h2>
 <p>При оцифровке важно соблюдать топологию объектов. Например, в месте соединения двух дорог они должны иметь общую точку, а между границами выделов не должно быть пустот или наложений. Для соблюдения топологии оцифровки объектов применяется панель <strong>“Инструменты прилипания”</strong>. <img src="./icons/6_инструменты привязки.png" class="img-fluid" alt="инструменты привязки"><br>
-Инструмент <strong>“Разрешить прилипание”</strong> активирует возможности топологического редактирования, после чего остальные инструменты на панеле становятся активны. Возможна настройка прилипания к объектам на всех слоях или только на текущем слое, к вершинам, сегментам или другим элементам геометрий, порог прилипания позволяет задать радиус прилипания и единицы измерения этого радиуса. Инструмент <strong>“Вычитать наложения на текущем слое”</strong> позволяет избежать наложения полигонов друг на друга, функция <strong>“Включить трассировку”</strong> дает возможность добавлять новые геометрии по границам уже существующих геометрий. Настроим <strong>“Инструменты прилипания”</strong> следующим образом. Прилипание <strong>К текущему слою</strong>, прилипание <strong>к вершинам</strong> и <strong>к линиям</strong>, порог прилипания <strong>25 пикселей</strong>. Теперь при добавлении нового объекта и приближении указателя на расстояние менее 25 пикселей к уже существующей линии, курсор «приклеится» к ней. Такие настройки позволяют избежать разрывов в линиях. Используя полученные навыки, можно векторизировать оставшиеся дороги топологически корректно. Таким же образом создается отдельный векторный слой для векторизации рек или иных линейных объектов, которые существуют на карте (<a href="#fig-snapping">Рисунок&nbsp;<span>2.5</span></a>).</p>
-<div id="fig-snapping" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./gif/10_Прилипание.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;2.5: Топологическое редактирование</figcaption>
+Инструмент <strong>“Разрешить прилипание”</strong> активирует возможности топологического редактирования, после чего остальные инструменты на панеле становятся активны. Возможна настройка прилипания к объектам на всех слоях или только на текущем слое, к вершинам, сегментам или другим элементам геометрий, порог прилипания позволяет задать радиус прилипания и единицы измерения этого радиуса. Инструмент <strong>“Вычитать наложения на текущем слое”</strong> позволяет избежать наложения полигонов друг на друга, функция <strong>“Включить трассировку”</strong> дает возможность добавлять новые геометрии по границам уже существующих геометрий. Настроим <strong>“Инструменты прилипания”</strong> следующим образом. Прилипание <strong>К текущему слою</strong>, прилипание <strong>к вершинам</strong> и <strong>к линиям</strong>, порог прилипания <strong>25 пикселей</strong>. Теперь при добавлении нового объекта и приближении указателя на расстояние менее 25 пикселей к уже существующей линии, курсор «приклеится» к ней. Такие настройки позволяют избежать разрывов в линиях. Используя полученные навыки, можно векторизировать оставшиеся дороги топологически корректно. Таким же образом создается отдельный векторный слой для векторизации рек или иных линейных объектов, которые существуют на карте (<a href="#fig-snapping" class="quarto-xref">Рисунок&nbsp;<span>2.5</span></a>).</p>
+<div id="fig-snapping" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-snapping-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./gif/10_Прилипание.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><img src="./gif/10_Прилипание.gif" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-snapping-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;2.5: Топологическое редактирование
+</figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 2.3
+Задание&nbsp;2.3
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -353,14 +389,18 @@ ul.task-list li input[type="checkbox"] {
 <section id="векторизация-полигонов" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="векторизация-полигонов"><span class="header-section-number">2.4</span> Векторизация полигонов</h2>
 <p>После векторизации линейных объектов, подобным образом векторизуют площадные объекты (лесные выдела). Для этого создается отдельный векторный слой с названием <strong>“выдела”</strong>, тип геометрии - Площадная (полигон). В атрибутивной информации добавьте одно поле с номерами выделов: “имя” — <strong>“videl”</strong>, тип — <strong>целое число</strong>, размер — <strong>2</strong>. Сохраните слой в папку проекта. В панеле <strong>“Инструменты прилипания”</strong> находятся инструменты для топологически корректной оцифровки.<br>
-Инструмент <strong>“Включить трассировку”</strong> позволяет проводить границу вдоль уже существующих геометрий. Если требуется создать общую границу - настройку <strong>Offset</strong> следуют оставить по умолчанию (0,000000) в противном случае новая линия будет проведена на указанном в настройке расстоянии от уже существущей геометрии. Этот инструмент не всегда работает предсказуемо, поэтому при его использовании следует внимательно следить за результатом (<a href="#fig-tracking">Рисунок&nbsp;<span>2.6</span></a>).</p>
-<div id="fig-tracking" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./gif/11_Трассировка.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;2.6: Трассировка</figcaption>
+Инструмент <strong>“Включить трассировку”</strong> позволяет проводить границу вдоль уже существующих геометрий. Если требуется создать общую границу - настройку <strong>Offset</strong> следуют оставить по умолчанию (0,000000) в противном случае новая линия будет проведена на указанном в настройке расстоянии от уже существущей геометрии. Этот инструмент не всегда работает предсказуемо, поэтому при его использовании следует внимательно следить за результатом (<a href="#fig-tracking" class="quarto-xref">Рисунок&nbsp;<span>2.6</span></a>).</p>
+<div id="fig-tracking" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tracking-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./gif/11_Трассировка.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6"><img src="./gif/11_Трассировка.gif" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tracking-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;2.6: Трассировка
+</figcaption>
 </figure>
 </div>
-<p>Функция <strong>“Вычитать наложения на текущем слое”</strong> позволяет оцифровывать полигоны без пересечений. При добавлении нового полигона поверх существующего он будет обрезан по границе второго. Такая настройка позволяет проводить оцифровку сплошных площадей, состоящих их множества участков, без наложений и разрывов (<a href="#fig-avoidint">Рисунок&nbsp;<span>2.7</span></a>).</p>
+<p>Функция <strong>“Вычитать наложения на текущем слое”</strong> позволяет оцифровывать полигоны без пересечений. При добавлении нового полигона поверх существующего он будет обрезан по границе второго. Такая настройка позволяет проводить оцифровку сплошных площадей, состоящих их множества участков, без наложений и разрывов (<a href="#fig-avoidint" class="quarto-xref">Рисунок&nbsp;<span>2.7</span></a>).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -371,43 +411,59 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Функция <strong>“Вычитать наложения на текущем слое”</strong> не работает с геометриями содержащими ошибки. См. <a href="#sec-invalidgeom"><span>Глава&nbsp;2.6</span></a>.</p>
+<p>Функция <strong>“Вычитать наложения на текущем слое”</strong> не работает с геометриями содержащими ошибки. См. <a href="#sec-invalidgeom" class="quarto-xref"><span>Глава 2.6</span></a>.</p>
 </div>
 </div>
-<div id="fig-avoidint" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./gif/12_Вычитание наложений.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;2.7: Вычитание наложений полигонов</figcaption>
+<div id="fig-avoidint" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-avoidint-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./gif/12_Вычитание наложений.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7"><img src="./gif/12_Вычитание наложений.gif" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-avoidint-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;2.7: Вычитание наложений полигонов
+</figcaption>
 </figure>
 </div>
-<p>После создания геометрии можно воспользоваться инструментом <strong>“Редактирование вершин”</strong> позволяющим изменять положение вершин и сегментов, добавлять и удалять вершины (<a href="#fig-editpoints">Рисунок&nbsp;<span>2.8</span></a>).</p>
-<div id="fig-editpoints" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./gif/13_Редактирование вершин.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;2.8: Редактирование вершин</figcaption>
+<p>После создания геометрии можно воспользоваться инструментом <strong>“Редактирование вершин”</strong> позволяющим изменять положение вершин и сегментов, добавлять и удалять вершины (<a href="#fig-editpoints" class="quarto-xref">Рисунок&nbsp;<span>2.8</span></a>).</p>
+<div id="fig-editpoints" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-editpoints-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./gif/13_Редактирование вершин.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-8" data-glightbox="description: .lightbox-desc-8"><img src="./gif/13_Редактирование вершин.gif" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-editpoints-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;2.8: Редактирование вершин
+</figcaption>
 </figure>
 </div>
-<p>Инструмент <strong>“Включить топологическое редактирование”</strong> дает возможность перемещать вершины смежных полигонов топологически корректно, как одну общую вершину (<a href="#fig-pointstopo">Рисунок&nbsp;<span>2.9</span></a>).</p>
-<div id="fig-pointstopo" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./gif/14_Топологическое редактирование вершин.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;2.9: Топологическое редактирование вершин</figcaption>
+<p>Инструмент <strong>“Включить топологическое редактирование”</strong> дает возможность перемещать вершины смежных полигонов топологически корректно, как одну общую вершину (<a href="#fig-pointstopo" class="quarto-xref">Рисунок&nbsp;<span>2.9</span></a>).</p>
+<div id="fig-pointstopo" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pointstopo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./gif/14_Топологическое редактирование вершин.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-9" data-glightbox="description: .lightbox-desc-9"><img src="./gif/14_Топологическое редактирование вершин.gif" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pointstopo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;2.9: Топологическое редактирование вершин
+</figcaption>
 </figure>
 </div>
-<p>В процессе оцифровки периодически случаются ошибки при расстановке вершин геометрии. Если геометрия еще не создана, последнюю установленную вершину можно удалить нажатием клавиши <strong>Backspace</strong> на клавиатуре (<a href="#fig-pointsedit">Рисунок&nbsp;<span>2.10</span></a>).</p>
-<div id="fig-pointsedit" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./gif/15_Редактирование вершин в процессе.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;2.10: Удаление вершин при оцифровке</figcaption>
+<p>В процессе оцифровки периодически случаются ошибки при расстановке вершин геометрии. Если геометрия еще не создана, последнюю установленную вершину можно удалить нажатием клавиши <strong>Backspace</strong> на клавиатуре (<a href="#fig-pointsedit" class="quarto-xref">Рисунок&nbsp;<span>2.10</span></a>).</p>
+<div id="fig-pointsedit" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pointsedit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./gif/15_Редактирование вершин в процессе.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-10" data-glightbox="description: .lightbox-desc-10"><img src="./gif/15_Редактирование вершин в процессе.gif" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pointsedit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;2.10: Удаление вершин при оцифровке
+</figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 2.4
+Задание&nbsp;2.4
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -417,11 +473,15 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="sec-pickobj" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="sec-pickobj"><span class="header-section-number">2.5</span> Панель выбора объектов</h2>
-<p>Для выделения объектов используется <strong>Панель выбора объектов</strong> <img src="./icons/9_Панель выбора объектов.png" class="img-fluid" alt="Панель выбора объектов"> Первый инструмент <strong>Выбрать объекты в прямоугольнике или точке</strong> позволяет выделить объект или группу объектов на карте. Для удаления выделенных объектов нажмите клавишу <strong>Delete</strong> или выберите инструмент <strong>Удалить выделенное</strong> в панеле <strong>Инструменты оцифровки</strong>. При этом слой должен находиться в режиме редактирования, в противном случае удаление будет невозможно. Отмена выделения выполняется инструментом <strong>Снять выделение…</strong>, так же отменить выделение можно нажав на пустую область без объектов. Выбор объектов можно производить как точечно, так и в некоторой области (полигоне). Точечный выбор нескольких объектов выполняется при нажатой клавише <strong>Control (Ctrl)</strong> (<a href="#fig-pickobj">Рисунок&nbsp;<span>2.11</span></a>).</p>
-<div id="fig-pickobj" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./gif/18_Выбор объектов.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;2.11: Выбор объектов разными способами</figcaption>
+<p>Для выделения объектов используется <strong>Панель выбора объектов</strong> <img src="./icons/9_Панель выбора объектов.png" class="img-fluid" alt="Панель выбора объектов"> Первый инструмент <strong>Выбрать объекты в прямоугольнике или точке</strong> позволяет выделить объект или группу объектов на карте. Для удаления выделенных объектов нажмите клавишу <strong>Delete</strong> или выберите инструмент <strong>Удалить выделенное</strong> в панеле <strong>Инструменты оцифровки</strong>. При этом слой должен находиться в режиме редактирования, в противном случае удаление будет невозможно. Отмена выделения выполняется инструментом <strong>Снять выделение…</strong>, так же отменить выделение можно нажав на пустую область без объектов. Выбор объектов можно производить как точечно, так и в некоторой области (полигоне). Точечный выбор нескольких объектов выполняется при нажатой клавише <strong>Control (Ctrl)</strong> (<a href="#fig-pickobj" class="quarto-xref">Рисунок&nbsp;<span>2.11</span></a>).</p>
+<div id="fig-pickobj" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pickobj-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./gif/18_Выбор объектов.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-11" data-glightbox="description: .lightbox-desc-11"><img src="./gif/18_Выбор объектов.gif" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pickobj-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;2.11: Выбор объектов разными способами
+</figcaption>
 </figure>
 </div>
 <p><strong>Панель выбора объектов</strong> так же содержит инструменты для выбора по атрибутам и положению объектов. Возможности такого выбора будут рассмотрены в будущих разделах.</p>
@@ -433,38 +493,50 @@ ul.task-list li input[type="checkbox"] {
 <li>Задвоение точек - геометрия содержит две точки с одинаковыми координатами;</li>
 <li>Самопересечение линий - линия пересекает саму себя;</li>
 </ul>
-<div id="fig-invalidgeom2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./pictures/6_2 Самопересечение линий.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;2.12: Самопересечение линий</figcaption>
+<div id="fig-invalidgeom2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-invalidgeom2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/6_2 Самопересечение линий.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" data-glightbox="description: .lightbox-desc-12"><img src="./pictures/6_2 Самопересечение линий.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-invalidgeom2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;2.12: Самопересечение линий
+</figcaption>
 </figure>
 </div>
 <ul>
 <li>Самопересечение полигонов - полигон пересекает сам себя;</li>
 </ul>
-<div id="fig-invalidgeom3" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./pictures/6_3 Самопересечение полигонов.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;2.13: Самопересечение линий</figcaption>
+<div id="fig-invalidgeom3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-invalidgeom3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/6_3 Самопересечение полигонов.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" data-glightbox="description: .lightbox-desc-13"><img src="./pictures/6_3 Самопересечение полигонов.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-invalidgeom3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;2.13: Самопересечение линий
+</figcaption>
 </figure>
 </div>
 <ul>
 <li>Висячая линия в полигоне - полигон содержет в своем контуре линию.</li>
 </ul>
-<div id="fig-invalidgeom4" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./pictures/6_4 Висячая линия.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Рисунок&nbsp;2.14: Самопересечение линий</figcaption>
+<div id="fig-invalidgeom4" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-invalidgeom4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/6_4 Висячая линия.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" data-glightbox="description: .lightbox-desc-14"><img src="./pictures/6_4 Висячая линия.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-invalidgeom4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;2.14: Самопересечение линий
+</figcaption>
 </figure>
 </div>
 <p>Ошибки геометрий подсвечиваются знаком “X” зеленого цвета. Нужно отметить, что некоторые инструменты прилипания (например “Вычитать наложения на текущем слое”) не работают с геометриями содержащими ошибки.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 2.5
+Задание&nbsp;2.5
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -476,6 +548,22 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="2.7" class="anchored" data-anchor-id="дополнительные-инструменты-оцифровки-в-разработке"><span class="header-section-number">2.7</span> Дополнительные инструменты оцифровки (в разработке)</h2>
 
 
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Рисунок&nbsp;2.1: Создание векторного слоя</span>
+<span class="glightbox-desc lightbox-desc-2">Рисунок&nbsp;2.2: Переключение видимости слоев</span>
+<span class="glightbox-desc lightbox-desc-3">Рисунок&nbsp;2.3: Оцифровка линий</span>
+<span class="glightbox-desc lightbox-desc-4">Рисунок&nbsp;2.4: Настройка стиля линий</span>
+<span class="glightbox-desc lightbox-desc-5">Рисунок&nbsp;2.5: Топологическое редактирование</span>
+<span class="glightbox-desc lightbox-desc-6">Рисунок&nbsp;2.6: Трассировка</span>
+<span class="glightbox-desc lightbox-desc-7">Рисунок&nbsp;2.7: Вычитание наложений полигонов</span>
+<span class="glightbox-desc lightbox-desc-8">Рисунок&nbsp;2.8: Редактирование вершин</span>
+<span class="glightbox-desc lightbox-desc-9">Рисунок&nbsp;2.9: Топологическое редактирование вершин</span>
+<span class="glightbox-desc lightbox-desc-10">Рисунок&nbsp;2.10: Удаление вершин при оцифровке</span>
+<span class="glightbox-desc lightbox-desc-11">Рисунок&nbsp;2.11: Выбор объектов разными способами</span>
+<span class="glightbox-desc lightbox-desc-12">Рисунок&nbsp;2.12: Самопересечение линий</span>
+<span class="glightbox-desc lightbox-desc-13">Рисунок&nbsp;2.13: Самопересечение линий</span>
+<span class="glightbox-desc lightbox-desc-14">Рисунок&nbsp;2.14: Самопересечение линий</span>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -558,10 +646,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -571,8 +658,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -585,6 +681,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -628,6 +843,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -653,6 +869,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -714,17 +956,43 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter1_georeferencing.html" class="pagination-link">
+      <a href="./chapter1_georeferencing.html" class="pagination-link  aria-label=" &lt;span="" растра&lt;="" span&gt;"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Привязка растра</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter3_attributes.html" class="pagination-link">
+      <a href="./chapter3_attributes.html" class="pagination-link" aria-label="<span class='chapter-number'>3</span>&nbsp; <span class='chapter-title'>Добавление атрибутивной информации</span>">
         <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Добавление атрибутивной информации</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","descPosition":"bottom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
 
 
 

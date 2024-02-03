@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Основы геоинформационных систем в QGIS 3.28 - 5&nbsp; Поиск объектов</title>
+<title>Основы геоинформационных систем в QGIS 3.28 - 5&nbsp; Запросы</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -99,7 +99,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter5_queries.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter5_queries.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Запросы</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -150,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter5_queries.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Запросы</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -188,8 +188,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link">
+  <a href="./appendice_1_geopackage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Формат данных GeoPackage</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendice_2_epsg_3857.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Система координат WGS 84 / Pseudo-Mercator (EPSG:3857)</span></span></a>
   </div>
 </li>
       </ul>
@@ -215,7 +221,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-queries" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Поиск объектов</span></span></h1>
+<h1 class="title"><span id="sec-queries" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Запросы</span></span></h1>
 </div>
 
 
@@ -277,27 +283,27 @@ ul.task-list li input[type="checkbox"] {
 </figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 5.1
+Задание&nbsp;5.1
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>При помощи инструмента “Выбор объектов по значению”, выберите выдела с преобладающей породой береза (поле “el_lesa”), типом леса “ВРТ” (поле “tip_lesa”) и средним возрастом более 80 лет (поле “A_let”). В результате должно быть выбрано 42 выдела.</p>
+<p>При помощи инструмента “Выбор объектов по значению”, выберите выдела с преобладающей породой береза (поле “el_lesa”), типом леса “ВРТ” (поле “tip_lesa”) и средним возрастом более 80 лет (поле “A_let”). В результате должно быть выбрано <strong>42 выдела</strong>.</p>
 </div>
 </div>
 <p>После выделения объектов их можно сохранить как отдельный слой, для этого перейдите в пункт меню <strong>«Правка» &gt; «Копировать объекты»</strong>, после чего перейдите в тот же пунк <strong>«Правка» &gt; «Вставить объекты как» &gt; «Новый векторный слой»</strong>. Сохраните новый слой в рабочую папку проекта. Cозданный слой содержит только выделенные объекты.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 5.2
+Задание&nbsp;5.2
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -315,13 +321,13 @@ ul.task-list li input[type="checkbox"] {
 </figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 5.3
+Задание&nbsp;5.3
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -357,74 +363,74 @@ ul.task-list li input[type="checkbox"] {
 <p>В конструкторе выражений названия полей записываются в двойных кавычках (<code>"s_ga"</code>), текст в одинарных (<code>'БРТ'</code>), числа записывают без кавычек.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 5.4
+Задание&nbsp;5.4
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>При помощи инструмента “Выбрать по выражению” выберите выдела первой группы возраста (поле “gr_vozr”). В таблице атрибутов выдела первой группы возраста (молодняки) имеют значение 1 в соответствующем поле. В результате должно быть выбрано 9 выделов.</p>
+<p>При помощи инструмента “Выбрать по выражению” выберите выдела первой группы возраста (поле “gr_vozr”). В таблице атрибутов выдела первой группы возраста (молодняки) имеют значение 1 в соответствующем поле. В результате должно быть выбрано <strong>9 выделов</strong>.</p>
 </div>
 </div>
 <p>Пропущенные значения кодируются значением NULL. При поиске пропущенных значений в качестве оператора используется <code>IS</code> вместо знака равенства Например, для поиска выделов с пропущенным средним возрастом, выражение будет выглядеть так: <code>"A_let" IS NULL</code>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 5.5
+Задание&nbsp;5.5
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>При помощи инструмента “Выбрать по выражению” выберите выдела в которых пропущен запас на 1 га (поле “zapas_1ga”). В результате должно быть выбрано 74 выдела.</p>
+<p>При помощи инструмента “Выбрать по выражению” выберите выдела в которых пропущен запас на 1 га (поле “zapas_1ga”). В результате должно быть выбрано <strong>74 выдела</strong>.</p>
 </div>
 </div>
 <p>Отдельная группа операторов позволяет объединить несколько условий в единое выражение, соединяя их одним из операторов: <strong>И (AND); ИЛИ (OR)</strong>. Отдельно стоит рассмотреть оператор NOT, который меняет результат любого оператора на противоположный. Все перечисленные операторы могут принимать только два значения: правда или ложь. Если для конкретного объекта всё выражение принимает значение правда — этот объект соответствует условиям и попадает в выборку.<br>
 Для выбора выделов со средним возрастом от 50 до 70 лет конструируется следующее выражение: <code>"A_let" &gt; 50 AND "A_let" &lt; 70</code>. В этом случае было записано два условия соединенных через оператор <strong>AND (И)</strong>. Такое выражение выбирает объекты, которые соответствуют <strong>И</strong> первому <strong>И</strong> второму условию.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 5.6
+Задание&nbsp;5.6
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>При помощи инструмента “Выбрать по выражению” выберите выдела со средним диаметром больше 40 см (поле “DBH_cm”) <strong>И</strong> преобладающей породой сосна. В результате должен быть выбран 21 выдел.</p>
+<p>При помощи инструмента “Выбрать по выражению” выберите выдела со средним диаметром больше 40 см (поле “DBH_cm”) <strong>И</strong> преобладающей породой сосна. В результате должен быть выбран <strong>21 выдел.</strong></p>
 </div>
 </div>
 <p>Для объединения нескольких условий так же применяется оператор <strong>ИЛИ (OR)</strong> который используется когд объект должен удовлетворять хотя бы одному условию. Например, для выбора выделов со средней высотой более 30 м <strong>ИЛИ</strong> возрастом более 100 лет используется выражение: <code>"H_m" &gt; 30 OR "A_let" &gt; 100</code>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 5.7
+Задание&nbsp;5.7
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>При помощи инструмента “Выбрать по выражению” выберите выдела с преобладающей породой осина <strong>ИЛИ</strong> выдела старше 140 лет. В результате должно быть выбрано 38 выделов.</p>
+<p>При помощи инструмента “Выбрать по выражению” выберите выдела с преобладающей породой осина <strong>ИЛИ</strong> выдела старше 140 лет. В результате должно быть выбрано <strong>38 выделов.</strong></p>
 </div>
 </div>
 <p>Для выбора нескольких значений качественной переменной используется оператор <strong>IN</strong> после которого в круглых скобках указывается список значений. Если значение атрибута соответствует хотя бы одному значению из списка - выдел попадает в выборку. Выбор выделов с типами леса ВКТ, ЗМ или КТП производится выражением: <code>"tip_lesa" IN ('ВКТ', 'ЗМ', 'КТП')</code>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 5.8
+Задание&nbsp;5.8
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>При помощи инструмента “Выбрать по выражению” выберите выдела с преобладающей породой береза, осина, липа (для выбора всех трех пород используйте оператор <code>IN</code>) и возрастом более 60 лет. В результате должно быть выбрано 136 выделов.</p>
+<p>При помощи инструмента “Выбрать по выражению” выберите выдела с преобладающей породой береза, осина, липа (для выбора всех трех пород используйте оператор <code>IN</code>) и возрастом более 60 лет. В результате должно быть выбрано <strong>136 выделов.</strong></p>
 </div>
 </div>
 </section>
@@ -442,44 +448,44 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <p>В пункте <strong>“Выбрать объекты слоя”</strong> назначается слой из которого выбираются объекты по условию пространственного отношения с другим слоем, который задается в пункте <strong>“по отношению к объектам слоя”</strong>. Необходимые пространственные отношения отмечаются чек-боксом в пункте <strong>“Геометрический предикат”</strong>. Пункт <strong>“Изменить текущую выборку”</strong> позволяет <strong>“создать новую выборку”</strong> или модифицировать уже выбранные объекты.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 5.9
+Задание&nbsp;5.9
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Используя инструмент <strong>“Выбрать по расположению”</strong>, выберите только те выдела, которые пересекаются реками (слой “rivers”). Сохраните выбранные выдела как отдельный слой. В результате должно быть выбрано 64 выдела.</p>
+<p>Используя инструмент <strong>“Выбрать по расположению”</strong>, выберите только те выдела, которые пересекаются реками (слой “rivers”). Сохраните выбранные выдела как отдельный слой. В результате должно быть выбрано <strong>64 выдела.</strong></p>
 </div>
 </div>
 <p>Пункт “Изменить текущую выборку” позволяет “создать новую выборку” (по умолчанию) или модифицировать уже существующую: <strong>“добавить к текущей выборке”, “выбрать в текущей выборке”, “удалить из текущей выборки”</strong>. Последние 3 пункта позволяют объединить несколько пространственных запросов или комбинировать пространственный запрос с выбором по атрибутам.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 5.10
+Задание&nbsp;5.10
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Выберите выдела которые пересекаются реками и дорогами. Для этого объедините два пространственных запроса (пересечение с реками и пересечение с дорогами). В результате должен быть выбран 151 выдел. Сохраните выбранные выдела как новый векторный слой.</p>
+<p>Выберите выдела которые пересекаются реками и дорогами. Для этого объедините два пространственных запроса (пересечение с реками и пересечение с дорогами). В результате должен быть выбран <strong>151 выдел.</strong> Сохраните выбранные выдела как новый векторный слой.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание 5.11
+Задание&nbsp;5.11
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Выберите выдела которые пересекаются реками и преобладающая порода в которых НЕ сосна. Для этого объедините пространственный запрос с запросом по атрибутам. В результате должно быть выбрано 19 выделов. Сохраните выбранные объекты как новый векторный слой.</p>
+<p>Выберите выдела которые пересекаются реками и преобладающая порода в которых НЕ сосна. Для этого объедините пространственный запрос с запросом по атрибутам. В результате должно быть выбрано <strong>19 выделов.</strong> Сохраните выбранные объекты как новый векторный слой.</p>
 </div>
 </div>
 
@@ -896,7 +902,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
