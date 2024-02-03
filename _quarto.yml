@@ -27,11 +27,22 @@ book:
     - chapter8_satellite_data.qmd
     - references.qmd
   appendices:
-    - application_1_geopackage.qmd
+    - appendice_1_geopackage.qmd
+    - appendice_2_epsg_3857.qmd
   navbar: 
     logo: "./cover.png"
 
-
+crossref:
+  custom:
+    - kind: float
+      reference-prefix: Видео
+      caption-prefix: Видео
+      key: vid
+    - kind: float
+      reference-prefix: Задание
+      caption-prefix: Задание
+      key: task
+      
 bibliography: references.bib
 number-sections: true
 
