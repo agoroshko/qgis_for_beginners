@@ -6,11 +6,25 @@ lightbox: true
 
 language:
   section-title-appendices: "Приложения"
+  
+citation: 
+  url: https://agoroshko.github.io/qgis_for_beginners
 
 book:
-  title: "Основы геоинформационных систем в QGIS 3.28"
+  title: "Основы геоинформационных систем в QGIS"
   subtitle: "Геоинформационные системы в лесном хозяйстве"
-  author: "Андрей Горошко, Ирина Воробьева, Виктор Немич"
+
+  author:
+  - name: Андрей Горошко
+    affiliation: СибГУ им. М.Ф. Решетнева
+    affiliation-url: https://www.sibsau.ru/
+  - name: Ирина Воробьева
+    affiliation: СибГУ им. М.Ф. Решетнева
+    affiliation-url: https://www.sibsau.ru/
+  - name: Виктор Немич
+    affiliation: СибГУ им. М.Ф. Решетнева
+    affiliation-url: https://www.sibsau.ru/
+  
   date: today
   license: Лицензия
   doi: 10.5281/zenodo.10034638
@@ -29,6 +43,7 @@ book:
   appendices:
     - appendice_1_geopackage.qmd
     - appendice_2_epsg_3857.qmd
+    - appendice_3_csv.qmd
   navbar: 
     logo: "./cover.png"
 
