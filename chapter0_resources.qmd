@@ -4,6 +4,7 @@
 
 ## Книги / сайты на русском языке
  - [Основы геоинформатики: практикум в QGIS](https://aentin.github.io/qgis-course/)
+ - [Документация NextGIS QGIS](https://docs.nextgis.ru/docs_ngqgis/source/toc.html)
  - Коросов А. В., Зорина А. А. Экологические приложения Quantum GIS: учебное пособие для студентов биологических специальностей. – Петрозаводск: Издательство ПетрГУ, 2016. ― 211 с.
  - [GIS-Lab](https://gis-lab.info/)
  - [Картетика](https://cartetika.ru/tpost/mrnz02bza1-gis-tutoriali-po-qgis-i-ne-tolko)
