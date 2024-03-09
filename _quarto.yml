@@ -38,7 +38,6 @@ book:
     - chapter5_queries.qmd
     - chapter6_spatial_operations.qmd
     - chapter7_DEM.qmd
-    - chapter8_satellite_data.qmd
     - references.qmd
   appendices:
     - appendice_1_geopackage.qmd
