@@ -62,7 +62,11 @@ number-sections: true
 
 format:
   html:
-    theme: cosmo
+    theme:
+      light: 
+        - cosmo
+      dark: 
+        - solar
     lang: ru
     number-sections: true
   pdf:
