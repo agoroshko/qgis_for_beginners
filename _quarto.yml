@@ -45,6 +45,8 @@ book:
     - appendice_3_csv.qmd
   navbar: 
     logo: "./cover.png"
+    
+  page-navigation: true
 
 crossref:
   custom:
