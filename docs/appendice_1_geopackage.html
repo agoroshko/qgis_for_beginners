@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Основы геоинформационных систем в QGIS 3.28 - Приложение A — Формат данных GeoPackage</title>
+<title>Основы геоинформационных систем в QGIS - Приложение A — Формат данных GeoPackage</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
     <img src="././cover.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Основы геоинформационных систем в QGIS 3.28</span>
+    <span class="navbar-title">Основы геоинформационных систем в QGIS</span>
     </a>
   </div>
         <div class="quarto-navbar-tools">
@@ -164,12 +164,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter8_satellite_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Работа с космическими снимками</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Библиографический список</span></a>
   </div>
@@ -192,7 +186,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendice_2_epsg_3857.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Система координат WGS 84 / Pseudo-Mercator (EPSG:3857)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Система координат Pseudo-Mercator (EPSG:3857)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendice_3_csv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Формат данных CSV</span></span></a>
   </div>
 </li>
       </ul>
@@ -234,7 +234,8 @@ ul.task-list li input[type="checkbox"] {
 <li>таблицы атрибутов (без геометрий).</li>
 </ul>
 <p>В отличие от шейп-файлов, которые представлены набором отдельных файлов работающих вместе (.shp, .shx, .dbf и т.д.), файл GeoPackage является единственным файлом с расширением <strong>.gpkg</strong>. Более того, один файл способен хранить в себе несколько слоев данных (при использовании шейп-файлов каждый слой должен храниться отдельно), а объем файла не ограничен (шейп-файлы ограничены объемом 2 GB). С подробным сравнением форматов можно ознакомиться по <a href="https://mapscaping.com/shapefiles-vs-geopackage/">ссылке</a>.<br>
-Несмотря на преимущества формата GeoPackage, он не так популярен как шейп-файлы. В QGIS процесс работы с данными несущественно зависит от формата их хранения, за исключением одной особенности. При работе с файлами GeoPackage каждый векторный слой имеет ключь - поле <strong>fid</strong> которое содержит уникальное целое значение для каждой строки таблицы атрибутов. Если такое поле не создано, после сохранения файла оно будет добавлено автоматически. При работе с геометриями объектов, в поле могут появляться повторяющиеся значения. Такой слой не может быть сохранен, о чем программа предупредит пользователя. Для исправления ошибки устраните дубликаты в поле <strong>fid</strong> (отсутствующие значения так же недопустимы) или удалите поле полностью. В последнем случае оно будет автоматически добавлено после сохранения слоя.</p>
+Несмотря на преимущества формата GeoPackage, он не так распростанен как шейп-файлы. В QGIS процесс работы с данными несущественно зависит от формата их хранения, за исключением одной особенности. При работе с файлами GeoPackage каждый векторный слой имеет ключь - поле <strong>fid</strong> которое содержит уникальное натуральное число для каждой строки таблицы атрибутов. Если такое поле не создано, после сохранения файла оно будет добавлено автоматически. При редактировании геометрий объектов, в поле могут появляться повторяющиеся значения. Такой слой не может быть сохранен, о чем программа предупредит пользователя. Для исправления ошибки устраните дубликаты в поле <strong>fid</strong> (отсутствующие значения так же недопустимы) или удалите поле полностью. В последнем случае оно будет автоматически добавлено после сохранения слоя.</p>
+<p><strong>!Добавить видео исправления ошибки в поле fid!</strong></p>
 
 
 
@@ -633,8 +634,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./appendice_2_epsg_3857.html" class="pagination-link" aria-label="<span class='chapter-number'>B</span>&nbsp; <span class='chapter-title'>Система координат WGS 84 / Pseudo-Mercator (EPSG:3857)</span>">
-        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Система координат WGS 84 / Pseudo-Mercator (EPSG:3857)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./appendice_2_epsg_3857.html" class="pagination-link" aria-label="<span class='chapter-number'>B</span>&nbsp; <span class='chapter-title'>Система координат Pseudo-Mercator (EPSG:3857)</span>">
+        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Система координат Pseudo-Mercator (EPSG:3857)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

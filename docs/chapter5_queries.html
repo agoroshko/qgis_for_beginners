@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Основы геоинформационных систем в QGIS 3.28 - 5&nbsp; Запросы</title>
+<title>Основы геоинформационных систем в QGIS - 5&nbsp; Запросы</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,10 +37,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -86,10 +88,11 @@ ul.task-list li input[type="checkbox"] {
     <img src="././cover.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Основы геоинформационных систем в QGIS 3.28</span>
+    <span class="navbar-title">Основы геоинформационных систем в QGIS</span>
     </a>
   </div>
         <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Переключить темный режим"><i class="bi"></i></a>
 </div>
           <div id="quarto-search" class="" title="Поиск"></div>
       </div> <!-- /container-fluid -->
@@ -126,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter1_georeferencing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Привязка растра</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Пространственная привязка растра</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -138,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter3_attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Добавление атрибутивной информации</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Атрибутивная информация</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -167,12 +170,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter8_satellite_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Работа с космическими снимками</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Библиографический список</span></a>
   </div>
@@ -195,7 +192,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendice_2_epsg_3857.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Система координат WGS 84 / Pseudo-Mercator (EPSG:3857)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Система координат Pseudo-Mercator (EPSG:3857)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendice_3_csv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Формат данных CSV</span></span></a>
   </div>
 </li>
       </ul>
@@ -242,7 +245,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-choices" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-choices-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/5_7_Выбор объектов.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./pictures/5_7_Выбор объектов.png" class="img-fluid figure-img"></a>
+<a href="./pictures/5_7_Выбор объектов.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="./pictures/5_7_Выбор объектов.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-choices-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;5.1: Инструменты панели выбора объектов
@@ -251,11 +254,11 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="выбор-объектов-по-значению" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="выбор-объектов-по-значению"><span class="header-section-number">5.1</span> Выбор объектов по значению</h2>
-<p>Простой способ выбора объектов по атрибутов реализуется при помощи инструмента <strong>“Выбрать объекты по значению”</strong> который активируется при помощи горячей клавиши F3 или выбором из “панели выбора объектов”. В открывшемся окне представлен список полей слоя для каждого из которых возможно задать определенный фильтр. По умолчанию для всех полей активирован режим <strong>“Исключить поле”</strong> т.е. поле не участвует в фильтрации. Для текстовых полей дополнительная настройка <strong>“Case sensetive”</strong> включает чувствительность к регистру (прописные и заглавные буквы будут блиять на результаты поиска). Список доступных логических операций различен для текстовых и числовых полей (<a href="#fig-choice_1" class="quarto-xref">Рисунок&nbsp;<span>5.2</span></a>, <a href="#fig-choice_2" class="quarto-xref">Рисунок&nbsp;<span>5.3</span></a>).</p>
+<p>Простой способ выбора объектов по атрибутов реализуется при помощи инструмента <strong>“Выбрать объекты по значению”</strong> <img src="./QGIS_icons/mIconFormSelect.svg" class="img-fluid" alt="1"> который активируется при помощи горячей клавиши F3 или выбором из “панели выбора объектов”. В открывшемся окне представлен список полей слоя для каждого из которых возможно задать определенный фильтр. По умолчанию для всех полей активирован режим <strong>“Исключить поле”</strong> т.е. поле не участвует в фильтрации. Для текстовых полей дополнительная настройка <strong>“Case sensetive”</strong> включает чувствительность к регистру (прописные и заглавные буквы будут блиять на результаты поиска). Список доступных логических операций различен для текстовых и числовых полей (<a href="#fig-choice_1" class="quarto-xref">Рисунок&nbsp;<span>5.2</span></a>, <a href="#fig-choice_2" class="quarto-xref">Рисунок&nbsp;<span>5.3</span></a>).</p>
 <div id="fig-choice_1" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-choice_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/5_1_Выбор объектов по значению.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="./pictures/5_1_Выбор объектов по значению.png" class="img-fluid figure-img"></a>
+<a href="./pictures/5_1_Выбор объектов по значению.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="./pictures/5_1_Выбор объектов по значению.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-choice_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;5.2: Выбор объектов по значению для числового поля: площадь выдела (s_ga)
@@ -265,7 +268,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-choice_2" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-choice_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/5_2_Выбор объектов по значению.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><img src="./pictures/5_2_Выбор объектов по значению.png" class="img-fluid figure-img"></a>
+<a href="./pictures/5_2_Выбор объектов по значению.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><img src="./pictures/5_2_Выбор объектов по значению.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-choice_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;5.3: Выбор объектов по значению для текстового поля: состав насаждений (sostav)
@@ -276,7 +279,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-choice_3" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-choice_3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/5_3_Выбор объектов по значению.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><img src="./pictures/5_3_Выбор объектов по значению.png" class="img-fluid figure-img"></a>
+<a href="./pictures/5_3_Выбор объектов по значению.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4"><img src="./pictures/5_3_Выбор объектов по значению.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-choice_3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;5.4: Выбор выделов со средним возрастом более 100 лет и преобладающей породой сосна
@@ -310,11 +313,11 @@ ul.task-list li input[type="checkbox"] {
 <p>Сохраните выделенные объекты из предыдущего задания как новый векторный слой.</p>
 </div>
 </div>
-<p>Кроме опции <strong>“Выбрать объекты”</strong> доступны варианты модификации уже созданной выборки. <strong>“Добавить к текущей выборке”</strong> и <strong>“Удалить из текущей выборки”</strong> позволяют соответственно добавить объекты к уже существующей выборке или удалить из нее, <strong>“Фильтровать текущую выборку”</strong> применяет фильтр к ранее выбранным объектам (<a href="#fig-choice_mode" class="quarto-xref">Рисунок&nbsp;<span>5.5</span></a>).</p>
+<p>Кроме опции <strong>“Выбрать объекты”</strong> <img src="./QGIS_icons/mIconFormSelect.svg" class="img-fluid" alt="1"> доступны варианты модификации уже созданной выборки. <strong>“Добавить к текущей выборке”</strong> <img src="./QGIS_icons/mIconSelectAdd.svg" class="img-fluid" alt="1"> и <strong>“Удалить из текущей выборки”</strong> <img src="./QGIS_icons/mIconSelectRemove.svg" class="img-fluid" alt="1"> позволяют соответственно добавить объекты к уже существующей выборке или удалить из нее, <strong>“Фильтровать текущую выборку”</strong> <img src="./QGIS_icons/mIconSelectIntersect.svg" class="img-fluid" alt="1"> применяет фильтр к ранее выбранным объектам (<a href="#fig-choice_mode" class="quarto-xref">Рисунок&nbsp;<span>5.5</span></a>).</p>
 <div id="fig-choice_mode" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-choice_mode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/5_4_Режим выбора объектов.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><img src="./pictures/5_4_Режим выбора объектов.png" class="img-fluid figure-img"></a>
+<a href="./pictures/5_4_Режим выбора объектов.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5"><img src="./pictures/5_4_Режим выбора объектов.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-choice_mode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;5.5: Варианты модификации выборки
@@ -331,17 +334,17 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Выберите 20 - 30 случайных выделов, используя инструмент “Выбор объектов” <img src="./icons/5_2_Выбор объектов.png" class="img-fluid" alt="Выбор объектов">. Отфильтруйте полученную выборку так, что бы остались выдела со средним возрастом более 100 лет (поле “A_let”). Для этого используйте инструмент “Выбрать объекты по значению”, задайте условия фильтра, после чего используйте режим “Фильтровать текущую выборку”.</p>
+<p>Выберите 20 - 30 случайных выделов, используя инструмент “Выбор объектов” <img src="./QGIS_icons/mActionSelectRectangle.svg" class="img-fluid" alt="1">. Отфильтруйте полученную выборку так, что бы остались выдела со средним возрастом более 100 лет (поле “A_let”). Для этого используйте инструмент “Выбрать объекты по значению”, задайте условия фильтра, после чего используйте режим “Фильтровать текущую выборку” <img src="./QGIS_icons/mIconSelectIntersect.svg" class="img-fluid" alt="1">.</p>
 </div>
 </div>
 </section>
 <section id="выбор-объектов-по-выражению" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="выбор-объектов-по-выражению"><span class="header-section-number">5.2</span> Выбор объектов по выражению</h2>
-<p>Более гибкие возможности выбора объектов предоставляет инструмент <strong>“Выбрать объекты по выражению…”</strong> (<a href="#fig-choice_query" class="quarto-xref">Рисунок&nbsp;<span>5.6</span></a>).</p>
+<p>Более гибкие возможности выбора объектов предоставляет инструмент <strong>“Выбрать объекты по выражению…”</strong> <img src="./QGIS_icons/mIconExpressionSelect.svg" class="img-fluid" alt="1"> (<a href="#fig-choice_query" class="quarto-xref">Рисунок&nbsp;<span>5.6</span></a>).</p>
 <div id="fig-choice_query" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-choice_query-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/5_5_Выбор объектов по выражению.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6"><img src="./pictures/5_5_Выбор объектов по выражению.png" class="img-fluid figure-img"></a>
+<a href="./pictures/5_5_Выбор объектов по выражению.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6"><img src="./pictures/5_5_Выбор объектов по выражению.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-choice_query-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;5.6: Окно инструмента “Выбрать объекты по выражению”
@@ -360,7 +363,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>В конструкторе выражений названия полей записываются в двойных кавычках (<code>"s_ga"</code>), текст в одинарных (<code>'БРТ'</code>), числа записывают без кавычек.</p>
+<p>В конструкторе выражений названия полей записываются в двойных кавычках (<code>"s_ga"</code>), текст в одинарных (<code>'БРТ'</code>), числа записывают без кавычек.<br>
+Поисковые запросы чувствительны к регистру и языку, поэтому при поиске сосны в поле “el_lesa” порода записывается на кириллице с заглавной буквы - <code>'С'</code>.</p>
 </div>
 </div>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
@@ -376,7 +380,7 @@ ul.task-list li input[type="checkbox"] {
 <p>При помощи инструмента “Выбрать по выражению” выберите выдела первой группы возраста (поле “gr_vozr”). В таблице атрибутов выдела первой группы возраста (молодняки) имеют значение 1 в соответствующем поле. В результате должно быть выбрано <strong>9 выделов</strong>.</p>
 </div>
 </div>
-<p>Пропущенные значения кодируются значением NULL. При поиске пропущенных значений в качестве оператора используется <code>IS</code> вместо знака равенства Например, для поиска выделов с пропущенным средним возрастом, выражение будет выглядеть так: <code>"A_let" IS NULL</code>.</p>
+<p>Пропущенные значения кодируются значением <strong>NULL</strong>. При поиске пропущенных значений в качестве оператора используется <code>IS</code> вместо знака равенства. Например, для поиска выделов с пропущенным средним возрастом, выражение будет выглядеть так: <code>"A_let" IS NULL</code>.</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -387,10 +391,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>При помощи инструмента “Выбрать по выражению” выберите выдела в которых пропущен запас на 1 га (поле “zapas_1ga”). В результате должно быть выбрано <strong>74 выдела</strong>.</p>
+<p>При помощи инструмента “Выбрать объекты по выражению…” <img src="./QGIS_icons/mIconExpressionSelect.svg" class="img-fluid" alt="1"> выберите выдела в которых пропущен запас на 1 га (поле “zapas_1ga”). В результате должно быть выбрано <strong>74 выдела</strong>.</p>
 </div>
 </div>
-<p>Отдельная группа операторов позволяет объединить несколько условий в единое выражение, соединяя их одним из операторов: <strong>И (AND); ИЛИ (OR)</strong>. Отдельно стоит рассмотреть оператор NOT, который меняет результат любого оператора на противоположный. Все перечисленные операторы могут принимать только два значения: правда или ложь. Если для конкретного объекта всё выражение принимает значение правда — этот объект соответствует условиям и попадает в выборку.<br>
+<p>Отдельная группа операторов позволяет объединить несколько условий в единое выражение, соединяя их одним из операторов: <strong>И (AND); ИЛИ (OR)</strong>. Отдельно стоит рассмотреть оператор <strong>NOT</strong>, который меняет результат любого оператора на противоположный. Все перечисленные операторы могут принимать только два значения: правда или ложь. Если для конкретного объекта всё выражение принимает значение правда — этот объект соответствует условиям и попадает в выборку.<br>
 Для выбора выделов со средним возрастом от 50 до 70 лет конструируется следующее выражение: <code>"A_let" &gt; 50 AND "A_let" &lt; 70</code>. В этом случае было записано два условия соединенных через оператор <strong>AND (И)</strong>. Такое выражение выбирает объекты, которые соответствуют <strong>И</strong> первому <strong>И</strong> второму условию.</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -402,7 +406,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>При помощи инструмента “Выбрать по выражению” выберите выдела со средним диаметром больше 40 см (поле “DBH_cm”) <strong>И</strong> преобладающей породой сосна. В результате должен быть выбран <strong>21 выдел.</strong></p>
+<p>При помощи инструмента “Выбрать объекты по выражению…” <img src="./QGIS_icons/mIconExpressionSelect.svg" class="img-fluid" alt="1"> выберите выдела со средним диаметром больше 40 см (поле “DBH_cm”) <strong>И</strong> преобладающей породой сосна. В результате должен быть выбран <strong>21 выдел.</strong></p>
 </div>
 </div>
 <p>Для объединения нескольких условий так же применяется оператор <strong>ИЛИ (OR)</strong> который используется когд объект должен удовлетворять хотя бы одному условию. Например, для выбора выделов со средней высотой более 30 м <strong>ИЛИ</strong> возрастом более 100 лет используется выражение: <code>"H_m" &gt; 30 OR "A_let" &gt; 100</code>.</p>
@@ -416,7 +420,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>При помощи инструмента “Выбрать по выражению” выберите выдела с преобладающей породой осина <strong>ИЛИ</strong> выдела старше 140 лет. В результате должно быть выбрано <strong>38 выделов.</strong></p>
+<p>При помощи инструмента “Выбрать объекты по выражению…” <img src="./QGIS_icons/mIconExpressionSelect.svg" class="img-fluid" alt="1"> выберите выдела с преобладающей породой осина <strong>ИЛИ</strong> выдела старше 140 лет. В результате должно быть выбрано <strong>38 выделов.</strong></p>
 </div>
 </div>
 <p>Для выбора нескольких значений качественной переменной используется оператор <strong>IN</strong> после которого в круглых скобках указывается список значений. Если значение атрибута соответствует хотя бы одному значению из списка - выдел попадает в выборку. Выбор выделов с типами леса ВКТ, ЗМ или КТП производится выражением: <code>"tip_lesa" IN ('ВКТ', 'ЗМ', 'КТП')</code>.</p>
@@ -430,17 +434,17 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>При помощи инструмента “Выбрать по выражению” выберите выдела с преобладающей породой береза, осина, липа (для выбора всех трех пород используйте оператор <code>IN</code>) и возрастом более 60 лет. В результате должно быть выбрано <strong>136 выделов.</strong></p>
+<p>При помощи инструмента “Выбрать объекты по выражению…” <img src="./QGIS_icons/mIconExpressionSelect.svg" class="img-fluid" alt="1"> выберите выдела с преобладающей породой береза, осина, липа (для выбора всех трех пород используйте оператор <code>IN</code>) и возрастом более 60 лет. В результате должно быть выбрано <strong>136 выделов.</strong></p>
 </div>
 </div>
 </section>
 <section id="выбор-объектов-по-пространственному-положению" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="выбор-объектов-по-пространственному-положению"><span class="header-section-number">5.3</span> Выбор объектов по пространственному положению</h2>
-<p>Выбор объектов по пространственному положению производится инструментом <strong>“Выбрать по расположению”</strong> <img src="./icons/5_3_Выбор объектов по пространственному положению.png" class="img-fluid" alt="Выбор объектов по пространственному положению"> который позволяет выбрать объекты одного слоя по пространственным отношениям к объектам другого слоя (<a href="#fig-spat_query" class="quarto-xref">Рисунок&nbsp;<span>5.7</span></a>).</p>
+<p>Выбор объектов по пространственному положению производится инструментом <strong>“Выбрать по расположению”</strong> <img src="./QGIS_icons/algorithms/mAlgorithmSelectLocation.svg" class="img-fluid" alt="1"> который позволяет выбрать объекты одного слоя по пространственным отношениям к объектам другого слоя (<a href="#fig-spat_query" class="quarto-xref">Рисунок&nbsp;<span>5.7</span></a>).</p>
 <div id="fig-spat_query" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-spat_query-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/5_6_Выбрать по расположению.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7"><img src="./pictures/5_6_Выбрать по расположению.png" class="img-fluid figure-img"></a>
+<a href="./pictures/5_6_Выбрать по расположению.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7"><img src="./pictures/5_6_Выбрать по расположению.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-spat_query-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;5.7: Окно инструмента “Выбрать по расположению”
@@ -522,6 +526,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -902,7 +1050,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","openEffect":"zoom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

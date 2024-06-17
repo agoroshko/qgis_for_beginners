@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Основы геоинформационных систем в QGIS 3.28 - 3&nbsp; Добавление атрибутивной информации</title>
+<title>Основы геоинформационных систем в QGIS - 3&nbsp; Атрибутивная информация</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,10 +37,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -86,10 +88,11 @@ ul.task-list li input[type="checkbox"] {
     <img src="././cover.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Основы геоинформационных систем в QGIS 3.28</span>
+    <span class="navbar-title">Основы геоинформационных систем в QGIS</span>
     </a>
   </div>
         <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Переключить темный режим"><i class="bi"></i></a>
 </div>
           <div id="quarto-search" class="" title="Поиск"></div>
       </div> <!-- /container-fluid -->
@@ -99,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter3_attributes.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Добавление атрибутивной информации</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter3_attributes.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Атрибутивная информация</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -126,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter1_georeferencing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Привязка растра</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Пространственная привязка растра</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -138,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter3_attributes.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Добавление атрибутивной информации</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Атрибутивная информация</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -167,12 +170,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter8_satellite_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Работа с космическими снимками</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Библиографический список</span></a>
   </div>
@@ -188,8 +185,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link">
+  <a href="./appendice_1_geopackage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Формат данных GeoPackage</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendice_2_epsg_3857.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Система координат Pseudo-Mercator (EPSG:3857)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendice_3_csv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Формат данных CSV</span></span></a>
   </div>
 </li>
       </ul>
@@ -220,7 +229,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Добавление атрибутивной информации</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Атрибутивная информация</span></h1>
 </div>
 
 
@@ -237,14 +246,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>С каждым объектом связан набор атрибутов, которые характеризуют тот или иной объект. Так, слой “Дороги” содержит атрибуты <strong>id</strong> и <strong>name</strong>, а слой выделов: <strong>id</strong> и <strong>videl</strong>. Атрибуты объектов отдельного слоя представлены в виде таблицы, где каждая строка - отдельный объект, а каждый столбец (который называется полем) - та или иная характирстика. Таким образом объекты одного слоя могут быть классифицированы в зависимости от их характеристик (например тип покрытия дороги или преобладающая порода выдела). Таблица атрибутов открывается нажатием правой кнопки мыши в панеле слоев - <strong>Открыть таблицу атрибутов</strong> (<a href="#fig-attrtable" class="quarto-xref">Рисунок&nbsp;<span>3.1</span></a>).</p>
-<div id="fig-attrtable" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-attrtable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./gif/17_Таблица атрибутов.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./gif/17_Таблица атрибутов.gif" class="img-fluid figure-img"></a>
+<p>С каждым объектом связан набор атрибутов, которые характеризуют тот или иной объект. Так, слой “Дороги” содержит атрибуты <strong>id</strong> и <strong>name</strong>, а слой выделов: <strong>id</strong> и <strong>videl</strong>. Атрибуты объектов отдельного слоя представлены в виде таблицы, где каждая строка - отдельный объект, а каждый столбец (который называется полем или атрибутом) - та или иная характирстика. Таким образом объекты, кроме положения в пространстве и формы, могут иметь количественные и качественные характеристики (например тип покрытия дороги или средний возраст насаждения в выделе). Таблица атрибутов открывается нажатием правой кнопки мыши в панеле слоев <strong>&gt; “Открыть таблицу атрибутов”</strong> <img src="./QGIS_icons/mActionOpenTable.svg" class="img-fluid" alt="1"> (<a href="#vid-open_attr_table" class="quarto-xref">Видео&nbsp;<span>3.1</span></a>).</p>
+<div id="vid-open_attr_table" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-open_attr_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/3_1_Открыть таблицу атрибутов.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><video src="./videos/3_1_Открыть%20таблицу%20атрибутов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/3_1_Открыть таблицу атрибутов.mp4">Video</a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-attrtable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;3.1: Таблица атрибутов слоя “выдела”
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-open_attr_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;3.1: Открытие таблицы атрибутов слоя
 </figcaption>
 </figure>
 </div>
@@ -258,31 +267,58 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Откройте таблицу атрибутов слоя “выдела”.</p>
+<p>Откройте таблицу атрибутов слоя “Выделы”.</p>
 </div>
 </div>
-<p>При выделении строки в таблице атрибутов, связанная с ним геометрия будет подсвечена желтым цветом на карте, и наоборот (<a href="#fig-attrtablecon" class="quarto-xref">Рисунок&nbsp;<span>3.2</span></a>).</p>
-<div id="fig-attrtablecon" class="quarto-figure quarto-figure-center quarto-float anchored">
+<p>При выделении строки в таблице атрибутов, связанная с ним геометрия будет подсвечена желтым цветом на карте, и наоборот (см. <a href="chapter2_vectorization.html#sec-pickobj" class="quarto-xref"><span>Глава 2.5</span></a>). Инструменты таблицы атрибутов по большей части дублируют инструменты основного окна программы (<a href="#fig-attr_table_tools" class="quarto-xref">Рисунок&nbsp;<span>3.1</span></a>). В режиме редактирования доступно большее количество инструментов а так же появляется дополнительная строка для массового редактирования атрибутов (<a href="#fig-attr_table_tools2" class="quarto-xref">Рисунок&nbsp;<span>3.1 (b)</span></a>).</p>
+<div id="fig-attr_table_tools" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-attrtablecon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./gif/19_Выделение объектов.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="./gif/19_Выделение объектов.gif" class="img-fluid figure-img"></a>
+<div aria-describedby="fig-attr_table_tools-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-attr_table_tools" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-attr_table_tools1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-attr_table_tools1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/3_1_Таблица атрибутов_1.png" class="lightbox" data-gallery="fig-attr_table_tools" data-glightbox="description: .lightbox-desc-2"><img src="./pictures2/3_1_Таблица атрибутов_1.png" class="img-fluid figure-img" data-ref-parent="fig-attr_table_tools"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-attrtablecon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;3.2: Связь объектов с таблицей атрибутов
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-attr_table_tools1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Инструменты таблицы атрибутов
 </figcaption>
 </figure>
 </div>
-<p>Инструменты таблицы атрибутов по большей части дублируют инструменты основного окна программы <img src="./icons/10_Инструменты таблицы атрибутов.png" class="img-fluid" alt="инструменты таблицы атрибутов">. Они позволяют переключиться в <strong>режим редактирования</strong> слоя, <strong>сохранить изменения</strong>, <strong>удалить выбранные объекты</strong>, инструменты выделения объектов, инструменты по добавлению и удалению полей (<strong>Новое поле</strong> и <strong>Удалить поле</strong>), инструмент <strong>Реаргонизовать колонки</strong> для измнения порядка полей в таблице и другие.</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-attr_table_tools" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-attr_table_tools2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-attr_table_tools2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/3_2_Таблица атрибутов_2.png" class="lightbox" data-gallery="fig-attr_table_tools" data-glightbox="description: .lightbox-desc-3"><img src="./pictures2/3_2_Таблица атрибутов_2.png" class="img-fluid figure-img" data-ref-parent="fig-attr_table_tools"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-attr_table_tools2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Инструменты таблицы атрибутов в режиме редактирования
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-attr_table_tools-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;3.1: Таблица атрибутов
+</figcaption>
+</figure>
+</div>
+<p>Они позволяют переключить слой в <strong>“Режим редактирования”</strong> <img src="./QGIS_icons/mActionToggleEditing.svg" class="img-fluid" alt="1">, <strong>сохранить изменения</strong> <img src="./QGIS_icons/mActionSaveAllEdits.svg" class="img-fluid" alt="1">, <strong>удалить выбранные объекты</strong> <img src="./QGIS_icons/mActionDeleteSelected.svg" class="img-fluid" alt="1">, инструменты выделения объектов, инструменты по добавлению и удалению полей (<strong>“Новое поле”</strong> <img src="./QGIS_icons/mActionNewAttribute.svg" class="img-fluid" alt="1"> и <strong>“Удалить поле”</strong> <img src="./QGIS_icons/mActionDeleteAttribute.svg" class="img-fluid" alt="1">), инструмент <strong>“Реаргонизовать колонки”</strong> <img src="./QGIS_icons/mActionEditTable.svg" class="img-fluid" alt="1"> для измнения порядка полей в таблице и другие.</p>
 <section id="создание-и-удаление-полей" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="создание-и-удаление-полей"><span class="header-section-number">3.1</span> Создание и удаление полей</h2>
-<p>Создание новых полей возможно как при создании нового слоя, так и в дальнейшем в таблице атрибутов. Для однозначной индентификации каждого выдела в приделах участкового лесничества необходим не только номер выдела (это поле было добавлено при создании слоя “выдела” и заполнено в процессе оцифровки) но и номер квартала. Для добавления нового поля переведите слой в <strong>Режим редактирования</strong> (первая иконка в таблице атрибутов) и выберите инструмент <strong>Новое поле</strong>. Введите имя поля: “kvartal”; тип: “Целое число”, размер: “2” (в таком случае поле сможет содержать только двухзначные числа, масимальный номер квартала может быть 99) (<a href="#fig-fieldkv" class="quarto-xref">Рисунок&nbsp;<span>3.7</span></a>).</p>
+<p>Создание новых полей возможно как при создании нового слоя, так и в дальнейшем в таблице атрибутов. Для однозначной индентификации каждого выдела в приделах участкового лесничества необходим не только номер выдела (это поле было добавлено при создании слоя “выдела” и заполнено в процессе оцифровки) но и номер квартала. Для добавления нового поля переведите слой в <strong>Режим редактирования</strong> <img src="./QGIS_icons/mActionToggleEditing.svg" class="img-fluid" alt="1"> и выберите инструмент <strong>Новое поле</strong> <img src="./QGIS_icons/mActionNewAttribute.svg" class="img-fluid" alt="1">. Введите имя поля: <strong>“kvartal”</strong>; тип: <strong>“Целое число”</strong>, размер: <strong>2</strong> (в таком случае поле сможет содержать только двухзначные числа, масимальный номер квартала может быть 99) (<a href="#fig-fieldkv" class="quarto-xref">Рисунок&nbsp;<span>3.6</span></a>).</p>
 <div id="fig-fieldkv" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fieldkv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/7_Настройки поля квартал.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><img src="./pictures/7_Настройки поля квартал.png" class="img-fluid figure-img"></a>
+<a href="./pictures/7_Настройки поля квартал.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><img src="./pictures/7_Настройки поля квартал.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fieldkv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;3.3: Настройки нового поля
+Рисунок&nbsp;3.2: Настройки нового поля
 </figcaption>
 </figure>
 </div>
@@ -299,8 +335,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Имена полей всегда вводятся на латинице без пробелов, для разделения слов можно использовать нижнее_подчеркивание. Использование других символов в имени поля может создать непредвиденные проблемы!</p>
 </div>
 </div>
-<p>После нажатия <strong>ОК</strong> в таблице атрибутов появится новое пустое поле <strong>kvartal</strong>.<br>
-Для удаления полей используется инструмент <strong>Удалить поле</strong> (слой должен находиться в режиме редактирования). Воспользуемся этим инструментом что бы удалить поле <strong>id</strong>. В появившемся окне выберите удаляемое поле и нажмите ОК. Так же возможно выделить несколько полей сразу и удалить их.</p>
+<p>После нажатия <strong>ОК</strong> в таблице атрибутов появится новое пустое поле <strong>“kvartal”</strong>.<br>
+Для удаления полей используется инструмент <strong>“Удалить поле”</strong> <img src="./QGIS_icons/mActionDeleteAttribute.svg" class="img-fluid" alt="1"> (слой должен находиться в режиме редактирования). Воспользуемся этим инструментом что бы удалить поле <strong>id</strong>. В появившемся окне выберите удаляемое поле и нажмите ОК. Так же возможно выделить несколько полей сразу и удалить их.</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -311,24 +347,26 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>В слоей “выдела” добавьте новое поле <strong>kvartal</strong>, как показано выше, и удалите поле <strong>id</strong>. Используйте инструмент <strong>Реорганизовать колонки</strong> что бы поменять порядок полей (<strong>kvartal</strong> затем <strong>videl</strong>). После чего сохраните изменения в слое. В результате таблица атрибутов слоя должна соответствовать рисунку ниже (<a href="#fig-videlatable" class="quarto-xref">Рисунок&nbsp;<span>3.4</span></a>).</p>
-</div>
-</div>
+<p>В слой <strong>“выдела”</strong> добавьте новое поле <strong>kvartal</strong>, как показано выше, и удалите поле <strong>id</strong>. Используйте инструмент <strong>Реорганизовать колонки</strong> <img src="./QGIS_icons/mActionEditTable.svg" class="img-fluid" alt="1"> что бы поменять порядок полей (<strong>kvartal</strong> затем <strong>videl</strong>). После чего сохраните изменения в слое. В результате таблица атрибутов слоя должна соответствовать рисунку ниже (<a href="#fig-videlatable" class="quarto-xref">Рисунок&nbsp;<span>3.3</span></a>).</p>
 <div id="fig-videlatable" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-videlatable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/8_Таблица атрибутов выдела.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><img src="./pictures/8_Таблица атрибутов выдела.png" class="img-fluid figure-img"></a>
+<a href="./pictures/8_Таблица атрибутов выдела.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><img src="./pictures/8_Таблица атрибутов выдела.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-videlatable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;3.4: Таблица атрибутов слоя “выдела”
+Рисунок&nbsp;3.3: Таблица атрибутов слоя “выдела” после выполнения задания
 </figcaption>
 </figure>
 </div>
-<p>При добавлении нового поля важно обращать внимание не только на <strong>Имя</strong> поля, но и на <strong>Тип</strong> данных поля, который определяет какой тип информации будет содержать поле. Для .shp файлов доступны следующие типы полей: <strong>Целое число (integer 32 или 64 бита)</strong>, размер поля определяет сколько символов может вмещать поле; <strong>Десятичное число (real)</strong>, размер определяет общее число символов (включая дробную часть), точность - количество знаков после запятой; <strong>Текст (string)</strong> позволяет хранить надписи, количество символов так же определяется параметром <strong>Размер</strong>. При создании нового поля важно задать правильный тип поля и размер, изменить эти параметры в последствии будет не просто. Соответственно, если поле будет содержать порядковые номера объектов, следует выбрать тип <strong>Целое число (integer 32 или 64 бита)</strong>, если в поле будет записана длина или площадь - <strong>Десятичное число (real)</strong> с необходимой настройкой размера и точности, в случае названий объектов следует использовать тип <strong>Текст (string)</strong> необходимого размера.</p>
-</section>
-<section id="ввод-атрибутивной-информации" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="ввод-атрибутивной-информации"><span class="header-section-number">3.2</span> Ввод атрибутивной информации</h2>
-<p>Существует несколько способов добавления атрибутивной информации.Так, возможно заполнить таблицу вручную, как в любом табличном редакторе, или прикрепить уже существующую таблицу по ключевому полю. Так же возможно рассчитать новые атрибуты из уже имеющихся или из свойств геометрий объектов (например длина, площадь и т.д.). Для ввода информации вручную достаточно открыть таблицу атрибутов слоя, перевести слой в режим редактирования и заполнить нужные колонки как это делается в любом табличном редакторе.</p>
+</div>
+</div>
+<p>При добавлении нового поля важно обращать внимание не только на <strong>Имя</strong> поля, но и на <strong>Тип данных</strong>, который определяет какой тип информации может содержать поле. Для .shp файлов доступны следующие типы полей:</p>
+<ul>
+<li><strong>Целое число (integer 32 или 64 бита)</strong>, размер поля определяет сколько символов может вмещать поле;</li>
+<li><strong>Десятичное число (real)</strong>, размер определяет общее число символов (включая дробную часть), точность - количество знаков после запятой;</li>
+<li><strong>Текст (string)</strong> позволяет хранить надписи, количество символов так же определяется параметром <strong>“Размер”</strong>.</li>
+</ul>
+<p>При создании нового поля важно задать правильный тип поля и размер, изменить эти параметры в последствии будет не просто. Соответственно, если поле будет содержать порядковые номера объектов, следует выбрать тип <strong>Целое число (integer 32 или 64 бита)</strong>, если в поле будет записана длина или площадь - <strong>Десятичное число (real)</strong> с необходимой настройкой размера и точности, в случае названий объектов следует использовать тип <strong>Текст (string)</strong> необходимого размера.</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -339,31 +377,13 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Заполните вручную поле “kvartal” у первых пяти выделов. Номер кваратала для остальных выделов будет заполнен другим способом.</p>
+<p>!!!Добавить задание на создание полей разных типов и их различия</p>
 </div>
 </div>
-<p>Поскольку все значения поля <strong>kvartal</strong> будут одинаковыми, есть способ заполнить все значения сразу, используя <strong>Редактор выражений</strong> панель ниструментов которого появляется при переводе слоя в режим редактирования.</p>
-<div id="fig-redactor" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-redactor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./gif/20 Редактор выражений.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><img src="./gif/20 Редактор выражений.gif" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-redactor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;3.5: Редактор выражений
-</figcaption>
-</figure>
-</div>
-<p><strong>Редактор выражений</strong> имеет расширенный режим, для перехода в который необходимо нажать на иконку <img src="./icons/11_Редактор выражений расширенный.png" class="img-fluid" alt="Расширенный режим редактора выражений">. Этот режим позволяет создавать сложные выражения, рассчитывать длины и площади объектов и многое другое. Мы более подробно познакомимся с этим режимом в последующих разделах. Для начала заполним поле <strong>kvartal</strong>. Для этого в редакторе выражений слева от равно выбирается поле, к которму будет применяться выражение, которое записывается справа от равно. Применить выражение можно ко всем объектам слоя (пункт <strong>Обновить все</strong>) или только к выделенным в данный момент (пункт <strong>Обновить выделенные</strong>). Слева укажем обновляемое поле (<strong>kvartal</strong>), справа - номер квартала, и выберем <strong>Обновить все</strong>. После того, как поле будет заполнено номером квартала сохраним изменения. Аналогичным способом возможно изменить атрибуты только у выделенных объектов (пункт <strong>Обновить выделенные</strong>), смотри <a href="chapter2_vectorization.html#sec-pickobj" class="quarto-xref"><span>Глава 2.5</span></a>.</p>
-<div id="fig-fieldkv" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fieldkv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./gif/21_Заполнение поля квартал.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6"><img src="./gif/21_Заполнение поля квартал.gif" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fieldkv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;3.6: Заполнение поля “kvartal”
-</figcaption>
-</figure>
-</div>
+</section>
+<section id="ввод-атрибутивной-информации" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="ввод-атрибутивной-информации"><span class="header-section-number">3.2</span> Ввод атрибутивной информации</h2>
+<p>Существует несколько способов добавления атрибутивной информации. Так, возможно заполнить таблицу атрибутов вручную, как в любом табличном редакторе, или прикрепить уже существующую таблицу по ключевому полю. Так же возможно рассчитать новые атрибуты из уже имеющихся или из свойств геометрий объектов (например длина, площадь, периметр и т.д.). Для ввода информации вручную достаточно открыть таблицу атрибутов слоя, перевести слой в режим редактирования и заполнить нужные колонки как это делается в любом табличном редакторе.</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -374,7 +394,42 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Заполните поле “kvartal” как показано выше.</p>
+<p>Заполните вручную поле “kvartal” у первых <strong>пяти</strong> выделов. Номер кваратала для остальных выделов будет заполнен другим способом.</p>
+</div>
+</div>
+<p>Поскольку все значения поля <strong>kvartal</strong> будут одинаковыми, есть способ заполнить все значения сразу, используя <strong>Редактор выражений</strong> панель ниструментов которого появляется при переводе слоя в режим редактирования.</p>
+<div id="fig-redactor" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-redactor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./gif/20 Редактор выражений.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6"><img src="./gif/20 Редактор выражений.gif" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-redactor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;3.4: Редактор выражений
+</figcaption>
+</figure>
+</div>
+<p><strong>Редактор выражений</strong> имеет расширенный режим, для перехода в который необходимо нажать на иконку <img src="./QGIS_icons/mIconExpression.svg" class="img-fluid" alt="1">. Этот режим позволяет создавать сложные выражения, рассчитывать длины и площади объектов и многое другое. Мы более подробно познакомимся с этим режимом в последующих разделах. Для начала заполним поле <strong>“kvartal”</strong>. Для этого в редакторе выражений слева от равно выбирается поле, к которму будет применяться выражение, справа - выражение. Применить выражение можно ко всем объектам слоя (пункт <strong>“Обновить все”</strong>) или только к выделенным в данный момент (пункт <strong>“Обновить выделенные”</strong>). Слева укажите обновляемое поле (<strong>“kvartal”</strong>), справа - номер квартала, и веберите пункт <strong>“Обновить все”</strong>. После того, как поле будет заполнено номером квартала сохарните изменения (иконка <img src="./QGIS_icons/mActionSaveAllEdits.svg" class="img-fluid" alt="1">). Аналогичным способом возможно изменить атрибуты только у выделенных объектов (пункт <strong>“Обновить выделенные”</strong>, см. <a href="chapter2_vectorization.html#sec-pickobj" class="quarto-xref"><span>Глава 2.5</span></a>).</p>
+<div id="fig-fieldkv" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fieldkv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./gif/21_Заполнение поля квартал.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7"><img src="./gif/21_Заполнение поля квартал.gif" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fieldkv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;3.5: Заполнение поля “kvartal”
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;3.5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Заполните поле “kvartal” по примеру выше.</p>
 </div>
 </div>
 </section>
@@ -390,37 +445,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Для выполнения заданий из этого раздела загрузите файлы по <a href="https://github.com/agoroshko/qgis_for_beginners/tree/main/files/ch3_%D0%94%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B0%D1%82%D1%80%D0%B8%D0%B1%D1%83%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D0%B9%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%B8">ссылке</a></p>
+<p>Для выполнения последующих заданий из этого раздела загрузите файлы по <a href="https://github.com/agoroshko/qgis_for_beginners/tree/main/files/ch3_%D0%94%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B0%D1%82%D1%80%D0%B8%D0%B1%D1%83%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D0%B9%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%B8">ссылке</a></p>
 </div>
 </div>
 <p>В случае когда существуют отдельно слой геометрий объектов и атрибутивные описания (в виде “плоской” таблицы), рационально провести операцию объединения таблиц так, что бы к каждому объекту была присоединена соответствующая атрибутивная характеристика. Основное условие для проведения такой операции - наличие в обеих таблицах уникального ключевого поля (<strong>key</strong>) которое бы однозначно характеризовало каждый объект в одной и другой таблице. Далее в этом разделе будут использоваться данные 21 квартала Караульного участкового лесничества (файл <strong>“выдела.shp”</strong>), которые представлены контурами 477 выделов с двумя атрибутами: номер кваратала (<strong>kvartal</strong>) и номер выдела (<strong>videl</strong>). Таксационная характеристика содержится в отдельной таблице <strong>“таксационные описания.xlsx”</strong>, которая имеет одинаковые поля с векторным слоем (<strong>kvartal</strong> и <strong>videl</strong>) а так же таксационную характеристику для каждого выдела.</p>
-<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Задание&nbsp;3.5
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Загрузите файлы “выдела.shp” и “таксационные описания.xlsx”. Создайте новый проект и загрузите туда слой выделов (<a href="chapter2_vectorization.html" class="quarto-xref"><span>Глава 2</span></a>). Cоздайте новую папку проекта и сохраните в нее файл проекта.</p>
-</div>
-</div>
-<section id="импорт-таблицы" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="импорт-таблицы"><span class="header-section-number">3.3.1</span> Импорт таблицы</h3>
-<p>Программа QGIS позвояет загружать не только векторные и растровые данные (shp-файлы, GeoPackage, tif. и др.) но и таблицы которые могут быть созданы в любом табличном редакторе (Excal, Libreoffice Calc и др.). Один из способов загрузки таких таблиц - сохранение в формат <strong>.csv (Comma-Separated Values)</strong> и последующий экспорт в QGIS. CSV - <a href="https://ru.wikipedia.org/wiki/CSV">формат для представления табличных данных в виде текста</a>. Каждая строка в файле - строка в таблице, столбцы внутри строки отделяются друг от друга специальным символом - разделителем (delimiter). Несмотря на название формата, разделителем не обязательно должна быть запятая, более того, основное условие выбора символа-разделителя: он не должен встречаться в значениях таблицы. Если в таблице встерчаются дробные числа, где целая часть отделена запятой, нельзя использовать в качестве разделится запятую. Для того, что бы избежать непредвиденных проблем, часто в качестве разделителя используют символ табуляции (Tab). Выбрать разделитель можно при сохранении таблицы в формат <strong>.csv</strong> в любом табличном редакторе. После сохранения <strong>.csv</strong> файла в QGIS выберите пункт меню <strong>Слой</strong> &gt; <strong>Добавить слой</strong> &gt; <strong>Добавить слой из текста с разделителями…</strong>, проведите соответствующие настройки и загрузите таблицу. Такой способ позволяет более детально настроить параметры импортируемой таблицы, типы данных столбцов и т.д.<br>
-Более простым способом является загрузка <strong>.xlsx</strong> файла напрямую в QGIS. Для этого перетяните файл <strong>.xlsx</strong> в окно программы, после чего таблица появится в панеле слоев. Если в файле несколько листов, появится панель с выбором загрузки. Изменения, произведенные в QGIS, будут сохранены в файл и наоборот.</p>
-<div id="fig-fieldkv" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fieldkv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./gif/22_импорт Excel файла.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7"><img src="./gif/22_импорт Excel файла.gif" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fieldkv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;3.7: Импотр файла .xlsx
-</figcaption>
-</figure>
-</div>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -431,47 +459,22 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Загрузите таблицу таксационных описаний в QGIS.</p>
+<p>Загрузите файлы “выдела.shp” и “таксационные описания.xlsx”. Создайте новый проект и загрузите туда слой выделов (<a href="chapter2_vectorization.html" class="quarto-xref"><span>Глава 2</span></a>). Сохраните файл проекта.</p>
 </div>
 </div>
-</section>
-<section id="создание-ключевого-поля" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="создание-ключевого-поля"><span class="header-section-number">3.3.2</span> Создание ключевого поля</h3>
-<p>Уникальный индентификатор любого выдела состоит из названия лесничества, названия участкового лесничества, номера квартала и, собственно номера выдела. Такой ключ будет уникален для любого выдела. В нашем случае используются выдела на территории одного участкового лесничества, поэтому первые две составляющие ключа (лесничество и участковое лесничество) можно пропустить. Таким образом, ключ для связи между таблицами будет состоять из двух составляющих, разделенных нижним_подчеркиванием: номер квартала_номер выдела (<strong>27_1</strong>). Такое поле с ключем (<strong>key</strong>) необходимо создать как в атрибутивной таблице векторного слоя, так и в таблице таксационных описаний.<br>
-Для создания ключевого поля, перейдите в таблицу атрибутов слоя “выдела” и создайте новое поле (Имя: <strong>key</strong>, Тип: <strong>Текст</strong>, Размер: <strong>5</strong>) <a href="#fig-makekeyfield" class="quarto-xref">Рисунок&nbsp;<span>3.8</span></a>.</p>
-<div id="fig-makekeyfield" class="quarto-figure quarto-figure-center quarto-float anchored">
+<section id="импорт-таблицы" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="импорт-таблицы"><span class="header-section-number">3.3.1</span> Импорт таблицы</h3>
+<p>Программа QGIS позвояет загружать не только векторные и растровые данные (shp-файлы, GeoPackage, tif. и др.) но и обыкновенные таблицы которые могут быть созданы в любом табличном редакторе (Excal, Libreoffice Calc и др.). Один из способов загрузки таких таблиц - сохранение в формат <strong>.csv (Comma-Separated Values)</strong> и последующий экспорт в QGIS (см. <a href="appendice_3_csv.html" class="quarto-xref"><span>Приложение C</span></a>). Более простым способом является загрузка <strong>.xlsx</strong> файла напрямую в QGIS. Для этого перетяните файл <strong>.xlsx</strong> в окно программы, после чего таблица появится в панеле слоев. Если в файле несколько листов, появится панель с выбором. Изменения, произведенные в QGIS, будут сохранены в файл и наоборот.</p>
+<div id="fig-fieldkv" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-makekeyfield-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/9_создание ключевого поля.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" data-glightbox="description: .lightbox-desc-8"><img src="./pictures/9_создание ключевого поля.png" class="img-fluid figure-img"></a>
+<div aria-describedby="fig-fieldkv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./gif/22_импорт Excel файла.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-8" data-glightbox="description: .lightbox-desc-8"><img src="./gif/22_импорт Excel файла.gif" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-makekeyfield-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;3.8: Создание ключевого поля
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fieldkv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;3.6: Импорт файла .xlsx
 </figcaption>
 </figure>
 </div>
-<p>В панеле редактора выражений, слева от равно, выберите поле <strong>key</strong> и перейдите в расширенный режим редактора выражений <img src="./icons/11_Редактор выражений расширенный.png" class="img-fluid" alt="Расширенный режим редактора выражений">. В появившемся окне в левой части записывается выражение, в средней части - список доступных функций, в правой части - справка по этим функциям. В левой части окна запишите выражение, которое объединяет поля квартал и выдел с разделителем в виде нижнего подчеркивания (например для квартала 38 выдела 25 ключ будет выглядеть так: <strong>38_25</strong>) <a href="#fig-constructkeyfield" class="quarto-xref">Рисунок&nbsp;<span>3.9</span></a>. Во вкладке <strong>Поля и значения</strong> в центральной части редактора выражений, представлены все поля таблицы атрибутов. При двойном клике на поле, оно появится в панеле слева.</p>
-<div id="fig-constructkeyfield" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-constructkeyfield-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/10_заполнение ключевого поля.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" data-glightbox="description: .lightbox-desc-9"><img src="./pictures/10_заполнение ключевого поля.png" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-constructkeyfield-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;3.9: Заполнение ключевого поля
-</figcaption>
-</figure>
-</div>
-<p>Результат выражения отображается в левом нижнем углу окна (<strong>Просмотр:</strong>). Если выражение составлено не корректно, вместо результата выражения будет отображаться надпись “Ошибочное выражение”. В этом случае следует найти и устранить ошибку. После написания выражения, нажмите <strong>ОК</strong> а затем <strong>Обновить все</strong>. Перед обновлением поля убедитесь что слева от равно указано поле <strong>key</strong> иначе есть риск перезаписать данные другого поля. В результате поле <strong>key</strong> должно быть заполнено сочетаниями квартал_выдел для каждого выдела <a href="#fig-fillkeyfield" class="quarto-xref">Рисунок&nbsp;<span>3.10</span></a>.</p>
-<div id="fig-fillkeyfield" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fillkeyfield-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/11_Обновление ключевого поля.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" data-glightbox="description: .lightbox-desc-10"><img src="./pictures/11_Обновление ключевого поля.png" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fillkeyfield-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;3.10: Обновление ключевого поля
-</figcaption>
-</figure>
-</div>
-<p>Сохраните изменения в слое и создайте поле <strong>key</strong> в таблице с таксационными описаниями аналогичным образом.</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -482,23 +485,47 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Создайте и заполните поле <strong>key</strong> в слоях “выдела” и “таксационные описания”.</p>
+<p>Загрузите таблицу таксационных описаний в QGIS.</p>
 </div>
 </div>
 </section>
-<section id="объединение-таблиц" class="level3" data-number="3.3.3">
-<h3 data-number="3.3.3" class="anchored" data-anchor-id="объединение-таблиц"><span class="header-section-number">3.3.3</span> Объединение таблиц</h3>
-<p>После того как поле key создано в двух таблицах, его можно использовать для связи строк таблиц между собой. Для этого перейдите в <strong>Свойства…</strong> слоя “выдела” &gt; <strong>Связи</strong> &gt; <strong>Добавить новую связь</strong> <img src="./icons/12_добавить новую связь.png" class="img-fluid" alt="добавить новую связь">. В пункте <strong>Присоединить слой</strong> выберите слой таблицы таксационных описаний, <strong>Связываемое поле</strong> - <strong>key</strong>, <strong>Целевое поле</strong> - <strong>key</strong>. После нажатия <strong>ОК</strong> - <strong>Применить</strong> в атрибутивной таблие слоя “выдела” появится присоединенная таксационная характеристика <a href="#fig-jointables" class="quarto-xref">Рисунок&nbsp;<span>3.11</span></a>. В настройках связи так же можно выбрать присоединяемые поля (столбцы таблицы, которые будут присоединены к векторному слою) или задать пользовательский префикс имени поля (общее название, которое будет добвалено перед именами присоединяемых столбцов).</p>
-<div id="fig-jointables" class="quarto-figure quarto-figure-center quarto-float anchored">
+<section id="создание-ключевого-поля" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="создание-ключевого-поля"><span class="header-section-number">3.3.2</span> Создание ключевого поля</h3>
+<p>Уникальный индентификатор любого выдела состоит из названия лесничества, названия участкового лесничества, номера квартала и, собственно номера выдела. Такой ключ будет уникален для любого выдела. В нашем случае используются выдела на территории одного участкового лесничества, поэтому первые две составляющие ключа (лесничество и участковое лесничество) можно пропустить. Таким образом, ключ для связи между таблицами будет состоять из двух составляющих, разделенных нижним_подчеркиванием: номер квартала_номер выдела (<strong>27_1</strong>). Такое поле с ключем (<strong>key</strong>) необходимо создать как в атрибутивной таблице векторного слоя, так и в таблице таксационных описаний.<br>
+Для создания ключевого поля, перейдите в таблицу атрибутов слоя “выдела” и создайте новое поле (Имя: <strong>key</strong>, Тип: <strong>Текст</strong>, Размер: <strong>5</strong>) <a href="#fig-makekeyfield" class="quarto-xref">Рисунок&nbsp;<span>3.7</span></a>.</p>
+<div id="fig-makekeyfield" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-jointables-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/14_связь таблиц.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" data-glightbox="description: .lightbox-desc-11"><img src="./pictures/14_связь таблиц.png" class="img-fluid figure-img"></a>
+<div aria-describedby="fig-makekeyfield-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/9_создание ключевого поля.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" data-glightbox="description: .lightbox-desc-9"><img src="./pictures/9_создание ключевого поля.png" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-jointables-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;3.11: Настройка связи таблиц
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-makekeyfield-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;3.7: Создание ключевого поля
 </figcaption>
 </figure>
 </div>
+<p>В панеле редактора выражений, слева от равно, выберите поле <strong>key</strong> и перейдите в расширенный режим редактора выражений <img src="./QGIS_icons/mIconExpression.svg" class="img-fluid" alt="1">. В появившемся окне в левой части записывается выражение, в средней части - список доступных функций, в правой части - справка по этим функциям. В левой части окна запишите выражение, которое объединяет поля квартал и выдел с разделителем в виде нижнего подчеркивания (например для квартала 38 выдела 25 ключ будет выглядеть так: <strong>38_25</strong>) <a href="#fig-constructkeyfield" class="quarto-xref">Рисунок&nbsp;<span>3.8</span></a>. Во вкладке <strong>Поля и значения</strong> в центральной части редактора выражений, представлены все поля таблицы атрибутов. При двойном клике на поле, оно появится в панеле слева.</p>
+<div id="fig-constructkeyfield" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-constructkeyfield-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/10_заполнение ключевого поля.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" data-glightbox="description: .lightbox-desc-10"><img src="./pictures/10_заполнение ключевого поля.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-constructkeyfield-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;3.8: Заполнение ключевого поля
+</figcaption>
+</figure>
+</div>
+<p>Результат выражения отображается в левом нижнем углу окна (<strong>Просмотр:</strong>). Если выражение составлено не корректно, вместо результата выражения будет отображаться надпись “Ошибочное выражение”. В этом случае следует найти и устранить ошибку. После написания выражения, нажмите <strong>ОК</strong> а затем <strong>Обновить все</strong>. Перед обновлением поля убедитесь что слева от равно указано поле <strong>key</strong> иначе есть риск перезаписать данные другого поля. В результате поле <strong>key</strong> должно быть заполнено сочетаниями квартал_выдел для каждого выдела <a href="#fig-fillkeyfield" class="quarto-xref">Рисунок&nbsp;<span>3.9</span></a>.</p>
+<div id="fig-fillkeyfield" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fillkeyfield-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/11_Обновление ключевого поля.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" data-glightbox="description: .lightbox-desc-11"><img src="./pictures/11_Обновление ключевого поля.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fillkeyfield-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;3.9: Обновление ключевого поля
+</figcaption>
+</figure>
+</div>
+<p>Сохраните изменения в слое и создайте поле <strong>key</strong> в таблице с таксационными описаниями аналогичным образом.</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -509,20 +536,23 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Присоедините к векторному слою “выдела” таблицу таксационных характеристик. В качестве префикса имени поля используйте “tax_”. Результат объединения представлен на рисунке ниже (<a href="#fig-jointablesfinal" class="quarto-xref">Рисунок&nbsp;<span>3.12</span></a>).</p>
+<p>Создайте и заполните поле <strong>key</strong> в слоях “выдела” и “таксационные описания”.</p>
 </div>
 </div>
-<div id="fig-jointablesfinal" class="quarto-figure quarto-figure-center quarto-float anchored">
+</section>
+<section id="объединение-таблиц" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="объединение-таблиц"><span class="header-section-number">3.3.3</span> Объединение таблиц</h3>
+<p>После того как поле key создано в двух таблицах, его можно использовать для связи строк таблиц между собой. Для этого перейдите в <strong>“Свойства…”</strong> слоя “выдела” &gt; <strong>“Связи”</strong> &gt; <strong>“Добавить новую связь”</strong> <img src="./QGIS_icons/symbologyAdd.svg" class="img-fluid" alt="1">. В пункте <strong>“Присоединить слой”</strong> выберите слой таблицы таксационных описаний, <strong>“Связываемое поле”</strong> - <strong>“key”</strong>, <strong>“Целевое поле”</strong> - <strong>“key”</strong>. После нажатия <strong>“ОК”</strong> &gt; <strong>“Применить”</strong> в атрибутивной таблие слоя “выдела” появится присоединенная таксационная характеристика <a href="#fig-jointables" class="quarto-xref">Рисунок&nbsp;<span>3.10</span></a>. В настройках связи так же можно выбрать присоединяемые поля (столбцы таблицы, которые будут присоединены к векторному слою) или задать пользовательский префикс имени поля (общее название, которое будет добвалено перед именами присоединяемых столбцов).</p>
+<div id="fig-jointables" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-jointablesfinal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/15_прикрепленная таблица.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" data-glightbox="description: .lightbox-desc-12"><img src="./pictures/15_прикрепленная таблица.png" class="img-fluid figure-img"></a>
+<div aria-describedby="fig-jointables-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/14_связь таблиц.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" data-glightbox="description: .lightbox-desc-12"><img src="./pictures/14_связь таблиц.png" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-jointablesfinal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;3.12: Объединенная таблица атрибутов
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-jointables-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;3.10: Настройка связи таблиц
 </figcaption>
 </figure>
 </div>
-<p>Слой с присоединенной атрибутивной информацией можно сохранить как новый векторный слой и использовать в дальнейшей работе. Для этого в панеле слоев перейдите в меню выбранного слоя &gt; <strong>Экспорт</strong> &gt; <strong>Сохранить объекты как…</strong>. В новом окне “Сохранить векторный слой как…” выберите формат <strong>Shape-файл ESRI</strong>. Для выбора папки сохранения файла в поле <strong>“Имя файла”</strong> нажмите <strong>…</strong> и укажите папку проекта. После чего нажмите <strong>ОК</strong>, новый слой появится в панеле слоев.</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -533,24 +563,49 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>Присоедините к векторному слою “выдела” таблицу таксационных характеристик. В качестве префикса имени поля используйте “tax_”. Результат объединения представлен на рисунке ниже (<a href="#fig-jointablesfinal" class="quarto-xref">Рисунок&nbsp;<span>3.11</span></a>).</p>
+<div id="fig-jointablesfinal" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-jointablesfinal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/15_прикрепленная таблица.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" data-glightbox="description: .lightbox-desc-13"><img src="./pictures/15_прикрепленная таблица.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-jointablesfinal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;3.11: Фрагмент объединенной таблицы атрибутов после выполнения задания
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Слой с присоединенной атрибутивной информацией можно сохранить как новый векторный слой и использовать в дальнейшей работе. Для этого в панеле слоев перейдите в контекстное меню выбранного слоя &gt; <strong>Экспорт</strong> &gt; <strong>Сохранить объекты как…</strong>. В новом окне “Сохранить векторный слой как…” выберите формат <strong>Shape-файл ESRI</strong>. Для выбора папки сохранения файла в поле <strong>“Имя файла”</strong> нажмите <strong>…</strong> и укажите папку проекта. После чего нажмите <strong>ОК</strong>, новый слой появится в панеле слоев.</p>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;3.10
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Сохраните в папку проекта векторный слой “выдела” с прикрепленной атрибутивной информацией в файл под названием “выдела2”.</p>
 </div>
 </div>
 
 
 <div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Рисунок&nbsp;3.1: Таблица атрибутов слоя “выдела”</span>
-<span class="glightbox-desc lightbox-desc-2">Рисунок&nbsp;3.2: Связь объектов с таблицей атрибутов</span>
-<span class="glightbox-desc lightbox-desc-3">Рисунок&nbsp;3.3: Настройки нового поля</span>
-<span class="glightbox-desc lightbox-desc-4">Рисунок&nbsp;3.4: Таблица атрибутов слоя “выдела”</span>
-<span class="glightbox-desc lightbox-desc-5">Рисунок&nbsp;3.5: Редактор выражений</span>
-<span class="glightbox-desc lightbox-desc-6">Рисунок&nbsp;3.6: Заполнение поля “kvartal”</span>
-<span class="glightbox-desc lightbox-desc-7">Рисунок&nbsp;3.7: Импотр файла .xlsx</span>
-<span class="glightbox-desc lightbox-desc-8">Рисунок&nbsp;3.8: Создание ключевого поля</span>
-<span class="glightbox-desc lightbox-desc-9">Рисунок&nbsp;3.9: Заполнение ключевого поля</span>
-<span class="glightbox-desc lightbox-desc-10">Рисунок&nbsp;3.10: Обновление ключевого поля</span>
-<span class="glightbox-desc lightbox-desc-11">Рисунок&nbsp;3.11: Настройка связи таблиц</span>
-<span class="glightbox-desc lightbox-desc-12">Рисунок&nbsp;3.12: Объединенная таблица атрибутов</span>
+<span class="glightbox-desc lightbox-desc-1">Видео&nbsp;3.1: Открытие таблицы атрибутов слоя</span>
+<span class="glightbox-desc lightbox-desc-2">Рисунок&nbsp;3.1&nbsp;(a): Инструменты таблицы атрибутов</span>
+<span class="glightbox-desc lightbox-desc-3">Рисунок&nbsp;3.1&nbsp;(b): Инструменты таблицы атрибутов в режиме редактирования</span>
+<span class="glightbox-desc lightbox-desc-4">Рисунок&nbsp;3.2: Настройки нового поля</span>
+<span class="glightbox-desc lightbox-desc-5">Рисунок&nbsp;3.3: Таблица атрибутов слоя “выдела” после выполнения задания</span>
+<span class="glightbox-desc lightbox-desc-6">Рисунок&nbsp;3.4: Редактор выражений</span>
+<span class="glightbox-desc lightbox-desc-7">Рисунок&nbsp;3.5: Заполнение поля “kvartal”</span>
+<span class="glightbox-desc lightbox-desc-8">Рисунок&nbsp;3.6: Импорт файла .xlsx</span>
+<span class="glightbox-desc lightbox-desc-9">Рисунок&nbsp;3.7: Создание ключевого поля</span>
+<span class="glightbox-desc lightbox-desc-10">Рисунок&nbsp;3.8: Заполнение ключевого поля</span>
+<span class="glightbox-desc lightbox-desc-11">Рисунок&nbsp;3.9: Обновление ключевого поля</span>
+<span class="glightbox-desc lightbox-desc-12">Рисунок&nbsp;3.10: Настройка связи таблиц</span>
+<span class="glightbox-desc lightbox-desc-13">Рисунок&nbsp;3.11: Фрагмент объединенной таблицы атрибутов после выполнения задания</span>
 </div>
 </section>
 </section>
@@ -576,6 +631,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -956,7 +1155,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

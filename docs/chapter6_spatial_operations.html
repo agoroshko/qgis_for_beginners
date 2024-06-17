@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Основы геоинформационных систем в QGIS 3.28 - 6&nbsp; Пространственные операции с векторными объектами</title>
+<title>Основы геоинформационных систем в QGIS - 6&nbsp; Пространственные операции с векторными объектами</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ window.Quarto = {
     <img src="././cover.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Основы геоинформационных систем в QGIS 3.28</span>
+    <span class="navbar-title">Основы геоинформационных систем в QGIS</span>
     </a>
   </div>
         <div class="quarto-navbar-tools">
@@ -224,7 +224,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendice_2_epsg_3857.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Система координат WGS 84 / Pseudo-Mercator (EPSG:3857)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Система координат Pseudo-Mercator (EPSG:3857)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendice_3_csv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Формат данных CSV</span></span></a>
   </div>
 </li>
       </ul>
@@ -269,7 +275,7 @@ window.Quarto = {
 </header>
 
 
-<p>Панель меню <strong>“Вектор” &gt; “Геообработка”</strong> содержит инстументы для изменения геометрий объектов. Результатом каждого инструмента является временный векторный слой с измененной геометрией. Временные слои помечены символом <img src="./icons/6_1_временный слой.png" class="img-fluid" alt="Временный слой"> справа от названия (<a href="#fig-temp_layer" class="quarto-xref">Рисунок&nbsp;<span>6.1</span></a>).</p>
+<p>Панель меню <strong>“Вектор” &gt; “Геообработка”</strong> содержит инстументы для изменения геометрий объектов. Результатом каждого инструмента является временный векторный слой с измененной геометрией. Временные слои помечены символом <img src="./QGIS_icons/mIndicatorMemory.svg" class="img-fluid" alt="1"> справа от названия (<a href="#fig-temp_layer" class="quarto-xref">Рисунок&nbsp;<span>6.1</span></a>).</p>
 <div id="fig-temp_layer" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-temp_layer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -953,7 +959,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

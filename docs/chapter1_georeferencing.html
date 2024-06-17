@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Основы геоинформационных систем в QGIS 3.28 - 1&nbsp; Привязка растра</title>
+<title>Основы геоинформационных систем в QGIS - 1&nbsp; Пространственная привязка растра</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,10 +37,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -86,10 +88,11 @@ ul.task-list li input[type="checkbox"] {
     <img src="././cover.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Основы геоинформационных систем в QGIS 3.28</span>
+    <span class="navbar-title">Основы геоинформационных систем в QGIS</span>
     </a>
   </div>
         <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Переключить темный режим"><i class="bi"></i></a>
 </div>
           <div id="quarto-search" class="" title="Поиск"></div>
       </div> <!-- /container-fluid -->
@@ -99,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter1_georeferencing.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Привязка растра</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter1_georeferencing.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Пространственная привязка растра</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -126,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter1_georeferencing.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Привязка растра</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Пространственная привязка растра</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -138,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter3_attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Добавление атрибутивной информации</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Атрибутивная информация</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -167,12 +170,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter8_satellite_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Работа с космическими снимками</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Библиографический список</span></a>
   </div>
@@ -188,8 +185,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./application_1_geopackage.html" class="sidebar-item-text sidebar-link">
+  <a href="./appendice_1_geopackage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Формат данных GeoPackage</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendice_2_epsg_3857.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Система координат Pseudo-Mercator (EPSG:3857)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendice_3_csv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Формат данных CSV</span></span></a>
   </div>
 </li>
       </ul>
@@ -204,11 +213,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Содержание</h2>
    
   <ul>
-  <li><a href="#загрузка-векторного-слоя" id="toc-загрузка-векторного-слоя" class="nav-link active" data-scroll-target="#загрузка-векторного-слоя"><span class="header-section-number">1.1</span> Загрузка векторного слоя</a></li>
-  <li><a href="#навигация-по-карте" id="toc-навигация-по-карте" class="nav-link" data-scroll-target="#навигация-по-карте"><span class="header-section-number">1.2</span> Навигация по карте</a></li>
-  <li><a href="#добавление-контрольных-точек" id="toc-добавление-контрольных-точек" class="nav-link" data-scroll-target="#добавление-контрольных-точек"><span class="header-section-number">1.3</span> Добавление контрольных точек</a></li>
-  <li><a href="#видимость-слоев" id="toc-видимость-слоев" class="nav-link" data-scroll-target="#видимость-слоев"><span class="header-section-number">1.4</span> Видимость слоев</a></li>
-  <li><a href="#модуль-quickmapservices" id="toc-модуль-quickmapservices" class="nav-link" data-scroll-target="#модуль-quickmapservices"><span class="header-section-number">1.5</span> Модуль QuickMapServices</a></li>
+  <li><a href="#организация-файлов-и-создание-проекта" id="toc-организация-файлов-и-создание-проекта" class="nav-link active" data-scroll-target="#организация-файлов-и-создание-проекта"><span class="header-section-number">1.1</span> Организация файлов и создание проекта</a></li>
+  <li><a href="#добавление-векторного-слоя" id="toc-добавление-векторного-слоя" class="nav-link" data-scroll-target="#добавление-векторного-слоя"><span class="header-section-number">1.2</span> Добавление векторного слоя</a></li>
+  <li><a href="#навигация-по-карте" id="toc-навигация-по-карте" class="nav-link" data-scroll-target="#навигация-по-карте"><span class="header-section-number">1.3</span> Навигация по карте</a></li>
+  <li><a href="#sec-georef_coord_net" id="toc-sec-georef_coord_net" class="nav-link" data-scroll-target="#sec-georef_coord_net"><span class="header-section-number">1.4</span> Привязка по координатной сетке</a>
+  <ul class="collapse">
+  <li><a href="#инструменты-измерения" id="toc-инструменты-измерения" class="nav-link" data-scroll-target="#инструменты-измерения"><span class="header-section-number">1.4.1</span> Инструменты измерения</a></li>
+  </ul></li>
+  <li><a href="#sec-georef_points" id="toc-sec-georef_points" class="nav-link" data-scroll-target="#sec-georef_points"><span class="header-section-number">1.5</span> Привязка по характерным точкам</a>
+  <ul class="collapse">
+  <li><a href="#визуальная-оценка-точности-привязки" id="toc-визуальная-оценка-точности-привязки" class="nav-link" data-scroll-target="#визуальная-оценка-точности-привязки"><span class="header-section-number">1.5.1</span> Визуальная оценка точности привязки</a></li>
+  <li><a href="#модуль-quickmapservices-qms" id="toc-модуль-quickmapservices-qms" class="nav-link" data-scroll-target="#модуль-quickmapservices-qms"><span class="header-section-number">1.5.2</span> Модуль QuickMapServices (QMS)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -217,7 +233,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Привязка растра</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Пространственная привязка растра</span></h1>
 </div>
 
 
@@ -234,56 +250,35 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<p>При создании геоинформационной системы “с нуля” часто пользуются уже существующими картографическими изображениями местности (планы, карты), переведенными в цифровой вид путем сканирования или фотографирования. Такие изображения не имеют пространственной привязки к местности т.е. невозможно сказать какому участку на поверхности планеты соответствует тот или иной пиксель изображения и, как следствие, невозможно применение простейших инструментов анализа, например, расчет длин и площадей изображенных объектов. Для полноценного использования изображения в геоинформационной системе требуется выполнить операцию <strong>пространственной привязки (georeferencing)</strong> т.е. задать соответствие между каждым пикселем изображения и соответствующим ему участком на поверхности земли. Такое соответствие задается при помощи <strong>контрольных точек</strong> и параметров <strong>трансформации</strong> растра. Существует <strong>два основных</strong> случая привязки картографического изображения:</p>
+<ul>
+<li>карта <strong>имеет</strong> коордианатную сетку - контрольные точки расставляются в узлах координатной сетки;</li>
+<li>карта <strong>не имеет</strong> координатной сетки - контрольные точки расставляются по характерным точкам с известными координатами.</li>
+</ul>
+<p>В общем случае, географическая привязка растрового изображения состоит из следующих шагов:</p>
+<ol type="1">
+<li>добавление контрольных точек;</li>
+<li>выбор оптимального параметра трансформации (по критерию минимальной средней ошибки);</li>
+<li>удаление или корректировка положения контрольных точек с максимальной невязкой;</li>
+<li>запуск алгоритма географической привязки.</li>
+</ol>
+<p>Привязка растров по координатной сетке рассмотрена в подразделе <a href="#sec-georef_coord_net" class="quarto-xref"><span>Глава 1.4</span></a>, привязка по характерным точкам в подразделе <a href="#sec-georef_points" class="quarto-xref"><span>Глава 1.5</span></a>.</p>
+<div id="nte-download_ch1" class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Загрузите файлы!
+Note&nbsp;1.1: Загрузите файлы!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Для выполнения заданий из этого раздела загрузите файлы по <a href="https://github.com/agoroshko/qgis_for_beginners/tree/main/files/ch1_%D0%9F%D1%80%D0%B8%D0%B2%D1%8F%D0%B7%D0%BA%D0%B0%20%D1%80%D0%B0%D1%81%D1%82%D1%80%D0%B0">ссылке</a></p>
+<p>Для выполнения заданий из этого раздела загрузите файлы по <a href="https://github.com/agoroshko/qgis_for_beginners/tree/main/files">ссылке 1</a> или по <a href="https://disk.yandex.ru/d/8GJX4SD9Xc-Shg">ссылке 2</a></p>
 </div>
 </div>
-<p>Основой для создания плана лесонасаждений в QGIS является сканированная копия плана лесонасаждений части Мининского лесничества, Караульного участкового лесничества Красноярского края. Для начала запустим программу QGIS. Для этого необходимо выбрать ярлык QGIS Desktop из папки QGIS на рабочем столе или в меню пуск. После открытия программы создается новый проект, для этого нужно перейти в пункт меню <strong>Проекты &gt; Создать</strong> (<a href="#fig-makeproj" class="quarto-xref">Рисунок&nbsp;<span>1.1</span></a>).</p>
-<div id="fig-makeproj" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-makeproj-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/1_create_proj.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="./pictures/1_create_proj.png" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-makeproj-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;1.1: Создание проекта
-</figcaption>
-</figure>
-</div>
-<p>Теперь можно приступить к привязке растра. Привязка растра означает определение для каждой точки растрового изображение координат в той или иной системе координат. Топографические карты удобно привязывать по координатной сетке в прямоугольной зональной или географической системе координат (<a href="#fig-topomap" class="quarto-xref">Рисунок&nbsp;<span>1.2</span></a>).</p>
-<div id="fig-topomap" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-topomap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/2_map.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="./pictures/2_map.png" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-topomap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;1.2: Топографическая карта с координатной сеткой
-</figcaption>
-</figure>
-</div>
-<p>Планы лесонасаждений обычено не имеют координатной сетки, поэтому привязку осуществляют по квартальным столбам или хорошо опознаваемым точкам (реки, дороги и т.д.).</p>
-<section id="загрузка-векторного-слоя" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="загрузка-векторного-слоя"><span class="header-section-number">1.1</span> Загрузка векторного слоя</h2>
-<p>Планы лесонасаждений не имеют координатной сетки. При таких условиях привязку возможно осуществить по космическим снимкам, например с помощью плагина “QuickMapServices”, или по твердо опознаваемым точкам с уже известными координатами (например квартальных столбов). В нашем случае, растровое изображение будет привязываться к существующему векторному слою квартальной сети Караульного участкового лесничества. Для этого перейдите в меню <strong>“Слой” &gt; “Добавить слой” &gt; “Добавить векторный слой…”</strong> (<a href="#fig-addfile" class="quarto-xref">Рисунок&nbsp;<span>1.3</span></a>).</p>
-<div id="fig-addfile" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-addfile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./gif/1_add_file.gif" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><img src="./gif/1_add_file.gif" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-addfile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;1.3: Рисунок 3 - Добавление векторного слоя
-</figcaption>
-</figure>
-</div>
-<p>Появится диалоговое окно в котором нажмите на <strong>…</strong> в пункте <strong>“Векторный набор данных”</strong>. Укажите расположение файла <strong>“Квартальная сеть Караульное.shp”</strong> после чего выберите <strong>“Открыть”</strong>.</p>
+<section id="организация-файлов-и-создание-проекта" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="организация-файлов-и-создание-проекта"><span class="header-section-number">1.1</span> Организация файлов и создание проекта</h2>
+<p>Перед началом работы следует определиться с правилами организации файлов на компьютере. Для кадого нового проекта создается новая папка - <strong>папка проекта</strong>, которая содержит все файлы, относящиеся к этому проекту в том числе и <strong>файл проекта</strong> - файл с разрешением <strong>.qgz</strong> который позволяет сохранить проект со всеми текущими настройками оформления. Таким образом, сохранив текущий проект в <strong>файл проекта</strong> и открыв его позже, вы сможете продолжить работу с того места, на котором остановились.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -294,20 +289,20 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Папка содержит несколько файлов с одинаковым названием но разными расширениями: “Квартальная сеть Караульное<strong>.dbf</strong>”, “Квартальная сеть Караульное<strong>.prj</strong>”, “Квартальная сеть Караульное<strong>.shx</strong>” и др. Такой тип файлов называется шейп-файлом (Shapefile). Хотя физически на диске это несколько файлов, при загрузке в ГИС они будут представлены как один векторный слой. Выбирать для загрузки необходимо только один файл с расширением <strong>“.shp”!</strong> Подробнее о шейп-файлах можно прочитать по ссылке <a href="https://ru.wikipedia.org/wiki/Shapefile" class="uri">https://ru.wikipedia.org/wiki/Shapefile</a>.</p>
-</div>
-</div>
-<p>В результате будет загружен векторный слой границ кварталов Караульного участкового лесничества. Для удобства добавим номера кварталов на карту. Функция добавления подписей будет рассмотрена более подробно в последующих разделах. Сейчас нажимаем правой кнопкой мыши на слой <strong>“квартальная сеть Караульное”</strong> в панеле слоев. Выберите пункт <strong>Свойства… &gt; Надписи</strong>. В верхней части окна меняем выпадающую вкладку с <strong>“Без подписей”</strong> на <strong>“Обычные подписи”</strong>. В пункте <strong>“Значение”</strong> выбираем поле <strong>“kvartal”</strong> (в этом поле содержатся номера кварталов). После этого нужно сохранить изменения (<strong>Применить</strong>) и нажать <strong>ОК</strong> (<a href="#fig-addlabels" class="quarto-xref">Рисунок&nbsp;<span>1.4</span></a>).</p>
-<div id="fig-addlabels" class="quarto-figure quarto-figure-center quarto-float anchored">
+<p>Файл проекта содержит данные оформления (цвет, стиль линий и т.д.), но <strong>не содержит данные слоев, только пути к файлам</strong>. Если файлы входящие в проект будут переименованы или перемещены, программа не сможет их найти и при открытии проекта появится окно с предупреждением (<a href="#fig-missing_layers" class="quarto-xref">Рисунок&nbsp;<span>1.1</span></a>).</p>
+<div id="fig-missing_layers" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-addlabels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./gif/2_add_labels.gif" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4"><img src="./gif/2_add_labels.gif" class="img-fluid figure-img"></a>
+<div aria-describedby="fig-missing_layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/1_1_Недостающие слои.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./pictures2/1_1_Недостающие слои.png" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-addlabels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;1.4: Добавление подписей к векторному слою
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-missing_layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;1.1: Окно “Недостающие слои”
 </figcaption>
 </figure>
 </div>
+</div>
+</div>
+<p>Создайте <strong>папку проекта</strong> под названием <strong>“Проект 1 Пространственная привязка”</strong> и скопируйте в нее файлы, полученные по ссылке выше (если файлы находятся в архиве - распакуйте его). Сохраняйте в эту папку все файлы относящиеся к этому проекту. Такая организация файлов позволит отделить один проект от другого а так же легко пенесести весь проект на другой компьютер без риска потери файлов (для этого достаточно скопировать папку проекта).</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -318,39 +313,23 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Загрузите векторный слой “квартальная сеть Караульное.shp” и добавьте номера лесных кварталов по примеру выше.</p>
+<p>Создайте папку проекта под названием <strong>“Проект 1 Пространственная привязка”</strong> и скопируйте в нее файлы, полученные по ссылке выше (см. <a href="#nte-download_ch1" class="quarto-xref">Note&nbsp;<span>1.1</span></a>).</p>
 </div>
 </div>
-</section>
-<section id="навигация-по-карте" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="навигация-по-карте"><span class="header-section-number">1.2</span> Навигация по карте</h2>
-<p>Для перемещения по карте используется инструмент <strong>Прокрутка карты</strong> <img src="./icons/4_прокрутка карты.png" class="img-fluid" alt="прокрутка карты"> (так же этот инстумент активируется нажатием колесика мыши). <strong>Масштаб карты</strong> изменяется прокруткой колесика мышки. Более плавное изменение масштаба возможно при нажатой кавише Ctrl и прокрутке колескика мышки. Слева находится панель слоев, в которой отображаются все задействованные в проекте слои. Контекстное меню панели слоев (<a href="#fig-contextmenulayers" class="quarto-xref">Рисунок&nbsp;<span>1.5</span></a>) вызывается левым щелчком мыши и позволяет провети настройку отдельного слоя. Это меню часто используется, рассмотрим его основные элементы:</p>
-<div id="fig-contextmenulayers" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-contextmenulayers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/17_Контекстное меню панели слоев.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5"><img src="./pictures/17_Контекстное меню панели слоев.png" class="img-fluid figure-img"></a>
+<p>Так же следует сохранить файл проекта в созданную папку проекта. Для этого запустите программу QGIS и перейдите в пункт меню (левый верхний угол окна) <strong>“Проект” &gt; “Сохранить проект”</strong> <img src="./QGIS_icons/mActionFileSave.svg" class="img-fluid" alt="сохранить проект">. Выберите для сохранения папку проекта и задайте имя файла: <strong>“Проект 1 Пространственная привязка”</strong>. Как следствие, в папке проекта появится новый файл “Проект 1 Пространственная привязка<strong>.qgz”</strong> при открытии которого запустится программа QGIS с сохраненным состоянием проекта. Регулярно сохраняйте изменения в проекте при работе с программой!</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-contextmenulayers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;1.5: Добавление подписей к векторному слою
-</figcaption>
-</figure>
+<div class="callout-title-container flex-fill">
+Обратите внимание!
 </div>
-<ul>
-<li>“Увеличить до слоя” - инструмент позволяет переместить слой в центр окна программы. Чаще всего применяется для быстрой навигации или если вы “потерялись” на карте и видите только белый экран.</li>
-<li>“Показывать количество объектов” - когда активирован, добавляет счетчик количества объектов напротив слоя в панеле слоев.</li>
-<li>“Показывать подписи” - позволяет быстро включить или отключить подписи объектов слоя. Стиль подписей настраивается в свойствах слоя.</li>
-<li>“Переименовать слой” позволяет изменить название слоя в панеле слоев.</li>
-<li>“Дублировать слой” создает дубликат слоя. При этом изменения в слое-оригинале будут отображаться в слое-копии и наоборот т.к. файл-источник для слоев остается общим. Однако для копии и оригинала возможно настроить отличающиеся стили отображения.</li>
-<li>“Удалить слой” удаляет слой из панели слоев, при этом файл-источник не удаляется.</li>
-<li>“Переместить в конец”, “Переместить в начало” перемещает слой в конец или начало списка в панеле слоев. Порядок в списке влияет на порядок отображения слоев.</li>
-<li>“Открыть таблицу атрибутов” - открывает таблицу атрибутов слоя.</li>
-<li>“Режим редактирования” переводит слой в режим редактирования.</li>
-<li>“Фильтр” настраивает фильтрацию объектов по значениям таблицы атрибутов.</li>
-<li>“Видимость в приделах масштаба…” слой отображается только при заданном диапазоне масштабов.</li>
-<li>“Экспорт” позволяет сохранить слой в файл. Возможны разные форматы сохранения: .shp, .gpkg, .gpx, .xlsx и др.</li>
-<li>“Стили” дает доступ к быстрому изменению стиля отображения объектов а так же к возможности копировать настройки стиля одного слоя и применить их к другому слою.</li>
-<li>“Свойства…” наиболее часто используемый пункт. Позволяет настроить слой, включая стиль отображения, надписи, систему координат и др.</li>
-</ul>
+</div>
+<div class="callout-body-container callout-body">
+<p>Проект так же возможно сохранить используя иконку “Сохранить проект” <img src="./QGIS_icons/mActionFileSave.svg" class="img-fluid" alt="сохранить проект"> в основном окне программы или нажав сочетание клавиш <code>Ctrl + S</code>.</p>
+</div>
+</div>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -361,48 +340,70 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Измените положение карты и масштаб. Изучите контекстное меню панели слоев на примере загруженного ранее слоя “Квартальная сеть Караульное”.</p>
+<p>По примеру выше, запустите программу QGIS и сохраните файл проекта в папку проекта.</p>
 </div>
 </div>
 </section>
-<section id="добавление-контрольных-точек" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="добавление-контрольных-точек"><span class="header-section-number">1.3</span> Добавление контрольных точек</h2>
-<p>Теперь все приготовления завершены и можно приступать к самой привязки растра. Для начала необходимо выбрать изображение, которое будет привязываться. В папке <strong>планы лесонасаждений</strong> находится несколько сканированных изображений. Выберите одно из них, и сразу определите 1 квартал, привязку которого будете осуществлять. Выбранный квартал не должен быть обрезан по границе изображения. Для примера привязка осуществлялась для изображения “3.jpg” квартал 46. После этого в QGIS перейдите во вкладку <strong>Слой &gt; Привязка растров…</strong> (<a href="#fig-addlabels" class="quarto-xref">Рисунок&nbsp;<span>1.4</span></a>).</p>
-<div id="fig-georef" class="quarto-figure quarto-figure-center quarto-float anchored">
+<section id="добавление-векторного-слоя" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="добавление-векторного-слоя"><span class="header-section-number">1.2</span> Добавление векторного слоя</h2>
+<p>Основное окно программы QGIS условно можно разделить на 4 области: сверху расположены пункты меню и панели инструментов <strong>(1)</strong>, слева - панель слоев <strong>(2)</strong>, основное простанство занято областью карты <strong>(3)</strong>. В правом нижнем углу отображается система координат проекта, текущий масштаб и координаты курсора <strong>(4)</strong>. Нумерация элементов окна отображена на рисунке ниже (<a href="#fig-panels" class="quarto-xref">Рисунок&nbsp;<span>1.2</span></a>).</p>
+<div id="fig-panels" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-georef-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./gif/3_georef.gif" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6"><img src="./gif/3_georef.gif" class="img-fluid figure-img"></a>
+<div aria-describedby="fig-panels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/1_2_Панели окна программы.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="./pictures2/1_2_Панели окна программы.png" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-georef-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;1.6: Окно привязки растров
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-panels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;1.2: Элементы основного окна программы
 </figcaption>
 </figure>
 </div>
-<p>Откроется окно <strong>“Привязка растров”</strong> которое состоит из двух областей разделенных горизонтальной чертой. В верхней области будет отображаться растровое изображение и контрольные точки, в нижней, которая называется <strong>“Контрольные точки”</strong>, появится таблица с характеристиками контрольных точек. Для загрузки растра выберите иконку <strong>“Открыть растр…”</strong> <img src="./icons/1_открыть растр.png" class="img-fluid" alt="1"> после чего укажите растр для привязки. Растр привязывается путем расстановки контрольных точек с известными координатами. Для работы с контрольными точками применяют инструменты <strong>“Добавить точку”</strong>, <strong>“Удалить точку”</strong>, <strong>“Переместить точку”</strong> <img src="./icons/1_контрольные точки.png" class="img-fluid" alt="1">, которые выполняют соответствующие действия. Для добавления контрольных точек активируйте инструмент <strong>“Добавить точку”</strong>. Контрольные точки расставляются в местах квартальных столбов. Больше подробностей о привязке растровых изображений можно найти на форуме <a href="https://gis-lab.info/qa/georef-qgis.html#.D0.97.D0.B0.D0.BF.D1.83.D1.81.D0.BA_QGIS_.D0.B8_.D0.BC.D0.BE.D0.B4.D1.83.D0.BB.D1.8F_.D0.BF.D1.80.D0.B8.D0.B2.D1.8F.D0.B7.D0.BA.D0.B8">gis-lab.info</a>.<br>
-Поставив точку на карте, появится диалоговое окно, которое позволяет задать координаты точки вручную или использовать координаты этой точки с уже привязанной карты. Выберите пункт <strong>“С карты”</strong> <img src="./icons/1_с карты.png" class="img-fluid" alt="1">, после чего откроется основное окно программы, где необходимо выбрать ту же точку на векторном слое, который мы загрузили ранее. Таким образом устанавливается соответствие между уже имеющим привязку векторным слоем лесных кварталов и растровым изображением без привязки. Контрольные точки расставляются по всем видимым на растровом изображении квартальным столбам. Чем таких точек больше, тем точнее получится привзяка (<a href="#fig-points" class="quarto-xref">Рисунок&nbsp;<span>1.7</span></a>).</p>
-<div id="fig-points" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./gif/4_georef_points.gif" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7"><img src="./gif/4_georef_points.gif" class="img-fluid figure-img"></a>
+<p>Для загрузки векторного слоя перейдите в пункт меню <strong>“Слой” &gt; “Добавить слой” &gt; “Добавить векторный слой…”</strong> (или используйте сочетание клавиш <code>Ctrl + Shift + V</code>). В появившемся окне нажмите на <strong>…</strong> в пункте <strong>“Векторный набор данных”</strong>. Укажите расположение файла <strong>“Квартальная сеть.shp”</strong> в папке проекта, после чего нажмите <strong>“Открыть”</strong>. В результате будет загружен векторный слой границ кварталов Караульного участкового лесничества (<a href="#vid-addfile" class="quarto-xref">Видео&nbsp;<span>1.1</span></a>).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;1.7: Добавление контрольных точек
+<div class="callout-title-container flex-fill">
+Обратите внимание!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Папка содержит несколько файлов с одинаковым названием но разными расширениями: “Квартальная сеть<strong>.dbf</strong>”, “Квартальная сеть<strong>.prj</strong>”, “Квартальная сеть<strong>.shx</strong>” и др. Такой тип файлов называется шейп-файлом (Shapefile). Хотя физически на диске это несколько файлов, при загрузке в ГИС они будут представлены как единый векторный слой. Выбирать для загрузки необходимо только один файл с расширением <strong>“.shp”!</strong> Подробнее с особенностями шейп-файлов возможно ознакомиться по <a href="https://ru.wikipedia.org/wiki/Shapefile">ссылке</a>.</p>
+</div>
+</div>
+<div id="vid-addfile" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-addfile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/Video_1_1 Добавление кварталов.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><video src="./videos/Video_1_1%20Добавление%20кварталов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_1 Добавление кварталов.mp4">Video</a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-addfile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;1.1: Добавление векторного слоя
 </figcaption>
 </figure>
 </div>
-<p>После расставления всех контрольных точек необходимо задать параметры трансформации (иконка <strong>Параметры трансформации</strong> <img src="./icons/1_параметры трансформации.png" class="img-fluid" alt="1">). В открывшемся окне выбрать <strong>“Тип трансформации” &gt; “Линейный”</strong>» и нажать <strong>ОК</strong> (<a href="#fig-privazka" class="quarto-xref">Рисунок&nbsp;<span>1.8</span></a>). Теперь в нижней части окна привязки растров появилось числовое значение невязки для каждой точки, в верхней части эта невязка отображается в виде красных линий, соединенных с контрольными точками. Чем меньше значения невязки, тем точнее привязана карта. Невязки измеряются в пикселях изображения, значения меньше 5 единиц вполне допустимы для нашей работы. В случае больших значений, контрольные точки с максимальной невязкой можно удалить или переместить так, что бы уменьшить невязку. Так же невязка зависит от типа трансформации изображения, при изменении которого невязки будут пересчитаны и могут измениться как в большую, так и в меньшую сторону.</p>
-<div id="fig-privazka" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-privazka-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/3_Параметры трансформации.png" class="lightbox" data-glightbox="description: .lightbox-desc-8" data-gallery="quarto-lightbox-gallery-8"><img src="./pictures/3_Параметры трансформации.png" class="img-fluid figure-img"></a>
+<p>Для удобства навигации добавьте номера кварталов на карту (функция добавления подписей объектов будет рассмотрена более подробно в последующих разделах: <a href="chapter4_thematic_maps.html#sec-simple_labels" class="quarto-xref"><span>Глава 4.2</span></a>). Для добавления подписей нажмите правой кнопкой мыши на слой <strong>“Квартальная сеть”</strong> в панеле слоев. Выберите пункт <strong>“Свойства…” &gt; “Надписи”</strong>. В верхней части окна поменяйте выпадающую вкладку с <strong>“Без подписей”</strong> на <strong>“Обычные подписи”</strong>. В пункте <strong>“Значение”</strong> выберите поле <strong>“kvartal”</strong> (в этом поле содержатся номера кварталов). После этого нужно сохранить изменения (<strong>“Применить” &gt; “ОК”</strong>) (<a href="#vid-addlabels" class="quarto-xref">Видео&nbsp;<span>1.2</span></a>).</p>
+<div id="vid-addlabels" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-addlabels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/Video_1_2 Нумерация кварталов.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><video src="./videos/Video_1_2%20Нумерация%20кварталов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_2 Нумерация кварталов.mp4">Video</a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-privazka-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;1.8: Настройка параметров трансформации
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-addlabels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;1.2: Добавление подписей кварталов
 </figcaption>
 </figure>
 </div>
-<p>В программе доступно несколько типов трансформации изображения. Типы линейный и Гельмерта не искажают изображения. При выборке чекбокса <strong>“Только создать world-файл (линейная трансформация)”</strong> в результате привязки образуется новый файл с расширением <strong>.wld</strong> исходное изображение остается без изменений. В нашем случае, вероятно, лучшим образом подойдет <strong>проективный</strong> тип трансформации. Основная цель — уменьшить невязки насколько это возможно. Если выбран тип трансформиции — проективная, необходимо указать <strong>Output file</strong>. В результате привязки будет создана искаженная копия растра, директорию для сохранения которой нужно выбрать. Так же полезно будет поставить чекбокс <strong>“Использовать 0 для прозрачности при необходимости”</strong>» что позволяет сделать кромку искаженного изображения прозрачной, вместо черного цвета. При активированном чекбоксе <strong>“Сохранить контрольные точки”</strong> программа сохранит контрольные точки в отдельный файл с расширением <strong>.points</strong> который можно будет подгрузить в окне привязки растров. При повторной привязке растра контрольные точки не придется расставлять повторно. Активированный чекбокс <strong>Load in project when done</strong> загружает привязанное изображение в главное окно программы после завершения привязки. Когда мы добились допустимой невязки, начинаем привязку растра, нажав на иконку <strong>Начать привязку</strong> <img src="./icons/2_начать привязку.png" class="img-fluid" alt="1">. После этого привязанный растр появится в основном окне программы. Окно с привязкой растра можно закрыть, сохранив контрольные точки.</p>
-<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<p>Для более реалистичного отображения объектов так же поменяйте систему координат проекта. Для этого нажмите на иконку <img src="./QGIS_icons/mIconProjectionEnabled.svg" class="img-fluid" alt="СК"> в правом нижнем углу. В появившемся окне, в строке <strong>“Поиск”</strong> введите номер системы координат <strong>32646</strong>, выберите систему координат <strong>“WGS 84 / UTM zone 46N”</strong> и нажмите <strong>ОК</strong>. Изображение в основном окне программы изменится, согласно заданной системе координат. Номер системы координат проекта так же отображается в правом нижнем угул окна после иконки <img src="./QGIS_icons/mIconProjectionEnabled.svg" class="img-fluid" alt="СК"> (<a href="#vid-add_georef_sys" class="quarto-xref">Видео&nbsp;<span>1.3</span></a>).</p>
+<div id="vid-add_georef_sys" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-add_georef_sys-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/Video_1_3 Изменение СК проекта.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><video src="./videos/Video_1_3%20Изменение%20СК%20проекта.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_3 Изменение СК проекта.mp4">Video</a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-add_georef_sys-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;1.3: Изменение системы координат проекта
+</figcaption>
+</figure>
+</div>
+<div id="task-task_kvnet" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -412,20 +413,154 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Привяжите одно изображение из папки “планы лесонасаждений” по квартальным столбам. В процессе выберите подходящий тип трансформации изображения (с минимальными невязками) и сохраните контрольные точки.</p>
+<p>По примеру выше, загрузите в проект векторный слой “Квартальная сеть”, добавьте номера лесных кварталов и задайте систему координат проекта “WGS 84 / UTM zone 46N”.</p>
 </div>
 </div>
 </section>
-<section id="видимость-слоев" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="видимость-слоев"><span class="header-section-number">1.4</span> Видимость слоев</h2>
-<p>После того, как в проекте появилось первое изображение, стоит остановиться на описании инструментов навигации по карте и некоторых других возможностях программы. Панель инструментов проекта позволяет <strong>создать проект, открыть проект, сохранить проект, создать макет и показать менеджер макетов</strong> <img src="./icons/3_панель инструментов.png" class="img-fluid" alt="Панель инструментов">. Проектом называется файл, который связывает набор слоев с заданными настройками стиля и отображения. Этот файл имеет расширение <strong>.qgs</strong> или <strong>.qgz</strong>. После сохранения проекта все настройки отображения слоев будут содержаться в нем. Однако, файл проекта не содержит сами слои, которые находятся каждый в отдельном файле. Этот файл только объединяет нужные слои в единую систему с заданными параметрами отображения. Если пути к файлам, входящим в проект, или их названия будут изменены, программа не сможет обнаружить эти слои и сообщит об этом в окне с предупреждением <a href="#fig-layererror" class="quarto-xref">Рисунок&nbsp;<span>1.9</span></a>.</p>
-<div id="fig-layererror" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-layererror-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/16_Недостающие слои.png" class="lightbox" data-glightbox="description: .lightbox-desc-9" data-gallery="quarto-lightbox-gallery-9"><img src="./pictures/16_Недостающие слои.png" class="img-fluid figure-img"></a>
+<section id="навигация-по-карте" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="навигация-по-карте"><span class="header-section-number">1.3</span> Навигация по карте</h2>
+<p>В текущем проекте загружен единственный векторный слой “Квартальная сеть” который отображает границы кварталов на территории Мининского лесничества, Караульного участкового лесничества. Основным средством навигации является инструмент <strong>“Прокрутка карты”</strong> <img src="./QGIS_icons/mActionPan.svg" class="img-fluid" alt="Прокрутка карты">, который позволяет передвигать карту (так же этот инстумент активируется нажатием колесика мыши). Прокрутка <strong>колесика мыши</strong> позволяет менять масштаб. Для более плавного изменения масштаба используйте прокрутку вместе с нажатой клавишей <strong>Ctrl</strong>. Текущее значение масштаба возможно увидеть и задать в окне <strong>“Масштаб”</strong> в нижней части окна.</p>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-layererror-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;1.9: Предупреждение о недостающих слоях
+<div class="callout-title-container flex-fill">
+Задание&nbsp;1.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Измените положение карты при помощи инструмента “Прокрутка карты” <img src="./QGIS_icons/mActionPan.svg" class="img-fluid" alt="Прокрутка карты">. Задайте масштаб 1:50 000.</p>
+</div>
+</div>
+<p>Слева находится панель слоев, в которой отображаются все задействованные в проекте слои, для каждого из которых указаны: название слоя, цвет отображения объектов (а так же тип геометрии объектов) и <strong>чек-бокс отключающий видимость слоя</strong>. Важнейшим инструментом является <strong>контекстное меню слоя</strong>, позволяющее задать индивидуальные настройки для каждого слоя. Меню вызывается правой кнопкой мыши на выбранном слое и содержит следующие инструменты (<a href="#fig-contextmenulayer" class="quarto-xref">Рисунок&nbsp;<span>1.3</span></a>):</p>
+<div id="fig-contextmenulayer" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-contextmenulayer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/1_11_Контекстное меню слоя.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6"><img src="./pictures2/1_11_Контекстное меню слоя.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-contextmenulayer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;1.3: Контекстное меню панели слоев
+</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>“Увеличить до слоя”</strong> <img src="./QGIS_icons/mActionZoomToLayer.svg" class="img-fluid" alt="Увеличить до слоя"> - инструмент позволяет переместить слой в центр окна программы. Чаще всего применяется для быстрой навигации или если вы “потерялись” на карте и видите только белый экран.</li>
+<li><strong>“Показывать количество объектов”</strong> - когда активирован, добавляет счетчик количества объектов напротив слоя в панеле слоев.</li>
+<li><strong>“Показать подписи”</strong> <img src="./QGIS_icons/mActionLabeling.svg" class="img-fluid" alt="Показать подписи"> - позволяет быстро включить или отключить подписи объектов слоя.</li>
+<li><strong>“Переименовать слой”</strong> - позволяет изменить название слоя в панеле слоев.</li>
+<li><strong>“Дублировать слой”</strong> <img src="./QGIS_icons/mActionDuplicateLayer.svg" class="img-fluid" alt="Дублировать слой"> - создает дубликат слоя. При этом изменения в слое-оригинале будут отображаться в слое-копии и наоборот т.к. файл-источник для слоев остается общим. Однако для копии и оригинала возможно настроить различные стили отображения.</li>
+<li><strong>“Удалить слой”</strong> <img src="./QGIS_icons/mActionRemoveLayer.svg" class="img-fluid" alt="Удалить слой"> - удаляет слой из панели слоев, при этом <strong>файл-источник удален не будет</strong>.</li>
+<li><strong>“Переместить в конец”</strong>, “Переместить в начало” - перемещает слой в конец или начало списка в панеле слоев. Порядок в списке влияет на порядок отображения слоев в главном окне программы (пункт появляется только если в проекте больше одного слоя).</li>
+<li><strong>“Открыть таблицу атрибутов”</strong> <img src="./QGIS_icons/mActionOpenTable.svg" class="img-fluid" alt="Открыть таблицу атрибутов"> - открывает таблицу атрибутов слоя.</li>
+<li><strong>“Режим редактирования”</strong> <img src="./QGIS_icons/mActionToggleEditing.svg" class="img-fluid" alt="Режим редактирования"> - переводит слой в режим редактирования.</li>
+<li><strong>“Фильтр”</strong> настраивает фильтрацию объектов по значениям таблицы атрибутов.</li>
+<li><strong>“Видимость в приделах масштаба…”</strong> - позволяет настроить отображение слоя при определенном диапазоне масштаба.</li>
+<li><strong>“Экспорт”</strong> позволяет сохранить слой в файл. Возможны разные форматы сохранения: .shp, .gpkg, .gpx, .xlsx и др.</li>
+<li><strong>“Стили”</strong> дает доступ к быстрому изменению стиля отображения объектов а так же к возможности копировать настройки стиля одного слоя и применить их к другому слою.</li>
+<li><strong>“Свойства…”</strong> наиболее часто используемый пункт. Позволяет настроить слой, включая стиль отображения, надписи, систему координат и др.</li>
+</ul>
+<p>Примеры использования некоторых инструментов <strong>контекстного меню слоя</strong> представлены в <a href="#vid-layer_context_menu" class="quarto-xref">Видео&nbsp;<span>1.4</span></a>.</p>
+<div id="vid-layer_context_menu" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-layer_context_menu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/Video_1_4 Контекстное меню слоя.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7"><video src="./videos/Video_1_4%20Контекстное%20меню%20слоя.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_4 Контекстное меню слоя.mp4">Video</a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-layer_context_menu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;1.4: Использование инструментов контекстного меню слоя
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;1.5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Изучите контекстное меню панели слоев на примере загруженного ранее слоя “Квартальная сеть”.</p>
+</div>
+</div>
+</section>
+<section id="sec-georef_coord_net" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="sec-georef_coord_net"><span class="header-section-number">1.4</span> Привязка по координатной сетке</h2>
+<div id="cau-georef" class="callout callout-style-default callout-caution no-icon callout-titled" title="Дополнительные ресурсы:">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution&nbsp;1.1: Дополнительные ресурсы:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="https://cartetika.ru/tpost/ae1ph1lcj1-vse-chto-nuzhno-znat-o-privyazke-rastrov?utm_source=telegram&amp;utm_medium=post&amp;utm_campaign=text">Картетика - Все что нужно знать о привязке растров;</a></li>
+<li><a href="https://docs.nextgis.ru/docs_ngqgis/source/raster_ref.html">NextGIS - Привязка растров.</a></li>
+</ul>
+</div>
+</div>
+<p>Координатную сетку плана или карты часто используют для географической привязки изображения. QGIS позволяет осуществить привязку как в географической, так и в спроецированной системе координат. Привязка изображения осуществляется путем расстановки <strong>контрольных точек</strong> и указания их координат, таким образом создается соответстие между координатами отдельных пикселей изображения и географическими координатами. При помощи <strong>трансформации изображения</strong> это соответствие экстраполируется на весь растровый слой. В результате каждый пиксель изображения будет иметь привязку к географическим координатам.</p>
+<p>Для примера осуществим географическую привязку изображения “Национальный парк Столбы.png”. Карта имеет координатную сетку в географической системе координат <strong>WGS84 (EPSG:4326)</strong>. Для привязки растра используется инструмент, находящийся в меню <strong>“Слой” &gt; “Привязка растров…”</strong> <img src="./QGIS_icons/georeferencer/mGeorefRun.svg" class="img-fluid" alt="Привязка растров">. В открывшемся окне выберите иконку <strong>“Открыть растр…”</strong> <img src="./QGIS_icons/mActionAddRasterLayer.svg" class="img-fluid" alt="1"> после чего в папке проекта укажите файл <strong>“Национальный парк Столбы.tiff”</strong> (<a href="#fig-georefwindow" class="quarto-xref">Рисунок&nbsp;<span>1.4</span></a>).</p>
+<div id="fig-georefwindow" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-georefwindow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/1_4_Окно привязки растра.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" data-glightbox="description: .lightbox-desc-8"><img src="./pictures2/1_4_Окно привязки растра.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-georefwindow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;1.4: Окно привязки растров
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;1.6
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>По примеру выше откройте окно привязки растра и загрузите растровое изображения “Национальный парк Столбы.png” из папки проекта. Результат должен соответствовать рисунку выше (<a href="#fig-georefwindow" class="quarto-xref">Рисунок&nbsp;<span>1.4</span></a>).</p>
+</div>
+</div>
+<p>Окно инструмента “Привязка растров” разделено на 2 части: в верхней отображается растровое изображение, в нижней - характеристики контрольных точек. Для добавления контрольных точек используется инструмент <strong>“Добавить точку”</strong> <img src="./QGIS_icons/georeferencer/mActionAddGCPPoint.svg" class="img-fluid" alt="1">, для удаления - <strong>“Удалить точку”</strong> <img src="./QGIS_icons/georeferencer/mActionDeleteGCPPoint.svg" class="img-fluid" alt="1">, для перемещения - <strong>“Переместить точку”</strong> <img src="./QGIS_icons/georeferencer/mActionMoveGCPPoint.svg" class="img-fluid" alt="1">. Перемещение по карте осуществляется при помощи инструмента <strong>“Перемещение”</strong> <img src="./QGIS_icons/mActionPan.svg" class="img-fluid" alt="1"> или путем удержания <strong>клавиши пробел</strong> (последний способ часто удобнее). Масштаб изменяется прокруткой колесика мыши, так же как в основном окне программы.<br>
+Для добавления контрольных точек активируйте инструмент <strong>“Добавить точку”</strong> <img src="./QGIS_icons/georeferencer/mActionAddGCPPoint.svg" class="img-fluid" alt="1"> и нажмите на пересечение линий координатной сетки. В открывшемся окне введите координаты добавленной точки, укажите систему координат <strong>WGS84 (EPSG:4326)</strong> после чего нажмите <strong>ОК</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Обратите внимание!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Формат ввода координат указан в верхней части окна (<a href="#fig-addcoords" class="quarto-xref">Рисунок&nbsp;<span>1.5</span></a>). Для географических систем координат предусмострен формат ввода ГМС - градусы минуты секунды (числа разделяются пробелом, доли секунд - точкой) или ДГ - десятичные градусы (целая часть отделяется от дробной точкой). Координаты в формате ГМС: <strong>92 12 13.25</strong> (92 градуса 12 минут 13,25 секунд). Координаты в формате ДГ: <strong>92.521135</strong> (92,521135 градуса). Координаты в спроецированной системе указываются в метрах, целая часть отделяется от дробной точкой, например, <strong>268699.48</strong>.</p>
+<div id="fig-addcoords" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-addcoords-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/1_3_Ввод координат.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" data-glightbox="description: .lightbox-desc-9"><img src="./pictures2/1_3_Ввод координат.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-addcoords-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;1.5: Окно ввода координат
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>После добавления первой контрольной точки появится отметка на привязываемом изображении с номером точки (ID). В нижней части окна появится строка с характеристиками точки, которые состоят из номера точки (столбец ID) и соответствия между координатами привязываемого изображения (X / Y источника) и введенными географическими координатами (X / Y назначения) (<a href="#fig-georeffirst" class="quarto-xref">Рисунок&nbsp;<span>1.6</span></a>). Аналогичным образом добавляют последующие контрольные точки.</p>
+<div id="fig-georeffirst" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-georeffirst-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/1_5_Добавление первой точки привязки.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" data-glightbox="description: .lightbox-desc-10"><img src="./pictures2/1_5_Добавление первой точки привязки.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-georeffirst-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;1.6: Добавление первой контрольной точки
 </figcaption>
 </figure>
 </div>
@@ -439,56 +574,340 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>В дальнейшем создавайте для каждого нового проекта отдельную директорию (директория проекта) и сохраняйте в нее все файлы, относящиеся к этому проекту. Такой подход позволит не запутаться в большом количестве файлов а так же легко перенести весь проект на другой компьютер, если это потребуется. Помните, файл проекта содержит только пути к файлам!</p>
+<p>Количество конрольных точек зависит от качества изображения и выбранного типа трансформации (см. <a href="#cau-georef" class="quarto-xref">Caution&nbsp;<span>1.1</span></a>). Минимальное количество точек 2, однако, для получения невязки, следует добавить <strong>по меньшей мере 3 точки</strong>. Чем хуже качество привязываемого изображения, тем больше контрльных точек понадобится для точной привязки. Точки следует добавлять равномерно по всей площади изображения.</p>
 </div>
 </div>
-<p>Порядок слоев в панеле слоев влияет на порядок отображения этих слоев в главном окне программы (<a href="#fig-panel" class="quarto-xref">Рисунок&nbsp;<span>1.10</span></a>). Слои расположенные выше будут закрывать собой последующие слои. Обычно растровое изображение используют как “подложку” и располагают последним. Использование прозрачности при оформлении векторных слоев позволяет им не перекрывать друг друга и отображать больше информации на экране. На текущем этапе панель слоев содержит векторный слой с квартальной сетью Караульного участкового лесничества и привязанный растр (<a href="#fig-panel" class="quarto-xref">Рисунок&nbsp;<span>1.10</span></a>).</p>
-<div id="fig-panel" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/5_панель слоев.png" class="lightbox" data-glightbox="description: .lightbox-desc-10" data-gallery="quarto-lightbox-gallery-10"><img src="./pictures/5_панель слоев.png" class="img-fluid figure-img"></a>
+<div id="vid-cont_points" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-cont_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/Video_1_5 Контрольные точки.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-11" data-glightbox="description: .lightbox-desc-11"><video src="./videos/Video_1_5%20Контрольные%20точки.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_5 Контрольные точки.mp4">Video</a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;1.10: Панель слоев
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-cont_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;1.5: Расставление контрольных точек по координатной сетке
 </figcaption>
 </figure>
 </div>
-<p>Для визуальной оценки точности привязки, переместим растровый слой на второе место, заливку векторного слоя квартальной сети сделаем прозрачной а границы слоя более толстыми и яркими. Для этого перетащим растровый слой в панеле слоев на второе место, перейдем в свойства векторного слоя: <strong>“Свойства…” &gt; “Стиль”</strong>; выберем пункт “Простая заливка”; изменим “Цвет заливки” на “Прозрачная заливка”, “Цвет обводки” на более яркий цвет и увеличим толщину обводки до 0,66 (<a href="#fig-vizcheck" class="quarto-xref">Рисунок&nbsp;<span>1.11</span></a>).</p>
-<div id="fig-vizcheck" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-vizcheck-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./gif/7_viz_check.gif" class="lightbox" data-glightbox="description: .lightbox-desc-11" data-gallery="quarto-lightbox-gallery-11"><img src="./gif/7_viz_check.gif" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vizcheck-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;1.11: Изменение порядка слоев
-</figcaption>
-</figure>
-</div>
-<p>После настройки стиля одновременно видны границы векторного слоя и расположенный за ним растровый слой.</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;1.4
+Задание&nbsp;1.7
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Проведите визуальную оценку точности привязки растрового изображения по примеру выше. Совпадают ли границы кварталов векторного и растрового слоя?</p>
+<p>По примеру выше добавьте <strong>5</strong> контрольных точек (4 по углам изображения и 1 в центре) (см. <a href="#vid-cont_points" class="quarto-xref">Видео&nbsp;<span>1.5</span></a>).</p>
+</div>
+</div>
+<p>После добавления контрольных точек, напротив каждой из них появится значение невязки а так же значение средней ошибки в правом нижнем углу окна (<a href="#fig-cont_points" class="quarto-xref">Рисунок&nbsp;<span>1.7 (a)</span></a>). Перейдите в <strong>“Параметры трансформации”</strong> <img src="./QGIS_icons/propertyicons/settings.svg" class="img-fluid" alt="1"> и убедитесь что в пункте <strong>“Target CRS”</strong> (целевая система координат) указана система координат добавленных контрольных точек (<strong>WGS84 - EPSG:4326</strong>), иначе невязка будет рассчитана не корректно (по умолчанию в этом пункте указана СК проекта) (<a href="#fig-transform_params" class="quarto-xref">Рисунок&nbsp;<span>1.7 (b)</span></a>).</p>
+<div id="fig-georef_points" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-georef_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-georef_points" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-cont_points" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-cont_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/1_6_Контрольные точки.png" class="lightbox" data-gallery="fig-georef_points" data-glightbox="description: .lightbox-desc-12"><img src="./pictures2/1_6_Контрольные точки.png" class="img-fluid figure-img" data-ref-parent="fig-georef_points"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-cont_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Контрольные точки
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-georef_points" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-transform_params" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-transform_params-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/1_7_Параметры трансформации.png" class="lightbox" data-gallery="fig-georef_points" data-glightbox="description: .lightbox-desc-13"><img src="./pictures2/1_7_Параметры трансформации.png" class="img-fluid figure-img" data-ref-parent="fig-georef_points"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-transform_params-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Параметры трансформации
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-georef_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;1.7: Невязка и параметры трансформации изображения
+</figcaption>
+</figure>
+</div>
+<p><strong>Невязка</strong> (ошибка) - показатель несоответствия между координатами контрольных точек и локальными координатами изображения, а так же мера точности привязки изображения. Для уменьшения невязки сначала подбирается подходящий <strong>тип трансформации</strong> (показывающий наименьшую <strong>среднюю ошибку</strong>) после чего отдельные точки с максимальной невязкой удаляют (отключают) или корректируют их местоположения. Для подбора оптимального типа трансформации, в окне <strong>“Параметры трансформации”</strong> <img src="./QGIS_icons/propertyicons/settings.svg" class="img-fluid" alt="1"> (<a href="#fig-transform_params" class="quarto-xref">Рисунок&nbsp;<span>1.7 (b)</span></a>) поочередно выбирают разный <strong>“Тип трансформации”</strong>:<br>
+<img src="./pictures2/1_6_Тип трансформации.png" class="img-fluid" alt="1"><br>
+Для каждого нового типа трансформации невязки точек и средняя ошибка будут пересчитаны. В итоге выбирают тип трансформации с наименьшей средней ошибкой. Для изображений хорошего качества чаще всего применяют тип трансформации <strong>“Линейная”</strong> или <strong>“Гельмерта”</strong>. <strong>“Проективный”</strong> тип хорошо подходит для сфотографированных под углом карт. Остальные типы трансформации используют для изображений имеющих существенные искажения (см. <a href="#cau-georef" class="quarto-xref">Caution&nbsp;<span>1.1</span></a>).</p>
+<div id="task-georef_transform" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;1.8
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Выберите оптимальный тип трансформации (с минимальной средней ошибкой).<br>
+<strong>Примечание:</strong> некоторые типы трансформации требуют больше 5 контрольных точек, их использование будет невозможно (невязка точек не может быть рассчитана и отобразит значение “н/д”).</p>
+</div>
+</div>
+<p>После выбора подходящего типа трансформации анализируют невязки отдельных точек. Числовое значение невязки отображается в столбце <strong>“Невязка”</strong>. Графически невязка отображается в виде красных линий, соединяющих контрольную точку и расчетное место этой точки. Точки с невязкой значительно большей чем средняя удаляют, для этого достаточно снять чек-бокс в первом столбце таблицы <strong>“Контрольные точки”</strong>, после чего невязка для остальных точек (и средняя ошибка) будут пересчитаны. В случае с координатной сеткой возможно уменьшить невязку путем более точного позиционирования контрольных точек, разместив их точнее на перекрестиях координатной сетки (<a href="#vid-points_error" class="quarto-xref">Видео&nbsp;<span>1.6</span></a>).</p>
+<div id="vid-points_error" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-points_error-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/Video_1_6 Увязка точек.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-14" data-glightbox="description: .lightbox-desc-14"><video src="./videos/Video_1_6%20Увязка%20точек.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_6 Увязка точек.mp4">Video</a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-points_error-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;1.6: Уменьшение невязки контрольных точек
+</figcaption>
+</figure>
+</div>
+<div id="task-georef_move_points" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;1.9
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Выберите инструмент <strong>“Переместить точку”</strong> <img src="./QGIS_icons/georeferencer/mActionMoveGCPPoint.svg" class="img-fluid" alt="1"> и скорректируйте положение отдельных контрольных точек так, что бы невязка каждой не превышала 1 пиксель. Для этого переместите контрольные точки по пути красной линии невязки (<a href="#vid-points_error" class="quarto-xref">Видео&nbsp;<span>1.6</span></a>).</p>
+</div>
+</div>
+<p>Получив приемлемые значения невязки, проводят настройки в окне <strong>“Параметры трансформации”</strong> (<a href="#fig-transform_params" class="quarto-xref">Рисунок&nbsp;<span>1.7 (b)</span></a>). В пункте <strong>“Output file”</strong> указывают путь и название выходного файла (его сохраняют в папку проекта). Привязку растра активируют, нажав на иконку <strong>“Начать привязку растра”</strong> <img src="./QGIS_icons/mActionStart.svg" class="img-fluid" alt="1">. В результате в папке проекта появится модифицированный растровый файл, который так же будет добавлен в панель слоев. После успрешного завершения операции окно <strong>“Привязка растров”</strong> можно закрыть.</p>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;1.10
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Завершите привязку растрового изображения. В панеле слоев должен появиться новый растровый слой “Национальный парк Столбы_modified” (<a href="#fig-task_result" class="quarto-xref">Рисунок&nbsp;<span>1.8</span></a>).</p>
+<div id="fig-task_result" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-task_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/1_6_Результат выполнения задания.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" data-glightbox="description: .lightbox-desc-15"><img src="./pictures2/1_6_Результат выполнения задания.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-task_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;1.8: Результат выполнения задания - геопривязанное изображение
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Обратите внимание!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>При трансформации “Линейная” и “Гельмерта” возможно вместо нового растрового изображения создать файл с расширением <strong>.wld</strong>, который будет содержать параметры привязки изображения. Для этого достаточно активировать чек-бокс в пункте <strong>“Только создать world-файл…”</strong>.<br>
+</li>
+<li>Во время привязки контрольные точки сохраняются в файл с расширением <strong>.points</strong> (чек-бокс “Сохранить контрольные точки”). Их так же возможно сохранить или загрузить нажатием на иконки <strong>“Сохранить контрольные точки как…”</strong> <img src="./QGIS_icons/georeferencer/mActionSaveGCPpointsAs.svg" class="img-fluid" alt="1"> и <strong>“Загрузить контрольные точки…”</strong> <img src="./QGIS_icons/georeferencer/mActionLoadGCPpoints.svg" class="img-fluid" alt="1"> соответственно.<br>
+</li>
+<li>Кроме привязки растровых изображений, доступна привязка векторных слоев, для загрузки которых используется иконка <strong>“Открыть вектор”</strong> <img src="./QGIS_icons/mActionAddOgrLayer.svg" class="img-fluid" alt="1">.</li>
+</ul>
+</div>
+</div>
+<section id="инструменты-измерения" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="инструменты-измерения"><span class="header-section-number">1.4.1</span> Инструменты измерения</h3>
+<p>Изображение с картографической привязкой становится возможно использовать в геоинформационной системе, например, для измерения длин и площадей изображенных объектов. Эти операции проводятся при помощи инструментов изменений, находящихся в <strong>“Панеле атрибутов”</strong> <img src="./pictures2/1_8_Панель атрибутов.png" class="img-fluid" alt="1"></p>
+<div id="fig-fig" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fig-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/1_8_Инструменты измерений.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" data-glightbox="description: .lightbox-desc-16"><img src="./pictures2/1_8_Инструменты измерений.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;1.9: Инструменты измерений
+</figcaption>
+</figure>
+</div>
+<p>Инструменты <strong>“Измерить расстояние”</strong> <img src="./QGIS_icons/mActionMeasure.svg" class="img-fluid" alt="1"> (Сtrl + Shift + M) а так же <strong>“Измерить площадь”</strong> <img src="./QGIS_icons/mActionMeasureArea.svg" class="img-fluid" alt="1"> (Сtrl + Shift + J) позволяют выбрать единицы измерения и параметры расчета: на плоскости или на эллипсоиде. В последнем случае результаты измерений получаются несколько больше из-за учета кривизны земли (<a href="#fig-measure" class="quarto-xref">Рисунок&nbsp;<span>1.10</span></a>).</p>
+<div id="fig-measure" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-measure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-measure" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-measure" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-measure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/1_7_Измерение длины.png" class="lightbox" data-gallery="fig-measure" data-glightbox="description: .lightbox-desc-17"><img src="./pictures2/1_7_Измерение длины.png" class="img-fluid figure-img" data-ref-parent="fig-measure"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-measure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Инструмент “Измерить расстояния”
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-measure" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-measure_area" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-measure_area-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/1_8_Измерение площади.png" class="lightbox" data-gallery="fig-measure" data-glightbox="description: .lightbox-desc-18"><img src="./pictures2/1_8_Измерение площади.png" class="img-fluid figure-img" data-ref-parent="fig-measure"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-measure_area-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Инструмент “Измерить площадь”
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-measure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;1.10: Инструменты измерения
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;1.11
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>На геопривязанном изображении “Национальный парк Столбы” проведите следующие измерения:</p>
+<ul>
+<li>Измерьте расстояние между “Первым” столбом и столбом “Перья”, оно должно составить около 606 м;</li>
+<li>Измерьте площадь “Первого” столба, она должна составить около 1,33 га.</li>
+</ul>
 </div>
 </div>
 </section>
-<section id="модуль-quickmapservices" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="модуль-quickmapservices"><span class="header-section-number">1.5</span> Модуль QuickMapServices</h2>
-<p>Программа QGIS позволяет расширить набор функций за счет устанавливаемых модулей. Одним из таких модулей является “<strong>QuickMapServices</strong>” который дает возможность подгрузить источники картографической информации (Google maps, Яндекс карты, OpenStreetMap и др.) напрямую в проект в виде отдельного слоя (подложки). Для установки этого модуля перейдите в панель <strong>“Модули” &gt; “Управление модулями…”</strong>. В открывшемся окне, во вкладке <strong>“Все”</strong> в строке поиска введите название модуля <strong>“QuickMapServices”</strong>, выберите модуль и установите его (“Установить модуль”). После установки новый пункт появится в панеле <strong>“Интернет” &gt; “QuickMapServices”</strong>. При выборе одной из карт, она появится в панеле слоев в виде растрового слоя, в окно карты подгрузится изображение соответствующей карты (<a href="#fig-qms" class="quarto-xref">Рисунок&nbsp;<span>1.12</span></a>).</p>
-<div id="fig-qms" class="quarto-figure quarto-figure-center quarto-float anchored">
+</section>
+<section id="sec-georef_points" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="sec-georef_points"><span class="header-section-number">1.5</span> Привязка по характерным точкам</h2>
+<p>Планы лесонасаждений не имеют координатной сетки. В таком случае для привязки используют характерные точки, координаты которых известны, например квартальные столбы. Координаты точек вводят вручную, по аналогии с привязкой по координатной сетке (см предыдущий подраздел - <a href="#sec-georef_coord_net" class="quarto-xref"><span>Глава 1.4</span></a>), или получают из уже привязанного изображения (или векторного слоя). Второй способ получения координат рассмотрен в этом подразделе.</p>
+<p>Для примера используется изображение <strong>“План лесонасаждений 3.jpg”</strong>, находящееся в папке проекта. Привязка будет осуществлять при помощи уже загруженного векторного слоя <strong>“Квартальная сеть”</strong>, содержащего границы лесных кварталов. Перейдите в меню <strong>“Слой” &gt; “Привязка растров…”</strong> <img src="./QGIS_icons/georeferencer/mGeorefRun.svg" class="img-fluid" alt="Привязка растров"> и загрузите изображение <strong>“План лесонасаждений 3.jpg”</strong>. Привязка осуществляется по углам кварталов (квартальным столбам). Используйте инструмент <strong>“Добавить точку”</strong> для добавления контрольной точки в угол одного из кварталов. В открывшемся окне выберите пункт <strong>“С карты”</strong> (окно привязки будет свернуто) после чего в основном окне программы выберите аналогичную точку на векторном слое <strong>“Квартальная сеть”</strong>. Окно будет автоматически заполнено координатами точки, согласно СК проекта (<a href="#fig-georef_map" class="quarto-xref">Рисунок&nbsp;<span>1.11</span></a>, <a href="#vid-georef_map" class="quarto-xref">Видео&nbsp;<span>1.7</span></a>). Таким образом задаются координаты для контрольных точек.</p>
+<div id="fig-georef_map" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-qms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./gif/16_QMS.gif" class="lightbox" data-glightbox="description: .lightbox-desc-12" data-gallery="quarto-lightbox-gallery-12"><img src="./gif/16_QMS.gif" class="img-fluid figure-img"></a>
+<div aria-describedby="fig-georef_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/1_9_Привязка с карты.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" data-glightbox="description: .lightbox-desc-19"><img src="./pictures2/1_9_Привязка с карты.png" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-qms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;1.12: Изменение порядка слоев
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-georef_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;1.11: Использование опции “С карты” для заполнения координат точки
+</figcaption>
+</figure>
+</div>
+<div id="vid-georef_map" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-georef_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/Video_1_7 Привязка с карты.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-20" data-glightbox="description: .lightbox-desc-20"><video src="./videos/Video_1_7%20Привязка%20с%20карты.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_7 Привязка с карты.mp4">Video</a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-georef_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;1.7: Привязка изображения по характерным точкам
+</figcaption>
+</figure>
+</div>
+<p>После добавления контрольных точек, дальнейшие действия полностью повторяют шаги из предыдущего раздела (<a href="#sec-georef_coord_net" class="quarto-xref"><span>Глава 1.4</span></a>).</p>
+<div id="task-georef_forestplan" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;1.12
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Выполните географическую привязку изображения “План лесонасаждений 1.jpg” <strong>или</strong> “План лесонасаждений 2.jpg” которые находятся в папке проекта:</p>
+<ol type="1">
+<li>по примеру выше расставьте контрольные точки во всех квартальных столбах (<a href="#vid-georef_map" class="quarto-xref">Видео&nbsp;<span>1.7</span></a>);</li>
+<li>подберите оптимальный тип трансформации (см. <a href="#task-georef_transform" class="quarto-xref">Задание&nbsp;<span>1.8</span></a>);</li>
+<li>удалите или скорректируйте положение точек с невязкой более 10 пикселей (см. <a href="#task-georef_move_points" class="quarto-xref">Задание&nbsp;<span>1.9</span></a>).</li>
+</ol>
+<p><strong>Результат выполнения задания:</strong> в панеле слоев должно появиться геопривязанное изображение плана лесонасаждений (<a href="#fig-georef_map_task" class="quarto-xref">Рисунок&nbsp;<span>1.12</span></a>).</p>
+<div id="fig-georef_map_task" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-georef_map_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/1_12_Привязанный план лесонасаждений.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" data-glightbox="description: .lightbox-desc-21"><img src="./pictures2/1_12_Привязанный план лесонасаждений.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-georef_map_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;1.12: Результат выполнения задания
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="визуальная-оценка-точности-привязки" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="визуальная-оценка-точности-привязки"><span class="header-section-number">1.5.1</span> Визуальная оценка точности привязки</h3>
+<p>Визульно точность привязки оценивается путем сопоставления привязанного изображения с векторным слоем или другим изображением (напирмер космоснимком). Для визульного сравнения плана лесонасаждений и слоя “Квартальная сеть” необходимо сделать заливку кварталов прозрачной, линии границ более толстыми и яркими а так же поменять порядок слоев в панеле слоев (первый слой - “Квартальная сеть”, второй слой - “План лесонасаждений”).<br>
+В контекстном меню слоя “Квартальная сеть” перейдите в пункт <strong>“Свойства” &gt; “Стиль”</strong> (<a href="#fig-style" class="quarto-xref">Рисунок&nbsp;<span>1.13</span></a>).</p>
+<div id="fig-style" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-style-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/1_10_Стиль.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" data-glightbox="description: .lightbox-desc-22"><img src="./pictures2/1_10_Стиль.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-style-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;1.13: Окно настроек стиля слоя “Квартальная сеть”
+</figcaption>
+</figure>
+</div>
+<p>В окне выберите пункт “Простая заливка” и настройте параметры: <strong>“Стиль заливки” - “Без заливки”; “Цвет обводки” - выберите яркий цвет; “Толщина обводки” - 0,46</strong>. Нажмите <strong>“OK”</strong> для применения настроек. Настройки сделают полгоны кварталов прозрачными с более толстыми и яркими линиями. В панеле слоев поменяйте местами слои так, что бы слой <strong>“Квартальная сеть”</strong> был первым в списке. Теперь возможна визуальная оценка различий границ кварталов изображения и векторного слоя (<a href="#vid-layers_order" class="quarto-xref">Видео&nbsp;<span>1.8</span></a>).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Обратите внимание!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Порядок слоев в панеле слоев влияет на порядок отображения в окне программы. Верхние слои могут перекрывать нижние из-за чего они будут не видны.</p>
+</div>
+</div>
+<div id="vid-layers_order" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-layers_order-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/Video_1_8 Порядок слоев.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-23" data-glightbox="description: .lightbox-desc-23"><video src="./videos/Video_1_8%20Порядок%20слоев.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_8 Порядок слоев.mp4">Video</a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-layers_order-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;1.8: Изменение порядка слоев
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;1.13
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>По примеру выше проведите визуальную оценку точности привязки изображения “План лесонасаждений”.</p>
+</div>
+</div>
+</section>
+<section id="модуль-quickmapservices-qms" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="модуль-quickmapservices-qms"><span class="header-section-number">1.5.2</span> Модуль QuickMapServices (QMS)</h3>
+<p>Программа QGIS позволяет расширить набор встроенных функций за счет устанавливаемых модулей. Одним из таких модулей является “<strong>QuickMapServices</strong>” который дает возможность загрузить источники картографической информации (Google maps, Яндекс карты, OpenStreetMap и др.) напрямую в проект в виде отдельного слоя (подложки). Для установки этого модуля перейдите в панель <strong>“Модули” &gt; “Управление модулями…”</strong> <img src="./QGIS_icons/mActionShowPluginManager.svg" class="img-fluid" alt="Управление модулями">. В открывшемся окне, во вкладке <strong>“Все”</strong> в строке поиска введите название модуля <strong>“QuickMapServices”</strong>, выберите модуль и установите его (“Установить модуль”). После установки новый пункт появится в панеле <strong>“Интернет” &gt; “QuickMapServices”</strong> <img src="./QGIS_icons/mActionAddWmsLayer.svg" class="img-fluid" alt="1">. При выборе одной из карт, она появится в панеле слоев в виде растрового слоя, а в окно программы будет загружено изображение соответствующей карты (<a href="#vid-qms" class="quarto-xref">Видео&nbsp;<span>1.9</span></a>).</p>
+<div id="vid-qms" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-qms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/Video_1_9 QMS.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-24" data-glightbox="description: .lightbox-desc-24"><video src="./videos/Video_1_9%20QMS.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_9 QMS.mp4">Video</a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-qms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;1.9: Добавление карт из модуля QMS
 </figcaption>
 </figure>
 </div>
@@ -505,36 +924,52 @@ ul.task-list li input[type="checkbox"] {
 <p>Некоторые карты могуть работать не корректно.</p>
 </div>
 </div>
-<p>Обновить перечень доступных карт можно перейдя в настройки модуля (<strong>“Интернет” &gt; “QuickMapServices” &gt; “Настройки”</strong>) и во вкладке “Загрузить сервисы” выберите пункт “Получить дополнительные источники данных”. “QuickMapServices” лишь один из доступных модулей, расширяющих функции QGIS. Аналогичным способом возможно установить и другие модули.</p>
+<p>Обновить перечень доступных карт можно перейдя в настройки модуля (<strong>“Интернет” &gt; “QuickMapServices” &gt; “Настройки”</strong>), во вкладке “Загрузить сервисы” выберите пункт “Получить дополнительные источники данных”. “QuickMapServices” лишь один из доступных модулей, расширяющих функции QGIS. Аналогичным способом возможно установить и другие модули.</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;1.5
+Задание&nbsp;1.14
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Добавьте карту “Google Satellite” из модуля QuickMapServices в панель слоев.</p>
+<ol type="1">
+<li>Добавьте карту “Google Satellite” из модуля QuickMapServices в панель слоев.</li>
+<li>Визуально оцените точность привязки “Плана лесонасаждений” в сравнении с космическим снимком.</li>
+</ol>
 </div>
 </div>
 
 
 <div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Рисунок&nbsp;1.1: Создание проекта</span>
-<span class="glightbox-desc lightbox-desc-2">Рисунок&nbsp;1.2: Топографическая карта с координатной сеткой</span>
-<span class="glightbox-desc lightbox-desc-3">Рисунок&nbsp;1.3: Рисунок 3 - Добавление векторного слоя</span>
-<span class="glightbox-desc lightbox-desc-4">Рисунок&nbsp;1.4: Добавление подписей к векторному слою</span>
-<span class="glightbox-desc lightbox-desc-5">Рисунок&nbsp;1.5: Добавление подписей к векторному слою</span>
-<span class="glightbox-desc lightbox-desc-6">Рисунок&nbsp;1.6: Окно привязки растров</span>
-<span class="glightbox-desc lightbox-desc-7">Рисунок&nbsp;1.7: Добавление контрольных точек</span>
-<span class="glightbox-desc lightbox-desc-8">Рисунок&nbsp;1.8: Настройка параметров трансформации</span>
-<span class="glightbox-desc lightbox-desc-9">Рисунок&nbsp;1.9: Предупреждение о недостающих слоях</span>
-<span class="glightbox-desc lightbox-desc-10">Рисунок&nbsp;1.10: Панель слоев</span>
-<span class="glightbox-desc lightbox-desc-11">Рисунок&nbsp;1.11: Изменение порядка слоев</span>
-<span class="glightbox-desc lightbox-desc-12">Рисунок&nbsp;1.12: Изменение порядка слоев</span>
+<span class="glightbox-desc lightbox-desc-1">Рисунок&nbsp;1.1: Окно “Недостающие слои”</span>
+<span class="glightbox-desc lightbox-desc-2">Рисунок&nbsp;1.2: Элементы основного окна программы</span>
+<span class="glightbox-desc lightbox-desc-3">Видео&nbsp;1.1: Добавление векторного слоя</span>
+<span class="glightbox-desc lightbox-desc-4">Видео&nbsp;1.2: Добавление подписей кварталов</span>
+<span class="glightbox-desc lightbox-desc-5">Видео&nbsp;1.3: Изменение системы координат проекта</span>
+<span class="glightbox-desc lightbox-desc-6">Рисунок&nbsp;1.3: Контекстное меню панели слоев</span>
+<span class="glightbox-desc lightbox-desc-7">Видео&nbsp;1.4: Использование инструментов контекстного меню слоя</span>
+<span class="glightbox-desc lightbox-desc-8">Рисунок&nbsp;1.4: Окно привязки растров</span>
+<span class="glightbox-desc lightbox-desc-9">Рисунок&nbsp;1.5: Окно ввода координат</span>
+<span class="glightbox-desc lightbox-desc-10">Рисунок&nbsp;1.6: Добавление первой контрольной точки</span>
+<span class="glightbox-desc lightbox-desc-11">Видео&nbsp;1.5: Расставление контрольных точек по координатной сетке</span>
+<span class="glightbox-desc lightbox-desc-12">Рисунок&nbsp;1.7&nbsp;(a): Контрольные точки</span>
+<span class="glightbox-desc lightbox-desc-13">Рисунок&nbsp;1.7&nbsp;(b): Параметры трансформации</span>
+<span class="glightbox-desc lightbox-desc-14">Видео&nbsp;1.6: Уменьшение невязки контрольных точек</span>
+<span class="glightbox-desc lightbox-desc-15">Рисунок&nbsp;1.8: Результат выполнения задания - геопривязанное изображение</span>
+<span class="glightbox-desc lightbox-desc-16">Рисунок&nbsp;1.9: Инструменты измерений</span>
+<span class="glightbox-desc lightbox-desc-17">Рисунок&nbsp;1.10&nbsp;(a): Инструмент “Измерить расстояния”</span>
+<span class="glightbox-desc lightbox-desc-18">Рисунок&nbsp;1.10&nbsp;(b): Инструмент “Измерить площадь”</span>
+<span class="glightbox-desc lightbox-desc-19">Рисунок&nbsp;1.11: Использование опции “С карты” для заполнения координат точки</span>
+<span class="glightbox-desc lightbox-desc-20">Видео&nbsp;1.7: Привязка изображения по характерным точкам</span>
+<span class="glightbox-desc lightbox-desc-21">Рисунок&nbsp;1.12: Результат выполнения задания</span>
+<span class="glightbox-desc lightbox-desc-22">Рисунок&nbsp;1.13: Окно настроек стиля слоя “Квартальная сеть”</span>
+<span class="glightbox-desc lightbox-desc-23">Видео&nbsp;1.8: Изменение порядка слоев</span>
+<span class="glightbox-desc lightbox-desc-24">Видео&nbsp;1.9: Добавление карт из модуля QMS</span>
 </div>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -558,6 +993,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -938,7 +1517,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
