@@ -16,7 +16,7 @@
 
 ::: {#nte-download_ch1 .callout-note}
 ## Загрузите файлы!
-Для выполнения заданий из этого раздела загрузите файлы по [ссылке](https://github.com/agoroshko/qgis_for_beginners/tree/main/files/ch1_%D0%9F%D1%80%D0%B8%D0%B2%D1%8F%D0%B7%D0%BA%D0%B0%20%D1%80%D0%B0%D1%81%D1%82%D1%80%D0%B0)
+Для выполнения заданий из этого раздела загрузите файлы по [ссылке 1](https://github.com/agoroshko/qgis_for_beginners/tree/main/files) или по [ссылке 2](https://disk.yandex.ru/d/8GJX4SD9Xc-Shg)
 :::
 
 ## Организация файлов и создание проекта
