@@ -223,8 +223,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#таблица-атрибутов-слоя" id="toc-таблица-атрибутов-слоя" class="nav-link" data-scroll-target="#таблица-атрибутов-слоя"><span class="header-section-number">2.2</span> Таблица атрибутов слоя</a></li>
   <li><a href="#оцифровка-линейных-объектов" id="toc-оцифровка-линейных-объектов" class="nav-link" data-scroll-target="#оцифровка-линейных-объектов"><span class="header-section-number">2.3</span> Оцифровка линейных объектов</a>
   <ul class="collapse">
-  <li><a href="#оцифровка-дороги" id="toc-оцифровка-дороги" class="nav-link" data-scroll-target="#оцифровка-дороги"><span class="header-section-number">2.3.1</span> Оцифровка дороги</a></li>
-  <li><a href="#sec-linear_topology" id="toc-sec-linear_topology" class="nav-link" data-scroll-target="#sec-linear_topology"><span class="header-section-number">2.3.2</span> Топология линейных объектов. Инстурменты прилипания</a></li>
+  <li><a href="#оцифровка-автомобильной-дороги" id="toc-оцифровка-автомобильной-дороги" class="nav-link" data-scroll-target="#оцифровка-автомобильной-дороги"><span class="header-section-number">2.3.1</span> Оцифровка автомобильной дороги</a></li>
+  <li><a href="#sec-linear_topology" id="toc-sec-linear_topology" class="nav-link" data-scroll-target="#sec-linear_topology"><span class="header-section-number">2.3.2</span> Топология линейных объектов. Инстрyменты прилипания</a></li>
   <li><a href="#редактирование-линейных-объектов" id="toc-редактирование-линейных-объектов" class="nav-link" data-scroll-target="#редактирование-линейных-объектов"><span class="header-section-number">2.3.3</span> Редактирование линейных объектов</a></li>
   </ul></li>
   <li><a href="#оцифровка-полигональных-объектов" id="toc-оцифровка-полигональных-объектов" class="nav-link" data-scroll-target="#оцифровка-полигональных-объектов"><span class="header-section-number">2.4</span> Оцифровка полигональных объектов</a>
@@ -292,11 +292,11 @@ Note&nbsp;2.1: Загрузите файлы!
 <p>При создании нового векторного слоя всегда явно указывайте путь его сохранения. Для этого в поле <strong>“Имя файла”</strong> нажмите <strong>“…”</strong>, выберите папку для сохранения и затем введите название файла. <strong>Всегда сохраняйте файл в папку проекта!</strong></p>
 </div>
 </div>
-<p>В поле <strong>“Тип геометрии”</strong> необходимо выбрать какой тип геометрии будет содержать слой. Один слой может содержать объекты <strong>только</strong> одного типа: точка, линия или полигон. Поскольку будут оцифрованы точечные объекты (вершины скал) зададайте <strong>“Тип геометрии” - “Точка”</strong>. При создании нового слоя возможно сразу задать перечень полей (атрибутов), в которые будут записываться <strong>непространственные</strong> характеристики объектов (название, тип покрытия дороги, средний возраст насаждения в выделе и др.). Дополнительные поля можно добавить или удалить в любой момент после создания векторного слоя в контекстном меню панели слоев <strong>“Открыть таблицу атрибутов”</strong>. При создании атрибута задается <strong>тип</strong> и <strong>размер</strong>. <strong>Тип</strong> данных определяет характер информации, который может содержать поле, <strong>размер</strong> определяет максимальное количество символов. Шейп-файлы содержат следующие основные типы данных:</p>
+<p>В поле <strong>“Тип геометрии”</strong> необходимо выбрать какой тип геометрии будет содержать слой. Один слой может содержать объекты <strong>только</strong> одного типа: точка, линия или полигон. Поскольку будут оцифрованы точечные объекты (вершины скал) зададайте <strong>“Тип геометрии” - “Точка”</strong>. При создании нового слоя возможно сразу задать перечень полей (атрибутов), в которые будут записываться <strong>непространственные</strong> характеристики объектов (название, тип покрытия дороги, средний возраст насаждения в выделе и др.). Дополнительные поля можно добавить или удалить в любой момент после создания векторного слоя в контекстном меню панели слоев <strong>“Открыть таблицу атрибутов”</strong>. При создании атрибута задается <strong>тип</strong> и <strong>размер</strong>. <strong>Тип</strong> данных определяет характер информации, который может содержать поле, параметр <strong>“Длина”</strong> определяет максимальное количество символов. Шейп-файлы содержат следующие основные типы данных:</p>
 <ul>
-<li><strong>Текст (string)</strong> - текстовое поле, может содержать цифры, буквы и др. символы (максимальное количество символов определяется настройкой “Размер”);</li>
-<li><strong>Целое число (integer)</strong> - целочисленное поле, может содержать только целые числа (максимальное количество знаков определяется настройкой “Размер”);</li>
-<li><strong>Десятичное число (double)</strong> - может содержать дробные числа (максимальное количество знаков определяется настройкой “Размер”, максимальное количество знаков после запятой определятеся настройкой “Точность”).</li>
+<li><strong>Текст (string)</strong> - текстовое поле, может содержать цифры, буквы и др. символы (максимальное количество символов определяется настройкой “Длина”);</li>
+<li><strong>Целое число (integer)</strong> - целочисленное поле, может содержать только целые числа (максимальное количество знаков определяется настройкой “Длина”);</li>
+<li><strong>Десятичное число (double)</strong> - может содержать дробные числа (максимальное количество знаков определяется настройкой “Длина”, максимальное количество знаков после запятой определятеся настройкой “Точность”).</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -608,7 +608,7 @@ Note&nbsp;2.1: Загрузите файлы!
 <a href="./videos/2_11_Подписи скал.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-13" data-glightbox="description: .lightbox-desc-13"><video src="./videos/2_11_Подписи%20скал.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_11_Подписи скал.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-rocks_labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Видео&nbsp;2.8: Связь таблицы атрибутов с геометриями
+Видео&nbsp;2.8: Добавление подписей
 </figcaption>
 </figure>
 </div>
@@ -653,8 +653,8 @@ Note&nbsp;2.1: Загрузите файлы!
 <p>По примеру выше создайте новый векторный слой “Дороги” с типом геометрии “линия” и текстовым полем “type”.</p>
 </div>
 </div>
-<section id="оцифровка-дороги" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="оцифровка-дороги"><span class="header-section-number">2.3.1</span> Оцифровка дороги</h3>
+<section id="оцифровка-автомобильной-дороги" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="оцифровка-автомобильной-дороги"><span class="header-section-number">2.3.1</span> Оцифровка автомобильной дороги</h3>
 <p>Первым добавленным объектом будет <strong>автомобильная дорога</strong> на территории заповедника “Столбы”. Для этого переключите слой “Дороги” в <strong>“Режим редактирования”</strong> <img src="./QGIS_icons/mActionToggleEditing.svg" class="img-fluid" alt="Режим редактирования"> (см. <a href="#task-task_add_points" class="quarto-xref">Задание&nbsp;<span>2.2</span></a>), и оцифруйте дорогу, путем расставления точек поворота по линии дороги. В поле <strong>“type”</strong> сделайте запись <strong>“автомобильная дорога”</strong>. После добавления дорги сохраните измененеия в слое, нажав на иконку <strong>“Сохранить изменения”</strong> <img src="./QGIS_icons/mActionSaveAllEdits.svg" class="img-fluid" alt="1"> (<a href="#vid-road_vectorization" class="quarto-xref">Видео&nbsp;<span>2.9</span></a>).</p>
 <div id="vid-road_vectorization" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
@@ -695,7 +695,7 @@ Note&nbsp;2.1: Загрузите файлы!
 </div>
 </section>
 <section id="sec-linear_topology" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="sec-linear_topology"><span class="header-section-number">2.3.2</span> Топология линейных объектов. Инстурменты прилипания</h3>
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="sec-linear_topology"><span class="header-section-number">2.3.2</span> Топология линейных объектов. Инстрyменты прилипания</h3>
 <p>Под топологией объектов понимают их взаимное положение. Это важное свойство векторной модели данных, которое должно учитыватся при оцифровке объектов. Например, если река впадает в другую реку, то в векторной моделе данных эти две линии должны иметь общую точку. Разрыв или пересечение линий в этой точке будут топологическми ошибками (<a href="#fig-topology_errors" class="quarto-xref">Рисунок&nbsp;<span>2.7</span></a>). Этот пример можно экстраполировать на множество других объектов: дороги, тропы, ЛЭП и т.д.</p>
 <div id="fig-topology_errors" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1175,7 +1175,7 @@ Note&nbsp;2.1: Загрузите файлы!
 <span class="glightbox-desc lightbox-desc-10">Видео&nbsp;2.6: Выбор и удаление объектов</span>
 <span class="glightbox-desc lightbox-desc-11">Рисунок&nbsp;2.5: Таблица атрибутов</span>
 <span class="glightbox-desc lightbox-desc-12">Видео&nbsp;2.7: Связь таблицы атрибутов с геометриями</span>
-<span class="glightbox-desc lightbox-desc-13">Видео&nbsp;2.8: Связь таблицы атрибутов с геометриями</span>
+<span class="glightbox-desc lightbox-desc-13">Видео&nbsp;2.8: Добавление подписей</span>
 <span class="glightbox-desc lightbox-desc-14">Рисунок&nbsp;2.6: Создание векторного слоя “Дороги”</span>
 <span class="glightbox-desc lightbox-desc-15">Видео&nbsp;2.9: Оцифровка автомобильной дороги</span>
 <span class="glightbox-desc lightbox-desc-16">Видео&nbsp;2.10: Изменение стиля слоя “Дороги”</span>
@@ -1748,7 +1748,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
