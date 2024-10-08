@@ -479,7 +479,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Загрузите файлы “Выделы.shp” и “Таксационные описания.xlsx” на компьютер.</li>
 <li>Создайте новую папку проекта под названием “Раздел 3”.</li>
-<li>Создайте новый проект и загрузите туда слой “Выделы.shp”.</li>
+<li>Создайте новый проект и загрузите туда слой “Выделы.shp” (система координат проекта EPSG: 32646).</li>
 <li>Сохраните файл проекта в папку проекта.</li>
 </ul>
 </div>
@@ -1188,7 +1188,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","openEffect":"zoom","selector":".lightbox","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

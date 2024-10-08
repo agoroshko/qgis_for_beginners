@@ -295,7 +295,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Для выполнения заданий из раздела “Создание тематических карт” загрузите файлы по <a href="https://github.com/agoroshko/qgis_for_beginners/tree/main/files/%D1%81h4_C%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D1%85%20%D0%BA%D0%B0%D1%80%D1%82">ссылке 1</a> или [ссылке 2]</p>
+<p>Для выполнения заданий из раздела “Создание тематических карт” загрузите файлы по <a href="https://github.com/agoroshko/qgis_for_beginners/tree/main/files">ссылке 1</a> или <a href="https://disk.yandex.ru/d/IuXJbTCAmIZvaw">ссылке 2</a></p>
 </div>
 </div>
 <p>Важной частью географических информационных систем является возможность визуализации информации. Графический анализ позволяет устранить ошибки данных или выявить закономерности. Раздел посвящен возможностям визуализации в программе QGIS. Для выполнения заданий из этого раздела загрузите необходимые файлы. Обратите внимание, загруженные файлы сохранены в формате <strong>GeoPackage</strong> (расширение <strong>.gpkg</strong>). Особенности этого формата рассмотрены в приложении (<a href="appendice_1_geopackage.html" class="quarto-xref"><span>Приложение A</span></a>).<br>
@@ -317,12 +317,18 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Создайте новую папку проекта а так же новый проект в QGIS, загрузите файлы в программу. Сохраните проект в папку проекта.</p>
+<p>Создайте новый проект:</p>
+<ul>
+<li>Создайте новую папку проекта под названием “Раздел 4” а так же новый проект в QGIS;</li>
+<li>Загрузите файлы в QGIS;</li>
+<li>Задайте систему координат проекта EPSG:32646;</li>
+<li>Сохраните файл проекта в папку проекта.</li>
+</ul>
 </div>
 </div>
 <section id="система-координат-проекта" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="система-координат-проекта"><span class="header-section-number">4.1</span> Система координат проекта</h2>
-<p>Системы координат подразделяются на географические и спроецированные (местные системы координат не рассматриваются в этом пособии). Геогрифические системы рассматривают землю как объемную фигуру (эллипсоид), спроецированные делят поврехность зелмли на равные части (зоны) и рассматривают каждую зону как проекцию на плоскость. Как следствие, различаются единицы измерения координат. Положение точки в географической системе координат определеяется в угловой мере (градусы, минуты и секунды) по широте и долготе. В спроецированной системе координат положение точки определяется на плоскости (декардова система координат) и выражается в километрах по оси Х и У. Среди географических систем координат наиболее распространена <strong>WGS 84 (EPSG:4326)</strong>, на основе которой построена спроецированная система координат <strong>UTM (EPSG:32xxx)</strong>. Система координат UTM делит поверхность земли по экватору на 60 зон а так же на северное и южное полушарие. Например, система координат <strong>WGS 84 / UTM zone 46N (EPSG:32646)</strong> представляет 46 зону северного полушария (буква N в названии зоны указывает на полушарие). Для интернет-карт повсеместно распространено использование системы <strong>WGS 84 / Pseudo-Mercator (EPSG:3857)</strong> которая так же называется Web Mercator, которая была разработана компаний Google и является одновременно географической (для мелкого масштаба) и спроецированной (для крупного масштаба).</p>
+<p>Системы координат подразделяются на географические и спроецированные. Геогрифические системы рассматривают землю как объемную фигуру (эллипсоид), спроецированные делят поврехность зелмли на равные части (зоны) и рассматривают каждую зону как проекцию на плоскость. Как следствие, различаются единицы измерения координат. Положение точки в географической системе координат определеяется в угловой мере (градусы, минуты и секунды) по широте и долготе. В спроецированной системе координат положение точки определяется на плоскости (декардова система координат) и выражается в километрах по оси Х и У. Среди географических систем координат наиболее распространена <strong>WGS 84 (EPSG:4326)</strong>, на основе которой построена спроецированная система координат <strong>UTM (EPSG:32xxx)</strong>. Система координат UTM делит поверхность земли по экватору на 60 зон а так же на северное и южное полушарие. Например, система координат <strong>WGS 84 / UTM zone 46N (EPSG:32646)</strong> представляет 46 зону северного полушария (буква N в названии зоны указывает на полушарие). Для интернет-карт повсеместно распространено использование системы <strong>WGS 84 / Pseudo-Mercator (EPSG:3857)</strong> которая так же называется Web Mercator, которая была разработана компаний Google и является одновременно географической (для мелкого масштаба) и спроецированной (для крупного масштаба).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -333,22 +339,21 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Систему координат <strong>WGS 84 / Pseudo-Mercator (EPSG:3857)</strong> удобно сипользовать в качестве системы координат проекта, но не следует создавать слои в этой системе координат. Для этих целей используйте WGS 84 или UTM (См. <a href="appendice_2_epsg_3857.html" class="quarto-xref"><span>Приложение B</span></a>).</p>
+<p>Систему координат <strong>WGS 84 / Pseudo-Mercator (EPSG:3857)</strong> удобно ипользовать в качестве системы координат проекта, но не следует создавать слои в этой системе координат. Для этих целей используйте WGS 84 или UTM (См. <a href="appendice_2_epsg_3857.html" class="quarto-xref"><span>Приложение B</span></a>).</p>
 </div>
 </div>
 <p>В программе QGIS реализовано перепроецирование “на лету” (on fly). Векторные слои могут иметь различные системы координат, но в основном окне программы они отображаются согласованно - в одной и той же <strong>системе координат проекта</strong>. Для изменения системы координат проекта выберите <strong>“Проект” &gt; “Свойства” &gt; “СК”</strong> или нажмите на символ <img src="./QGIS_icons/mIconProjectionEnabled.svg" class="img-fluid" alt="1"> в правом нижнем углу. После чего появится окно с настройками системы координат <a href="#fig-proj_crs" class="quarto-xref">Рисунок&nbsp;<span>4.1</span></a>.</p>
 <div id="fig-proj_crs" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-proj_crs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/18_Система координат проекта.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./pictures/18_Система координат проекта.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/4_1_Система координат проекта.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./pictures2/4_1_Система координат проекта.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-proj_crs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;4.1: Настройка системы координат проекта
 </figcaption>
 </figure>
 </div>
-<p>У каждой системы координат существует уникальный номер <strong>EPSG</strong>, который удобно использовать для поиска. Изображение в правом нижнем углу окна показывает область действия системы координат на поверхности земли. Текущее положение основного окна карты отображено перекрестием, область действия - красной заливкой, что особенно удобно при выборе нужной зоны спроецированной системы координат.<br>
-После выбора нужной системы координат проекта нажмите <strong>“Применить” &gt; “ОК”</strong>, изображение в главном окне программы изменится согласно выбранной системе координат.</p>
+<p>У каждой системы координат существует уникальный номер <strong>EPSG</strong>, который удобно использовать для поиска. Изображение в правом нижнем углу окна показывает область действия системы координат на поверхности земли. Текущее положение основного окна карты отображено перекрестием, область действия - красной заливкой, что особенно удобно при выборе нужной зоны спроецированной системы координат. Что бы назначить выбранную систему координат в качестве системы координат проекта нажмите <strong>“Применить” &gt; “ОК”</strong>, изображение в главном окне программы изменится согласно выбранной системе координат.</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -367,39 +372,85 @@ window.Quarto = {
 </ul>
 </div>
 </div>
-<p>Координаты положения курсора отображаются посередине в нижней части главного окна программы <img src="./icons/14_координаты.png" class="img-fluid" alt="Отображение координат курсора мышки">. Формат отображаемых координат настраивается в меню <strong>“Проект” &gt; “Свойства…” &gt; “Общие” &gt; “Отображение координат…”</strong>. Географические координаты могут быть отображены в десятичных градусах, градусах и минутах или градусах, минутах и секундах (пункт “Coordinate format”). Так же настраиваются единицы измерения: метры или градусы (degrees) и точность координат.</p>
+<p>Координаты положения курсора отображаются посередине в нижней части главного окна программы <img src="./icons/14_координаты.png" class="img-fluid" alt="Отображение координат курсора мышки">. Формат отображаемых координат настраивается в меню <strong>“Проект” &gt; “Свойства…” &gt; “Общие” &gt; “Отображение координат…”</strong>. Географические координаты могут быть отображены в десятичных градусах, градусах и минутах или градусах, минутах и секундах (пункт “Формат”). Там же настраиваются единицы измерения: метры или градусы и точность координат.</p>
 </section>
 <section id="sec-simple_labels" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="sec-simple_labels"><span class="header-section-number">4.2</span> Обычные подписи</h2>
-<p>Подписи объектов существенно увеличивают информативность карты. Они настраиваются отдельно для каждого слоя в меню <strong>“Свойства…” &gt; “Надписи”</strong>. Существует несколько режимов отображения подписей:</p>
+<p>Подписи объектов существенно увеличивают информативность карты. Они настраиваются отдельно для каждого слоя в контекстном меню <strong>“Свойства…” &gt; “Подписи”</strong>. Существует несколько режимов отображения подписей:</p>
 <ul>
 <li>“Без подписей” <img src="./QGIS_icons/labelingNone.svg" class="img-fluid" alt="1">;</li>
 <li>“Обычные подписи” <img src="./QGIS_icons/labelingSingle.svg" class="img-fluid" alt="1">;</li>
 <li>“Подписи на основе правил” <img src="./QGIS_icons/labelingRuleBased.svg" class="img-fluid" alt="1">;</li>
 <li>“Препятствие для подписей” <img src="./QGIS_icons/labelingObstacle.svg" class="img-fluid" alt="1">.</li>
 </ul>
-<p>В этом и следующем подразделах будут рассмотрены “Обычные подписи” и “Подписи на основе правил”. Рассмотрим подписи объектов на примере слоя “kvartala” (проект с этим слоем был создан в начале раздела). При настройке “Обычных подписей” основным параметром является <strong>“Значение”</strong>, которым будет подписан каждый объект в этом слое. Слой лесных кварталов содержит поле “kvartal” в котором записан номер квартала для каждого объекта. Именно это поле указывается в пункте <strong>“Значение”</strong>. Таким образом каждый квартал получает подпись из соответствующего поля атрибутивной таблицы - номер квартала <a href="#fig-labels" class="quarto-xref">Рисунок&nbsp;<span>4.2</span></a>.</p>
-<div id="fig-labels" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./gif/23_Подписи.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="./gif/23_Подписи.gif" class="img-fluid figure-img"></a>
+<p>В этом и следующем подразделах будут рассмотрены <strong>“Обычные подписи”</strong> и <strong>“Подписи на основе правил”</strong>. Рассмотрим подписи объектов на примере слоя “kvartala” (проект с этим слоем был создан в начале раздела). При настройке <strong>“Обычных подписей”</strong> основным параметром является <strong>“Значение”</strong>, которым будет подписан каждый объект в этом слое. Слой лесных кварталов содержит поле <strong>“kvartal”</strong> в котором записан номер квартала для каждого объекта. Именно это поле указывается в пункте <strong>“Значение”</strong>. Таким образом каждый квартал получает подпись из соответствующего поля атрибутивной таблицы - номер квартала <span class="quarto-unresolved-ref">?fig-labels</span>.</p>
+<div id="vid-labels" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/4_1_Подписи кварталов.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><video src="./videos/4_1_Подписи%20кварталов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_1_Подписи кварталов.mp4">Video</a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;4.2: Подписи слоя “kvartala”
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;4.1: Подписи слоя “kvartala”
 </figcaption>
 </figure>
 </div>
-<p>Остальные настройки не влияют на содержание подписей, только на их оформление. Внесенные изменения сразу отображаются в верхней части окна под названием “Образец текста”. Пункт <strong>“Текст”</strong> позволяет настроить шрифт, размер и цвет текста. <strong>“Форматирование”</strong> настраивает регистр, отступы, перенос подписей по строкам, форматы чисел. Крайне полезными настройками является и <strong>“Фон”</strong>, позволяющие строить буфер (по умолчанию белого цвета) вокруг подписей, так повышается их видимость на фоне других объектов. Пункт <strong>“Размещение”</strong> настраивает положение подписей относительно объекта. Чаще всего подписи размещают на некотором расстоянии от точечных объектов или внутри полигонов. <strong>“Отрисовка”</strong> позволяет задать масштаб карты для отображения подписей. При большом количестве подписей они могут накладываться друг на друга. В этом случае по умолчанию часть подписей не будет видна, что бы изменить это поведение перейдите в пункт <strong>“Настройки автоматического размещения подписей”</strong> <img src="./QGIS_icons/mIconAutoPlacementSettings.svg" class="img-fluid" alt="1"> в правом верхнем углу окна и поставьте чек-бокс <strong>“Показывать все подписи для всех слоев (включая наложения)”</strong> <a href="#fig-labels2" class="quarto-xref">Рисунок&nbsp;<span>4.3</span></a>.</p>
-<div id="fig-labels2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<p>Остальные настройки не влияют на содержание подписей, только на их оформление. Внесенные изменения сразу отображаются в верхней части окна под названием “Образец текста”. Пункт <strong>“Текст”</strong> позволяет настроить шрифт, размер и цвет текста. <strong>“Форматирование”</strong> настраивает регистр, отступы, перенос подписей по строкам, форматы чисел. Крайне полезными настройками является и <strong>“Фон”</strong>, позволяющие строить буфер (по умолчанию белого цвета) вокруг подписей, так повышается их видимость на фоне других объектов. Пункт <strong>“Размещение”</strong> настраивает положение подписей относительно объекта. Чаще всего подписи размещают на некотором расстоянии от точечных объектов или внутри полигонов. <strong>“Отрисовка”</strong> позволяет задать масштаб карты для отображения подписей (<a href="#fig-text_settings" class="quarto-xref">Рисунок&nbsp;<span>4.2</span></a>).</p>
+<div id="fig-text_settings" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-labels2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./gif/24_наложение подписей.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><img src="./gif/24_наложение подписей.gif" class="img-fluid figure-img"></a>
+<div aria-describedby="fig-text_settings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./pictures2/4_2_Текст.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="Текст"><img src="./pictures2/4_2_Текст.png" class="img-fluid figure-img"></a></p>
+<figcaption>Текст</figcaption>
+</figure>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-labels2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;4.3: Наложение подписей
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./pictures2/4_2_Буфер.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4" title="Буфер"><img src="./pictures2/4_2_Буфер.png" class="img-fluid figure-img"></a></p>
+<figcaption>Буфер</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./pictures2/4_2_Фон.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5" title="Фон"><img src="./pictures2/4_2_Фон.png" class="img-fluid figure-img"></a></p>
+<figcaption>Фон</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./pictures2/4_2_Размещение.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6" title="Размещение"><img src="./pictures2/4_2_Размещение.png" class="img-fluid figure-img"></a></p>
+<figcaption>Размещение</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./pictures2/4_2_Отрисовка.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7" title="Отрисовка"><img src="./pictures2/4_2_Отрисовка.png" class="img-fluid figure-img"></a></p>
+<figcaption>Отрисовка</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-text_settings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;4.2: Настройки подписей
 </figcaption>
 </figure>
 </div>
+<p>При большом количестве подписей они могут накладываться друг на друга. В этом случае по умолчанию часть подписей не будет видна, что бы изменить это поведение перейдите в пункт <strong>“Настройки автоматического размещения подписей”</strong> <img src="./QGIS_icons/mIconAutoPlacementSettings.svg" class="img-fluid" alt="1"> в правом верхнем углу окна и поставьте чек-бокс <strong>“Показывать все подписи для всех слоев (включая наложения)”</strong>.</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -413,14 +464,37 @@ window.Quarto = {
 <p>Измените подписи слоя “kvartala”. Установите размер шрифта 20, цвет текста - коричневый, включите буфер вокруг подписей.</p>
 </div>
 </div>
-<p>В некоторых случаях требуется отобразить подписи сразу из нескольких полей, например номер выдела и площадь. Настроить такую подпись возможно в редакторе выражений <img src="./QGIS_icons/mIconExpression.svg" class="img-fluid" alt="1"> (левый верхний угол окна). Создайте подписи объектов слоя <strong>“videla”</strong> из полей “videl” (номер выдела) и “s_ga” (площадь в гектарах) разделенных тире. Перейдите в окно “Редактор выражений” в центральной части в пункте “Поля и значения” найдите поля “videl” и “s_ga”. После двойного клика они будут перенесены в левую часть окна, где и формируется выражение. Разделите их символом “Сцепление строк” <code>||</code> что бы получилось следующее выражение: <code>"videl" || ' - ' || "s_ga"</code> (<a href="#fig-concatenate" class="quarto-xref">Рисунок&nbsp;<span>4.4</span></a>). Результат выражения отображается в нижней левой части окна, пункт <strong>“Просмотр:”</strong>. Если в этом пункте отображается надпись <strong>“Ошибочное выражение”</strong> следует исправить выражение.</p>
+<p>В некоторых случаях требуется отобразить подписи сразу из нескольких полей, например номер выдела и площадь. Настроить такую подпись возможно в редакторе выражений <img src="./QGIS_icons/mIconExpression.svg" class="img-fluid" alt="1"> (левый верхний угол окна). Для примера используем слой <strong>“videla”</strong>. Создадим подписи из полей “videl” (номер выдела) и “s_ha” (площадь выдела в гектарах). Перейдите в окно <strong>“Построитель выражений”</strong> в центральной части в пункте <strong>“Поля и значения”</strong> найдите поля “videl” и “s_ha”. После двойного клика они будут перенесены в левую часть окна, где и формируется выражение. Разделите их символом “Сцепление строк” <code>||</code> что бы получилось следующее выражение: <code>'выдел ' || "videl" || ' площадь ' || "s_ha"</code> (<a href="#fig-concatenate" class="quarto-xref">Рисунок&nbsp;<span>4.3</span></a>). Результат выражения отображается в нижней левой части окна, пункт <strong>“Просмотр:”</strong>. Если в этом пункте отображается надпись <strong>“Ошибочное выражение”</strong> следует исправить выражение.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Обратите внимание!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>При составлении выражения важно использовать правильные кавычки. Названия полей заключаются в двойные кавычки (<code>"videl"</code>), строки в одинарные (<code>'площадь'</code>). Неправильное использование кавычек приведет к ошибке!</p>
+</div>
+</div>
 <div id="fig-concatenate" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-concatenate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/19_Объединение полей.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><img src="./pictures/19_Объединение полей.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/4_3_Составные подписи.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" data-glightbox="description: .lightbox-desc-8"><img src="./pictures2/4_3_Составные подписи.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-concatenate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;4.4: Создание подписи из нескольких полей
+Рисунок&nbsp;4.3: Создание подписи из нескольких полей
+</figcaption>
+</figure>
+</div>
+<div id="vid-complex_labels" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-complex_labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/4_7_Составные подписи.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-9" data-glightbox="description: .lightbox-desc-9"><video src="./videos/4_7_Составные%20подписи.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_7_Составные подписи.mp4">Video</a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-complex_labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;4.2: Создание подписи из полей “videl” и “s_ha”
 </figcaption>
 </figure>
 </div>
@@ -437,18 +511,25 @@ window.Quarto = {
 <p>Создайте подписи слоя “videla” из полей “videl” и “el_lesa” (преобладающая порода) по примеру выше.</p>
 </div>
 </div>
-</section>
-<section id="sec-labels_by_rules" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="sec-labels_by_rules"><span class="header-section-number">4.3</span> Подписи на основе правил</h2>
-<p>Использование режима “Обычные подписи” удобно, когда все объекты слоя должны быть подписаны одинаково. Если же часть объектов должна остаться без подписей или подписи должны изменяться по условию - применяют режим “Подписи на основе правил”. Рассмотрим работу с этим режимом на примере слоя <strong>“videla”</strong> который содержит границы выделов и таксационную характеристику каждого из них. Основной настройкой здесь является задание логического правила, согласно которому будут отобраны объекты. Перейдите в режим <strong>“Подписи на основе правил”</strong> и добавьте новое правило нажав на символ <img src="./QGIS_icons/symbologyAdd.svg" class="img-fluid" alt="1">. В верхней части окна <strong>“Edit Rule”</strong> задается правило, в нижней - настраивается подпись. Рассмотрим врхнюю часть окна, поскольку настройка подписи была рассмотрена в предыдущем разделе (<a href="#sec-simple_labels" class="quarto-xref"><span>Глава 4.2</span></a>).<br>
-В пункте <strong>“Описание”</strong> вводится название правила. У каждого правила может быть два режима <strong>“Поиск” и “Иначе для всех остальных объектов”</strong>. Второй пункт используется, когда создано несколько правил и требуется добавить подписи для всех остальных объектов, не входящих ни в одно из предыдущих правил. Для создания правила используется окно <strong>“Конструктор выражений”</strong> <img src="./QGIS_icons/mIconExpression.svg" class="img-fluid" alt="1">. Логические условия задаются на основе атрибутов объектов. Для примера составлено выражение в котором будут подписаны лесные выдела с площадью более 4 га: <code>"s_ga" &gt; 4</code>. Функция <strong>“Проверка”</strong> позволяет узнать количество объектов, попадающих под это условие <a href="#fig-labels_rules" class="quarto-xref">Рисунок&nbsp;<span>4.5</span></a>. Более подробно создание логических выражений будет рассмотрено в <a href="chapter5_queries.html" class="quarto-xref"><span>Глава 5</span></a>.</p>
-<div id="fig-labels_rules" class="quarto-figure quarto-figure-center quarto-float anchored">
+<p>Длинные подписи не слишком удобны, поэтому разобьем подпись на 2 строки и зададим масштаб отрисовки подписей. В окне <strong>“Подписи”</strong> перейдите во вкладку <strong>“Форматирование”</strong> и задайте “Перенос строки по символу” - <code>\n</code> (такое сочетание символов используется для переноса строки в HTML). Измените подпись, добавив знак переноса перед словом “площадь”: <code>'выдел ' ||  "videl"  || ' \nплощадь ' ||  "s_ha"</code>. Программа, найдя символ переноса, разделяет подпись на две строки. При этом сам символ переноса в подписе не отображается (<a href="#fig-new_string" class="quarto-xref">Рисунок&nbsp;<span>4.4</span></a>).</p>
+<div id="fig-new_string" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-labels_rules-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./gif/25_подписи на основе правил.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><img src="./gif/25_подписи на основе правил.gif" class="img-fluid figure-img"></a>
+<div aria-describedby="fig-new_string-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/4_4_Настройка форматирования подписей.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" data-glightbox="description: .lightbox-desc-10"><img src="./pictures2/4_4_Настройка форматирования подписей.png" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-labels_rules-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;4.5: Создание подписей на основе правил
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-new_string-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;4.4: Настройка переноса подписей
+</figcaption>
+</figure>
+</div>
+<p>При мелком масштабе подписи небольших объектов нечитаемы, поэтому зададим масштаб, при котором отображение подписей будет отключаться. Для этого в окне <strong>“Подписи”</strong> перейдите во вкладку <strong>“Отрисовка”</strong> и поставьте чек-бокс в пункте <strong>“Видимость в пределах масштаба”</strong>. В строке “Минимальный масштаб” <img src="./QGIS_icons/mActionZoomOut.svg" class="img-fluid" alt="1"> задайте значение 1:4000 (<a href="#fig-zoom_string" class="quarto-xref">Рисунок&nbsp;<span>4.5</span></a>). При текущем масштабе карты менее 1:4000 подписи не будут отображаться.</p>
+<div id="fig-zoom_string" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-zoom_string-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/4_5_Настройка видимости подписей.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" data-glightbox="description: .lightbox-desc-11"><img src="./pictures2/4_5_Настройка видимости подписей.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-zoom_string-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;4.5: Настройка видимости подписей
 </figcaption>
 </figure>
 </div>
@@ -462,30 +543,25 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Создайте подписи слоя “videla”. Добавьте номер выдела только для тех выделов, в которых средний возраст насаждения более 100 лет (средний возраст - поле “A_let”).</p>
+<p>По примеру выше настройте перенос и масштаб отображения подписей слоя “videla”.</p>
 </div>
 </div>
 </section>
-<section id="настройки-стиля-объектов" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="настройки-стиля-объектов"><span class="header-section-number">4.4</span> Настройки стиля объектов</h2>
-<p>Одним из ключевых имнструментов визуализиции пространственных данных является раскраска объектов цветом. Все объекты слоя могут быть окрашены одинаково или, в зависимости от значений атрибутов, иметь разные цвета. В программе QGIS настройка стиля отображения объектов производится в контекстном меню панели слоев <strong>“Свойства…” &gt; “Стиль”</strong>. Существует несколько режимов отображения объектов: <strong>“Без отрисовки”</strong> объекты будут не видны но надписи объектов будут отображаться; <strong>“Простая символика”</strong> задает единый стиль для всех объектов слоя; “Символизация по уникальным значениям” позволяет задать стиль отображения в зависимости от значений качественного атрибута (преобладающая порода, класс бонитета и т.д.); <strong>“Символизация по диапазонам значений”</strong> задает стиль в зависимости от количественного атрибута (средний возраст насаждения, средний диаметр, запас и т.д.). <strong>“Символизация на основе правил”</strong> позволяет задать гибкие правила для отображения стиля объектов по нескольким атрибутам. Настройка символики несколько видоизменяется в зависимости от типа геометрии слоя. Для точек будет задаваться стиль маркера, для линий - стиль линии, для полигонов - стиль заливки. Особенности геометрий объектов отражаются на особенностях их отображения. Упомянутые выше режимы отображения объектов рассмотрены далее на примере полигонального слоя “videla” из созданного ранее проекта.</p>
-</section>
-<section id="простая-символика" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="простая-символика"><span class="header-section-number">4.5</span> Простая символика</h2>
-<p>В режиме <strong>“Простая символика”</strong> все объекты отображаются в одном стиле, который может быть простым (состоит из одного слоя) так и сложным (состоящим из двух и более слоев). По умолчанию единственным слоем является <strong>“Простая заливка”</strong>. Комбинируя несколько простых слоев возможно создать сложный стиль отображения.</p>
-<section id="простая-заливка" class="level3" data-number="4.5.1">
-<h3 data-number="4.5.1" class="anchored" data-anchor-id="простая-заливка"><span class="header-section-number">4.5.1</span> Простая заливка</h3>
-<div id="fig-simple_fill" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-simple_fill-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/20_Простая заливка.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6"><img src="./pictures/20_Простая заливка.png" class="img-fluid figure-img"></a>
+<section id="sec-labels_by_rules" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="sec-labels_by_rules"><span class="header-section-number">4.3</span> Подписи на основе правил</h2>
+<p>Использование режима “Обычные подписи” удобно, когда все объекты слоя должны быть подписаны одинаково. Если же часть объектов должна остаться без подписей или подписи должны изменяться по условию - применяют режим <strong>“Подписи на основе правил”</strong>. Рассмотрим работу с этим режимом на примере слоя <strong>“videla”</strong> который содержит границы выделов и таксационную характеристику каждого из них. Основной настройкой здесь является задание логического правила, согласно которому будут подписаны объекты.<br>
+Перейдите в режим <strong>“Подписи на основе правил”</strong> и удалите текущее правило. Для этого выделите его и нажмите на символ <img src="./QGIS_icons/symbologyRemove.svg" class="img-fluid" alt="1"> в левом нижнем углу (это правило было перенесено из ражима “Обычные подписи”). Добавьте новое правило нажав на символ <img src="./QGIS_icons/symbologyAdd.svg" class="img-fluid" alt="1">, после чего откроется новое окно <strong>“Edit Rule”</strong>. В пункте <strong>“Фильтр”</strong> задается правило для отображения подписей, в нижней - настраивается внешний вид.<br>
+В пункте <strong>“Описание”</strong> вводится название правила. У каждого правила может быть два режима <strong>“Фильтр”</strong> и <strong>“Иначе для всех остальных объектов”</strong>. Второй пункт используется, когда создано несколько правил и требуется добавить подписи для всех остальных объектов, не входящих ни в одно из предыдущих правил. Для создания правила используется окно <strong>“Построитель выражений”</strong> <img src="./QGIS_icons/mIconExpression.svg" class="img-fluid" alt="1">. Логические условия задаются на основе атрибутов объектов. Для примера составлено выражение в котором будут подписаны лесные выдела с площадью более 4 га: <code>"s_ha" &gt; 4</code>. Функция <strong>“Проверка”</strong> позволяет узнать количество объектов, попадающих под это условие (<a href="#vid-labels_rules" class="quarto-xref">Видео&nbsp;<span>4.3</span></a>). В пункте <strong>“Значение”</strong> задается поле, значениями из которого будут подписаны выбранные по условию выдела (в примере это поле “videl”). Более подробно создание логических выражений будет рассмотрено в последующем разделе (<a href="chapter5_queries.html" class="quarto-xref"><span>Глава 5</span></a>).</p>
+<div id="vid-labels_rules" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-labels_rules-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/4_8_Подписи на основе правил.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-12" data-glightbox="description: .lightbox-desc-12"><video src="./videos/4_8_Подписи%20на%20основе%20правил.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_8_Подписи на основе правил.mp4">Video</a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-simple_fill-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;4.6: Простая заливка
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-labels_rules-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;4.3: Создание подписей на основе правил
 </figcaption>
 </figure>
 </div>
-<p>Тип слоя <strong>“Простая заливка”</strong> (<a href="#fig-simple_fill" class="quarto-xref">Рисунок&nbsp;<span>4.6</span></a>) позволяет настоить основных два цвета: <strong>“Цвет заливки”</strong> и <strong>“Цвет обводки”</strong>. Стиль заливки может быть сплошной, без заливки или разными видами штриховки. Для обводки объектов настраивается толщина и стиль (сплошная, без обводки и штриховка).</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -496,17 +572,51 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>Создайте подписи слоя “videla”. Добавьте номер выдела только для тех выделов, в которых средний возраст насаждения более 100 лет (средний возраст - поле “A_let”).</p>
+</div>
+</div>
+</section>
+<section id="настройки-стиля-объектов" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="настройки-стиля-объектов"><span class="header-section-number">4.4</span> Настройки стиля объектов</h2>
+<p>Одним из ключевых имнструментов визуализиции пространственных данных является отображение объектов цветом. Все объекты слоя могут быть окрашены одинаково или иметь разные цвета в зависимости от значений атрибутов. В программе QGIS настройка стиля отображения объектов производится в контекстном меню панели слоев <strong>“Свойства…” &gt; “Стиль”</strong>. Существует несколько режимов отображения объектов: <strong>“Без отрисовки”</strong> объекты будут не видны но надписи объектов будут отображаться; <strong>“Простая символика”</strong> задает единый стиль для всех объектов слоя; <strong>“Символизация по уникальным значениям”</strong> позволяет задать стиль отображения в зависимости от значений качественного атрибута (преобладающая порода, класс бонитета и т.д.); <strong>“Символизация по диапазонам значений”</strong> задает стиль в зависимости от количественного атрибута (средний возраст насаждения, средний диаметр, запас и т.д.). <strong>“Символизация на основе правил”</strong> позволяет задать гибкие правила для отображения стиля объектов по нескольким атрибутам. Настройка символики несколько видоизменяется в зависимости от типа геометрии слоя. Для точек будет задаваться стиль маркера, для линий - стиль линии, для полигонов - стиль заливки и обводки. Особенности геометрий объектов отражаются на особенностях их отображения. Упомянутые выше режимы отображения объектов рассмотрены далее на примере полигонального слоя <strong>“videla”</strong>.</p>
+</section>
+<section id="простая-символика" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="простая-символика"><span class="header-section-number">4.5</span> Простая символика</h2>
+<p>В режиме <strong>“Простая символика”</strong> все объекты отображаются в одном стиле, который может быть простым (состоящим из одного слоя) так и сложным (состоящим из двух и более слоев). По умолчанию единственным слоем является <strong>“Простая заливка”</strong>. Комбинируя несколько простых слоев возможно создать сложный стиль отображения.</p>
+<section id="простая-заливка" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="простая-заливка"><span class="header-section-number">4.5.1</span> Простая заливка</h3>
+<div id="fig-simple_fill" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-simple_fill-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/4_6_Простая заливка.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" data-glightbox="description: .lightbox-desc-13"><img src="./pictures2/4_6_Простая заливка.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-simple_fill-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;4.6: Простая заливка
+</figcaption>
+</figure>
+</div>
+<p>Тип слоя <strong>“Простая заливка”</strong> (<a href="#fig-simple_fill" class="quarto-xref">Рисунок&nbsp;<span>4.6</span></a>) позволяет настоить основных два цвета: <strong>“Цвет заливки”</strong> и <strong>“Цвет обводки”</strong>. <strong>“Стиль заливки”</strong> может быть сплошной, без заливки или разными видами штриховки. Для обводки объектов настраивается <strong>“Толщина обводки”</strong> и <strong>“Стиль обводки”</strong> (сплошная, без линии и штриховка).</p>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;4.7
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Измените “Цвет заливки” и “Цвет обводки” слоя “videla” по вашему усмотрению.</p>
 </div>
 </div>
-<p>Комбинируя несколько слоев создаются сложные заливки. Для этого добавьте еще один слой нажав на символ <img src="./QGIS_icons/symbologyAdd.svg" class="img-fluid" alt="1"> в правом верхнем углу. Верхний слой будет перекрывать нижний, поэтому он должен быть полупрозрачным или залит штриховкой. После настройки, изображение в квадрате слева изменится в соответствии с новым стилем штриховки <a href="#fig-two_layers" class="quarto-xref">Рисунок&nbsp;<span>4.7</span></a>.</p>
-<div id="fig-two_layers" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-two_layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./gif/26_два_слоя.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7"><img src="./gif/26_два_слоя.gif" class="img-fluid figure-img"></a>
+<p>Комбинируя несколько слоев создаются сложные заливки. Для этого добавьте еще один слой нажав на символ <img src="./QGIS_icons/symbologyAdd.svg" class="img-fluid" alt="1"> в правом верхнем углу. Верхний слой будет перекрывать нижний, поэтому он должен быть полупрозрачным или залит штриховкой. После настройки, изображение в квадрате слева изменится в соответствии с новым стилем штриховки <a href="#vid-two_layers" class="quarto-xref">Видео&nbsp;<span>4.4</span></a>.</p>
+<div id="vid-two_layers" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-two_layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/4_9_Сложная заливка.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-14" data-glightbox="description: .lightbox-desc-14"><video src="./videos/4_9_Сложная%20заливка.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_9_Сложная заливка.mp4">Video</a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-two_layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;4.7: Комбинирование двух слоев заливки
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-two_layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;4.4: Комбинирование двух слоев заливки
 </figcaption>
 </figure>
 </div>
@@ -516,7 +626,7 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;4.7
+Задание&nbsp;4.8
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -539,46 +649,17 @@ window.Quarto = {
 <section id="символизация-по-уникальным-значениям" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="символизация-по-уникальным-значениям"><span class="header-section-number">4.6</span> Символизация по уникальным значениям</h2>
 <p>Признаки (характеристики) объектов подразделяются на два больших класса: <strong>количественные и качественные</strong>. Количественные признаки это числовые измерения характеристик объекта (например средний возраст, средняя высота, средний диаметр древостоя), качественные - принадлежность к той или иной категории (преобладающая порода, тип леса, класс бонитета).<br>
-Для отображения <strong>качественных</strong> признаков используется <strong>символизация по уникальным значениям</strong>, при этом каждому уникальному значению задается определенный стиль. Для примера слой выделов был раскрашен по преобладающей породе (поле “el_lesa”). Перейдите в пункт <strong>“Свойства слоя” &gt; “Стиль” &gt; “Символизация по уникальным значениям”</strong>, в пункте “Значение” указывается поле для классификации (“el_lesa”). После нажатия <strong>“Классифицировать”</strong> каждому уникальному значению поля будет присвоен определенный стиль. По умолчанию для раскраски применяются случайные цвета (“Random colors”), явно задать набор цветов возможно в пункте <strong>“Градиент”</strong> (<a href="#vid-unique_values" class="quarto-xref">Видео&nbsp;<span>4.1</span></a>).</p>
+Для отображения <strong>качественных</strong> признаков используется <strong>символизация по уникальным значениям</strong>, при этом каждому уникальному значению задается определенный стиль. Для примера слой выделов был раскрашен по преобладающей породе (поле “el_lesa”). Перейдите в пункт <strong>“Свойства слоя” &gt; “Стиль” &gt; “Символизация по уникальным значениям”</strong>, в пункте “Значение” указывается поле для классификации (“el_lesa”). После нажатия <strong>“Классифицировать”</strong> каждому уникальному значению поля будет присвоен определенный стиль. По умолчанию для раскраски применяются случайные цвета (“Random colors”), явно задать набор цветов возможно в пункте <strong>“Градиент”</strong> (<a href="#vid-unique_values" class="quarto-xref">Видео&nbsp;<span>4.5</span></a>).</p>
 <div id="vid-unique_values" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-unique_values-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/vid_4_Уникальные значения.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-8" data-glightbox="description: .lightbox-desc-8"><video src="./videos/vid_4_Уникальные%20значения.mp4" class="img-fluid" controls=""></video></a><a href="./videos/vid_4_Уникальные значения.mp4">Video</a>
+<a href="./videos/vid_4_Уникальные значения.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-15" data-glightbox="description: .lightbox-desc-15"><video src="./videos/vid_4_Уникальные%20значения.mp4" class="img-fluid" controls=""></video></a><a href="./videos/vid_4_Уникальные значения.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-unique_values-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Видео&nbsp;4.1: Символизация по уникальным значениям преобладающей породы
+Видео&nbsp;4.5: Символизация по уникальным значениям преобладающей породы
 </figcaption>
 </figure>
 </div>
-<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Задание&nbsp;4.8
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Выберите слой “videla” и примените режим символизации по уникальным значениям для типа леса (поле “tip_lesa”).</p>
-</div>
-</div>
-</section>
-<section id="символизация-по-диапазонам-значений" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="символизация-по-диапазонам-значений"><span class="header-section-number">4.7</span> Символизация по диапазонам значений</h2>
-<p>Для <strong>количественных</strong> признаков применяется режим <strong>символизация по диапазонам значений</strong>. Диапазон значений признака разбивается на интервалы каждый из которых окрашивается согласно выбранному градиенту. В пункте <strong>“Значение”</strong> выбирается поле с количественными значениями, в пункте <strong>“Градиент”</strong> задается градиент цвета который может быть выбран из предустановленного списка или создан вручную по двойному клику.<br>
-Ключевым моментом является разбиение числовой переменной на классы (интервалы), которое определяется режимом (“Fixed Interval”, “Logarithmic Scale” и др.) с возможностью выбора количества классов. Увеличение количества классов приводит к более подробному отображению изменения переменной. Способ разбиения на классы часто определяется распределением переменной, которое изображено во вкладке “Диаграмма рассеяния”. После установки всех параметров и нажатия “Классифицировать”, интервалы и соответствующие им стили отображения появятся на экране в виде таблицы со столбцами “Знак”, “Значения” и “Легенда” (<a href="#fig-diapazon_values" class="quarto-xref">Рисунок&nbsp;<span>4.8</span></a>).</p>
-<div id="fig-diapazon_values" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-diapazon_values-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_1_Диапазоны значений.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" data-glightbox="description: .lightbox-desc-9"><img src="./pictures/4_1_Диапазоны значений.png" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diapazon_values-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;4.8: Символизация по диапазонам значений площади выдела
-</figcaption>
-</figure>
-</div>
-<p>В столбце <strong>“Знак”</strong> возможно отключить видимость отдельного интервала или изменить стиль. В столбце <strong>“Значения”</strong> отображааются границы интервала, которые возможно изменить вручную. Столбец <strong>“Легенда”</strong> отображает подписи в легенде, которые так же возможно изменить вручную.</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -589,14 +670,43 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Примените режим символизации по диапазонам значений для среднего возраста (поле “A_let”) слоя “videla”. Результат должен соответствовать рисунку ниже (<a href="#fig-diapazon_values_task" class="quarto-xref">Рисунок&nbsp;<span>4.9</span></a>).</p>
+<p>Выберите слой “videla” и примените режим символизации по уникальным значениям для типа леса (поле “tip_lesa”).</p>
+</div>
+</div>
+</section>
+<section id="символизация-по-диапазонам-значений" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="символизация-по-диапазонам-значений"><span class="header-section-number">4.7</span> Символизация по диапазонам значений</h2>
+<p>Для <strong>количественных</strong> признаков применяется режим <strong>символизация по диапазонам значений</strong>. Диапазон значений признака разбивается на интервалы каждый из которых окрашивается согласно выбранному градиенту. В пункте <strong>“Значение”</strong> выбирается поле с количественными значениями, в пункте <strong>“Градиент”</strong> задается градиент цвета который может быть выбран из предустановленного списка или создан вручную по двойному клику.<br>
+Ключевым моментом является разбиение числовой переменной на классы (интервалы), которое определяется режимом (“Fixed Interval”, “Logarithmic Scale” и др.) с возможностью выбора количества классов. Увеличение количества классов приводит к более подробному отображению изменения переменной. Способ разбиения на классы часто определяется распределением переменной, которое изображено во вкладке “Диаграмма рассеяния”. После установки всех параметров и нажатия “Классифицировать”, интервалы и соответствующие им стили отображения появятся на экране в виде таблицы со столбцами “Знак”, “Значения” и “Легенда” (<a href="#fig-diapazon_values" class="quarto-xref">Рисунок&nbsp;<span>4.7</span></a>).</p>
+<div id="fig-diapazon_values" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diapazon_values-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/4_1_Диапазоны значений.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" data-glightbox="description: .lightbox-desc-16"><img src="./pictures/4_1_Диапазоны значений.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diapazon_values-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;4.7: Символизация по диапазонам значений площади выдела
+</figcaption>
+</figure>
+</div>
+<p>В столбце <strong>“Знак”</strong> возможно отключить видимость отдельного интервала или изменить стиль. В столбце <strong>“Значения”</strong> отображааются границы интервала, которые возможно изменить вручную. Столбец <strong>“Легенда”</strong> отображает подписи в легенде, которые так же возможно изменить вручную.</p>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;4.10
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Примените режим символизации по диапазонам значений для среднего возраста (поле “A_let”) слоя “videla”. Результат должен соответствовать рисунку ниже (<a href="#fig-diapazon_values_task" class="quarto-xref">Рисунок&nbsp;<span>4.8</span></a>).</p>
 <div id="fig-diapazon_values_task" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-diapazon_values_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_2_Диапазоны значений задание.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" data-glightbox="description: .lightbox-desc-10"><img src="./pictures/4_2_Диапазоны значений задание.png" class="img-fluid figure-img"></a>
+<a href="./pictures/4_2_Диапазоны значений задание.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" data-glightbox="description: .lightbox-desc-17"><img src="./pictures/4_2_Диапазоны значений задание.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diapazon_values_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;4.9: Результат символизации по диапазонам значений
+Рисунок&nbsp;4.8: Результат символизации по диапазонам значений
 </figcaption>
 </figure>
 </div>
@@ -609,33 +719,33 @@ window.Quarto = {
 <div id="fig-rules_viz" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-rules_viz-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_3_символизация на основе правил.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" data-glightbox="description: .lightbox-desc-11"><img src="./pictures/4_3_символизация на основе правил.png" class="img-fluid figure-img"></a>
+<a href="./pictures/4_3_символизация на основе правил.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" data-glightbox="description: .lightbox-desc-18"><img src="./pictures/4_3_символизация на основе правил.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rules_viz-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;4.10: Cимволизация на основе правил по среднему возрасту и преобладающей породе
+Рисунок&nbsp;4.9: Cимволизация на основе правил по среднему возрасту и преобладающей породе
 </figcaption>
 </figure>
 </div>
 <p>Логические выражения (правила) добавляются при помощи символа <strong>“Добавить правило”</strong>. В пункте <strong>“надпись”</strong> задается называние для правила. В пункте <strong>“Поиск”</strong> задается логическое правило, которое определяет группу объектов, для которых будет задан стиль отображения. Пункт “Иначе для всех остальных объектов” позволяет задать стиль для объектов, не входящих ни в одну группу. Настройка <strong>“В пределах масштаба”</strong> позволяет применять стиль только для определенного диапазона масштаба. В пункте <strong>“Знак”</strong> задается стиль отображения.<br>
-Для примера окрасим сосняки более 100 лет и менее 100 лет в разные цвета. Для остальных выделов оставим видимыми только контуры. Первое правило будет иметь вид <code>"el_lesa" = 'С' AND  "A_let" &lt; 100</code> (выбор выделов с преобладающей породой сосна И средним возрастом менее 100 лет). Второе правило вида <code>"el_lesa" = 'С' AND  "A_let" &gt;= 100</code> задает стиль для сосняков со средним возрастом большим или равным 100 лет. В третьем правиле выбирается пункт <strong>“Иначе для всех остальных объектов”</strong> и задается стиль для всех объектов не попавших в первые два правила (<a href="#fig-rules_viz" class="quarto-xref">Рисунок&nbsp;<span>4.10</span></a>).</p>
+Для примера окрасим сосняки более 100 лет и менее 100 лет в разные цвета. Для остальных выделов оставим видимыми только контуры. Первое правило будет иметь вид <code>"el_lesa" = 'С' AND  "A_let" &lt; 100</code> (выбор выделов с преобладающей породой сосна И средним возрастом менее 100 лет). Второе правило вида <code>"el_lesa" = 'С' AND  "A_let" &gt;= 100</code> задает стиль для сосняков со средним возрастом большим или равным 100 лет. В третьем правиле выбирается пункт <strong>“Иначе для всех остальных объектов”</strong> и задается стиль для всех объектов не попавших в первые два правила (<a href="#fig-rules_viz" class="quarto-xref">Рисунок&nbsp;<span>4.9</span></a>).</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;4.10
+Задание&nbsp;4.11
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Повторите пример визуализации по преобладающей породе и возрасту, котороый размещен выше. Результат должен соответствовать рисунку ниже. (<a href="#fig-rules_viz_task" class="quarto-xref">Рисунок&nbsp;<span>4.11</span></a>)</p>
+<p>Повторите пример визуализации по преобладающей породе и возрасту, котороый размещен выше. Результат должен соответствовать рисунку ниже. (<a href="#fig-rules_viz_task" class="quarto-xref">Рисунок&nbsp;<span>4.10</span></a>)</p>
 <div id="fig-rules_viz_task" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-rules_viz_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_4_символизация по правилам задание.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" data-glightbox="description: .lightbox-desc-12"><img src="./pictures/4_4_символизация по правилам задание.png" class="img-fluid figure-img"></a>
+<a href="./pictures/4_4_символизация по правилам задание.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" data-glightbox="description: .lightbox-desc-19"><img src="./pictures/4_4_символизация по правилам задание.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rules_viz_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;4.11: Результат символизации по преоблаюадей породе и возрасту
+Рисунок&nbsp;4.10: Результат символизации по преоблаюадей породе и возрасту
 </figcaption>
 </figure>
 </div>
@@ -659,14 +769,14 @@ window.Quarto = {
 <p>Печать карты производится только в границах белого листа. Элементы выходящие за эти границы не будут напечатаны.</p>
 </div>
 </div>
-<p>После добавления карты новый элемент с названием “Карта 1” появится в панеле “Элементы”. Панель “Свойства элемента” позволяет изменять настройки добавленной карты (масштаб, систему координат и т.д.). Область, занятая картой, изменяется при помощи инструмента “Выделить/переместить элемент”, предвигать карту внутри области возможно при помощи инструмента “Перемещение содержимого элемента” (<a href="#vid-maket" class="quarto-xref">Видео&nbsp;<span>4.2</span></a>).</p>
+<p>После добавления карты новый элемент с названием “Карта 1” появится в панеле “Элементы”. Панель “Свойства элемента” позволяет изменять настройки добавленной карты (масштаб, систему координат и т.д.). Область, занятая картой, изменяется при помощи инструмента “Выделить/переместить элемент”, предвигать карту внутри области возможно при помощи инструмента “Перемещение содержимого элемента” (<a href="#vid-maket" class="quarto-xref">Видео&nbsp;<span>4.6</span></a>).</p>
 <div id="vid-maket" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-maket-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/4_2_макет.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-13" data-glightbox="description: .lightbox-desc-13"><video src="./videos/4_2_макет.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_2_макет.mp4">Video</a>
+<a href="./videos/4_2_макет.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-20" data-glightbox="description: .lightbox-desc-20"><video src="./videos/4_2_макет.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_2_макет.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-maket-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Видео&nbsp;4.2: Использование макета для создания карты
+Видео&nbsp;4.6: Использование макета для создания карты
 </figcaption>
 </figure>
 </div>
@@ -676,7 +786,7 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;4.11
+Задание&nbsp;4.12
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -690,7 +800,7 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;4.12
+Задание&nbsp;4.13
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -704,20 +814,20 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;4.13
+Задание&nbsp;4.14
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Добавьте координатную сетку на карту (система координат EPSG:4326 - WGS84). В свойствах масштабной линейки измените единицы измерения на километры. У надписи “План лесонасаждений” увеличьте размер шрифта до 30. Сохраните карту в виде изображения. Пример итоговой карты приведен на рисунке ниже (<a href="#fig-maket_task" class="quarto-xref">Рисунок&nbsp;<span>4.12</span></a>).</p>
+<p>Добавьте координатную сетку на карту (система координат EPSG:4326 - WGS84). В свойствах масштабной линейки измените единицы измерения на километры. У надписи “План лесонасаждений” увеличьте размер шрифта до 30. Сохраните карту в виде изображения. Пример итоговой карты приведен на рисунке ниже (<a href="#fig-maket_task" class="quarto-xref">Рисунок&nbsp;<span>4.11</span></a>).</p>
 </div>
 </div>
 <div id="fig-maket_task" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-maket_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_5_макет задание.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" data-glightbox="description: .lightbox-desc-14"><img src="./pictures/4_5_макет задание.png" class="img-fluid figure-img"></a>
+<a href="./pictures/4_5_макет задание.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" data-glightbox="description: .lightbox-desc-21"><img src="./pictures/4_5_макет задание.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-maket_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;4.12: Пример плана лесонасаждений
+Рисунок&nbsp;4.11: Пример плана лесонасаждений
 </figcaption>
 </figure>
 </div>
@@ -735,90 +845,53 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Для выполнения задания из подраздела “Создание плана лесонасаждений” необходимо загрузить файлы по <a href="https://disk.yandex.ru/d/gkcV5D3OtIYhIA">ссылке</a> и создать новый проект с файлами “kvartala.shp” и “videla.shp”.</p>
+<p>Для выполнения задания из подраздела “Создание плана лесонасаждений” необходимо загрузить файлы по <a href="https://github.com/agoroshko/qgis_for_beginners/tree/main/files">ссылке 1</a> или <a href="https://disk.yandex.ru/d/zs7hHe9IiWQXQA">ссылке 2</a> и создать новый проект с файлами “kvartala.shp” и “videla.shp”.</p>
 </div>
 </div>
-<p>В лесном хозяйстве широко используются планы лесонасаждений (добавить определение). Такие планы окрашиваются на основе сочетания преобладающей породы и группы возраста: молодняки; средневозрастные; приспевающие; спелые и перестойные. Создать такую классификацию возможно используя стиль <strong>“Символизация на основе правил”</strong> с вложенными условиями (<a href="#fig-conditions" class="quarto-xref">Рисунок&nbsp;<span>4.13</span></a>).</p>
+<p>В лесном хозяйстве широко используются планы лесонасаждений (добавить определение). Такие планы окрашиваются на основе сочетания преобладающей породы и группы возраста: молодняки; средневозрастные; приспевающие; спелые и перестойные. Создать такую классификацию возможно используя стиль <strong>“Символизация на основе правил”</strong> с вложенными условиями (<a href="#fig-conditions" class="quarto-xref">Рисунок&nbsp;<span>4.12</span></a>).</p>
 <div id="fig-conditions" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-conditions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_8_Вложенные условия.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" data-glightbox="description: .lightbox-desc-15"><img src="./pictures/4_8_Вложенные условия.png" class="img-fluid figure-img"></a>
+<a href="./pictures/4_8_Вложенные условия.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" data-glightbox="description: .lightbox-desc-22"><img src="./pictures/4_8_Вложенные условия.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-conditions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;4.13: Символизация на основе правил с вложенными условиями
+Рисунок&nbsp;4.12: Символизация на основе правил с вложенными условиями
 </figcaption>
 </figure>
 </div>
-<p>Легенда планов часто представлена в виде матрицы, где по вертикали указывается преобладающая порода, а по горизонтали - класс возраста. Каждому сочетанию “порода-класс возраста” соответствует определенный оттенок цвета (<a href="#fig-matrix_legend" class="quarto-xref">Рисунок&nbsp;<span>4.14</span></a>).</p>
+<p>Легенда планов часто представлена в виде матрицы, где по вертикали указывается преобладающая порода, а по горизонтали - класс возраста. Каждому сочетанию “порода-класс возраста” соответствует определенный оттенок цвета (<a href="#fig-matrix_legend" class="quarto-xref">Рисунок&nbsp;<span>4.13</span></a>).</p>
 <div id="fig-matrix_legend" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-matrix_legend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_9_Таблица условных обозначений пород.html" class="lightbox" data-gallery="quarto-lightbox-gallery-16" data-glightbox="description: .lightbox-desc-16"><embed src="./pictures/4_9_Таблица условных обозначений пород.html" style="width:4.5in;height:2.8in"></a>
+<a href="./pictures/4_9_Таблица условных обозначений пород.html" class="lightbox" data-gallery="quarto-lightbox-gallery-23" data-glightbox="description: .lightbox-desc-23"><embed src="./pictures/4_9_Таблица условных обозначений пород.html" style="width:4.5in;height:2.8in"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-matrix_legend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;4.14: Легенда в виде матрицы
+Рисунок&nbsp;4.13: Легенда в виде матрицы
 </figcaption>
 </figure>
 </div>
-<p>Каждый квартал имеет подпись в виде дроби, где в числителе указывается номер квартала, а в знаменателе - площадь в гектарах. Такие подписи в QGIS возможно создать с использованием <strong>HTML-тегов</strong>: нижнее подчеркивание (<code>&lt;u&gt; &lt;/u&gt;</code>) и перенос строки (<code>&lt;p&gt;</code>). Что бы HTML-теги начали работать, в пункте <strong>“Надписи” &gt; “Текст”</strong> необходио поставить чек-бокс <strong>“Разрешить форматирование HTML”</strong>. Выражение <code>'&lt;u&gt;'  || "kvartal" || '&lt;/u&gt;&lt;p&gt;' || "area_ha"</code> будет отображаться на карте в виде дроби <span class="math inline">\(\frac{номер\:квартала}{площадь,\:га}\)</span> для каждого квартала (<a href="#fig-kvartal_labels" class="quarto-xref">Рисунок&nbsp;<span>4.15</span></a>).</p>
+<p>Каждый квартал имеет подпись в виде дроби, где в числителе указывается номер квартала, а в знаменателе - площадь в гектарах. Такие подписи в QGIS возможно создать с использованием <strong>HTML-тегов</strong>: нижнее подчеркивание (<code>&lt;u&gt; &lt;/u&gt;</code>) и перенос строки (<code>&lt;p&gt;</code>). Что бы HTML-теги начали работать, в пункте <strong>“Надписи” &gt; “Текст”</strong> необходио поставить чек-бокс <strong>“Разрешить форматирование HTML”</strong>. Выражение <code>'&lt;u&gt;'  || "kvartal" || '&lt;/u&gt;&lt;p&gt;' || "area_ha"</code> будет отображаться на карте в виде дроби <span class="math inline">\(\frac{номер\:квартала}{площадь,\:га}\)</span> для каждого квартала (<a href="#fig-kvartal_labels" class="quarto-xref">Рисунок&nbsp;<span>4.14</span></a>).</p>
 <div id="fig-kvartal_labels" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-kvartal_labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_10_Подписи кварталов.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" data-glightbox="description: .lightbox-desc-17"><img src="./pictures/4_10_Подписи кварталов.png" class="img-fluid figure-img"></a>
+<a href="./pictures/4_10_Подписи кварталов.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" data-glightbox="description: .lightbox-desc-24"><img src="./pictures/4_10_Подписи кварталов.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kvartal_labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;4.15: Подписи кварталов в виде дроби
+Рисунок&nbsp;4.14: Подписи кварталов в виде дроби
 </figcaption>
 </figure>
 </div>
 <p>Для подписи выделов так же используют доробь вида <span class="math inline">\(\frac{номер\:выдела - класс\:возраста}{площадь,\:га - класс\:бонитета}\)</span>, однако такая подпись занимает много место из-за чего подписи небольших выдeлов при мелких масштабах накладываются друг на друга или не отображаются (в зависимости от настроек размещения подписей) поэтому в текущем примере выдела подписываются одной цифрой - номером выдела.</p>
 <section id="применение-сохраненных-настроек-отображения" class="level3" data-number="4.10.1">
 <h3 data-number="4.10.1" class="anchored" data-anchor-id="применение-сохраненных-настроек-отображения"><span class="header-section-number">4.10.1</span> Применение сохраненных настроек отображения</h3>
-<p>В QGIS существует возможность сохранять настройки отображения слоя (стили, подписи и др.) в отдельный файл с расшерением <strong>“.qml”</strong> а так же использовать их повторно в новых проектах. Перечисленные выше настройки плана лесонасаждений были сохранены в файлы <strong>“style_kvartala.qml”</strong> и <strong>“style_videla.qml”</strong>. Для создания плана лесонасаждений достаточно применить их к слоям “kvartala” и “videla”. Перейдите в <strong>“Свойства…” слоя &gt; “Стиль” &gt; “Форма” &gt; “Загрузить стиль”</strong>. В открывшемся окне “Управление стилями” выберите и загрузите необходимый файл стиля (напротив пунктов “Стиль” и “Надписи” должны быть установлены чек-боксы). В результате к слою будут применены сохраненные ранее стили и подписи объектов (<a href="#vid-apply_styles" class="quarto-xref">Видео&nbsp;<span>4.3</span></a>).</p>
+<p>В QGIS существует возможность сохранять настройки отображения слоя (стили, подписи и др.) в отдельный файл с расшерением <strong>“.qml”</strong> а так же использовать их повторно в новых проектах. Перечисленные выше настройки плана лесонасаждений были сохранены в файлы <strong>“style_kvartala.qml”</strong> и <strong>“style_videla.qml”</strong>. Для создания плана лесонасаждений достаточно применить их к слоям “kvartala” и “videla”. Перейдите в <strong>“Свойства…” слоя &gt; “Стиль” &gt; “Форма” &gt; “Загрузить стиль”</strong>. В открывшемся окне “Управление стилями” выберите и загрузите необходимый файл стиля (напротив пунктов “Стиль” и “Надписи” должны быть установлены чек-боксы). В результате к слою будут применены сохраненные ранее стили и подписи объектов (<a href="#vid-apply_styles" class="quarto-xref">Видео&nbsp;<span>4.7</span></a>).</p>
 <div id="vid-apply_styles" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-apply_styles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/4_3 Применение стилей.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-18" data-glightbox="description: .lightbox-desc-18"><video src="./videos/4_3%20Применение%20стилей.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_3 Применение стилей.mp4">Video</a>
+<a href="./videos/4_3 Применение стилей.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-25" data-glightbox="description: .lightbox-desc-25"><video src="./videos/4_3%20Применение%20стилей.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_3 Применение стилей.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-apply_styles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Видео&nbsp;4.3: Применение сохраненных стилей слоев
-</figcaption>
-</figure>
-</div>
-<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Задание&nbsp;4.14
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Примените сохраненные стили “style_kvartala.qml” и “style_videla.qml” к слоям “kvartala” и “videla” соответственно, как показано выше. Результат должен соотвествовать изображению ниже (<a href="#fig-apply_styles_result" class="quarto-xref">Рисунок&nbsp;<span>4.16</span></a>).</p>
-<div id="fig-apply_styles_result" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-apply_styles_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_6_результат применения стилей.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" data-glightbox="description: .lightbox-desc-19"><img src="./pictures/4_6_результат применения стилей.png" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-apply_styles_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;4.16: Результат выполнения задания
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="создание-макета" class="level3" data-number="4.10.2">
-<h3 data-number="4.10.2" class="anchored" data-anchor-id="создание-макета"><span class="header-section-number">4.10.2</span> Создание макета</h3>
-<p>После настройки стилей отображения и подписей объектов переходят к созданию макета (<a href="#sec-make_layout" class="quarto-xref"><span>Глава 4.9</span></a>). Планы лесонасаждений обычно печатают на листах больших форматов, следовательно для начала задается формат листа макета. Для этого нажмите на белый лист и в свойствах элемента выберите формат “А3”. Во вкладке “Направляющие” задаются параметры направляющих линий, которые позволяют разместить объекты на карте более точно. Добавим направляющие в соответствии со стандартными отступами листа (слева - 2 см, остальные стороны - 0,5 см). Для этого в пункте “Горизонтальные направляющие” добавьте две направляющих со значениями 5 и 292 мм, в пункте “Вертикальные направляющие” так же две направляющие со значениями 20 и 415 мм. После чего добавьте карту так, что бы она не выходила за пределы заданных направляющих (область карты будет “приклеиваться” к красным линиями). В свойствах карты поставьте чек-бокс напротив подпункта “Рамка”. Задайте масштаб карты 1:25 000 и разместите ее в середине листа (<a href="#vid-apply_layout" class="quarto-xref">Видео&nbsp;<span>4.4</span></a>).</p>
-<div id="vid-apply_layout" class="quarto-float">
-<figure class="quarto-float quarto-float-vid figure">
-<div aria-describedby="vid-apply_layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/4_4 Макет плана лесонасаждений.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-20" data-glightbox="description: .lightbox-desc-20"><video src="./videos/4_4%20Макет%20плана%20лесонасаждений.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_4 Макет плана лесонасаждений.mp4">Video</a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-apply_layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Видео&nbsp;4.4: Создание макета плана лесонасаждений
+Видео&nbsp;4.7: Применение сохраненных стилей слоев
 </figcaption>
 </figure>
 </div>
@@ -829,6 +902,43 @@ window.Quarto = {
 </div>
 <div class="callout-title-container flex-fill">
 Задание&nbsp;4.15
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Примените сохраненные стили “style_kvartala.qml” и “style_videla.qml” к слоям “kvartala” и “videla” соответственно, как показано выше. Результат должен соотвествовать изображению ниже (<a href="#fig-apply_styles_result" class="quarto-xref">Рисунок&nbsp;<span>4.15</span></a>).</p>
+<div id="fig-apply_styles_result" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-apply_styles_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/4_6_результат применения стилей.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26" data-glightbox="description: .lightbox-desc-26"><img src="./pictures/4_6_результат применения стилей.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-apply_styles_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;4.15: Результат выполнения задания
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="создание-макета" class="level3" data-number="4.10.2">
+<h3 data-number="4.10.2" class="anchored" data-anchor-id="создание-макета"><span class="header-section-number">4.10.2</span> Создание макета</h3>
+<p>После настройки стилей отображения и подписей объектов переходят к созданию макета (<a href="#sec-make_layout" class="quarto-xref"><span>Глава 4.9</span></a>). Планы лесонасаждений обычно печатают на листах больших форматов, следовательно для начала задается формат листа макета. Для этого нажмите на белый лист и в свойствах элемента выберите формат “А3”. Во вкладке “Направляющие” задаются параметры направляющих линий, которые позволяют разместить объекты на карте более точно. Добавим направляющие в соответствии со стандартными отступами листа (слева - 2 см, остальные стороны - 0,5 см). Для этого в пункте “Горизонтальные направляющие” добавьте две направляющих со значениями 5 и 292 мм, в пункте “Вертикальные направляющие” так же две направляющие со значениями 20 и 415 мм. После чего добавьте карту так, что бы она не выходила за пределы заданных направляющих (область карты будет “приклеиваться” к красным линиями). В свойствах карты поставьте чек-бокс напротив подпункта “Рамка”. Задайте масштаб карты 1:25 000 и разместите ее в середине листа (<a href="#vid-apply_layout" class="quarto-xref">Видео&nbsp;<span>4.8</span></a>).</p>
+<div id="vid-apply_layout" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-apply_layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/4_4 Макет плана лесонасаждений.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-27" data-glightbox="description: .lightbox-desc-27"><video src="./videos/4_4%20Макет%20плана%20лесонасаждений.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_4 Макет плана лесонасаждений.mp4">Video</a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-apply_layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;4.8: Создание макета плана лесонасаждений
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;4.16
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -844,25 +954,25 @@ window.Quarto = {
 <li><strong>экспорт</strong> таблицы в формат HTML;</li>
 <li><strong>импорт</strong> HTML в программу QGIS.</li>
 </ul>
-<p>Первые два этапа уже завершены и сохранены в файлах “Таблица условных обозначений пород<strong>.ods</strong>” и “Таблица условных обозначений пород<strong>.html</strong>”. Для импорта таблицы в макет QGIS перейдите в пункт <strong>“Добавить элемент” &gt; “Добавить HTML”</strong> после чего выделите область макета. Перейдите в “Свойства элемента”, в пункте “Адрес” укажите путь к файлу “Таблица условных обозначений пород<strong>.html</strong>”, таблица будет добавлена в макет. Для редактирования таблицы, сначала отредактируйте файл “Таблица условных обозначений пород<strong>.ods</strong>”, сохраните в формате <strong>.html</strong> и укажите путь к новому файлу. Таблица будет заменена на отредактированную (<a href="#vid-html_table" class="quarto-xref">Видео&nbsp;<span>4.5</span></a>).</p>
+<p>Первые два этапа уже завершены и сохранены в файлах “Таблица условных обозначений пород<strong>.ods</strong>” и “Таблица условных обозначений пород<strong>.html</strong>”. Для импорта таблицы в макет QGIS перейдите в пункт <strong>“Добавить элемент” &gt; “Добавить HTML”</strong> после чего выделите область макета. Перейдите в “Свойства элемента”, в пункте “Адрес” укажите путь к файлу “Таблица условных обозначений пород<strong>.html</strong>”, таблица будет добавлена в макет. Для редактирования таблицы, сначала отредактируйте файл “Таблица условных обозначений пород<strong>.ods</strong>”, сохраните в формате <strong>.html</strong> и укажите путь к новому файлу. Таблица будет заменена на отредактированную (<a href="#vid-html_table" class="quarto-xref">Видео&nbsp;<span>4.9</span></a>).</p>
 <div id="vid-html_table" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-html_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/4_5 добавление HTML.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-21" data-glightbox="description: .lightbox-desc-21"><video src="./videos/4_5%20добавление%20HTML.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_5 добавление HTML.mp4">Video</a>
+<a href="./videos/4_5 добавление HTML.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-28" data-glightbox="description: .lightbox-desc-28"><video src="./videos/4_5%20добавление%20HTML.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_5 добавление HTML.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-html_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Видео&nbsp;4.5: Добавление HTML-таблицы в макет
+Видео&nbsp;4.9: Добавление HTML-таблицы в макет
 </figcaption>
 </figure>
 </div>
-<p>Оставшиеся объекты отображаются в виде отдельной легенды, для ее добавления перейдите в меню макета <strong>“Добавить элемент” &gt; “Добавить легенду”</strong> и откройте свойства легенды (свойства элемента). Для отображения в легенде только видимых на карте объектов в подпункте <strong>“Элементы легенды”</strong> поставьте чек-бокс <strong>“Отображать только элементы в охвате карты”</strong>, после чего количество объектов в легенде уменьшится. Для возможности редактирования легенды, уберите чек-бокс “Автообновления”, после чего появится возможность редактировать элементы. Удалите лишние и переименуйте оставшиеся элементы легенды. В подменю <strong>“Свойства элемента”</strong> добавьте заголовок <strong>“Условные обозначения:”</strong> (<a href="#vid-add_legend" class="quarto-xref">Видео&nbsp;<span>4.6</span></a>).</p>
+<p>Оставшиеся объекты отображаются в виде отдельной легенды, для ее добавления перейдите в меню макета <strong>“Добавить элемент” &gt; “Добавить легенду”</strong> и откройте свойства легенды (свойства элемента). Для отображения в легенде только видимых на карте объектов в подпункте <strong>“Элементы легенды”</strong> поставьте чек-бокс <strong>“Отображать только элементы в охвате карты”</strong>, после чего количество объектов в легенде уменьшится. Для возможности редактирования легенды, уберите чек-бокс “Автообновления”, после чего появится возможность редактировать элементы. Удалите лишние и переименуйте оставшиеся элементы легенды. В подменю <strong>“Свойства элемента”</strong> добавьте заголовок <strong>“Условные обозначения:”</strong> (<a href="#vid-add_legend" class="quarto-xref">Видео&nbsp;<span>4.10</span></a>).</p>
 <div id="vid-add_legend" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-add_legend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/4_6 добавление легенды.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-22" data-glightbox="description: .lightbox-desc-22"><video src="./videos/4_6%20добавление%20легенды.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_6 добавление легенды.mp4">Video</a>
+<a href="./videos/4_6 добавление легенды.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-29" data-glightbox="description: .lightbox-desc-29"><video src="./videos/4_6%20добавление%20легенды.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_6 добавление легенды.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-add_legend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Видео&nbsp;4.6: Добавление легенды
+Видео&nbsp;4.10: Добавление легенды
 </figcaption>
 </figure>
 </div>
@@ -878,31 +988,31 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;4.16
+Задание&nbsp;4.17
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>По примеру выше добавьте легенду и надписи. Сохраните план в виде растрового изображения. Результат выполнения задания представлен на рисунке ниже (<a href="#fig-forest_map" class="quarto-xref">Рисунок&nbsp;<span>4.17</span></a>).</p>
+<p>По примеру выше добавьте легенду и надписи. Сохраните план в виде растрового изображения. Результат выполнения задания представлен на рисунке ниже (<a href="#fig-forest_map" class="quarto-xref">Рисунок&nbsp;<span>4.16</span></a>).</p>
 <div id="fig-forest_map" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-forest_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_7 план лесонасаждений.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" data-glightbox="description: .lightbox-desc-23"><img src="./pictures/4_7 план лесонасаждений.png" class="img-fluid figure-img"></a>
+<a href="./pictures/4_7 план лесонасаждений.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30" data-glightbox="description: .lightbox-desc-30"><img src="./pictures/4_7 план лесонасаждений.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-forest_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;4.17: Результат выполнения задания: план лесонасаждений
+Рисунок&nbsp;4.16: Результат выполнения задания: план лесонасаждений
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Видеоинструкция создания плана лесонасаждений расположена ниже (<a href="#vid-forest_map_video" class="quarto-xref">Видео&nbsp;<span>4.7</span></a>).</p>
+<p>Видеоинструкция создания плана лесонасаждений расположена ниже (<a href="#vid-forest_map_video" class="quarto-xref">Видео&nbsp;<span>4.11</span></a>).</p>
 <div id="vid-forest_map_video" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-forest_map_video-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/13fe1950628" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-forest_map_video-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Видео&nbsp;4.7: Создание плана лесонасаждений в QGIS
+Видео&nbsp;4.11: Создание плана лесонасаждений в QGIS
 </figcaption>
 </figure>
 </div>
@@ -910,28 +1020,35 @@ window.Quarto = {
 
 <div class="hidden" aria-hidden="true">
 <span class="glightbox-desc lightbox-desc-1">Рисунок&nbsp;4.1: Настройка системы координат проекта</span>
-<span class="glightbox-desc lightbox-desc-2">Рисунок&nbsp;4.2: Подписи слоя “kvartala”</span>
-<span class="glightbox-desc lightbox-desc-3">Рисунок&nbsp;4.3: Наложение подписей</span>
-<span class="glightbox-desc lightbox-desc-4">Рисунок&nbsp;4.4: Создание подписи из нескольких полей</span>
-<span class="glightbox-desc lightbox-desc-5">Рисунок&nbsp;4.5: Создание подписей на основе правил</span>
-<span class="glightbox-desc lightbox-desc-6">Рисунок&nbsp;4.6: Простая заливка</span>
-<span class="glightbox-desc lightbox-desc-7">Рисунок&nbsp;4.7: Комбинирование двух слоев заливки</span>
-<span class="glightbox-desc lightbox-desc-8">Видео&nbsp;4.1: Символизация по уникальным значениям преобладающей породы</span>
-<span class="glightbox-desc lightbox-desc-9">Рисунок&nbsp;4.8: Символизация по диапазонам значений площади выдела</span>
-<span class="glightbox-desc lightbox-desc-10">Рисунок&nbsp;4.9: Результат символизации по диапазонам значений</span>
-<span class="glightbox-desc lightbox-desc-11">Рисунок&nbsp;4.10: Cимволизация на основе правил по среднему возрасту и преобладающей породе</span>
-<span class="glightbox-desc lightbox-desc-12">Рисунок&nbsp;4.11: Результат символизации по преоблаюадей породе и возрасту</span>
-<span class="glightbox-desc lightbox-desc-13">Видео&nbsp;4.2: Использование макета для создания карты</span>
-<span class="glightbox-desc lightbox-desc-14">Рисунок&nbsp;4.12: Пример плана лесонасаждений</span>
-<span class="glightbox-desc lightbox-desc-15">Рисунок&nbsp;4.13: Символизация на основе правил с вложенными условиями</span>
-<span class="glightbox-desc lightbox-desc-16">Рисунок&nbsp;4.14: Легенда в виде матрицы</span>
-<span class="glightbox-desc lightbox-desc-17">Рисунок&nbsp;4.15: Подписи кварталов в виде дроби</span>
-<span class="glightbox-desc lightbox-desc-18">Видео&nbsp;4.3: Применение сохраненных стилей слоев</span>
-<span class="glightbox-desc lightbox-desc-19">Рисунок&nbsp;4.16: Результат выполнения задания</span>
-<span class="glightbox-desc lightbox-desc-20">Видео&nbsp;4.4: Создание макета плана лесонасаждений</span>
-<span class="glightbox-desc lightbox-desc-21">Видео&nbsp;4.5: Добавление HTML-таблицы в макет</span>
-<span class="glightbox-desc lightbox-desc-22">Видео&nbsp;4.6: Добавление легенды</span>
-<span class="glightbox-desc lightbox-desc-23">Рисунок&nbsp;4.17: Результат выполнения задания: план лесонасаждений</span>
+<span class="glightbox-desc lightbox-desc-2">Видео&nbsp;4.1: Подписи слоя “kvartala”</span>
+<span class="glightbox-desc lightbox-desc-3">Текст</span>
+<span class="glightbox-desc lightbox-desc-4">Буфер</span>
+<span class="glightbox-desc lightbox-desc-5">Фон</span>
+<span class="glightbox-desc lightbox-desc-6">Размещение</span>
+<span class="glightbox-desc lightbox-desc-7">Отрисовка</span>
+<span class="glightbox-desc lightbox-desc-8">Рисунок&nbsp;4.3: Создание подписи из нескольких полей</span>
+<span class="glightbox-desc lightbox-desc-9">Видео&nbsp;4.2: Создание подписи из полей “videl” и “s_ha”</span>
+<span class="glightbox-desc lightbox-desc-10">Рисунок&nbsp;4.4: Настройка переноса подписей</span>
+<span class="glightbox-desc lightbox-desc-11">Рисунок&nbsp;4.5: Настройка видимости подписей</span>
+<span class="glightbox-desc lightbox-desc-12">Видео&nbsp;4.3: Создание подписей на основе правил</span>
+<span class="glightbox-desc lightbox-desc-13">Рисунок&nbsp;4.6: Простая заливка</span>
+<span class="glightbox-desc lightbox-desc-14">Видео&nbsp;4.4: Комбинирование двух слоев заливки</span>
+<span class="glightbox-desc lightbox-desc-15">Видео&nbsp;4.5: Символизация по уникальным значениям преобладающей породы</span>
+<span class="glightbox-desc lightbox-desc-16">Рисунок&nbsp;4.7: Символизация по диапазонам значений площади выдела</span>
+<span class="glightbox-desc lightbox-desc-17">Рисунок&nbsp;4.8: Результат символизации по диапазонам значений</span>
+<span class="glightbox-desc lightbox-desc-18">Рисунок&nbsp;4.9: Cимволизация на основе правил по среднему возрасту и преобладающей породе</span>
+<span class="glightbox-desc lightbox-desc-19">Рисунок&nbsp;4.10: Результат символизации по преоблаюадей породе и возрасту</span>
+<span class="glightbox-desc lightbox-desc-20">Видео&nbsp;4.6: Использование макета для создания карты</span>
+<span class="glightbox-desc lightbox-desc-21">Рисунок&nbsp;4.11: Пример плана лесонасаждений</span>
+<span class="glightbox-desc lightbox-desc-22">Рисунок&nbsp;4.12: Символизация на основе правил с вложенными условиями</span>
+<span class="glightbox-desc lightbox-desc-23">Рисунок&nbsp;4.13: Легенда в виде матрицы</span>
+<span class="glightbox-desc lightbox-desc-24">Рисунок&nbsp;4.14: Подписи кварталов в виде дроби</span>
+<span class="glightbox-desc lightbox-desc-25">Видео&nbsp;4.7: Применение сохраненных стилей слоев</span>
+<span class="glightbox-desc lightbox-desc-26">Рисунок&nbsp;4.15: Результат выполнения задания</span>
+<span class="glightbox-desc lightbox-desc-27">Видео&nbsp;4.8: Создание макета плана лесонасаждений</span>
+<span class="glightbox-desc lightbox-desc-28">Видео&nbsp;4.9: Добавление HTML-таблицы в макет</span>
+<span class="glightbox-desc lightbox-desc-29">Видео&nbsp;4.10: Добавление легенды</span>
+<span class="glightbox-desc lightbox-desc-30">Рисунок&nbsp;4.16: Результат выполнения задания: план лесонасаждений</span>
 </div>
 </section>
 </section>
@@ -1481,7 +1598,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","openEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
