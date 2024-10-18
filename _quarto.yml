@@ -37,7 +37,8 @@ book:
     - chapter4_thematic_maps.qmd
     - chapter5_queries.qmd
     - chapter6_spatial_operations.qmd
-    - chapter7_DEM.qmd
+    - chapter7_OSM.qmd
+    - chapter8_DEM.qmd
     - references.qmd
   appendices:
     - appendice_1_geopackage.qmd
