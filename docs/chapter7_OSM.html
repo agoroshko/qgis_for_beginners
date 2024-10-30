@@ -219,7 +219,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Содержание</h2>
    
   <ul>
-  <li><a href="#объединение-по-признаку" id="toc-объединение-по-признаку" class="nav-link active" data-scroll-target="#объединение-по-признаку"><span class="header-section-number">7.1</span> Объединение по признаку</a></li>
+  <li><a href="#создание-границы-красноярского-края" id="toc-создание-границы-красноярского-края" class="nav-link active" data-scroll-target="#создание-границы-красноярского-края"><span class="header-section-number">7.1</span> Создание границы Красноярского края</a></li>
+  <li><a href="#подготовка-данных" id="toc-подготовка-данных" class="nav-link" data-scroll-target="#подготовка-данных"><span class="header-section-number">7.2</span> Подготовка данных</a></li>
+  <li><a href="#кейс-1-расчет-протяженности-автомобильных-дорог-по-муниципальным-районам" id="toc-кейс-1-расчет-протяженности-автомобильных-дорог-по-муниципальным-районам" class="nav-link" data-scroll-target="#кейс-1-расчет-протяженности-автомобильных-дорог-по-муниципальным-районам"><span class="header-section-number">7.3</span> Кейс 1 Расчет протяженности автомобильных дорог по муниципальным районам</a></li>
+  <li><a href="#кейс-2-определить-все-жд-мосты-пересечения-жд-с-реками" id="toc-кейс-2-определить-все-жд-мосты-пересечения-жд-с-реками" class="nav-link" data-scroll-target="#кейс-2-определить-все-жд-мосты-пересечения-жд-с-реками"><span class="header-section-number">7.4</span> Кейс 2 Определить все ЖД мосты (пересечения ЖД с реками)</a></li>
+  <li><a href="#кейс-3-определить-процент-площади-муниц.-района-покрытый-водной-поверхностью." id="toc-кейс-3-определить-процент-площади-муниц.-района-покрытый-водной-поверхностью." class="nav-link" data-scroll-target="#кейс-3-определить-процент-площади-муниц.-района-покрытый-водной-поверхностью."><span class="header-section-number">7.5</span> Кейс 3 Определить процент площади муниц. района, покрытый водной поверхностью.</a></li>
   </ul>
 </nav>
     </div>
@@ -266,7 +270,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-choice" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-choice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/6_11_Выбор слоев.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./pictures/6_11_Выбор слоев.png" class="img-fluid figure-img"></a>
+<a href="./pictures/6_11_Выбор слоев.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="./pictures/6_11_Выбор слоев.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-choice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;7.1: Окно выбора слоев файла “osm.gpkg”
@@ -295,13 +299,13 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>“water”</strong> - площадные водные объекты (крупные реки, озера);</li>
 <li><strong>“waterways”</strong> - линейные водные объекты (небольшие реки).</li>
 </ul>
-<section id="объединение-по-признаку" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="объединение-по-признаку"><span class="header-section-number">7.1</span> Объединение по признаку</h2>
+<section id="создание-границы-красноярского-края" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="создание-границы-красноярского-края"><span class="header-section-number">7.1</span> Создание границы Красноярского края</h2>
 <p>Для создания границы Красноярского края из слоя <strong>“level_6”</strong> применяется инструмент <strong>“Вектор” &gt; “Геообработка” &gt; “Объединение по признаку…”</strong>. В качестве исходного слоя указывается <strong>“level_6”</strong>, в пункте <strong>“поле слияния”</strong> отмечается поле - <strong>“admin_level”</strong>. В результате геометрии с одинаковым атрибутом “admin_level” будут объединены между собой. Поскольку все геометрии слоя имеют одинаковое значение, они будут объединены, создав таким образом границу Красноярского края (<a href="#fig-border" class="quarto-xref">Рисунок&nbsp;<span>7.2</span></a>).</p>
 <div id="fig-border" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-border-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/6_12_Граница КК.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="./pictures/6_12_Граница КК.png" class="img-fluid figure-img"></a>
+<a href="./pictures/6_12_Граница КК.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="./pictures/6_12_Граница КК.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-border-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;7.2: Результат применения инструмента “Объединение по признаку”
@@ -322,7 +326,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="vid-addfile" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-addfile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/6_2_объединение по признаку.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><video src="./videos/6_2_объединение%20по%20признаку.mp4" class="img-fluid" controls=""></video></a><a href="./videos/6_2_объединение по признаку.mp4">Video</a>
+<a href="./videos/6_2_объединение по признаку.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><video src="./videos/6_2_объединение%20по%20признаку.mp4" class="img-fluid" controls=""></video></a><a href="./videos/6_2_объединение по признаку.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-addfile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;7.1: “Объединение по признаку”, поле “admin_level”
@@ -331,6 +335,32 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+</section>
+<section id="подготовка-данных" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="подготовка-данных"><span class="header-section-number">7.2</span> Подготовка данных</h2>
+<p>Векторные слои выходят за территорию Красноярского края, поэтому для начала обрежем слои так, что бы они содержали объекты только внутри полигона “border”. Для этого поочередно примените инструмент “Обрезать” к каждому из слоев (см. <a href="chapter6_spatial_operations.html#task-task_cut" class="quarto-xref">Задание&nbsp;<span>6.3</span></a>).</p>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;7.3: Задание
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Используйте инструмент “Обрезать” для извлечения из всех слоев объектов на территории Красноярского края. Сохраните новые слои в файл “osm_krai.gpkg”.</p>
+</div>
+</div>
+</section>
+<section id="кейс-1-расчет-протяженности-автомобильных-дорог-по-муниципальным-районам" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="кейс-1-расчет-протяженности-автомобильных-дорог-по-муниципальным-районам"><span class="header-section-number">7.3</span> Кейс 1 Расчет протяженности автомобильных дорог по муниципальным районам</h2>
+</section>
+<section id="кейс-2-определить-все-жд-мосты-пересечения-жд-с-реками" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="кейс-2-определить-все-жд-мосты-пересечения-жд-с-реками"><span class="header-section-number">7.4</span> Кейс 2 Определить все ЖД мосты (пересечения ЖД с реками)</h2>
+</section>
+<section id="кейс-3-определить-процент-площади-муниц.-района-покрытый-водной-поверхностью." class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="кейс-3-определить-процент-площади-муниц.-района-покрытый-водной-поверхностью."><span class="header-section-number">7.5</span> Кейс 3 Определить процент площади муниц. района, покрытый водной поверхностью.</h2>
 
 
 <div class="hidden" aria-hidden="true">
@@ -885,7 +915,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","loop":false,"closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","loop":false,"closeEffect":"zoom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

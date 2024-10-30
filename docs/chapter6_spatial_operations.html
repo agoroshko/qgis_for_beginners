@@ -253,8 +253,6 @@ window.Quarto = {
   <li><a href="#инструменты-геообработки" id="toc-инструменты-геообработки" class="nav-link" data-scroll-target="#инструменты-геообработки"><span class="header-section-number">6.3</span> Инструменты геообработки</a></li>
   <li><a href="#подсчет-длины-площади-и-периметра-геометрий." id="toc-подсчет-длины-площади-и-периметра-геометрий." class="nav-link" data-scroll-target="#подсчет-длины-площади-и-периметра-геометрий."><span class="header-section-number">6.4</span> Подсчет длины, площади и периметра геометрий.</a></li>
   <li><a href="#арифметические-операции-с-атрибутами" id="toc-арифметические-операции-с-атрибутами" class="nav-link" data-scroll-target="#арифметические-операции-с-атрибутами"><span class="header-section-number">6.5</span> Арифметические операции с атрибутами</a></li>
-  <li><a href="#данные-open-street-map-osm" id="toc-данные-open-street-map-osm" class="nav-link" data-scroll-target="#данные-open-street-map-osm"><span class="header-section-number">6.6</span> Данные Open Street Map (OSM)</a></li>
-  <li><a href="#объединение-по-признаку" id="toc-объединение-по-признаку" class="nav-link" data-scroll-target="#объединение-по-признаку"><span class="header-section-number">6.7</span> Объединение по признаку</a></li>
   </ul>
 </nav>
     </div>
@@ -384,7 +382,7 @@ window.Quarto = {
 </figure>
 </div>
 <p>!!! Обновить картинку.</p>
-<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div id="task-task_cut" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -592,95 +590,6 @@ window.Quarto = {
 </ul>
 </div>
 </div>
-</section>
-<section id="данные-open-street-map-osm" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="данные-open-street-map-osm"><span class="header-section-number">6.6</span> Данные Open Street Map (OSM)</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Загрузите файлы!
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Для выполнения последующих заданий загрузите файлы по <a href="">ссылке 1</a> или <a href="">ссылке 2</a> и создайте новый проект:</p>
-<ul>
-<li>Создайте новую папку проекта под названием “Раздел 6 OSM” а так же новый проект в QGIS.</li>
-</ul>
-</div>
-</div>
-<p>Файл <strong>“osm_kras_krai.gpkg”</strong> содержит несколько векторных слоев для территории Красноярского края, полученных из Open Street Map (OSM) (получить аналогичные данные из базы данных OSM возможно на сайте https://download.geofabrik.de). При загрузке файла <strong>“osm.gpkg”</strong> появится окно выбора слоев для добавления в проект. По умолчанию выбраны все слои, так же возможно выбрать некоторые слои из списка. В описании каждого слоя указывается тип геометрии и количество объектов (<a href="chapter7_OSM.html#fig-choice" class="quarto-xref">Рисунок&nbsp;<span>7.1</span></a>).</p>
-<div id="fig-choice" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-choice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/6_11_Выбор слоев.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" data-glightbox="description: .lightbox-desc-11"><img src="./pictures/6_11_Выбор слоев.png" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-choice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;6.10: Окно выбора слоев файла “osm.gpkg”
-</figcaption>
-</figure>
-</div>
-<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Задание&nbsp;6.13: Задание
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Загрузите в проект все слои из файла “osm_kras_krai.gpkg”. Сохраните проект в папку проекта под названием “Раздел 6 OSM”.</p>
-</div>
-</div>
-<p>В результате выполнения задания загружено 6 слоев:</p>
-<ul>
-<li><strong>“level_6”</strong> - деление Красноярского края на районы (название района - поле “local_name”);</li>
-<li><strong>“railways”</strong> - железные дороги;</li>
-<li><strong>“roads”</strong> - дороги;</li>
-<li><strong>“transport”</strong> - остановочные пункты;</li>
-<li><strong>“water”</strong> - площадные водные объекты (крупные реки, озера);</li>
-<li><strong>“waterways”</strong> - линейные водные объекты (небольшие реки).</li>
-</ul>
-</section>
-<section id="объединение-по-признаку" class="level2" data-number="6.7">
-<h2 data-number="6.7" class="anchored" data-anchor-id="объединение-по-признаку"><span class="header-section-number">6.7</span> Объединение по признаку</h2>
-<p>Для создания границы Красноярского края из слоя <strong>“level_6”</strong> применяется инструмент <strong>“Вектор” &gt; “Геообработка” &gt; “Объединение по признаку…”</strong>. В качестве исходного слоя указывается <strong>“level_6”</strong>, в пункте <strong>“поле слияния”</strong> отмечается поле - <strong>“admin_level”</strong>. В результате геометрии с одинаковым атрибутом “admin_level” будут объединены между собой. Поскольку все геометрии слоя имеют одинаковое значение, они все будут объединены, создав таким образом границу Красноярского края (<a href="chapter7_OSM.html#fig-border" class="quarto-xref">Рисунок&nbsp;<span>7.2</span></a>).</p>
-<div id="fig-border" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-border-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/6_12_Граница КК.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" data-glightbox="description: .lightbox-desc-12"><img src="./pictures/6_12_Граница КК.png" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-border-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;6.11: Окно инструмента “Объединение по признаку”
-</figcaption>
-</figure>
-</div>
-<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Задание&nbsp;6.14: Задание
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Создайте общую границу Красноярского края по примеру выше. Сохраните слой в файл “osm.gpkg” под названием “border” (<a href="#fig-diss_by_field" class="quarto-xref">Рисунок&nbsp;<span>6.12</span></a>).</p>
-</div>
-</div>
-<div id="fig-diss_by_field" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-diss_by_field-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/6_2_объединение по признаку.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-13" data-glightbox="description: .lightbox-desc-13"><video src="./videos/6_2_объединение%20по%20признаку.mp4" class="img-fluid" controls=""></video></a><a href="./videos/6_2_объединение по признаку.mp4">Video</a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diss_by_field-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;6.12: “Объединение по признаку”, поле “admin_level”
-</figcaption>
-</figure>
-</div>
 
 
 <div class="hidden" aria-hidden="true">
@@ -694,9 +603,6 @@ window.Quarto = {
 <span class="glightbox-desc lightbox-desc-8">Видео&nbsp;6.1: Подсчет длины дорог для слоя “roads”</span>
 <span class="glightbox-desc lightbox-desc-9">Рисунок&nbsp;6.8: Выделы с ошибкой площади более 0,3 га</span>
 <span class="glightbox-desc lightbox-desc-10">Рисунок&nbsp;6.9: Выдела с ошибкой площади более 15 %</span>
-<span class="glightbox-desc lightbox-desc-11">Рисунок&nbsp;6.10: Окно выбора слоев файла “osm.gpkg”</span>
-<span class="glightbox-desc lightbox-desc-12">Рисунок&nbsp;6.11: Окно инструмента “Объединение по признаку”</span>
-<span class="glightbox-desc lightbox-desc-13">Рисунок&nbsp;6.12: “Объединение по признаку”, поле “admin_level”</span>
 </div>
 </section>
 
@@ -1245,7 +1151,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
