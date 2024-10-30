@@ -159,13 +159,19 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter6_spatial_operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter7_DEM.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></span></a>
+  <a href="./chapter7_OSM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Данные Open Street Map (OSM)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter8_DEM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -260,7 +266,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </div>
 </div>
-<p>Распространенной задачей в геоинформационных системах является поиск объектов по характеристикам (атрибутам) и пространственному положению. Для решения этой задачи используются логические выражения (предикаты) которые отделают искомые объекты от всех остальных по заданному условию. Аналогичные выражения уже использовались в <a href="chapter4_thematic_maps.html#sec-rules" class="quarto-xref"><span>Глава 4.8</span></a>. Инструменты поиска объектов размещены в <strong>“Панели выбора объектов”</strong> <img src="./pictures2/5_1_Панель выбора объектов.png" class="img-fluid" alt="Панель выбора объектов"> в главном окне программы. Некоторые инструменты панели скрыты во вкладках (<a href="#fig-choices" class="quarto-xref">Рисунок&nbsp;<span>5.1</span></a>).</p>
+<p>Распространенной задачей в геоинформационных системах является поиск объектов по характеристикам (атрибутам) и пространственному положению. Для решения этой задачи используются логические выражения (предикаты) которые отделают искомые объекты от всех остальных по заданному условию. Аналогичные выражения уже использовались в <span class="quarto-unresolved-ref">?sec-rules</span>. Инструменты поиска объектов размещены в <strong>“Панели выбора объектов”</strong> <img src="./pictures2/5_1_Панель выбора объектов.png" class="img-fluid" alt="Панель выбора объектов"> в главном окне программы. Некоторые инструменты панели скрыты во вкладках (<a href="#fig-choices" class="quarto-xref">Рисунок&nbsp;<span>5.1</span></a>).</p>
 <div id="fig-choices" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-choices-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -297,7 +303,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Инструмент <strong>“Выбрать объекты по значению…”</strong> <img src="./QGIS_icons/mIconFormSelect.svg" class="img-fluid" alt="1"> применяется к тому слою, который выделен в панеле слоев на момент использования инструмента. Сначала выберите в панеле слой после чего активируйте инструмент <strong>“Выбрать объекты по значению…”</strong> <img src="./QGIS_icons/mIconFormSelect.svg" class="img-fluid" alt="1">.</p>
+<p>Инструмент <strong>“Выбрать объекты по значению…”</strong> <img src="./QGIS_icons/mIconFormSelect.svg" class="img-fluid" alt="1"> применяется к тому слою, который выделен в панеле слоев на момент использования инструмента. Сначала выберите в панеле слой, после чего активируйте инструмент <strong>“Выбрать объекты по значению…”</strong> <img src="./QGIS_icons/mIconFormSelect.svg" class="img-fluid" alt="1">.</p>
 </div>
 </div>
 <p>В открывшемся окне представлен список полей слоя для каждого из которых возможно задать определенный фильтр. По умолчанию для всех полей активирован режим <strong>“Исключить поле”</strong> т.е. поле не участвует в фильтрации. Для текстовых полей дополнительная настройка <strong>“Case sensetive”</strong> включает чувствительность к регистру (прописные и заглавные буквы будут считаться разными символами). Список доступных логических операций различен для текстовых и числовых полей (<a href="#fig-choice_1" class="quarto-xref">Рисунок&nbsp;<span>5.2</span></a>, <a href="#fig-choice_2" class="quarto-xref">Рисунок&nbsp;<span>5.3</span></a>).</p>
@@ -343,10 +349,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Для того что бы быстро найти выделенные объекты в таблице атрибутов, можно воспользоваться инструментом “Переместить выделенные в начало” <img src="./QGIS_icons/mActionSelectedToTop.svg" class="img-fluid" alt="1">, все выделенные объекты будут отображаться в начале таблицы.</p>
+<p>Для того что бы быстро найти выделенные объекты в таблице атрибутов, можно воспользоваться инструментом “Переместить выделенные в начало” <img src="./QGIS_icons/mActionSelectedToTop.svg" class="img-fluid" alt="1">, так все выделенные объекты будут отображаться в начале таблицы.</p>
 </div>
 </div>
-<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div id="task-task_t1" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -356,10 +362,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>При помощи инструмента “Выбор объектов по значению”, выберите выдела с преобладающей породой береза (поле “el_lesa”), типом леса “ВРТ” (поле “tip_lesa”) и средним возрастом более 80 лет (поле “A_let”). В результате должно быть выбрано <strong>42 выдела</strong>.</p>
+<p>При помощи инструмента “Выбор объектов по значению”, выберите выделы с преобладающей породой береза (поле “el_lesa”), типом леса “ВРТ” (поле “tip_lesa”) и средним возрастом более 80 лет (поле “A_let”). В результате должно быть выбрано <strong>42 выдела</strong>.</p>
 </div>
 </div>
-<p>Соответствующие условиям объекты будут выделены желтым цветом. Новый запрос заменит результаты предыдущего, однако, выделенные объекты возможно сохранить как отдельный векторный слой, для этого перейдите в пункт меню <strong>«Правка» &gt; «Копировать объекты»</strong>, после чего перейдите снова в пункт <strong>«Правка» &gt; «Вставить объекты как» &gt; «Новый векторный слой»</strong>. Сохраните новый слой в рабочую папку проекта. Cозданный слой будет содержать только выделенные объекты.</p>
+<p>Выполнив <a href="#task-task_t1" class="quarto-xref">Задание&nbsp;<span>5.1</span></a>, объекты будут выделены желтым цветом. Новый запрос заменит результаты предыдущего, однако, выделенные объекты возможно сохранить как отдельный векторный слой, для этого перейдите в пункт меню <strong>«Правка» &gt; «Копировать объекты»</strong>, после чего перейдите снова в пункт <strong>«Правка» &gt; «Вставить объекты как» &gt; «Создать векторный слой…»</strong>. Сохраните новый слой в рабочую папку проекта. Cозданный слой будет содержать только выделенные объекты.</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -373,7 +379,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Сохраните выделенные объекты из предыдущего задания как новый векторный слой.</p>
 </div>
 </div>
-<p>Аналогично составляются другие запросы. Для числовых полей может оказаться полезным условие <strong>“Между (включительно)”</strong>, которое позволяет задать диапазон значений, которым должны соответствовать объекты (минимальное и максимальное значение). Например, запрос для выбора выделов со средним возрастом от 60 до 90 лет представлен на рисунке ниже (<a href="#fig-choice_between" class="quarto-xref">Рисунок&nbsp;<span>5.5</span></a>). Обратите внимание на то, что карйние значения диапазона (т.е. 60 и 90) так же попадают в выборку.</p>
+<p>Аналогично составляются другие запросы. Для числовых полей может оказаться полезным условие <strong>“Между (включительно)”</strong>, задающее диапазон значений, которым должны соответствовать объекты (минимальное и максимальное значение). Например, запрос для выбора выделов со средним возрастом от 60 до 90 лет представлен на рисунке ниже (<a href="#fig-choice_between" class="quarto-xref">Рисунок&nbsp;<span>5.5</span></a>). Обратите внимание на то, что карйние значения диапазона (т.е. 60 и 90) так же попадают в выборку.</p>
 <div id="fig-choice_between" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-choice_between-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -394,7 +400,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Выберите выдела со средней высотой (поле “H_m”) от min до 15 и от 20 до max. Для этого, по аналогии с условием “Между (включительно)” используйте условие “Вне диапазона (включительно)”. В результате выборка должна составить <strong>351 выдел</strong>. Примечение: выдела со средней высотой 15 и 20 м так же должны быть включены в выборку.</p>
+<p>Выберите выделы со средней высотой (поле “H_m”) от min до 15 и от 20 до max. Для этого, по аналогии с условием “Между (включительно)” используйте условие “Вне диапазона (включительно)”. В результате выборка должна составить <strong>351 выдел</strong>. Примечение: выделы со средней высотой 15 и 20 м так же должны быть включены в выборку.</p>
 </div>
 </div>
 <p>Кроме опции <strong>“Выбрать объекты”</strong> <img src="./QGIS_icons/mIconFormSelect.svg" class="img-fluid" alt="1"> доступны варианты модификации уже созданной выборки, режимы <strong>“Добавить к текущей выборке”</strong> <img src="./QGIS_icons/mIconSelectAdd.svg" class="img-fluid" alt="1"> и <strong>“Удалить из текущей выборки”</strong> <img src="./QGIS_icons/mIconSelectRemove.svg" class="img-fluid" alt="1"> позволяют соответственно добавить объекты к уже существующей выборке или удалить из нее, <strong>“Фильтровать текущее выделение”</strong> <img src="./QGIS_icons/mIconSelectIntersect.svg" class="img-fluid" alt="1"> применяет фильтр к ранее выбранным объектам (<a href="#fig-choice_mode" class="quarto-xref">Рисунок&nbsp;<span>5.6</span></a>).</p>
@@ -428,13 +434,14 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Выберите 20 - 30 случайных выделов, используя инструмент “Выбор объектов” <img src="./QGIS_icons/mActionSelectRectangle.svg" class="img-fluid" alt="1">. Отфильтруйте полученную выборку так, что бы остались выдела со средним возрастом более 100 лет (поле “A_let”). Для этого используйте инструмент <strong>“Выбрать объекты по значению”</strong>, задайте условия фильтра, после чего используйте режим <strong>“Фильтровать текущее выделение”</strong> <img src="./QGIS_icons/mIconSelectIntersect.svg" class="img-fluid" alt="1"> (см. <a href="#vid-filter_chlice" class="quarto-xref">Видео&nbsp;<span>5.1</span></a>).</p>
+<p>Выберите 20 - 30 случайных выделов, используя инструмент “Выбор объектов” <img src="./QGIS_icons/mActionSelectRectangle.svg" class="img-fluid" alt="1">. Отфильтруйте полученную выборку так, что бы остались выделы со средним возрастом более 100 лет (поле “A_let”). Для этого используйте инструмент <strong>“Выбрать объекты по значению”</strong>, задайте условия фильтра, после чего используйте режим <strong>“Фильтровать текущее выделение”</strong> <img src="./QGIS_icons/mIconSelectIntersect.svg" class="img-fluid" alt="1"> (см. <a href="#vid-filter_chlice" class="quarto-xref">Видео&nbsp;<span>5.1</span></a>).</p>
 </div>
 </div>
 </section>
 <section id="выбор-объектов-по-выражению" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="выбор-объектов-по-выражению"><span class="header-section-number">5.2</span> Выбор объектов по выражению</h2>
 <p>Более гибкие возможности выбора объектов предоставляет инструмент <strong>“Выбрать объекты по выражению…”</strong> <img src="./QGIS_icons/mIconExpressionSelect.svg" class="img-fluid" alt="1"> (<a href="#fig-choice_query" class="quarto-xref">Рисунок&nbsp;<span>5.7</span></a>).</p>
+<p>!!! Добавить картинку панели с инструментом!!!</p>
 <div id="fig-choice_query" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-choice_query-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -445,7 +452,7 @@ ul.task-list li input[type="checkbox"] {
 </figcaption>
 </figure>
 </div>
-<p>В левой части окна записывается логическое выражение (предикат), в средней части выбираются логические операторы и поля, участвующие в выражении (категории <strong>“Операторы”</strong> и <strong>“Поля и значения”</strong>). В правой части окна выводится справка по функциям. Иконка <strong>“Выбрать объекты”</strong> активирует выбор объектов по заданному выражению. Операторы для количественных и качественных переменных различаются. Для запросов к количественным переменным (площадь выдела, средний возраст и т.д.) применяются операторы: <strong>равно (=), не равно (&lt;&gt;), больше (&gt;), меньше (&lt;), больше или равно (&gt;=), меньше или равно (&lt;=)</strong>. Для запросов к качественным переменным (элемент леса, тип леса и т.д.) используют операторы <strong>IS, IS NOT, IN</strong>.<br>
+<p>В левой части окна записывается логическое выражение (предикат), в средней части выбираются логические операторы и поля, участвующие в выражении (наиболее часто используемые категории <strong>“Операторы”</strong> и <strong>“Поля и значения”</strong>). В правой части окна выводится справка. Иконка <strong>“Выбрать объекты”</strong> активирует выбор объектов по заданному выражению. Операторы для количественных и качественных переменных различаются. Для запросов к количественным переменным (площадь выдела, средний возраст и т.д.) применяются операторы: <strong>равно (=), не равно (&lt;&gt;), больше (&gt;), меньше (&lt;), больше или равно (&gt;=), меньше или равно (&lt;=)</strong>. Для запросов к качественным переменным (элемент леса, тип леса и т.д.) используют операторы <strong>IS, IS NOT, IN</strong>.<br>
 Например:</p>
 <ul>
 <li>выражение для выбора выделов с площадью более 5 га: <code>"s_ha" &gt; 5</code>;</li>
@@ -476,7 +483,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>При помощи инструмента “Выбрать объекты по выражению” <img src="./QGIS_icons/mIconExpressionSelect.svg" class="img-fluid" alt="1"> выберите выдела первой группы возраста (поле “gr_vozr”). В таблице атрибутов выдела первой группы возраста (молодняки) имеют значение 1 в соответствующем поле. В результате должно быть выбрано <strong>9 выделов</strong>.</p>
+<p>При помощи инструмента “Выбрать объекты по выражению” <img src="./QGIS_icons/mIconExpressionSelect.svg" class="img-fluid" alt="1"> выберите выдела первой группы возраста (поле “gr_vozr”). В таблице атрибутов выдела первой группы возраста (молодняки) имеют значение 1 в соответствующем поле. В результате запроса должно быть выбрано <strong>9 выделов</strong>.</p>
 </div>
 </div>
 <p>Пропущенные значения кодируются значением <strong>NULL</strong>. При поиске пропущенных значений в качестве оператора используется <code>IS</code> вместо знака равенства. Например, для поиска выделов с пропущенным средним возрастом, следует использовать выражение: <code>"A_let" IS NULL</code>.</p>
@@ -490,7 +497,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>При помощи инструмента “Выбрать объекты по выражению…” <img src="./QGIS_icons/mIconExpressionSelect.svg" class="img-fluid" alt="1"> выберите выдела в которых пропущен запас на 1 га (поле “zapas_1_ha”). В результате должно быть выбрано <strong>74 выдела</strong>.</p>
+<p>При помощи инструмента “Выбрать объекты по выражению…” <img src="./QGIS_icons/mIconExpressionSelect.svg" class="img-fluid" alt="1"> выберите выделы в которых пропущен запас на 1 га (поле “zapas_1_ha”). В результате должно быть выбрано <strong>74 выдела</strong>.</p>
 </div>
 </div>
 <p>Отдельная группа операторов позволяет объединить несколько условий в одно выражение, соединяя их одним из операторов: <strong>И (AND); ИЛИ (OR)</strong>. Отдельно стоит рассмотреть оператор <strong>NOT</strong>, который меняет результат любого оператора на противоположный. Все перечисленные операторы могут принимать только два значения: правда или ложь. Если для конкретного объекта всё выражение принимает значение правда — этот объект соответствует условиям и попадает в выборку.<br>
@@ -505,10 +512,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>При помощи инструмента “Выбрать объекты по выражению…” <img src="./QGIS_icons/mIconExpressionSelect.svg" class="img-fluid" alt="1"> выберите выдела со средним диаметром больше 40 см (поле “DBH_cm”) <strong>И</strong> преобладающей породой сосна. В результате должен быть выбран <strong>21 выдел.</strong></p>
+<p>При помощи инструмента “Выбрать объекты по выражению…” <img src="./QGIS_icons/mIconExpressionSelect.svg" class="img-fluid" alt="1"> выберите выделы со средним диаметром больше 40 см (поле “DBH_cm”) <strong>И</strong> преобладающей породой сосна. В результате должен быть выбран <strong>21 выдел.</strong></p>
 </div>
 </div>
-<p>Для объединения нескольких условий так же применяется оператор <strong>ИЛИ (OR)</strong> который используется когд объект должен удовлетворять <strong>хотя бы одному</strong> условию. Например, для выбора выделов со средней высотой более 30 м <strong>ИЛИ</strong> возрастом более 100 лет используется выражение: <code>"H_m" &gt; 30 OR "A_let" &gt; 100</code>. В результате будут выбраны выдела со средней высотой более 30 м или с возрастом 100 лет.</p>
+<p>Для объединения нескольких условий так же применяется оператор <strong>ИЛИ (OR)</strong> который используется когда объект должен удовлетворять <strong>хотя бы одному</strong> условию. Например, для выбора выделов со средней высотой более 30 м <strong>ИЛИ</strong> возрастом более 100 лет используется выражение: <code>"H_m" &gt; 30 OR "A_let" &gt; 100</code>. В результате будут выбраны выдела со средней высотой более 30 м или с возрастом более 100 лет.</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -519,10 +526,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>При помощи инструмента “Выбрать объекты по выражению…” <img src="./QGIS_icons/mIconExpressionSelect.svg" class="img-fluid" alt="1"> выберите выдела с преобладающей породой осина <strong>ИЛИ</strong> выдела старше 140 лет. В результате должно быть выбрано <strong>38 выделов.</strong></p>
+<p>При помощи инструмента “Выбрать объекты по выражению…” <img src="./QGIS_icons/mIconExpressionSelect.svg" class="img-fluid" alt="1"> выберите выделы с преобладающей породой осина <strong>ИЛИ</strong> выделы старше 140 лет. В результате должно быть выбрано <strong>38 выделов.</strong></p>
 </div>
 </div>
-<p>Для выбора нескольких значений качественной переменной используется оператор <strong>IN</strong> после которого в круглых скобках указывается список значений. Если значение атрибута объекта соответствует хотя бы одному значению из списка - выдел попадает в выборку. Выбор выделов с типами леса ВКТ, ЗМ или КТП производится выражением: <code>"tip_lesa" IN ('ВКТ', 'ЗМ', 'КТП')</code>.</p>
+<p>Для выбора нескольких значений качественной переменной используется оператор <strong>IN</strong> после которого в круглых скобках указывается список значений. Если значение атрибута объекта соответствует хотя бы одному значению из списка - он попадает в выборку. Выбор выделов с типами леса ВКТ, ЗМ, КТП производится выражением: <code>"tip_lesa" IN ('ВКТ', 'ЗМ', 'КТП')</code>.</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -533,7 +540,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>При помощи инструмента “Выбрать объекты по выражению…” <img src="./QGIS_icons/mIconExpressionSelect.svg" class="img-fluid" alt="1"> выберите выдела с преобладающей породой береза, осина, липа (используйте оператор <code>IN</code>) и возрастом более 60 лет (т.е. средний возраст каждого выдела должен быть больше 60 лет). В результате должно быть выбрано <strong>137 выделов.</strong></p>
+<p>При помощи инструмента “Выбрать объекты по выражению…” <img src="./QGIS_icons/mIconExpressionSelect.svg" class="img-fluid" alt="1"> выберите выделы с преобладающей породой береза, осина, липа (используйте оператор <code>IN</code>) и возрастом более 60 лет (т.е. средний возраст каждого выдела должен быть больше 60 лет). В результате должно быть выбрано <strong>137 выделов.</strong></p>
 </div>
 </div>
 </section>
@@ -550,7 +557,7 @@ ul.task-list li input[type="checkbox"] {
 </figcaption>
 </figure>
 </div>
-<p>В пункте <strong>“Выбрать объекты слоя”</strong> назначается слой из которого выбираются объекты по условию пространственного отношения с другим слоем, который задается в пункте <strong>“по отношению к объектам слоя”</strong>. Необходимые пространственные отношения отмечаются чек-боксом в пункте <strong>“Геометрический предикат”</strong>. Пункт <strong>“Изменить текущую выборку”</strong> позволяет <strong>“создать новую выборку”</strong> или модифицировать уже выбранные объекты (см <a href="#fig-choice_mode" class="quarto-xref">Рисунок&nbsp;<span>5.6</span></a>).</p>
+<p>В пункте <strong>“Выбрать объекты слоя”</strong> назначается слой из которого выбираются объекты по условию пространственного отношения с другим слоем, которое задается в пункте <strong>“по отношению к объектам слоя”</strong>. Необходимые пространственные отношения отмечаются чек-боксами в пункте <strong>“Где объект (геометрический предикат)”</strong>. Пункт <strong>“Изменить текущую выборку”</strong> позволяет <strong>“создать новую выборку”</strong> или модифицировать уже выбранные объекты (см <a href="#fig-change_query" class="quarto-xref">Рисунок&nbsp;<span>5.9</span></a>).</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -561,7 +568,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Используя инструмент <strong>“Выбрать по расположению”</strong>, выберите только те выдела, которые пересекаются реками (слой “rivers”). Сохраните выбранные выдела как отдельный слой. В результате должно быть выбрано <strong>64 выдела </strong> (см. <a href="#vid-quary_by_location" class="quarto-xref">Видео&nbsp;<span>5.2</span></a>)</p>
+<p>Используя инструмент <strong>“Выбрать по расположению”</strong>, выберите только те выделы, которые пересекаются реками (слой “rivers”). Сохраните выбранные выделы как отдельный слой. В результате должно быть выбрано <strong>64 выдела</strong> (см. <a href="#vid-quary_by_location" class="quarto-xref">Видео&nbsp;<span>5.2</span></a>)</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -574,7 +581,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Для просмотра количества выбранных выделов откройте таблицу атрибутов. Выбранные выдела будут выделены синим цветом. Для более удобного подсчета используйте инструмент <strong>“Переместить выделенные в начало”</strong> <img src="./QGIS_icons/mActionSelectedToTop.svg" class="img-fluid" alt="1">.</p>
+<p>Для просмотра количества выбранных выделов откройте таблицу атрибутов. Выбранные выделы будут подсвечены синим цветом. Для более удобного подсчета используйте инструмент <strong>“Переместить выделенные в начало”</strong> <img src="./QGIS_icons/mActionSelectedToTop.svg" class="img-fluid" alt="1">.</p>
 </div>
 </div>
 <div id="vid-quary_by_location" class="quarto-float">
@@ -608,7 +615,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Выберите выдела которые пересекаются реками и дорогами. Для этого объедините два пространственных запроса (пересечение с реками и пересечение с дорогами). В результате должен быть выбран <strong>151 выдел.</strong> Сохраните выбранные выдела как новый векторный слой.</p>
+<p>Выберите выделы которые пересекаются реками и дорогами. Для этого объедините два пространственных запроса (пересечение с реками и пересечение с дорогами). В результате должен быть выбран <strong>151 выдел</strong>. Сохраните выбранные выделы как новый векторный слой.</p>
 </div>
 </div>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
@@ -621,7 +628,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Выберите выдела которые пересекаются реками и преобладающая порода в которых НЕ сосна. Для этого объедините пространственный запрос с запросом по атрибутам. В результате должно быть выбрано <strong>19 выделов.</strong> Сохраните выбранные объекты как новый векторный слой.</p>
+<p>Выберите выделы которые пересекаются реками и преобладающая порода в которых НЕ сосна. Для этого объедините пространственный запрос с запросом по атрибутам. В результате должно быть выбрано <strong>19 выделов.</strong> Сохраните выбранные объекты как новый векторный слой.</p>
 </div>
 </div>
 
@@ -1180,13 +1187,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter6_spatial_operations.html" class="pagination-link" aria-label="<span class='chapter-number'>6</span>&nbsp; <span class='chapter-title'>Пространственные операции с векторными объектами</span>">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter6_spatial_operations.html" class="pagination-link" aria-label="<span class='chapter-number'>6</span>&nbsp; <span class='chapter-title'>Пространственные операции</span>">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

@@ -159,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter6_spatial_operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -270,7 +270,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Откройте таблицу атрибутов слоя “Выделы”.</p>
 </div>
 </div>
-<p>При выделении строки в таблице атрибутов, связанная с ним геометрия будет подсвечена желтым цветом на карте, и наоборот (см. <a href="chapter2_vectorization.html#sec-pickobj" class="quarto-xref"><span>Глава 2.5</span></a>). Инструменты таблицы атрибутов по большей части дублируют инструменты основного окна программы (<a href="#fig-attr_table_tools" class="quarto-xref">Рисунок&nbsp;<span>3.1</span></a>). В режиме редактирования доступно большее количество инструментов а так же появляется дополнительная строка для массового редактирования атрибутов (<a href="#fig-attr_table_tools2" class="quarto-xref">Рисунок&nbsp;<span>3.1 (b)</span></a>).</p>
+<p>При выделении строки в таблице атрибутов, связанная с ним геометрия будет подсвечена желтым цветом на карте, и наоборот (см. <span class="quarto-unresolved-ref">?sec-pickobj</span>). Инструменты таблицы атрибутов по большей части дублируют инструменты основного окна программы (<a href="#fig-attr_table_tools" class="quarto-xref">Рисунок&nbsp;<span>3.1</span></a>). В режиме редактирования доступно большее количество инструментов а так же появляется дополнительная строка для массового редактирования атрибутов (<a href="#fig-attr_table_tools2" class="quarto-xref">Рисунок&nbsp;<span>3.1 (b)</span></a>).</p>
 <div id="fig-attr_table_tools" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-attr_table_tools-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -311,7 +311,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Они позволяют переключить слой в <strong>“Режим редактирования”</strong> <img src="./QGIS_icons/mActionToggleEditing.svg" class="img-fluid" alt="1">, <strong>сохранить изменения</strong> <img src="./QGIS_icons/mActionSaveAllEdits.svg" class="img-fluid" alt="1">, <strong>удалить выбранные объекты</strong> <img src="./QGIS_icons/mActionDeleteSelected.svg" class="img-fluid" alt="1">, инструменты выделения объектов, инструменты по добавлению и удалению полей (<strong>“Новое поле”</strong> <img src="./QGIS_icons/mActionNewAttribute.svg" class="img-fluid" alt="1"> и <strong>“Удалить поле”</strong> <img src="./QGIS_icons/mActionDeleteAttribute.svg" class="img-fluid" alt="1">), инструмент <strong>“Реаргонизовать колонки”</strong> <img src="./QGIS_icons/mActionEditTable.svg" class="img-fluid" alt="1"> для измнения порядка полей в таблице и другие.</p>
 <section id="создание-и-удаление-полей" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="создание-и-удаление-полей"><span class="header-section-number">3.1</span> Создание и удаление полей</h2>
-<p>Создание новых полей возможно как при создании нового слоя, так и в дальнейшем в таблице атрибутов. Для однозначной индентификации каждого выдела в приделах участкового лесничества необходим не только номер выдела (это поле было добавлено при создании слоя “Выделы” и заполнено в процессе оцифровки) но и номер квартала. Для добавления нового поля переведите слой в <strong>Режим редактирования</strong> <img src="./QGIS_icons/mActionToggleEditing.svg" class="img-fluid" alt="1"> и выберите инструмент <strong>Новое поле</strong> <img src="./QGIS_icons/mActionNewAttribute.svg" class="img-fluid" alt="1">. Введите имя поля: <strong>“kvartal”</strong>; тип: <strong>“Целое число”</strong>, длина: <strong>2</strong> (в таком случае поле сможет содержать только двухзначные числа, максимальный номер квартала 99) (<a href="#fig-fieldkv" class="quarto-xref">Рисунок&nbsp;<span>3.2</span></a>).</p>
+<p>Создание новых полей возможно как при создании нового слоя, так и в дальнейшем в таблице атрибутов. Для однозначной индентификации каждого выдела в приделах участкового лесничества необходим не только номер выдела (это поле было добавлено при создании слоя “Выделы” и заполнено в процессе оцифровки) но и номер квартала. Для добавления нового поля, откройте таблицу атрибутов слоя “Выделы”, переведите слой в <strong>Режим редактирования</strong> <img src="./QGIS_icons/mActionToggleEditing.svg" class="img-fluid" alt="1"> и выберите инструмент <strong>Новое поле</strong> <img src="./QGIS_icons/mActionNewAttribute.svg" class="img-fluid" alt="1">. Введите имя поля: <strong>“kvartal”</strong>; тип: <strong>“Целое число”</strong>, длина: <strong>2</strong> (в таком случае поле сможет содержать только двухзначные числа, максимальный номер квартала 99) (<a href="#fig-fieldkv" class="quarto-xref">Рисунок&nbsp;<span>3.2</span></a>).</p>
 <div id="fig-fieldkv" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fieldkv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -384,7 +384,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Заполните вручную поле “kvartal” у первых <strong>пяти</strong> выделов. Номер кваратала для остальных выделов будет заполнен другим способом.</p>
 </div>
 </div>
-<p>Поскольку все значения поля <strong>kvartal</strong> будут одинаковыми, есть способ заполнить все значения сразу, используя <strong>Редактор выражений</strong> панель инструментов которого появляется при активации режима редактирования. <strong>Редактор выражений</strong> имеет расширенный режим, для перехода в который необходимо нажать на иконку <img src="./QGIS_icons/mIconExpression.svg" class="img-fluid" alt="1">. Этот режим позволяет создавать сложные выражения, рассчитывать длины и площади объектов и многое другое. Мы более подробно познакомимся с этим режимом в последующих разделах. Для начала заполним поле <strong>“kvartal”</strong>. Для этого в редакторе выражений слева от равно выбирается поле, к которму будет применяться выражение, справа - выражение. Применить выражение можно ко всем объектам слоя (пункт <strong>“Обновить все”</strong>) или только к выделенным в данный момент (пункт <strong>“Обновить выделенные”</strong>). Слева укажите обновляемое поле (<strong>“kvartal”</strong>), справа - номер квартала, и веберите пункт <strong>“Обновить все”</strong>. После того, как поле будет заполнено номером квартала сохарните изменения (иконка <img src="./QGIS_icons/mActionSaveAllEdits.svg" class="img-fluid" alt="1">). Аналогичным способом возможно изменить атрибуты только у выделенных объектов (пункт <strong>“Обновить выделенные”</strong>, см. <a href="chapter2_vectorization.html#sec-pickobj" class="quarto-xref"><span>Глава 2.5</span></a>).</p>
+<p>Поскольку все значения поля <strong>kvartal</strong> будут одинаковыми, есть способ заполнить все значения сразу, используя <strong>Редактор выражений</strong> панель инструментов которого появляется при активации режима редактирования. <strong>Редактор выражений</strong> имеет расширенный режим, для перехода в который необходимо нажать на иконку <img src="./QGIS_icons/mIconExpression.svg" class="img-fluid" alt="1">. Этот режим позволяет создавать сложные выражения, рассчитывать длины и площади объектов и многое другое. Мы более подробно познакомимся с этим режимом в последующих разделах. Для начала заполним поле <strong>“kvartal”</strong>. Для этого в редакторе выражений слева от равно выбирается поле, к которму будет применяться выражение, справа - выражение. Применить выражение можно ко всем объектам слоя (пункт <strong>“Обновить все”</strong>) или только к выделенным в данный момент (пункт <strong>“Обновить выделенные”</strong>). Слева укажите обновляемое поле (<strong>“kvartal”</strong>), справа - номер квартала, и веберите пункт <strong>“Обновить все”</strong>. После того, как поле будет заполнено номером квартала сохарните изменения (иконка <img src="./QGIS_icons/mActionSaveAllEdits.svg" class="img-fluid" alt="1">). Аналогичным способом возможно изменить атрибуты только у выделенных объектов (пункт <strong>“Обновить выделенные”</strong>, см. <span class="quarto-unresolved-ref">?sec-pickobj</span>).</p>
 <div id="vid-fieldkv" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-fieldkv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -477,16 +477,17 @@ ul.task-list li input[type="checkbox"] {
 <div class="callout-body-container callout-body">
 <p>Создайте новый проект со слоем “Выделы.shp”, для этого:</p>
 <ul>
-<li>Загрузите файлы “Выделы.shp” и “Таксационные описания.xlsx” на компьютер.</li>
-<li>Создайте новую папку проекта под названием “Раздел 3”.</li>
-<li>Создайте новый проект и загрузите туда слой “Выделы.shp” (система координат проекта EPSG: 32646).</li>
-<li>Сохраните файл проекта в папку проекта.</li>
+<li>Сохраните и закройте текущий проект.</li>
+<li>Загрузите и <strong>распакуйте архив</strong> файлов по <a href="https://github.com/agoroshko/qgis_for_beginners/tree/main/files">ссылке 1</a> или <a href="https://disk.yandex.ru/d/BxVtelBynyXXWg">ссылке 2</a>.</li>
+<li>Создайте новую папку проекта под названием “Раздел 3” и поместите туда загруженные файлы.</li>
+<li>Создайте новый проект в QGIS и загрузите туда слой “Выделы.shp” (система координат проекта EPSG: 32646).</li>
+<li>Сохраните файл проекта в папку проекта “Раздел 3”.</li>
 </ul>
 </div>
 </div>
 <section id="импорт-таблицы" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="импорт-таблицы"><span class="header-section-number">3.3.1</span> Импорт таблицы</h3>
-<p>Программа QGIS позвояет загружать не только векторные и растровые данные (shp-файлы, GeoPackage, tif. и др.) но таблицы, создаваемые в любом табличном редакторе (Excal, Libreoffice Calc и др.). Один из способов загрузки таких таблиц - сохранение в формат <strong>.csv (Comma-Separated Values)</strong> и последующий экспорт в QGIS (см. <a href="appendice_3_csv.html" class="quarto-xref"><span>Приложение C</span></a>). В этом подразделе рассмотрен более простой способ - загрузка <strong>.xlsx</strong> файла напрямую в QGIS. Для этого перетяните файл <strong>Таксационные описания.xlsx</strong> в окно программы, после чего таблица появится в панеле слоев. Если в файле несколько листов, появится панель с выбором. Изменения, произведенные в QGIS, будут сохранены в файл и наоборот (<a href="#vid-add_xlsx_table" class="quarto-xref">Видео&nbsp;<span>3.4</span></a>).</p>
+<p>Программа QGIS позвояет загружать не только векторные и растровые данные (shp-файлы, GeoPackage, tif. и др.) но таблицы, создаваемые в любом табличном редакторе (Excal, Libreoffice Calc и др.). Один из способов загрузки таких таблиц - сохранение в формат <strong>.csv (Comma-Separated Values)</strong> и последующий экспорт в QGIS (см. <span class="quarto-unresolved-ref">?sec-csv</span>). В этом подразделе рассмотрен более простой способ - загрузка <strong>.xlsx</strong> файла напрямую в QGIS. Для этого перетяните файл <strong>Таксационные описания.xlsx</strong> в окно программы, после чего таблица появится в панеле слоев. Если в файле несколько листов, появится панель с выбором. Изменения, произведенные в QGIS, будут сохранены в файл и наоборот (<a href="#vid-add_xlsx_table" class="quarto-xref">Видео&nbsp;<span>3.4</span></a>).</p>
 <div id="vid-add_xlsx_table" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-add_xlsx_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -526,6 +527,19 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <p>В панеле редактора выражений, слева от равно, выберите поле <strong>key</strong> и перейдите в расширенный режим редактора выражений <img src="./QGIS_icons/mIconExpression.svg" class="img-fluid" alt="1">. В появившемся окне в левой части записывается выражение, в средней части - список доступных функций, в правой части - справка по этим функциям. В левой части окна запишите выражение, которое объединяет поля “kvartal” и “videl” с разделителем в виде нижнего подчеркивания: <code>"kvartal"  || '_' ||  "videl"</code>. Во вкладке <strong>Поля и значения</strong> в центральной части редактора выражений, представлены все поля таблицы атрибутов. При двойном клике на поле, оно появится в панеле слева (<a href="#vid-construct_key_field" class="quarto-xref">Видео&nbsp;<span>3.5</span></a>).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Обратите внимание!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>В конструкции <code>"kvartal"  || '_' ||  "videl"</code>, названия полей заключаются в двойные кавычки (<code>"kvartal"</code>) а нижнее подчеркивание в одинарные (<code>'_'</code>).</p>
+</div>
+</div>
 <div id="vid-construct_key_field" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-construct_key_field-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1188,7 +1202,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","openEffect":"zoom","selector":".lightbox","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

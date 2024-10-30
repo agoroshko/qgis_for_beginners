@@ -6,11 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Андрей Горошко">
-<meta name="author" content="Ирина Воробьева">
-<meta name="author" content="Виктор Немич">
 
-<title>Основы геоинформационных систем в QGIS</title>
+<title>Основы геоинформационных систем в QGIS - 7&nbsp; Open Street Map (OSM)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapter0_resources.html" rel="next">
+<link href="./chapter8_DEM.html" rel="next">
+<link href="./chapter6_spatial_operations.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -45,6 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -101,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Введение</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter7_OSM.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Open Street Map (OSM)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -115,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Введение</span></a>
   </div>
 </li>
@@ -158,13 +159,19 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter6_spatial_operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter7_DEM.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></span></a>
+  <a href="./chapter7_OSM.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Open Street Map (OSM)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter8_DEM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -212,7 +219,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Содержание</h2>
    
   <ul>
-  <li><a href="#введение" id="toc-введение" class="nav-link active" data-scroll-target="#введение">Введение</a></li>
+  <li><a href="#объединение-по-признаку" id="toc-объединение-по-признаку" class="nav-link active" data-scroll-target="#объединение-по-признаку"><span class="header-section-number">7.1</span> Объединение по признаку</a></li>
   </ul>
 </nav>
     </div>
@@ -221,66 +228,16 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Основы геоинформационных систем в QGIS</h1>
-<p class="subtitle lead">Геоинформационные системы в лесном хозяйстве</p>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Open Street Map (OSM)</span></h1>
 </div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Авторы</div>
-  <div class="quarto-title-meta-heading">принадлежность</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author">Андрей Горошко </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            <a href="https://www.sibsau.ru/">
-            СибГУ им. М.Ф. Решетнева
-            </a>
-          </p>
-      </div>
-    <div class="quarto-title-meta-contents">
-    <p class="author">Ирина Воробьева </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            <a href="https://www.sibsau.ru/">
-            СибГУ им. М.Ф. Решетнева
-            </a>
-          </p>
-      </div>
-    <div class="quarto-title-meta-contents">
-    <p class="author">Виктор Немич </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            <a href="https://www.sibsau.ru/">
-            СибГУ им. М.Ф. Решетнева
-            </a>
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
-    <div>
-    <div class="quarto-title-meta-heading">Дата публикации</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">9 октября 2024 г.</p>
-    </div>
-  </div>
+    
   
     
-    <div>
-    <div class="quarto-title-meta-heading">Doi</div>
-    <div class="quarto-title-meta-contents">
-      <p class="doi">
-        <a href="https://doi.org/10.5281/zenodo.10034638">10.5281/zenodo.10034638</a>
-      </p>
-    </div>
-  </div>
   </div>
   
 
@@ -288,25 +245,99 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="введение" class="level1 unnumbered">
-<h1 class="unnumbered">Введение</h1>
-<p>В настоящее время QGIS является наиболее популярной программой с открытым исходным кодом для работы с геоинформационными системами. Она распространяется под открытой лицензией (GNU GPL 2.0), бесплатна для коммерческого и некоммерческого использования а по функционалу и стабильности стоит в одном ряду с платными продуктами. Недостатком этого программного продукта является малое количество обучающих курсов на русском языке, что в определенной степени компенсируется обширным сообществом, в том числе и в России. Настоящее пособие поможет студентам и всем желающим войти в мир географических информационных систем путем выполнения практических заданий в программе QGIS. Выполняемые задания относятся к области лесного хозяйства, однако получаемые навыки универсальны и подходят для многих областей использования ГИС.</p>
-<p>Для примеров используется программный продукт <strong>QGIS 3.34 LTR</strong> как наиболее стабильный и актуальный на данный момент (официальный сайт для загрузки программы <a href="https://qgis.org/ru/site/" class="uri">https://qgis.org/ru/site/</a>).</p>
-<p>Следуя словам Конфуция: <strong>“Скажи мне – и я забуду, покажи мне – и я запомню, дай мне сделать – и я пойму”</strong>, пособие условно можно разделить на блоки, каждый из которых состоит из трех связанных частей:</p>
+<p><a href="https://www.openstreetmap.org/#map=9/55.983/92.873">Open Street Map (OSM)</a> это некоммерческий проект по созданию подробной, свободной и бесплатной географической карты мира. Наполнение карты осуществляется участниками проекта OSM на добровольных началах (по принципу Википедии). Данные OSM распространяются свободно под открытой лицензией Open Database License. OSM является одним из самых крупных источников информации для создания ГИС.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Загрузите файлы!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Для выполнения последующих заданий загрузите файлы по <a href="">ссылке 1</a> или <a href="">ссылке 2</a> и создайте новый проект:</p>
 <ul>
-<li>Краткая теоретическая информация;</li>
-<li>Применение на практике в виде примера;</li>
-<li>Задание для самостоятельного выполнения на основе предыдущих частей (т.е. каждому заданию предшествует пример на основе которого это задание возможно выполнить).</li>
+<li>Создайте новую папку проекта под названием “Раздел 6 OSM” а так же новый проект в QGIS.</li>
 </ul>
-<p>Пособие создано при помощи Quarto, языка R и RStudio.</p>
-Первая дата публикации: 03.10.2023
-<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
-<span property="dct:title">Основы геоинформационных систем в QGIS</span> by <span property="cc:attributionName">Горошко А.А., Воробьева И.А., Немич В.Н.</span> is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a>
-</p>
-<p>Горошко, А., Воробьева, И. и Немич, В. (2024) Основы геоинформационных систем в QGIS. Zenodo. doi: 10.5281/zenodo.10034639.</p>
-<p><a href="https://zenodo.org/doi/10.5281/zenodo.10034638"><img src="https://zenodo.org/badge/687393748.svg" class="img-fluid"></a></p>
+</div>
+</div>
+<p>Файл <strong>“osm.gpkg”</strong> является файлом GeoPackage и содержит несколько векторных слоев для территории Красноярского края, полученных из Open Street Map (получить аналогичные данные из базы данных OSM возможно на сайте https://download.geofabrik.de). При загрузке файла <strong>“osm.gpkg”</strong> появится окно выбора слоев для добавления в проект. По умолчанию выбраны все слои, так же возможно выбрать некоторые слои из списка. В описании каждого слоя указывается тип геометрии и количество объектов (<a href="#fig-choice" class="quarto-xref">Рисунок&nbsp;<span>7.1</span></a>).</p>
+<div id="fig-choice" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-choice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/6_11_Выбор слоев.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./pictures/6_11_Выбор слоев.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-choice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;7.1: Окно выбора слоев файла “osm.gpkg”
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;7.1: Задание
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Загрузите в проект все слои из файла “osm.gpkg”. Сохраните проект в папку проекта под названием “Раздел 6 OSM”.</p>
+</div>
+</div>
+<p>В результате выполнения задания загружено 6 слоев:</p>
+<ul>
+<li><strong>“level_6”</strong> - деление Красноярского края на районы (название района - поле “local_name”);</li>
+<li><strong>“railways”</strong> - железные дороги;</li>
+<li><strong>“roads”</strong> - дороги;</li>
+<li><strong>“transport”</strong> - остановочные пункты;</li>
+<li><strong>“water”</strong> - площадные водные объекты (крупные реки, озера);</li>
+<li><strong>“waterways”</strong> - линейные водные объекты (небольшие реки).</li>
+</ul>
+<section id="объединение-по-признаку" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="объединение-по-признаку"><span class="header-section-number">7.1</span> Объединение по признаку</h2>
+<p>Для создания границы Красноярского края из слоя <strong>“level_6”</strong> применяется инструмент <strong>“Вектор” &gt; “Геообработка” &gt; “Объединение по признаку…”</strong>. В качестве исходного слоя указывается <strong>“level_6”</strong>, в пункте <strong>“поле слияния”</strong> отмечается поле - <strong>“admin_level”</strong>. В результате геометрии с одинаковым атрибутом “admin_level” будут объединены между собой. Поскольку все геометрии слоя имеют одинаковое значение, они будут объединены, создав таким образом границу Красноярского края (<a href="#fig-border" class="quarto-xref">Рисунок&nbsp;<span>7.2</span></a>).</p>
+<div id="fig-border" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-border-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/6_12_Граница КК.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="./pictures/6_12_Граница КК.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-border-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;7.2: Результат применения инструмента “Объединение по признаку”
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;7.2: Задание
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Создайте границу Красноярского края по примеру выше. Сохраните слой в файл “osm.gpkg” под названием “border” (<a href="#vid-addfile" class="quarto-xref">Видео&nbsp;<span>7.1</span></a>).</p>
+<div id="vid-addfile" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-addfile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/6_2_объединение по признаку.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><video src="./videos/6_2_объединение%20по%20признаку.mp4" class="img-fluid" controls=""></video></a><a href="./videos/6_2_объединение по признаку.mp4">Video</a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-addfile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;7.1: “Объединение по признаку”, поле “admin_level”
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Рисунок&nbsp;7.1: Окно выбора слоев файла “osm.gpkg”</span>
+<span class="glightbox-desc lightbox-desc-2">Рисунок&nbsp;7.2: Результат применения инструмента “Объединение по признаку”</span>
+<span class="glightbox-desc lightbox-desc-3">Видео&nbsp;7.1: “Объединение по признаку”, поле “admin_level”</span>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -843,14 +874,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./chapter6_spatial_operations.html" class="pagination-link  aria-label=" &lt;span="" операции&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter0_resources.html" class="pagination-link" aria-label="Дополнительные ресурсы">
-        <span class="nav-page-text">Дополнительные ресурсы</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter8_DEM.html" class="pagination-link" aria-label="<span class='chapter-number'>8</span>&nbsp; <span class='chapter-title'>Цифровая модель рельефа</span>">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","loop":false,"closeEffect":"zoom","descPosition":"bottom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

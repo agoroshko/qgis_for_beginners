@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Основы геоинформационных систем в QGIS - 8&nbsp; Цифровая модель рельефа</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./chapter7_OSM.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Поиск не дал результатов",
+    "search-matching-documents-text": "Результаты поиска",
+    "search-copy-link-title": "Скопировать ссылку",
+    "search-hide-matches-text": "Скрыть дополнительные результаты",
+    "search-more-match-text": "дополнительный результат в этом документе",
+    "search-more-matches-text": "дополнительных результата(-ов) в этом документе",
+    "search-clear-button-title": "Очистить",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Отменить",
+    "search-submit-button-title": "Найти",
+    "search-label": "Поиск"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="././cover.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Основы геоинформационных систем в QGIS</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Переключить темный режим"><i class="bi"></i></a>
+</div>
+          <div id="quarto-search" class="" title="Поиск"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter8_DEM.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Введение</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter0_resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Дополнительные ресурсы</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter1_georeferencing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Пространственная привязка растра</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter2_vectorization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Векторизация</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter3_attributes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Атрибутивная информация</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter4_thematic_maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cоздание тематических карт</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter5_queries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Запросы</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter6_spatial_operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter7_OSM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Open Street Map (OSM)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter8_DEM.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Библиографический список</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Приложения</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Переключить раздел">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendice_1_geopackage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Формат данных GeoPackage</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendice_2_epsg_3857.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Система координат Pseudo-Mercator (EPSG:3857)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendice_3_csv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Формат данных CSV</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Содержание</h2>
+   
+  <ul>
+  <li><a href="#загрузка-растровых-данных." id="toc-загрузка-растровых-данных." class="nav-link active" data-scroll-target="#загрузка-растровых-данных."><span class="header-section-number">8.1</span> Загрузка растровых данных.</a></li>
+  <li><a href="#визуализация" id="toc-визуализация" class="nav-link" data-scroll-target="#визуализация"><span class="header-section-number">8.2</span> Визуализация</a></li>
+  <li><a href="#sec-dem_classification" id="toc-sec-dem_classification" class="nav-link" data-scroll-target="#sec-dem_classification"><span class="header-section-number">8.3</span> Классификация одноканального изображения</a></li>
+  <li><a href="#sec-dem_crop" id="toc-sec-dem_crop" class="nav-link" data-scroll-target="#sec-dem_crop"><span class="header-section-number">8.4</span> Обрезка растра по границе векторного слоя</a></li>
+  <li><a href="#зональная-статистика" id="toc-зональная-статистика" class="nav-link" data-scroll-target="#зональная-статистика"><span class="header-section-number">8.5</span> Зональная статистика</a></li>
+  <li><a href="#расчет-топографических-индексов." id="toc-расчет-топографических-индексов." class="nav-link" data-scroll-target="#расчет-топографических-индексов."><span class="header-section-number">8.6</span> Расчет топографических индексов.</a></li>
+  <li><a href="#sec-multichannel_img" id="toc-sec-multichannel_img" class="nav-link" data-scroll-target="#sec-multichannel_img"><span class="header-section-number">8.7</span> Создание многоканального изображения</a></li>
+  <li><a href="#sec-multichannel_img_classif" id="toc-sec-multichannel_img_classif" class="nav-link" data-scroll-target="#sec-multichannel_img_classif"><span class="header-section-number">8.8</span> Классификация многоканального изображения</a></li>
+  <li><a href="#создание-изолиний" id="toc-создание-изолиний" class="nav-link" data-scroll-target="#создание-изолиний"><span class="header-section-number">8.9</span> Создание изолиний</a></li>
+  <li><a href="#оформление-изолиний" id="toc-оформление-изолиний" class="nav-link" data-scroll-target="#оформление-изолиний"><span class="header-section-number">8.10</span> Оформление изолиний</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Цифровая модель рельефа это растр в каждой ячейке которого записана средняя высота поверхности земли. В этом разделе используется цифровая модель ASTER GDEM с пространственным разрешением 30 метров на пиксель.</p>
+<section id="загрузка-растровых-данных." class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="загрузка-растровых-данных."><span class="header-section-number">8.1</span> Загрузка растровых данных.</h2>
+<p>Загрузка растровых данных производится через пункт <strong>“Слой” &gt; “Добавить слой” &gt; “Добавить растровый слой”</strong> или перетаскиванием файла растра в окно программы.</p>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;8.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Создайте новый проект под названием “DEM”. Загрузите слои “videla.gpkg”, “uch_lesn.gpkg” и растр “DEM.tif”. Ссылка для скачивания данных: https://disk.yandex.ru/d/xbXVOp86ipOVgA</p>
+</div>
+</div>
+</section>
+<section id="визуализация" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="визуализация"><span class="header-section-number">8.2</span> Визуализация</h2>
+<p>Настройки отображения растра устанавливаются в контекстном меню слоя <strong>“Свойства..” &gt; “Стиль”</strong>. В пункте <strong>“Изображение”</strong> настраивается режим отображения. Для количественных данных используются режимы <strong>“Одноканальное серое”</strong> и <strong>“Одноканальное псевдоцветное”</strong>. Классифицированные изображения визуализируют при помощи режима <strong>“Палитра / Уникальные значения”</strong>. Для многоканальных растров используют режим <strong>“Многоканальное цветное”</strong>. Режимы <strong>“Теневой рельеф”</strong> и <strong>“Изолинии”</strong> применяются для цифровых моделей рельефа.</p>
+<div id="vid-gradient" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-gradient-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/7_1_градиент.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><video src="./videos/7_1_градиент.mp4" class="img-fluid" controls=""></video></a><a href="./videos/7_1_градиент.mp4">Video</a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-gradient-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;8.1: Настройка стиля отображения растра “DEM”
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;8.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Для слоя “DEM” измените стиль отображения. По примеру выше примените режим “Одноканальное псевдоцветное”, задайте градиент “Magma” (<a href="#vid-gradient" class="quarto-xref">Видео&nbsp;<span>8.1</span></a>).</p>
+</div>
+</div>
+</section>
+<section id="sec-dem_classification" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="sec-dem_classification"><span class="header-section-number">8.3</span> Классификация одноканального изображения</h2>
+<p>Инструмент <strong>“Растр” &gt; “Калькулятор растров…”</strong> позволяет проводить арифметические операции с растровыми изображениями. Для составления выражения используются каналы растров и арифметические операторы. Калькулятор растров так же используется для классификации изображения т.е. разбиения его на классы. Для примера, воспользуемся инструментом и разобьем (классифицируем) растровый слой “DEM” на 2 класса. Первый класс будет иметь метку 0, в него войдут все пиксели с высотой до 250 метров, второй класс будет содержать пиксели с высотой большей или равной 250 метров и иметь метку 1.<br>
+Для такой классификации записывают выражение <code>"DEM@1"  &gt;= 250</code> в “Калькуляторе растров”. Каждый пиксель изображения проверяется на соответсвтие условию. Пикселям, соответсвтующим условию, присваивается значение 1, не соответствующим - 0. Созданный растр будет содержать пиксели только с двумя значениями: 0 и 1 (до 250 и более 250 метров соответственно) (<a href="#vid-classification2" class="quarto-xref">Видео&nbsp;<span>8.2</span></a>).</p>
+<div id="vid-classification2" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-classification2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/7_2_классификация на 2 класса.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><video src="./videos/7_2_классификация%20на%202%20класса.mp4" class="img-fluid" controls=""></video></a><a href="./videos/7_2_классификация на 2 класса.mp4">Video</a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-classification2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;8.2: Классификация растра “DEM”
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;8.3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>По примеру выше проведите классификацию растра “DEM” на 2 класса.</p>
+</div>
+</div>
+<p>Аналогичным образом возможно разбить растр на несколько классов. Для примера разобъем растр цифровой модели рельефа “DEM” на 3 класса. Класс 1 - значения от 0 до 200 м, класс 2 - от 200 до 400 м, класс 3 - от 400 до 600 м. Распределение по классам осуществляется при помощи инструмента “Калькулятор растров”.<br>
+Упомянутую классификацию можно осуществить с помощью следующего выражения: <code>("DEM@1"  &gt; 0  AND "DEM@1"  &lt; 200)*1 + ("DEM@1"   &gt;=  200  AND "DEM@1"  &lt; 400)*2 +  ("DEM@1"   &gt;=  400  AND "DEM@1"  &lt; 600)*3</code>. Для объяснения действия выражения, рассмотрим его по частям. Часть выражения <code>("DEM@1"  &gt; 0  AND "DEM@1"  &lt; 200)</code> будет принимать значение 1 при высоте от 0 до 200 м (когда <strong>И</strong> одно <strong>И</strong> другое условие истинны). Во всех остальных случаях выражение будет принимать значение 0. Множитель рядом с выражением задает значение класса.</p>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;8.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Классифицируйте раст “DEM” по 3 классам, как показано выше. К полученному изображению примените стиль отображения “Палитра / Уникальные значения”. Результат должен соответствовать изображению ниже (<a href="#fig-classification_task" class="quarto-xref">Рисунок&nbsp;<span>8.1</span></a>).</p>
+</div>
+</div>
+<div id="fig-classification_task" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-classification_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/7_1_DEM_3_class.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><img src="./pictures/7_1_DEM_3_class.jpg" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-classification_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;8.1: Результат выполнения задания
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-dem_crop" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="sec-dem_crop"><span class="header-section-number">8.4</span> Обрезка растра по границе векторного слоя</h2>
+<p>Часто требуется ограничить растровое изображение границами векторного слоя. Для выполнения этой операции возможно использовать два инструмента (они находятся во вкладке <strong>“Растр” &gt; “Извлечение”</strong>): <strong>“Обрезать растр по охвату…”</strong> и <strong>“Обрезать растр по маске…”</strong>. Первый обрезает растр по границе наиманьшего прямоугольника, в который попадает геометрия, второй - по границе собственно геометрии (полигона).<br>
+При использовании инструмента <strong>“Обрезать растр по охвату…”</strong> в пункте “Исходный слой” задается растр, который необходимо обрезать. “Охват обрезки” задается двумя парами координат (левый нижний и правый верхний углы прямоугольника), которые можно заполнить вручную, “Рассчитать из слоя” (в этом случае необходимо выбрать слой), задать “Текущий охват карты” или “Указать на карте” напрямую (<a href="#fig-crop_by_videla" class="quarto-xref">Рисунок&nbsp;<span>8.2</span></a>).</p>
+<div id="fig-crop_by_videla" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-crop_by_videla-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/7_1_Обрезка по охвату.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4"><img src="./pictures/7_1_Обрезка по охвату.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-crop_by_videla-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;8.2: Окно инструмента “Обрезать растр по охвату”
+</figcaption>
+</figure>
+</div>
+<p>В результате применения инструмента появится новый временный растровый слой “Кадрированый (по охвату)”. Для сохранения временного слоя на диск в контекстном меню выберите пункт <strong>“Экспорт” &gt; “Сохранить как”</strong> формат <strong>“GeoTIFF”</strong>.</p>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;8.5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Обрежьте растр “DEM” по охвату слоя “videla”. Сохраните новый растр в папку проекта под названием “DEM_crop_extend”.</p>
+</div>
+</div>
+<p>При использовании инструмента <strong>“Обрезать растр по маске…”</strong> в качестве “Исходного слоя” указывается растровое изображение, которое должно быть обрезано. В пункте “Слой маски” указывается векторный слой, по границам которого будет проведена обрезка. Чек-бокс <strong>“Только выделенные объекты”</strong> позволяет провести обрезку по границам выделенных объектов векторного слоя (<a href="#fig-crop_by_uchlesn" class="quarto-xref">Рисунок&nbsp;<span>8.3</span></a>).</p>
+<div id="fig-crop_by_uchlesn" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-crop_by_uchlesn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/7_2_Обрезка растра по маске.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5"><img src="./pictures/7_2_Обрезка растра по маске.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-crop_by_uchlesn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;8.3: Окно инструмента “Обрезать растр по маске”
+</figcaption>
+</figure>
+</div>
+<p>В результате применения инструмента появится новый временный растровый слоя “Кадрированный (по маске)”.</p>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;8.6
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Обрежьте растр “DEM” по границе Караульного участкового лесничества (слой “uch_lesn”), используя инструмент <strong>“Обрезать растр по маске…”</strong>. Сохраните временный слой в папку проекта под названием “DEM_crop_mask”.</p>
+</div>
+</div>
+</section>
+<section id="зональная-статистика" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="зональная-статистика"><span class="header-section-number">8.5</span> Зональная статистика</h2>
+<p>Зональная статистика предполагает разделение территории на несколько зон для каждой из которых извлекается значение из растрового слоя. Для выбора инструмента <strong>“Зональная статистика”</strong> активируйте <strong>“Панель инструментов”</strong> <img src="./icons/7_1_панель инструментов.png" class="img-fluid" alt="Панель инструментов">, в пункте <strong>“Анализ растров”</strong> выберите <strong>“Зональная статистика”</strong>. В открывшемся окне пункт <strong>“Исходный слой”</strong> определяет векторный слой с зонами, в пункте <strong>“Растровый слой”</strong> задается растр из которого будут извлечены значения для каждой зоны. Пункт <strong>“Статистики для расчета”</strong> позволяет выбрать несколько статистик, которые будут добавлены в атрибутивную информацию для каждой зоны (среднее, медиана и т.д.).<br>
+Рассчитайте максимальную, минимальную и среднюю высоту для каждого выдела. В пункте <strong>“Исходный слой”</strong> указывается векторный слой выделов (“videla”), в пункте растровый слой - слой “DEM”, префикс поля ввода - “dem_”. В пункте <strong>“Статистики расчета”</strong> указываются: <strong>“Количество”; “Среднее”; “Минимум”; “Максимум”</strong>. После выполнения появится временный векторный слой “Зональная статистика” с рассчитанными показателями высоты для каждого выдела (поле “dem_count” - количество пикселей растрового слоя, попадающих в выдел; “dem_mean” - средняя высота для выдела; “dem_min” - минимальная высота для выдела; “dem_max” - максимальная высота для выдела) (<a href="#vid-zonal_stat" class="quarto-xref">Видео&nbsp;<span>8.3</span></a>).</p>
+<div id="vid-zonal_stat" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-zonal_stat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/7_3_зональная статистика.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6"><video src="./videos/7_3_зональная%20статистика.mp4" class="img-fluid" controls=""></video></a><a href="./videos/7_3_зональная статистика.mp4">Video</a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-zonal_stat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;8.3: Настройка стиля отображения растра “DEM”
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;8.7
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Добавьте в слой выделов среднюю, максимальную и минимальную высоту над уровнем моря по примеру выше.</li>
+<li>Окрасьте выдела, которые имеют среднюю высоту более 400 м, в красный цвет (режим стиля - “Символизация на основе правил”)</li>
+<li>Создайте макет и сохраните изображение, которое должно соответствовать рисунку ниже (<a href="#fig-task_dem_mean" class="quarto-xref">Рисунок&nbsp;<span>8.4</span></a>).</li>
+</ol>
+</div>
+</div>
+<div id="fig-task_dem_mean" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-task_dem_mean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/7_3_Выдела с высотой более 400.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7"><img src="./pictures/7_3_Выдела с высотой более 400.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-task_dem_mean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;8.4: Результат выполнения задания
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="расчет-топографических-индексов." class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="расчет-топографических-индексов."><span class="header-section-number">8.6</span> Расчет топографических индексов.</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Обратите внимание!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Использующийся в этом разделе инструмент для расчета крутизны склона не корректно работает с растрами в географической системе координат (WGS84), поэтому для выполнения последующих заданий перепроецируйте цифровую модель рельефа в систему координат UTM (EPSG:32646 - WGS 84 / UTM zone 46N) и сохраните на диск под названием DEM_UTM. При выполнении последующих заданий используйте этот растр для расчета экспозиции и крутизны склона а так же TPI!<br>
+Для перепроецирования растра в другую систему координат используется инструмент “Растр” &gt; “Проекции” &gt; “Деформация (перепроецирование)…”. В качестве исходного слоя выбирается цифровая модель рельефа (слой “DEM”), в пункте “Целевая система координат” задается EPSG:32646 - WGS 84 / UTM zone 46N. В пункте “Перепроецировано” указывается папка для сохранения растрового слоя (папка проекта) и название “DEM_UTM.tif” (<a href="#fig-dem_reproject" class="quarto-xref">Рисунок&nbsp;<span>8.5</span></a>).</p>
+</div>
+</div>
+<div id="fig-dem_reproject" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dem_reproject-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/7_7_Перепроецирование растра DEM.png" class="lightbox" data-glightbox="description: .lightbox-desc-8" data-gallery="quarto-lightbox-gallery-8"><img src="./pictures/7_7_Перепроецирование растра DEM.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dem_reproject-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;8.5: Перепроецирование растра DEM
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;8.8
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Перепроецируйте растр “DEM” в систему коорданат EPSG:32646 - WGS 84 / UTM zone 46N. Сохраните растр на диск под названием “DEM_UTM.tif”.</p>
+</div>
+</div>
+<p>На основе цифровой модели рельефа возможен расчет экспозиции и крутизны склона а так же топографических индексов TPI, TRI и др. Для примера рассчитаем экспозицию, крутизну и TPI.<br>
+Для расчета экспозиции склона перейдите в пункт <strong>“Растр” &gt; “Анализ” &gt; “Экспозиция…”</strong>. В качестве исходного слоя выберите цифровую модель рельефа (слой “DEM_UTM”). Новый растр возможно сохранить сразу на диск, а не в виде временного слоя, для этого в пункте <strong>“Экспозиция”</strong> выберите “Сохранить в файл…” и укажите директорию проекта и название файла <strong>“aspect.tif”</strong>. После применения инструмента в панеле слоев появится новый слой “aspect” в каждой ячейке которого будет указана экспозиция склона в виде азимута (угол, отсчитываемый от северного направления географического меридиана). Равнинные участки будут иметь значние -9999, если не отмечен чек-бокс “Возвращать 0 в плоских областях…” (<a href="#fig-aspect" class="quarto-xref">Рисунок&nbsp;<span>8.6</span></a>).</p>
+<div id="fig-aspect" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-aspect-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/7_4_Экспозиция.png" class="lightbox" data-glightbox="description: .lightbox-desc-9" data-gallery="quarto-lightbox-gallery-9"><img src="./pictures/7_4_Экспозиция.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-aspect-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;8.6: Инструмент “Экспозиция”
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;8.9
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Рассчитайте экспозицию склона по примеру выше.</p>
+</div>
+</div>
+<p>Для расчета крутизны склона на основе цифровой модели рельефа используется инструмент <strong>“Растр” &gt; “Анализ” &gt; “Крутизна…”</strong>. В качестве исходного слоя выбирается цифровая модель рельефа (слой “DEM_UTM”), результат выполнения сохраните на диск под названием “slope.tif”. В результате будет создан растровый слой, в каждой ячейке которого указана крутина склона в градусах (<a href="#fig-slope" class="quarto-xref">Рисунок&nbsp;<span>8.7</span></a>).</p>
+<div id="fig-slope" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-slope-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/7_5_Крутизна.png" class="lightbox" data-glightbox="description: .lightbox-desc-10" data-gallery="quarto-lightbox-gallery-10"><img src="./pictures/7_5_Крутизна.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-slope-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;8.7: Инструмент “Крутизна”
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;8.10
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Рассчитайте крутизну склона по примеру выше.</p>
+</div>
+</div>
+</section>
+<section id="sec-multichannel_img" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="sec-multichannel_img"><span class="header-section-number">8.7</span> Создание многоканального изображения</h2>
+<p>Несколько изображений с одинаковыми пространственным разрешением, охватом и системой координат возможно объединить в одно многоканальное изображение. Таким образом в каждом пикселе изображения будет содержаться несколько переменных в виде отдельных каналов (слоев). Такая практика часто используется в мультиспектральных изображениях, получаемых со спутников.<br>
+Для объединения нескольких изображений в одно многоканальное используется инструмент <strong>“Растр” &gt; “Прочее” &gt; “Результат объединения…”</strong>. В пункте “Исходные слои” отмечаются слои для объединения.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Обратите внимание!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Последовательность отмеченны слоев в пункте “Исходные слои” будет соответствовать последовательности каналов в многоканальном изображении. Первый растр будет соответствовать каналу №1, второй растр - каналу № 2 и т.д.</p>
+</div>
+</div>
+<p>Для создания многоканального изображения необходимо поставить чек-бокс в пункте <strong>“Поместить каждый входной слой в отдельный канал”</strong>, иначе склейка изображений произойдет в виде мозайки. “Выходной тип данных” должен соответствовать данным растровых изображений. Результатом применения инструмента станет многоканальный растровый слой “DEM_indexes” (<a href="#vid-dem_multi" class="quarto-xref">Видео&nbsp;<span>8.4</span></a>).</p>
+<div id="vid-dem_multi" class="quarto-float">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-dem_multi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./videos/7_4_многоканальное изображение.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-11" data-gallery="quarto-lightbox-gallery-11"><video src="./videos/7_4_многоканальное%20изображение.mp4" class="img-fluid" controls=""></video></a><a href="./videos/7_4_многоканальное изображение.mp4">Video</a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-dem_multi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Видео&nbsp;8.4: Cоздание многоканального изображения
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;8.11
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Объедините созданные в предыдущих заданиях растровые слои в многоканальное изображение: 1 канал - “aspect”; 2 канал - “slope”, 3 канал - “DEM_UTM” в многоканальное изображение. Сохраните полученное изображение в папку проекта под названием “DEM_indexes”.</p>
+</div>
+</div>
+</section>
+<section id="sec-multichannel_img_classif" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="sec-multichannel_img_classif"><span class="header-section-number">8.8</span> Классификация многоканального изображения</h2>
+<p>Созданный многоканальный растр “DEM_indexes” позволяет провдить фильтрацию сразу по нескольким каналам (переменным). Для этого используется <strong>“Растр” &gt; “Калькулятор растров”</strong> который уже применялся для классификации растра “DEM” в предыдущем разделе (<a href="#sec-dem_classification" class="quarto-xref"><span>Глава 8.3</span></a>). В пункте “Каналы растра” отображаются растровые слои проекта в виде названия и номера канала отделенных символом “@”, которые возможно использовать в вырежении для классификации по нескольким каналам. Например, для выделения участков земли на высоте более 300 м и крутизной более 30 градусов используется выражение: <code>"DEM_indexes@2"&gt;30 AND "DEM_indexes@3"&gt;300</code> (2 канал - “slope”, 3 канал - “DEM_UTM”). Аналогично задается условие для выбороа участков на высоте от 200 до 300 метров с уклоном менее 20 градусов: <code>"DEM_indexes@2"&lt; 20 AND "DEM_indexes@3" &gt; 200 AND "DEM_indexes@3" &lt; 300</code> (<a href="#fig-multi_classification" class="quarto-xref">Рисунок&nbsp;<span>8.8</span></a>).</p>
+<div id="fig-multi_classification" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-multi_classification-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/7_7_классификация многоканального растра.png" class="lightbox" data-glightbox="description: .lightbox-desc-12" data-gallery="quarto-lightbox-gallery-12"><img src="./pictures/7_7_классификация многоканального растра.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-multi_classification-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;8.8: Классификация многоканального изображения
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;8.12
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Используя многоканальный растр “DEM_indexes”, выделите участки с южной экспозицией склона (от 135 до 225 градусов) находящиеся на высоте до 300 метров. Сохраните новый растровый слой под названием “DEM_classification.tif”. Результат выполнения задания представлен на рисунке ниже (<a href="#fig-task_multi_classification" class="quarto-xref">Рисунок&nbsp;<span>8.9</span></a>).</p>
+</div>
+</div>
+<div id="fig-task_multi_classification" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-task_multi_classification-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/7_8_результат задания классификации.png" class="lightbox" data-glightbox="description: .lightbox-desc-13" data-gallery="quarto-lightbox-gallery-13"><img src="./pictures/7_8_результат задания классификации.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-task_multi_classification-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;8.9: Результат выполнения задания по классификации (пиксели, соответствующие условию, окрашены в белый)
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="создание-изолиний" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="создание-изолиний"><span class="header-section-number">8.9</span> Создание изолиний</h2>
+<p>Инструмент <strong>“Растр” &gt; “Извлечение” &gt; “Создать изолинии..** используется для построения изолиний (горизонталей). В пункте”Исходный слой” указывается цифровая модель рельефа, пункт </strong>”Расстояние между изолиниями”** определяет высоту сечения рельефа в метрах. Результатом применения инструмента является временный векторный слой горизонталей с атрибутом “ELEV” в котором указана высота каждой конкретной горизонтали (<a href="#fig-make_izos" class="quarto-xref">Рисунок&nbsp;<span>8.10</span></a>).</p>
+<div id="fig-make_izos" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-make_izos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/7_9_Создать изолинии.png" class="lightbox" data-glightbox="description: .lightbox-desc-14" data-gallery="quarto-lightbox-gallery-14"><img src="./pictures/7_9_Создать изолинии.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-make_izos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;8.10: Инструмент “Создать изолинии”
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;8.13
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Создайте слой горизонталей с высотой сечения рельефа 20 метров, по примеру выше. Сохраните полученный векторный слой на диск под названием “Изолинии”.</p>
+</div>
+</div>
+</section>
+<section id="оформление-изолиний" class="level2" data-number="8.10">
+<h2 data-number="8.10" class="anchored" data-anchor-id="оформление-изолиний"><span class="header-section-number">8.10</span> Оформление изолиний</h2>
+<p>Для оформления изолиний применяются режимы “Символизация на основе правил” и “Подписи на основе правил” (вкладки “Стиль” и “Надписи” контекстного меню слоя). Символизация должна соответствовать следующим условиям:</p>
+<ul>
+<li>горизонтали оформляются линиями коричневого цвета;</li>
+<li>горизонтали, отметки которых кратны 100 (каждая пятая горизонталь), оформляются утолщенной линией.</li>
+</ul>
+<p>Для второго условия применяется оператор <code>%</code> который возвращает остаток от деления. Для горизонталей, отметка которых кратна 100 метров, выражение <code>"ELEV" % 100</code> будет возвращать значение <strong>0</strong> (“ELEV” - поле в слое “Горизонтали” которое содержит отметку для каждой горизонтали) (<a href="#fig-make_izos_style" class="quarto-xref">Рисунок&nbsp;<span>8.11</span></a>).</p>
+<div id="fig-make_izos_style" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-make_izos_style-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/7_10_Оформление горизонталей.png" class="lightbox" data-glightbox="description: .lightbox-desc-15" data-gallery="quarto-lightbox-gallery-15"><img src="./pictures/7_10_Оформление горизонталей.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-make_izos_style-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;8.11: Создание стиля горизонталей
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;8.14
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Настройте стиль слоя “Горизонтали” так, что бы горизонтали с отметками кратными 100 имели толщину линий 0.4, а все остальные горизонтали толщину 0.1. Цвет горизонталей коричневый. Для этого перейдите в контекстрое меню слоя <strong>“Стиль” &gt; режим “Символизация на основе правил”</strong> (<a href="#fig-make_izos_task" class="quarto-xref">Рисунок&nbsp;<span>8.12</span></a>).</p>
+</div>
+</div>
+<div id="fig-make_izos_task" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-make_izos_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/7_11_Горизонтали.png" class="lightbox" data-glightbox="description: .lightbox-desc-16" data-gallery="quarto-lightbox-gallery-16"><img src="./pictures/7_11_Горизонтали.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-make_izos_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;8.12: Результат выполнения задания по построению горизонталей
+</figcaption>
+</figure>
+</div>
+<p>Подписываются горизонтали кратные 100 м. В этом случае используюется режим “Подписи на основе правил” а так же выражение <code>"ELEV" % 100 = 0</code> по аналогии с предыдущим заданием, но для подписей (<a href="#fig-izos_labels" class="quarto-xref">Рисунок&nbsp;<span>8.13</span></a>). Так же настраивается <strong>“Размещение”</strong> подписей:</p>
+<ul>
+<li><strong>“Режим”</strong> - параллельно;</li>
+<li><strong>“Разрешенные позиции”</strong> - на линии;</li>
+<li><strong>“Повтор подписей”</strong> - “Интервал” 10 000, “метры в масштабе”.</li>
+</ul>
+<div id="fig-izos_labels" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-izos_labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/7_12_Подписи горизонталей.png" class="lightbox" data-glightbox="description: .lightbox-desc-17" data-gallery="quarto-lightbox-gallery-17"><img src="./pictures/7_12_Подписи горизонталей.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-izos_labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;8.13: Результат выполнения задания по построению горизонталей
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;8.15
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Добавьте подписи для горизонталей, отметки которых кратны 100. Для этого перейдите в контекстное меню слоя (<strong>“Стиль” &gt; “Надписи” &gt; режим “Подписи на основе правил”</strong>) и настройте подписи (<a href="#fig-izos_labels_task" class="quarto-xref">Рисунок&nbsp;<span>8.14</span></a>).</p>
+</div>
+</div>
+<div id="fig-izos_labels_task" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-izos_labels_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/7_13_Подписи горизонталей результат задания.png" class="lightbox" data-glightbox="description: .lightbox-desc-18" data-gallery="quarto-lightbox-gallery-18"><img src="./pictures/7_13_Подписи горизонталей результат задания.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-izos_labels_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;8.14: Результат выполнения задания (подписи горизонталей)
+</figcaption>
+</figure>
+</div>
+
+
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Видео&nbsp;8.1: Настройка стиля отображения растра “DEM”</span>
+<span class="glightbox-desc lightbox-desc-2">Видео&nbsp;8.2: Классификация растра “DEM”</span>
+<span class="glightbox-desc lightbox-desc-3">Рисунок&nbsp;8.1: Результат выполнения задания</span>
+<span class="glightbox-desc lightbox-desc-4">Рисунок&nbsp;8.2: Окно инструмента “Обрезать растр по охвату”</span>
+<span class="glightbox-desc lightbox-desc-5">Рисунок&nbsp;8.3: Окно инструмента “Обрезать растр по маске”</span>
+<span class="glightbox-desc lightbox-desc-6">Видео&nbsp;8.3: Настройка стиля отображения растра “DEM”</span>
+<span class="glightbox-desc lightbox-desc-7">Рисунок&nbsp;8.4: Результат выполнения задания</span>
+<span class="glightbox-desc lightbox-desc-8">Рисунок&nbsp;8.5: Перепроецирование растра DEM</span>
+<span class="glightbox-desc lightbox-desc-9">Рисунок&nbsp;8.6: Инструмент “Экспозиция”</span>
+<span class="glightbox-desc lightbox-desc-10">Рисунок&nbsp;8.7: Инструмент “Крутизна”</span>
+<span class="glightbox-desc lightbox-desc-11">Видео&nbsp;8.4: Cоздание многоканального изображения</span>
+<span class="glightbox-desc lightbox-desc-12">Рисунок&nbsp;8.8: Классификация многоканального изображения</span>
+<span class="glightbox-desc lightbox-desc-13">Рисунок&nbsp;8.9: Результат выполнения задания по классификации (пиксели, соответствующие условию, окрашены в белый)</span>
+<span class="glightbox-desc lightbox-desc-14">Рисунок&nbsp;8.10: Инструмент “Создать изолинии”</span>
+<span class="glightbox-desc lightbox-desc-15">Рисунок&nbsp;8.11: Создание стиля горизонталей</span>
+<span class="glightbox-desc lightbox-desc-16">Рисунок&nbsp;8.12: Результат выполнения задания по построению горизонталей</span>
+<span class="glightbox-desc lightbox-desc-17">Рисунок&nbsp;8.13: Результат выполнения задания по построению горизонталей</span>
+<span class="glightbox-desc lightbox-desc-18">Рисунок&nbsp;8.14: Результат выполнения задания (подписи горизонталей)</span>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Скопировано");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Скопировано");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./chapter7_OSM.html" class="pagination-link  aria-label=" &lt;span="" street="" map="" (osm)&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Open Street Map (OSM)</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link" aria-label="Библиографический список">
+        <span class="nav-page-text">Библиографический список</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox","openEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
+
+
+
+</body></html>
