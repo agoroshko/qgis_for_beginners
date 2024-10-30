@@ -164,8 +164,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter7_DEM.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></span></a>
+  <a href="./chapter7_OSM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Open Street Map (OSM)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter8_DEM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -270,7 +276,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Откройте таблицу атрибутов слоя “Выделы”.</p>
 </div>
 </div>
-<p>При выделении строки в таблице атрибутов, связанная с ним геометрия будет подсвечена желтым цветом на карте, и наоборот (см. <span class="quarto-unresolved-ref">?sec-pickobj</span>). Инструменты таблицы атрибутов по большей части дублируют инструменты основного окна программы (<a href="#fig-attr_table_tools" class="quarto-xref">Рисунок&nbsp;<span>3.1</span></a>). В режиме редактирования доступно большее количество инструментов а так же появляется дополнительная строка для массового редактирования атрибутов (<a href="#fig-attr_table_tools2" class="quarto-xref">Рисунок&nbsp;<span>3.1 (b)</span></a>).</p>
+<p>При выделении строки в таблице атрибутов, связанная с ним геометрия будет подсвечена желтым цветом на карте, и наоборот (см. <a href="chapter2_vectorization.html#sec-pickobj" class="quarto-xref"><span>Глава 2.5</span></a>). Инструменты таблицы атрибутов по большей части дублируют инструменты основного окна программы (<a href="#fig-attr_table_tools" class="quarto-xref">Рисунок&nbsp;<span>3.1</span></a>). В режиме редактирования доступно большее количество инструментов а так же появляется дополнительная строка для массового редактирования атрибутов (<a href="#fig-attr_table_tools2" class="quarto-xref">Рисунок&nbsp;<span>3.1 (b)</span></a>).</p>
 <div id="fig-attr_table_tools" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-attr_table_tools-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -384,7 +390,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Заполните вручную поле “kvartal” у первых <strong>пяти</strong> выделов. Номер кваратала для остальных выделов будет заполнен другим способом.</p>
 </div>
 </div>
-<p>Поскольку все значения поля <strong>kvartal</strong> будут одинаковыми, есть способ заполнить все значения сразу, используя <strong>Редактор выражений</strong> панель инструментов которого появляется при активации режима редактирования. <strong>Редактор выражений</strong> имеет расширенный режим, для перехода в который необходимо нажать на иконку <img src="./QGIS_icons/mIconExpression.svg" class="img-fluid" alt="1">. Этот режим позволяет создавать сложные выражения, рассчитывать длины и площади объектов и многое другое. Мы более подробно познакомимся с этим режимом в последующих разделах. Для начала заполним поле <strong>“kvartal”</strong>. Для этого в редакторе выражений слева от равно выбирается поле, к которму будет применяться выражение, справа - выражение. Применить выражение можно ко всем объектам слоя (пункт <strong>“Обновить все”</strong>) или только к выделенным в данный момент (пункт <strong>“Обновить выделенные”</strong>). Слева укажите обновляемое поле (<strong>“kvartal”</strong>), справа - номер квартала, и веберите пункт <strong>“Обновить все”</strong>. После того, как поле будет заполнено номером квартала сохарните изменения (иконка <img src="./QGIS_icons/mActionSaveAllEdits.svg" class="img-fluid" alt="1">). Аналогичным способом возможно изменить атрибуты только у выделенных объектов (пункт <strong>“Обновить выделенные”</strong>, см. <span class="quarto-unresolved-ref">?sec-pickobj</span>).</p>
+<p>Поскольку все значения поля <strong>kvartal</strong> будут одинаковыми, есть способ заполнить все значения сразу, используя <strong>Редактор выражений</strong> панель инструментов которого появляется при активации режима редактирования. <strong>Редактор выражений</strong> имеет расширенный режим, для перехода в который необходимо нажать на иконку <img src="./QGIS_icons/mIconExpression.svg" class="img-fluid" alt="1">. Этот режим позволяет создавать сложные выражения, рассчитывать длины и площади объектов и многое другое. Мы более подробно познакомимся с этим режимом в последующих разделах. Для начала заполним поле <strong>“kvartal”</strong>. Для этого в редакторе выражений слева от равно выбирается поле, к которму будет применяться выражение, справа - выражение. Применить выражение можно ко всем объектам слоя (пункт <strong>“Обновить все”</strong>) или только к выделенным в данный момент (пункт <strong>“Обновить выделенные”</strong>). Слева укажите обновляемое поле (<strong>“kvartal”</strong>), справа - номер квартала, и веберите пункт <strong>“Обновить все”</strong>. После того, как поле будет заполнено номером квартала сохарните изменения (иконка <img src="./QGIS_icons/mActionSaveAllEdits.svg" class="img-fluid" alt="1">). Аналогичным способом возможно изменить атрибуты только у выделенных объектов (пункт <strong>“Обновить выделенные”</strong>, см. <a href="chapter2_vectorization.html#sec-pickobj" class="quarto-xref"><span>Глава 2.5</span></a>).</p>
 <div id="vid-fieldkv" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-fieldkv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1202,7 +1208,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

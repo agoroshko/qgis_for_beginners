@@ -159,13 +159,19 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter6_spatial_operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter7_DEM.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></span></a>
+  <a href="./chapter7_OSM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Open Street Map (OSM)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter8_DEM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -875,7 +881,7 @@ Note&nbsp;2.1: Загрузите файлы!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>По примеру выше, добавьте вершины в вередине и конце отрезка.</p>
+<p>По примеру выше, добавьте вершины в cередине и конце отрезка.</p>
 </div>
 </div>
 <p>Для перемещения сегмента целиком нажмите на него (не на середину) левой клавишей мыши и переместите на нужное место. При этом изменится положение двух вершин, образующих сегмент (<a href="#vid-move_segment" class="quarto-xref">Видео&nbsp;<span>2.14</span></a>).</p>
@@ -937,7 +943,7 @@ Note&nbsp;2.1: Загрузите файлы!
 </figcaption>
 </figure>
 </div>
-<p>Таким образом уникальные значения атрибута “type” использовались для окраски дорог в разные цвета. Более подробно настройка стиля объектов будет рассмотрена в последующих разделах (см. <a href="chapter4_thematic_maps.html" class="quarto-xref"><span>Глава 4</span></a>).</p>
+<p>Таким образом уникальные значения атрибута “type” использовались для окраски дорог в разные цвета. Более подробно настройка стиля объектов будет рассмотрена в последующих разделах (см. <span class="quarto-unresolved-ref">?sec-thematic_maps</span>).</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1155,7 +1161,7 @@ Note&nbsp;2.1: Загрузите файлы!
 <a href="./pictures/6_4 Висячая линия.png" class="lightbox" data-gallery="quarto-lightbox-gallery-37" data-glightbox="description: .lightbox-desc-37"><img src="./pictures/6_4 Висячая линия.png" class="img-fluid figure-img" style="width:60.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-invalidgeom4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;2.15: Самопересечение линий
+Рисунок&nbsp;2.15: Висячая линия
 </figcaption>
 </figure>
 </div>
@@ -1199,7 +1205,7 @@ Note&nbsp;2.1: Загрузите файлы!
 <span class="glightbox-desc lightbox-desc-34">Видео&nbsp;2.19: Выбор и удаление выделов</span>
 <span class="glightbox-desc lightbox-desc-35">Рисунок&nbsp;2.13: Самопересечение линий</span>
 <span class="glightbox-desc lightbox-desc-36">Рисунок&nbsp;2.14: Самопересечение линий</span>
-<span class="glightbox-desc lightbox-desc-37">Рисунок&nbsp;2.15: Самопересечение линий</span>
+<span class="glightbox-desc lightbox-desc-37">Рисунок&nbsp;2.15: Висячая линия</span>
 </div>
 </section>
 
@@ -1748,7 +1754,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

@@ -159,13 +159,19 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter6_spatial_operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции с векторными объектами</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter7_DEM.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></span></a>
+  <a href="./chapter7_OSM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Open Street Map (OSM)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter8_DEM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -293,7 +299,7 @@ Note&nbsp;1.1: Загрузите файлы!
 <div id="fig-missing_layers" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-missing_layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/1_1_Недостающие слои.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./pictures2/1_1_Недостающие слои.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/1_1_Недостающие слои.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="./pictures2/1_1_Недостающие слои.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-missing_layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;1.1: Окно “Недостающие слои”
@@ -350,14 +356,14 @@ Note&nbsp;1.1: Загрузите файлы!
 <div id="fig-panels" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-panels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/1_2_Панели окна программы.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="./pictures2/1_2_Панели окна программы.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/1_2_Панели окна программы.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="./pictures2/1_2_Панели окна программы.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-panels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;1.2: Элементы основного окна программы
 </figcaption>
 </figure>
 </div>
-<p>Для загрузки векторного слоя перейдите в пункт меню <strong>“Слой” &gt; “Добавить слой” &gt; “Добавить векторный слой…”</strong> (или используйте сочетание клавиш <code>Ctrl + Shift + V</code>). В появившемся окне нажмите на <strong>…</strong> в пункте <strong>“Векторный набор данных”</strong>. Укажите расположение файла <strong>“Квартальная сеть.shp”</strong> в папке проекта, после чего нажмите <strong>“Открыть”</strong>. В результате будет загружен векторный слой границ кварталов Караульного участкового лесничества (<a href="#vid-addfile" class="quarto-xref">Видео&nbsp;<span>1.1</span></a>).</p>
+<p>Для загрузки векторного слоя перейдите в пункт меню <strong>“Слой” &gt; “Добавить слой” &gt; “Добавить векторный слой…”</strong> (или используйте сочетание клавиш <code>Ctrl + Shift + V</code>). В появившемся окне нажмите на <strong>…</strong> в пункте <strong>“Векторный набор данных”</strong>. Укажите расположение файла <strong>“Квартальная сеть.shp”</strong> в папке проекта, после чего нажмите <strong>“Открыть”</strong>. В результате будет загружен векторный слой границ кварталов Караульного участкового лесничества (<a href="chapter7_OSM.html#vid-addfile" class="quarto-xref">Видео&nbsp;<span>7.1</span></a>).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -374,18 +380,18 @@ Note&nbsp;1.1: Загрузите файлы!
 <div id="vid-addfile" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-addfile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/Video_1_1 Добавление кварталов.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><video src="./videos/Video_1_1%20Добавление%20кварталов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_1 Добавление кварталов.mp4">Video</a>
+<a href="./videos/Video_1_1 Добавление кварталов.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><video src="./videos/Video_1_1%20Добавление%20кварталов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_1 Добавление кварталов.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-addfile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;1.1: Добавление векторного слоя
 </figcaption>
 </figure>
 </div>
-<p>Для удобства навигации добавьте номера кварталов на карту (функция добавления подписей объектов будет рассмотрена более подробно в последующих разделах: <a href="chapter4_thematic_maps.html#sec-simple_labels" class="quarto-xref"><span>Глава 4.2</span></a>). Для добавления подписей нажмите правой кнопкой мыши на слой <strong>“Квартальная сеть”</strong> в панеле слоев. Выберите пункт <strong>“Свойства…” &gt; “Подписи”</strong>. В верхней части окна поменяйте выпадающую вкладку с <strong>“Без подписей”</strong> на <strong>“Обычные подписи”</strong>. В пункте <strong>“Значение”</strong> выберите поле <strong>“kvartal”</strong> (в этом поле содержатся номера кварталов). После этого нужно сохранить изменения (<strong>“Применить” &gt; “ОК”</strong>) (<a href="#vid-addlabels" class="quarto-xref">Видео&nbsp;<span>1.2</span></a>).</p>
+<p>Для удобства навигации добавьте номера кварталов на карту (функция добавления подписей объектов будет рассмотрена более подробно в последующих разделах: <span class="quarto-unresolved-ref">?sec-simple_labels</span>). Для добавления подписей нажмите правой кнопкой мыши на слой <strong>“Квартальная сеть”</strong> в панеле слоев. Выберите пункт <strong>“Свойства…” &gt; “Подписи”</strong>. В верхней части окна поменяйте выпадающую вкладку с <strong>“Без подписей”</strong> на <strong>“Обычные подписи”</strong>. В пункте <strong>“Значение”</strong> выберите поле <strong>“kvartal”</strong> (в этом поле содержатся номера кварталов). После этого нужно сохранить изменения (<strong>“Применить” &gt; “ОК”</strong>) (<a href="#vid-addlabels" class="quarto-xref">Видео&nbsp;<span>1.2</span></a>).</p>
 <div id="vid-addlabels" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-addlabels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/Video_1_2 Нумерация кварталов.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><video src="./videos/Video_1_2%20Нумерация%20кварталов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_2 Нумерация кварталов.mp4">Video</a>
+<a href="./videos/Video_1_2 Нумерация кварталов.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4"><video src="./videos/Video_1_2%20Нумерация%20кварталов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_2 Нумерация кварталов.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-addlabels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;1.2: Добавление подписей кварталов
@@ -396,7 +402,7 @@ Note&nbsp;1.1: Загрузите файлы!
 <div id="vid-add_georef_sys" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-add_georef_sys-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/Video_1_3 Изменение СК проекта.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><video src="./videos/Video_1_3%20Изменение%20СК%20проекта.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_3 Изменение СК проекта.mp4">Video</a>
+<a href="./videos/Video_1_3 Изменение СК проекта.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5"><video src="./videos/Video_1_3%20Изменение%20СК%20проекта.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_3 Изменение СК проекта.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-add_georef_sys-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;1.3: Изменение системы координат проекта
@@ -437,7 +443,7 @@ Note&nbsp;1.1: Загрузите файлы!
 <div id="fig-contextmenulayer" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-contextmenulayer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/1_11_Контекстное меню слоя.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6"><img src="./pictures2/1_11_Контекстное меню слоя.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/1_11_Контекстное меню слоя.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6"><img src="./pictures2/1_11_Контекстное меню слоя.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-contextmenulayer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;1.3: Контекстное меню панели слоев
@@ -464,7 +470,7 @@ Note&nbsp;1.1: Загрузите файлы!
 <div id="vid-layer_context_menu" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-layer_context_menu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/Video_1_4 Контекстное меню слоя.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7"><video src="./videos/Video_1_4%20Контекстное%20меню%20слоя.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_4 Контекстное меню слоя.mp4">Video</a>
+<a href="./videos/Video_1_4 Контекстное меню слоя.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7"><video src="./videos/Video_1_4%20Контекстное%20меню%20слоя.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_4 Контекстное меню слоя.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-layer_context_menu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;1.4: Использование инструментов контекстного меню слоя
@@ -508,7 +514,7 @@ Caution&nbsp;1.1: Дополнительные ресурсы:
 <div id="fig-georefwindow" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-georefwindow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/1_4_Окно привязки растра.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" data-glightbox="description: .lightbox-desc-8"><img src="./pictures2/1_4_Окно привязки растра.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/1_4_Окно привязки растра.png" class="lightbox" data-glightbox="description: .lightbox-desc-8" data-gallery="quarto-lightbox-gallery-8"><img src="./pictures2/1_4_Окно привязки растра.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-georefwindow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;1.4: Окно привязки растров
@@ -544,7 +550,7 @@ Caution&nbsp;1.1: Дополнительные ресурсы:
 <div id="fig-addcoords" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-addcoords-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/1_3_Ввод координат.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" data-glightbox="description: .lightbox-desc-9"><img src="./pictures2/1_3_Ввод координат.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/1_3_Ввод координат.png" class="lightbox" data-glightbox="description: .lightbox-desc-9" data-gallery="quarto-lightbox-gallery-9"><img src="./pictures2/1_3_Ввод координат.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-addcoords-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;1.5: Окно ввода координат
@@ -557,7 +563,7 @@ Caution&nbsp;1.1: Дополнительные ресурсы:
 <div id="fig-georeffirst" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-georeffirst-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/1_5_Добавление первой точки привязки.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" data-glightbox="description: .lightbox-desc-10"><img src="./pictures2/1_5_Добавление первой точки привязки.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/1_5_Добавление первой точки привязки.png" class="lightbox" data-glightbox="description: .lightbox-desc-10" data-gallery="quarto-lightbox-gallery-10"><img src="./pictures2/1_5_Добавление первой точки привязки.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-georeffirst-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;1.6: Добавление первой контрольной точки
@@ -580,7 +586,7 @@ Caution&nbsp;1.1: Дополнительные ресурсы:
 <div id="vid-cont_points" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-cont_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/Video_1_5 Контрольные точки.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-11" data-glightbox="description: .lightbox-desc-11"><video src="./videos/Video_1_5%20Контрольные%20точки.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_5 Контрольные точки.mp4">Video</a>
+<a href="./videos/Video_1_5 Контрольные точки.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-11" data-gallery="quarto-lightbox-gallery-11"><video src="./videos/Video_1_5%20Контрольные%20точки.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_5 Контрольные точки.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-cont_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;1.5: Расставление контрольных точек по координатной сетке
@@ -609,7 +615,7 @@ Caution&nbsp;1.1: Дополнительные ресурсы:
 <div id="fig-cont_points" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-cont_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/1_6_Контрольные точки.png" class="lightbox" data-gallery="fig-georef_points" data-glightbox="description: .lightbox-desc-12"><img src="./pictures2/1_6_Контрольные точки.png" class="img-fluid figure-img" data-ref-parent="fig-georef_points"></a>
+<a href="./pictures2/1_6_Контрольные точки.png" class="lightbox" data-glightbox="description: .lightbox-desc-12" data-gallery="fig-georef_points"><img src="./pictures2/1_6_Контрольные точки.png" class="img-fluid figure-img" data-ref-parent="fig-georef_points"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-cont_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Контрольные точки
@@ -623,7 +629,7 @@ Caution&nbsp;1.1: Дополнительные ресурсы:
 <div id="fig-transform_params" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-transform_params-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/1_7_Параметры трансформации.png" class="lightbox" data-gallery="fig-georef_points" data-glightbox="description: .lightbox-desc-13"><img src="./pictures2/1_7_Параметры трансформации.png" class="img-fluid figure-img" data-ref-parent="fig-georef_points"></a>
+<a href="./pictures2/1_7_Параметры трансформации.png" class="lightbox" data-glightbox="description: .lightbox-desc-13" data-gallery="fig-georef_points"><img src="./pictures2/1_7_Параметры трансформации.png" class="img-fluid figure-img" data-ref-parent="fig-georef_points"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-transform_params-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Параметры трансформации
@@ -659,7 +665,7 @@ Caution&nbsp;1.1: Дополнительные ресурсы:
 <div id="vid-points_error" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-points_error-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/Video_1_6 Увязка точек.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-14" data-glightbox="description: .lightbox-desc-14"><video src="./videos/Video_1_6%20Увязка%20точек.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_6 Увязка точек.mp4">Video</a>
+<a href="./videos/Video_1_6 Увязка точек.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-14" data-gallery="quarto-lightbox-gallery-14"><video src="./videos/Video_1_6%20Увязка%20точек.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_6 Увязка точек.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-points_error-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;1.6: Уменьшение невязки контрольных точек
@@ -694,7 +700,7 @@ Caution&nbsp;1.1: Дополнительные ресурсы:
 <div id="fig-task_result" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-task_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/1_6_Результат выполнения задания.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" data-glightbox="description: .lightbox-desc-15"><img src="./pictures2/1_6_Результат выполнения задания.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/1_6_Результат выполнения задания.png" class="lightbox" data-glightbox="description: .lightbox-desc-15" data-gallery="quarto-lightbox-gallery-15"><img src="./pictures2/1_6_Результат выполнения задания.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-task_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;1.8: Результат выполнения задания - геопривязанное изображение
@@ -728,7 +734,7 @@ Caution&nbsp;1.1: Дополнительные ресурсы:
 <div id="fig-fig" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/1_8_Инструменты измерений.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" data-glightbox="description: .lightbox-desc-16"><img src="./pictures2/1_8_Инструменты измерений.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/1_8_Инструменты измерений.png" class="lightbox" data-glightbox="description: .lightbox-desc-16" data-gallery="quarto-lightbox-gallery-16"><img src="./pictures2/1_8_Инструменты измерений.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;1.9: Инструменты измерений
@@ -744,7 +750,7 @@ Caution&nbsp;1.1: Дополнительные ресурсы:
 <div id="fig-measure" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-measure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/1_7_Измерение длины.png" class="lightbox" data-gallery="fig-measure" data-glightbox="description: .lightbox-desc-17"><img src="./pictures2/1_7_Измерение длины.png" class="img-fluid figure-img" data-ref-parent="fig-measure"></a>
+<a href="./pictures2/1_7_Измерение длины.png" class="lightbox" data-glightbox="description: .lightbox-desc-17" data-gallery="fig-measure"><img src="./pictures2/1_7_Измерение длины.png" class="img-fluid figure-img" data-ref-parent="fig-measure"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-measure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Инструмент “Измерить расстояния”
@@ -758,7 +764,7 @@ Caution&nbsp;1.1: Дополнительные ресурсы:
 <div id="fig-measure_area" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-measure_area-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/1_8_Измерение площади.png" class="lightbox" data-gallery="fig-measure" data-glightbox="description: .lightbox-desc-18"><img src="./pictures2/1_8_Измерение площади.png" class="img-fluid figure-img" data-ref-parent="fig-measure"></a>
+<a href="./pictures2/1_8_Измерение площади.png" class="lightbox" data-glightbox="description: .lightbox-desc-18" data-gallery="fig-measure"><img src="./pictures2/1_8_Измерение площади.png" class="img-fluid figure-img" data-ref-parent="fig-measure"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-measure_area-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Инструмент “Измерить площадь”
@@ -799,7 +805,7 @@ Caution&nbsp;1.1: Дополнительные ресурсы:
 <div id="fig-georef_map" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-georef_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/1_9_Привязка с карты.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" data-glightbox="description: .lightbox-desc-19"><img src="./pictures2/1_9_Привязка с карты.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/1_9_Привязка с карты.png" class="lightbox" data-glightbox="description: .lightbox-desc-19" data-gallery="quarto-lightbox-gallery-19"><img src="./pictures2/1_9_Привязка с карты.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-georef_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;1.11: Использование опции “С карты” для заполнения координат точки
@@ -809,7 +815,7 @@ Caution&nbsp;1.1: Дополнительные ресурсы:
 <div id="vid-georef_map" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-georef_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/Video_1_7 Привязка с карты.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-20" data-glightbox="description: .lightbox-desc-20"><video src="./videos/Video_1_7%20Привязка%20с%20карты.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_7 Привязка с карты.mp4">Video</a>
+<a href="./videos/Video_1_7 Привязка с карты.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-20" data-gallery="quarto-lightbox-gallery-20"><video src="./videos/Video_1_7%20Привязка%20с%20карты.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_7 Привязка с карты.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-georef_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;1.7: Привязка изображения по характерным точкам
@@ -837,7 +843,7 @@ Caution&nbsp;1.1: Дополнительные ресурсы:
 <div id="fig-georef_map_task" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-georef_map_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/1_12_Привязанный план лесонасаждений.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" data-glightbox="description: .lightbox-desc-21"><img src="./pictures2/1_12_Привязанный план лесонасаждений.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/1_12_Привязанный план лесонасаждений.png" class="lightbox" data-glightbox="description: .lightbox-desc-21" data-gallery="quarto-lightbox-gallery-21"><img src="./pictures2/1_12_Привязанный план лесонасаждений.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-georef_map_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;1.12: Результат выполнения задания
@@ -853,7 +859,7 @@ Caution&nbsp;1.1: Дополнительные ресурсы:
 <div id="fig-style" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-style-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/1_10_Стиль.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" data-glightbox="description: .lightbox-desc-22"><img src="./pictures2/1_10_Стиль.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/1_10_Стиль.png" class="lightbox" data-glightbox="description: .lightbox-desc-22" data-gallery="quarto-lightbox-gallery-22"><img src="./pictures2/1_10_Стиль.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-style-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;1.13: Окно настроек стиля слоя “Квартальная сеть”
@@ -877,7 +883,7 @@ Caution&nbsp;1.1: Дополнительные ресурсы:
 <div id="vid-layers_order" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-layers_order-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/Video_1_8 Порядок слоев.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-23" data-glightbox="description: .lightbox-desc-23"><video src="./videos/Video_1_8%20Порядок%20слоев.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_8 Порядок слоев.mp4">Video</a>
+<a href="./videos/Video_1_8 Порядок слоев.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-23" data-gallery="quarto-lightbox-gallery-23"><video src="./videos/Video_1_8%20Порядок%20слоев.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_8 Порядок слоев.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-layers_order-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;1.8: Изменение порядка слоев
@@ -904,7 +910,7 @@ Caution&nbsp;1.1: Дополнительные ресурсы:
 <div id="vid-qms" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-qms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/Video_1_9 QMS.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-24" data-glightbox="description: .lightbox-desc-24"><video src="./videos/Video_1_9%20QMS.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_9 QMS.mp4">Video</a>
+<a href="./videos/Video_1_9 QMS.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-24" data-gallery="quarto-lightbox-gallery-24"><video src="./videos/Video_1_9%20QMS.mp4" class="img-fluid" controls=""></video></a><a href="./videos/Video_1_9 QMS.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-qms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;1.9: Добавление карт из модуля QMS
@@ -1517,7 +1523,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","loop":false,"openEffect":"zoom","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
