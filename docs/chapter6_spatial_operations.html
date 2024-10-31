@@ -253,6 +253,8 @@ window.Quarto = {
   <li><a href="#инструменты-геообработки" id="toc-инструменты-геообработки" class="nav-link" data-scroll-target="#инструменты-геообработки"><span class="header-section-number">6.3</span> Инструменты геообработки</a></li>
   <li><a href="#подсчет-длины-площади-и-периметра-геометрий." id="toc-подсчет-длины-площади-и-периметра-геометрий." class="nav-link" data-scroll-target="#подсчет-длины-площади-и-периметра-геометрий."><span class="header-section-number">6.4</span> Подсчет длины, площади и периметра геометрий.</a></li>
   <li><a href="#арифметические-операции-с-атрибутами" id="toc-арифметические-операции-с-атрибутами" class="nav-link" data-scroll-target="#арифметические-операции-с-атрибутами"><span class="header-section-number">6.5</span> Арифметические операции с атрибутами</a></li>
+  <li><a href="#кейс-1" id="toc-кейс-1" class="nav-link" data-scroll-target="#кейс-1"><span class="header-section-number">6.6</span> Кейс 1</a></li>
+  <li><a href="#кейс-2" id="toc-кейс-2" class="nav-link" data-scroll-target="#кейс-2"><span class="header-section-number">6.7</span> Кейс 2</a></li>
   </ul>
 </nav>
     </div>
@@ -288,7 +290,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Для выполнения заданий из раздела “Запросы” загрузите файлы по <a href="https://github.com/agoroshko/qgis_for_beginners/tree/main/files">ссылке 1</a> или <a href="https://disk.yandex.ru/d/IuXJbTCAmIZvaw">ссылке 2</a> и создайте новый проект:</p>
+<p>Для выполнения заданий из раздела “Запросы” загрузите файлы по <a href="https://github.com/agoroshko/qgis_for_beginners/tree/main/files">ссылке 1</a> или <a href="https://disk.yandex.ru/d/sctgkoDXQdI7Vw">ссылке 2</a> и создайте новый проект:</p>
 <ul>
 <li>Создайте новую папку проекта под названием “Раздел 6” а так же новый проект в QGIS;</li>
 <li>Загрузите файлы в QGIS;</li>
@@ -308,7 +310,7 @@ window.Quarto = {
 </figcaption>
 </figure>
 </div>
-<p>Результатом применения каждого инструмента является временный векторный слой с измененной геометрией. Временные слои помечены иконкой <img src="./QGIS_icons/mIndicatorMemory.svg" class="img-fluid" alt="1"> справа от названия (<a href="#fig-temp_layer" class="quarto-xref">Рисунок&nbsp;<span>6.2</span></a>).</p>
+<p>Результатом применения каждого инструмента является временный векторный слой с измененной геометрией. Временные слои помечены иконкой <img src="./QGIS_icons/mIndicatorMemory.svg" class="img-fluid" alt="1"> справа от названия (см. <a href="#fig-temp_layer" class="quarto-xref">Рисунок&nbsp;<span>6.2</span></a>).</p>
 <div id="fig-temp_layer" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-temp_layer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -319,7 +321,7 @@ window.Quarto = {
 </figcaption>
 </figure>
 </div>
-<p>Содержимое временного слоя возможно сохранить выбрав в контекстном меню слоя пункт <strong>“Сохранить на диск…”</strong>, в противном случае, после закрытия проекта данные слоя будут потеряны. При попытке закрытия проекта с несохраненными временными слоями появится соответствующее предупреждение (<a href="#fig-temp_layers_warn" class="quarto-xref">Рисунок&nbsp;<span>6.3</span></a>).</p>
+<p>Если требуется сделать временный слой постоянным, в контекстном меню слоя выберите пункт <strong>“Сохранить на диск…”</strong> и задайте параметры сохранения, в противном случае, после закрытия проекта данные слоя будут потеряны. При попытке закрытия проекта с несохраненными временными слоями появится соответствующее предупреждение (<a href="#fig-temp_layers_warn" class="quarto-xref">Рисунок&nbsp;<span>6.3</span></a>).</p>
 <div id="fig-temp_layers_warn" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-temp_layers_warn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -332,7 +334,7 @@ window.Quarto = {
 </div>
 <section id="sec-ref_sys" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="sec-ref_sys"><span class="header-section-number">6.1</span> Изменение системы координат слоя</h2>
-<p>В некоторых случаях требуется изменить систему координат слоя. Например, для построения буфера (<a href="#sec-buffer" class="quarto-xref"><span>Глава 6.2</span></a>) в метрах (а не градусах) тебуется спроецированная (плоская) система координат. Изменить систему координат векторного слоя возможно при помощи инструмента <strong>“Вектор” &gt; “Управление данными” &gt; “Перепроецировать слой”</strong>. В пункте <strong>“Исходный слой”</strong> задается слой, проекцию которого необходимо изменить. Пункт <strong>“Целевая система координат”</strong> определяет новую систему координат. По умолчанию инстумент создает временный слой (<a href="#fig-reproject_layer" class="quarto-xref">Рисунок&nbsp;<span>6.4</span></a>).</p>
+<p>В некоторых случаях требуется изменить систему координат слоя. Например, для построения буфера (см. <a href="#sec-buffer" class="quarto-xref"><span>Глава 6.2</span></a>) в метрах (а не градусах) тебуется спроецированная (плоская) система координат. Изменить систему координат векторного слоя возможно при помощи инструмента <strong>“Вектор” &gt; “Управление данными” &gt; “Перепроецировать слой…”</strong>. В пункте <strong>“Исходный слой”</strong> задается слой, проекцию которого необходимо изменить. Пункт <strong>“Целевая система координат”</strong> определяет новую систему координат. По умолчанию инстумент создает временный слой (<a href="#fig-reproject_layer" class="quarto-xref">Рисунок&nbsp;<span>6.4</span></a>).</p>
 <div id="fig-reproject_layer" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-reproject_layer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -363,14 +365,13 @@ window.Quarto = {
 <div id="fig-buffer" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-buffer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/6_4_инструмент буферизация.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><img src="./pictures/6_4_инструмент буферизация.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/6_3_Инструмент буферизации.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><img src="./pictures2/6_3_Инструмент буферизации.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-buffer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;6.5: Инструмент “Буферизация”
 </figcaption>
 </figure>
 </div>
-<p>!!! Обновить рисунок выше.!!!</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -381,9 +382,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Постройте буферы радиусом 100 метров вокруг рек (слой “rivers UTM”). Появившейся слой переименуйте в “буфер рек 100 м”. Результат построения буфера изображен на рисунке ниже (<a href="#fig-buffer_result" class="quarto-xref">Рисунок&nbsp;<span>6.6</span></a>).</p>
-</div>
-</div>
+<p>Постройте буферы радиусом 100 метров вокруг рек (слой “rivers UTM”). Слою буферных зон задайте название “буфер рек 100 м”. Результат выполнения задания изображен на рисунке ниже (<a href="#fig-buffer_result" class="quarto-xref">Рисунок&nbsp;<span>6.6</span></a>).</p>
 <div id="fig-buffer_result" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-buffer_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -394,21 +393,22 @@ window.Quarto = {
 </figcaption>
 </figure>
 </div>
+</div>
+</div>
 </section>
 <section id="инструменты-геообработки" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="инструменты-геообработки"><span class="header-section-number">6.3</span> Инструменты геообработки</h2>
-<p>Часто требуется обрезать один слой по границам другого. Для выполнения такой операции применяется инструмент <strong>“Вектор” &gt; “Геообработка” &gt; “Обрезать…”</strong>. Алгоритм обрезает векторный слой (задается в пункте <strong>“Исходный слой”</strong>), используя полигоны дополнительного слоя (задается в пункте <strong>“Слой наложения”</strong>). В результат будут добавлены только те части объектов исходного слоя, которые пересекаются геометриями слоя наложения (<a href="#fig-cut" class="quarto-xref">Рисунок&nbsp;<span>6.7</span></a>).</p>
+<p>Часто требуется обрезать один слой по границам другого. Для выполнения такой операции применяется инструмент <strong>“Вектор” &gt; “Геообработка” &gt; “Обрезать…”</strong>. Алгоритм обрезает <strong>“Исходный слой”</strong> по границам <strong>“Слоя наложения”</strong>. В результате будут сохранены только те части <strong>исходного слоя</strong>, которые пересекаются со <strong>слоем наложения</strong> (<a href="#fig-cut" class="quarto-xref">Рисунок&nbsp;<span>6.7</span></a>).</p>
 <div id="fig-cut" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-cut-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/6_6_инструмент отсечь.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7"><img src="./pictures/6_6_инструмент отсечь.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/6_4_Инструмент обрезать.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7"><img src="./pictures2/6_4_Инструмент обрезать.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cut-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;6.7: Инструмент “Обрезать”
 </figcaption>
 </figure>
 </div>
-<p>!!! Обновить картинку.</p>
 <div id="task-task_cut" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -419,24 +419,82 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Сохраните части выделов, которые попадают в стометровые буферы вокруг рек. Для этого, по примеру выше, примените инструмент “Отсечь…” к слоям “videla” и “буфер рек 100 м”. Сохраните слой временный слой на диск под названием “Части выделов в водоохранной зоне”. Результат выполнения задания приведен на рисунке ниже (<a href="#fig-cut2" class="quarto-xref">Рисунок&nbsp;<span>6.8</span></a>).</p>
-</div>
-</div>
+<p>Сохраните части выделов, которые попадают в стометровые буферные зоны вокруг рек. Для этого, по примеру выше, примените инструмент “Обрезать…” к слоям “videl” и “буфер рек 100 м”. Сохраните временный слой на диск под названием “Части выделов в водоохранной зоне”. Результат выполнения задания приведен на рисунке ниже (<a href="#fig-cut2" class="quarto-xref">Рисунок&nbsp;<span>6.8</span></a>).</p>
 <div id="fig-cut2" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-cut2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="./pictures/6_7_части выделов в водоохранной зоне.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" data-glightbox="description: .lightbox-desc-8"><img src="./pictures/6_7_части выделов в водоохранной зоне.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cut2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;6.8: Инструмент “Отсечь”
+Рисунок&nbsp;6.8: Применение инструмента “Обрезать”
 </figcaption>
 </figure>
 </div>
-<p>!!!! Добавить описание инструмента и задание по его использованию.</p>
-<p>Атрибуты исходного слоя остаются неизменными в отличие от инструмента <strong>“Вектор” &gt; “Геообработка” &gt; “Пересечение”</strong> в результате использования которого атрибуты результирующего слоя содержат атрибуты исходного слоя и слоя наложения</p>
-<p>!!!!</p>
-<p>Инструмент <strong>“Вектор” &gt; “Геообработка” &gt; “Разность…”</strong> проводит обратную операцию. В результате из исходного слоя вырезаются области пересечения со слоем наложения.</p>
-<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+</div>
+</div>
+<p>Похожим на инструмент <strong>“Обрезать”</strong> функционалом обладает инструмент <strong>“Вектор” &gt; “Геообработка” &gt; “Пересечение…”</strong>. Однако, если первый просто обрезает по границе, инструмент пересечение так же копирует атрибуты слоя наложения в исходный слой. Воспользуемся инструментом <strong>“Пересечение”</strong> что бы определить к водоохранным зонам каких рек принадлежит та или иная часть выдела. На данный момент в проект имеется слой “Буфер рек 100 м” в атрибутах которого присутствует поле “name”, определяющее к какой реке относится тот или иной буфер (это поле было наследовано из слоя rivers) (<a href="#fig-intersect_atribut" class="quarto-xref">Рисунок&nbsp;<span>6.9 (a)</span></a>). Используем слои “videl” и слой “Буфер рек 100 м” в инструменте “Пересечение” (<a href="#fig-intersect_tool" class="quarto-xref">Рисунок&nbsp;<span>6.9 (b)</span></a>). В настройках инструмента возможно задать поля исходного слоя и слоя наложения, которые останутся в результирующем слое (по умолчанию выбраны все поля). В исходном слое выберем поля: <strong>“fid”, “kvartal”, “videl”, “zapax_1_ha”</strong> (<a href="#fig-intersect_layer1" class="quarto-xref">Рисунок&nbsp;<span>6.9 (c)</span></a>). В слое наложения выберем поле <strong>“name”</strong> (<a href="#fig-intersect_layer2" class="quarto-xref">Рисунок&nbsp;<span>6.9 (d)</span></a>). В результате применения инструмента в панеле слоев появится новый временный слой “Пересечение”. Результат будет идентичен применению инструмента <strong>“Обрезать”</strong>, за исключением таблицы атрибутов, которая будет содержать выбранные поля одного и другого слоя.</p>
+<div id="fig-intersect_settings" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-intersect_settings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-intersect_settings" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-intersect_atribut" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-intersect_atribut-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/6_5_1_Атрибуты буфера.png" class="lightbox" data-gallery="fig-intersect_settings" data-glightbox="description: .lightbox-desc-9"><img src="./pictures2/6_5_1_Атрибуты буфера.png" class="img-fluid figure-img" data-ref-parent="fig-intersect_settings"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-intersect_atribut-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Таблица атрибутов слоя “Буфер рек 100 м”
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-intersect_settings" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-intersect_tool" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-intersect_tool-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/6_5_2_Инструмент Пересечение.png" class="lightbox" data-gallery="fig-intersect_settings" data-glightbox="description: .lightbox-desc-10"><img src="./pictures2/6_5_2_Инструмент Пересечение.png" class="img-fluid figure-img" data-ref-parent="fig-intersect_settings"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-intersect_tool-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Окно настройки инструмента “Пересечение”
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-intersect_settings" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-intersect_layer1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-intersect_layer1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/6_5_3_Сохраняемые исходные поля.png" class="lightbox" data-gallery="fig-intersect_settings" data-glightbox="description: .lightbox-desc-11"><img src="./pictures2/6_5_3_Сохраняемые исходные поля.png" class="img-fluid figure-img" data-ref-parent="fig-intersect_settings"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-intersect_layer1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Сохраняемые исходные поля
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-intersect_settings" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-intersect_layer2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-intersect_layer2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/6_5_4_Сохраняемые поля слоя наложения.png" class="lightbox" data-gallery="fig-intersect_settings" data-glightbox="description: .lightbox-desc-12"><img src="./pictures2/6_5_4_Сохраняемые поля слоя наложения.png" class="img-fluid figure-img" data-ref-parent="fig-intersect_settings"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-intersect_layer2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d) Сохраняемые поля слоя наложения
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-intersect_settings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;6.9: Настройки инструмента “Пересечение”
+</figcaption>
+</figure>
+</div>
+<div id="task-task_cut" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -446,11 +504,34 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Вырежите части выделов, которые попадают в стометровые буферы вокруг рек. Для этого примените инструмент “Разность…” к слоям “videla” и “буфер рек 100 м”. Результат выполнения задания приведен на рисунке ниже (<span class="quarto-unresolved-ref">?fig-diff</span>).</p>
+<ul>
+<li>По примеру выше, примените инструмент “Пересечение” к слоям “videl” и “Буфер рек 100 м”.</li>
+<li>Полученный векторный слой сохраните на диск под названием “Результат пересечения выделов и буферных зон”.</li>
+<li>Задайте стиль слоя так, что бы выделить цветом выделы, принадлежащие буферным зонам разных рек. Результат выполнения задания отображен на рисунках ниже (<a href="#fig-intersect_result" class="quarto-xref">Рисунок&nbsp;<span>6.10</span></a>, <a href="#fig-task_intersect" class="quarto-xref">Рисунок&nbsp;<span>6.11</span></a>).</li>
+</ul>
+<div id="fig-intersect_result" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-intersect_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/6_6_2_Таблица атрибутов слоя пересечение.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" data-glightbox="description: .lightbox-desc-13"><img src="./pictures2/6_6_2_Таблица атрибутов слоя пересечение.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-intersect_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;6.10: Таблица атрибутов слоя “Результат пересечения выделов и буферных зон”
+</figcaption>
+</figure>
+</div>
+<div id="fig-task_intersect" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-task_intersect-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/6_6_Результат пересечения.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" data-glightbox="description: .lightbox-desc-14"><img src="./pictures2/6_6_Результат пересечения.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-task_intersect-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;6.11: Применение инструмента “Пересечение”
+</figcaption>
+</figure>
 </div>
 </div>
-<p><img src="./pictures/6_8_инструмент разница.png" id="fig-diff" class="img-fluid" alt="Инструмент “Разность”"> !!! Обновить рисунок !!!</p>
-<p>Инструмент <strong>“Вектор” &gt; “Геообработка” &gt; “Объединение по признаку…”</strong> позволяет объединить объекты с одинаковыми атрибутами. Например, возможно создать границы лесных кварталов из слоя выделов. Для этого в качестве “Исходного слоя” выбирают слой выделов, в пункте “Поля классификации” выбирают поле “kvartal”. (!!!рисунок добавить!!!)</p>
+</div>
+<p>Инструмент <strong>“Вектор” &gt; “Геообработка” &gt; “Разность…”</strong> проводит обратную операцию: из исходного слоя вырезаются части, пересекающиеся со слоем наложения.</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -461,11 +542,53 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>По примеру выше, объедините выделы по полю “kvartal”. В результате должен появиться новый временный слой с границами кварталов. (!!!добавить рисунок!!!).</p>
+<p>Используя инструмент “Разность”, вырежите части выделов, которые попадают в стометровые буферы вокруг рек. Для этого примените инструмент “Разность…” к слоям “videl” и “Буфер рек 100 м”. Результат выполнения задания приведен на рисунке ниже (<a href="#fig-diff" class="quarto-xref">Рисунок&nbsp;<span>6.12</span></a>).</p>
 </div>
 </div>
-<p>!!! Инструмент Объединение. Добавить описание выше. Возможно демонстрацию части инструментов оставить для подраздела с OSM</p>
-<p>!!! Добавить задания по другим инструментам !!!</p>
+<div id="fig-diff" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diff-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/6_8_инструмент разница.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" data-glightbox="description: .lightbox-desc-15"><img src="./pictures/6_8_инструмент разница.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diff-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;6.12: Инструмент “Разность”
+</figcaption>
+</figure>
+</div>
+<p>Инструмент <strong>“Вектор” &gt; “Геообработка” &gt; “Объединение по признаку…”</strong> позволяет объединить объекты с одинаковыми атрибутами. Например, он дает возможность создать границы лесных кварталов из слоя выделов. Для этого в качестве <strong>“Исходного слоя”</strong> выбирают слой выделов, в пункте <strong>“Поля классификации”</strong> выбирают поле для объединения объектов (“kvartal”) (<a href="#fig-merge_by_attr" class="quarto-xref">Рисунок&nbsp;<span>6.13</span></a>). В результате применения инструмента, границы выделов с одинаковым номером квартала будут стерты и таким образом образуют квартальную сеть.</p>
+<div id="fig-merge_by_attr" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-merge_by_attr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/6_7_Объединение по признаку.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" data-glightbox="description: .lightbox-desc-16"><img src="./pictures2/6_7_Объединение по признаку.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-merge_by_attr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;6.13: Настройки инструмента “Объединение по признаку”
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;6.6
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>По примеру выше, объедините выделы в слое “videl” по полю “kvartal”. В результате должен появиться новый временный слой с границами кварталов. (<a href="#fig-merge_result" class="quarto-xref">Рисунок&nbsp;<span>6.14</span></a>). Сохраните слой на диск под названием “kvartal”.</p>
+<div id="fig-merge_result" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-merge_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/6_8_Квартальная сеть.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" data-glightbox="description: .lightbox-desc-17"><img src="./pictures2/6_8_Квартальная сеть.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-merge_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;6.14: Результат применения инструмента “Объединение по признаку”
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="подсчет-длины-площади-и-периметра-геометрий." class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="подсчет-длины-площади-и-периметра-геометрий."><span class="header-section-number">6.4</span> Подсчет длины, площади и периметра геометрий.</h2>
@@ -476,7 +599,7 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;6.6
+Задание&nbsp;6.7
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -491,7 +614,7 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;6.7
+Задание&nbsp;6.8
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -499,7 +622,7 @@ window.Quarto = {
 <div id="vid-length" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-length-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/6_1_длина дорог.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-9" data-glightbox="description: .lightbox-desc-9"><video src="./videos/6_1_длина%20дорог.mp4" class="img-fluid" controls=""></video></a><a href="./videos/6_1_длина дорог.mp4">Video</a>
+<a href="./videos/6_1_длина дорог.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-18" data-glightbox="description: .lightbox-desc-18"><video src="./videos/6_1_длина%20дорог.mp4" class="img-fluid" controls=""></video></a><a href="./videos/6_1_длина дорог.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-length-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;6.1: Подсчет длины дорог для слоя “roads”
@@ -515,33 +638,16 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;6.8
+Задание&nbsp;6.9
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>В слое <strong>“videla”</strong> создайте новое поле <strong>“perimetr_m”</strong> (тип поля десятичное число). Заполните это поле значениями периметра (в метрах) для каждого выдела. Сумма периметров выделов должна составить <strong>335 649,9 м</strong>.</p>
 </div>
 </div>
-<p>Для выполнения предыдущих заданий (<a href="#task-length" class="quarto-xref">Задание&nbsp;<span>6.7</span></a>, <a href="#task-perim" class="quarto-xref">Задание&nbsp;<span>6.8</span></a>) использовались два действия: 1. Создавалось поле с нужным типом данных 2. Созданное поле заполнялось значениями функции ($length, $area и др.) Инструмент “Калькулятор полей” позволяет совместить эти два действия: задаются параметры поля и функция, значениями которой это поле будет заполнено.</p>
+<p>Для выполнения предыдущих заданий (<a href="#task-length" class="quarto-xref">Задание&nbsp;<span>6.8</span></a>, <a href="#task-perim" class="quarto-xref">Задание&nbsp;<span>6.9</span></a>) использовались два действия: 1. Создавалось поле с нужным типом данных 2. Созданное поле заполнялось значениями функции ($length, $area и др.) Инструмент “Калькулятор полей” позволяет совместить эти два действия: задаются параметры поля и функция, значениями которой это поле будет заполнено.</p>
 <p>!!! Рисунок Калькулятора полей с настройками заполнения поля area_ha</p>
 <div id="task-calc_area" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Задание&nbsp;6.9
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>В слое <strong>“videla”</strong> при помощи <strong>калькулятора полей</strong> создайте новое поле <strong>“area_ha”</strong> (тип поля десятичное число) заполненное значением площади (в гектарах) для каждого выдела. Сумма площадей выделов должна составить <strong>1 039,8 га</strong>.</p>
-</div>
-</div>
-</section>
-<section id="арифметические-операции-с-атрибутами" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="арифметические-операции-с-атрибутами"><span class="header-section-number">6.5</span> Арифметические операции с атрибутами</h2>
-<p>После выполнения <a href="#task-calc_area" class="quarto-xref">Задание&nbsp;<span>6.9</span></a> в слое “videla” будут находиться два поля с площадью. Поле “s_ha” это данные площади выдела по таксационным описаниям. Второе поле “area_ha” было создано при выполнении <a href="#task-calc_area" class="quarto-xref">Задание&nbsp;<span>6.9</span></a> и содержит площади геометрий, рассчитанные автоматически. Отличаются ли эти две площади? Для сравнения двух значений создайте новое поле “diff_area” (десятичное) куда будет записана разность значений двух полей (выражение <code>"s_ga" -  "area"</code>). По разнице можно оценить насколько значения двух полей различаются.</p>
-<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -551,24 +657,13 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li>В слое <strong>“videla”</strong> создайте поле <strong>“diff_area”</strong>. Заполните это поле выражением <code>"s_ha" - "area"</code> для подсчета различий между площадями.</li>
-<li>Создайте карту, где выделы с разностью по абсолютному значению более 0.3 га будут окрашены в красный цвет. Обртите внимание - разность может быть как положительной, так и отрицательной, для получения абсолютного значения используйте функцию <code>abs()</code>.</li>
-<li>Создайте новый макет и сохраните карту как изображение. Результат выполнения задания приведен на рисунке ниже (<a href="#fig-diff_03" class="quarto-xref">Рисунок&nbsp;<span>6.9</span></a>).</li>
-</ul>
+<p>В слое <strong>“videla”</strong> при помощи <strong>калькулятора полей</strong> создайте новое поле <strong>“area_ha”</strong> (тип поля десятичное число) заполненное значением площади (в гектарах) для каждого выдела. Сумма площадей выделов должна составить <strong>1 039,8 га</strong>.</p>
 </div>
 </div>
-<div id="fig-diff_03" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-diff_03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/6_9_разница 0,3 га.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" data-glightbox="description: .lightbox-desc-10"><img src="./pictures/6_9_разница 0,3 га.png" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diff_03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;6.9: Выделы с ошибкой площади более 0,3 га
-</figcaption>
-</figure>
-</div>
-<p>Более корректно использовать относительную разность (в процентах) а не абсолютные значения. Для этого создадим новое поле “diff_area_perc” (тип поля - десятичное) и заполним его выражением <code>abs("area" * 100 / "s_ga" - 100)</code>. Функция <code>abs()</code> возвращает абсолютное значение выражения в скобках.</p>
+</section>
+<section id="арифметические-операции-с-атрибутами" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="арифметические-операции-с-атрибутами"><span class="header-section-number">6.5</span> Арифметические операции с атрибутами</h2>
+<p>После выполнения <a href="#task-calc_area" class="quarto-xref">Задание&nbsp;<span>6.10</span></a> в слое “videla” будут находиться два поля с площадью. Поле “s_ha” это данные площади выдела по таксационным описаниям. Второе поле “area_ha” было создано при выполнении <a href="#task-calc_area" class="quarto-xref">Задание&nbsp;<span>6.10</span></a> и содержит площади геометрий, рассчитанные автоматически. Отличаются ли эти две площади? Для сравнения двух значений создайте новое поле “diff_area” (десятичное) куда будет записана разность значений двух полей (выражение <code>"s_ga" -  "area"</code>). По разнице можно оценить насколько значения двух полей различаются.</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -580,22 +675,23 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>В слое <strong>“videla”</strong> создайте новое поле “diff_area_perc”. Заполните это поле относительной разностью полей <code>abs("area" * 100 / "s_ga" - 100)</code>.</li>
-<li>Создайте карту, где выделы с разностью более 15 % (поле “diff_area_perc”) будут окрашены в красный цвет.</li>
-<li>Создайте новый макет и сохраните карту как изображение. Результат выполнения задания приведен на рисунке ниже (<a href="#fig-diff_15" class="quarto-xref">Рисунок&nbsp;<span>6.10</span></a>).</li>
+<li>В слое <strong>“videla”</strong> создайте поле <strong>“diff_area”</strong>. Заполните это поле выражением <code>"s_ha" - "area"</code> для подсчета различий между площадями.</li>
+<li>Создайте карту, где выделы с разностью по абсолютному значению более 0.3 га будут окрашены в красный цвет. Обртите внимание - разность может быть как положительной, так и отрицательной, для получения абсолютного значения используйте функцию <code>abs()</code>.</li>
+<li>Создайте новый макет и сохраните карту как изображение. Результат выполнения задания приведен на рисунке ниже (<a href="#fig-diff_03" class="quarto-xref">Рисунок&nbsp;<span>6.15</span></a>).</li>
 </ul>
 </div>
 </div>
-<div id="fig-diff_15" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-diff_03" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-diff_15-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/6_10_разница 15 perc.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-11" data-glightbox="description: .lightbox-desc-11"><img src="./pictures/6_10_разница 15 perc.jpg" class="img-fluid figure-img"></a>
+<div aria-describedby="fig-diff_03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/6_9_разница 0,3 га.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" data-glightbox="description: .lightbox-desc-19"><img src="./pictures/6_9_разница 0,3 га.png" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diff_15-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;6.10: Выдела с ошибкой площади более 15 %
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diff_03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;6.15: Выделы с ошибкой площади более 0,3 га
 </figcaption>
 </figure>
 </div>
+<p>Более корректно использовать относительную разность (в процентах) а не абсолютные значения. Для этого создадим новое поле “diff_area_perc” (тип поля - десятичное) и заполним его выражением <code>abs("area" * 100 / "s_ga" - 100)</code>. Функция <code>abs()</code> возвращает абсолютное значение выражения в скобках.</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -603,6 +699,36 @@ window.Quarto = {
 </div>
 <div class="callout-title-container flex-fill">
 Задание&nbsp;6.12
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>В слое <strong>“videla”</strong> создайте новое поле “diff_area_perc”. Заполните это поле относительной разностью полей <code>abs("area" * 100 / "s_ga" - 100)</code>.</li>
+<li>Создайте карту, где выделы с разностью более 15 % (поле “diff_area_perc”) будут окрашены в красный цвет.</li>
+<li>Создайте новый макет и сохраните карту как изображение. Результат выполнения задания приведен на рисунке ниже (<a href="#fig-diff_15" class="quarto-xref">Рисунок&nbsp;<span>6.16</span></a>).</li>
+</ul>
+</div>
+</div>
+<div id="fig-diff_15" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-diff_15-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures/6_10_разница 15 perc.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-20" data-glightbox="description: .lightbox-desc-20"><img src="./pictures/6_10_разница 15 perc.jpg" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diff_15-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;6.16: Выдела с ошибкой площади более 15 %
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="кейс-1" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="кейс-1"><span class="header-section-number">6.6</span> Кейс 1</h2>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;6.13
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -617,6 +743,10 @@ window.Quarto = {
 </ul>
 </div>
 </div>
+</section>
+<section id="кейс-2" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="кейс-2"><span class="header-section-number">6.7</span> Кейс 2</h2>
+<p>Постройте карту с зонами такс для лесничества.</p>
 
 
 <div class="hidden" aria-hidden="true">
@@ -627,10 +757,19 @@ window.Quarto = {
 <span class="glightbox-desc lightbox-desc-5">Рисунок&nbsp;6.5: Инструмент “Буферизация”</span>
 <span class="glightbox-desc lightbox-desc-6">Рисунок&nbsp;6.6: Результат применения инструмента “Буферизация”</span>
 <span class="glightbox-desc lightbox-desc-7">Рисунок&nbsp;6.7: Инструмент “Обрезать”</span>
-<span class="glightbox-desc lightbox-desc-8">Рисунок&nbsp;6.8: Инструмент “Отсечь”</span>
-<span class="glightbox-desc lightbox-desc-9">Видео&nbsp;6.1: Подсчет длины дорог для слоя “roads”</span>
-<span class="glightbox-desc lightbox-desc-10">Рисунок&nbsp;6.9: Выделы с ошибкой площади более 0,3 га</span>
-<span class="glightbox-desc lightbox-desc-11">Рисунок&nbsp;6.10: Выдела с ошибкой площади более 15 %</span>
+<span class="glightbox-desc lightbox-desc-8">Рисунок&nbsp;6.8: Применение инструмента “Обрезать”</span>
+<span class="glightbox-desc lightbox-desc-9">Рисунок&nbsp;6.9&nbsp;(a): Таблица атрибутов слоя “Буфер рек 100 м”</span>
+<span class="glightbox-desc lightbox-desc-10">Рисунок&nbsp;6.9&nbsp;(b): Окно настройки инструмента “Пересечение”</span>
+<span class="glightbox-desc lightbox-desc-11">Рисунок&nbsp;6.9&nbsp;(c): Сохраняемые исходные поля</span>
+<span class="glightbox-desc lightbox-desc-12">Рисунок&nbsp;6.9&nbsp;(d): Сохраняемые поля слоя наложения</span>
+<span class="glightbox-desc lightbox-desc-13">Рисунок&nbsp;6.10: Таблица атрибутов слоя “Результат пересечения выделов и буферных зон”</span>
+<span class="glightbox-desc lightbox-desc-14">Рисунок&nbsp;6.11: Применение инструмента “Пересечение”</span>
+<span class="glightbox-desc lightbox-desc-15">Рисунок&nbsp;6.12: Инструмент “Разность”</span>
+<span class="glightbox-desc lightbox-desc-16">Рисунок&nbsp;6.13: Настройки инструмента “Объединение по признаку”</span>
+<span class="glightbox-desc lightbox-desc-17">Рисунок&nbsp;6.14: Результат применения инструмента “Объединение по признаку”</span>
+<span class="glightbox-desc lightbox-desc-18">Видео&nbsp;6.1: Подсчет длины дорог для слоя “roads”</span>
+<span class="glightbox-desc lightbox-desc-19">Рисунок&nbsp;6.15: Выделы с ошибкой площади более 0,3 га</span>
+<span class="glightbox-desc lightbox-desc-20">Рисунок&nbsp;6.16: Выдела с ошибкой площади более 15 %</span>
 </div>
 </section>
 
@@ -1179,7 +1318,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","loop":false,"selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","loop":false,"closeEffect":"zoom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

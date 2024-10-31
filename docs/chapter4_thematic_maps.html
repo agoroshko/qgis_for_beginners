@@ -304,7 +304,7 @@ window.Quarto = {
 <p>Для выполнения заданий из раздела “Создание тематических карт” загрузите файлы по <a href="https://github.com/agoroshko/qgis_for_beginners/tree/main/files">ссылке 1</a> или <a href="https://disk.yandex.ru/d/IuXJbTCAmIZvaw">ссылке 2</a></p>
 </div>
 </div>
-<p>Важной частью географических информационных систем является возможность визуализации информации. Графический анализ позволяет устранить ошибки данных или выявить закономерности. Раздел посвящен возможностям визуализации в программе QGIS. Для выполнения заданий из этого раздела загрузите необходимые файлы. Обратите внимание, загруженные файлы сохранены в формате <strong>GeoPackage</strong> (расширение <strong>.gpkg</strong>). Особенности этого формата рассмотрены в приложении (<span class="quarto-unresolved-ref">?sec-gpkg</span>).<br>
+<p>Важной частью географических информационных систем является возможность визуализации информации. Графический анализ позволяет устранить ошибки данных или выявить закономерности. Раздел посвящен возможностям визуализации в программе QGIS. Для выполнения заданий из этого раздела загрузите необходимые файлы. Обратите внимание, загруженные файлы сохранены в формате <strong>GeoPackage</strong> (расширение <strong>.gpkg</strong>). Особенности этого формата рассмотрены в приложении (<a href="appendice_1_geopackage.html" class="quarto-xref"><span>Приложение A</span></a>).<br>
 Исходные данные представлены четырьмя векторными слоями, которые содержат информацию о части Мининского лесничества, Караульного участкового лесничества:</p>
 <ul>
 <li>kvartala.gpkg - границы кварталов;</li>
@@ -345,14 +345,14 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Систему координат <strong>WGS 84 / Pseudo-Mercator (EPSG:3857)</strong> удобно ипользовать в качестве системы координат проекта, но не следует создавать слои в этой системе координат. Для этих целей используйте WGS 84 или UTM (См. <span class="quarto-unresolved-ref">?sec-epsg3857</span>).</p>
+<p>Систему координат <strong>WGS 84 / Pseudo-Mercator (EPSG:3857)</strong> удобно ипользовать в качестве системы координат проекта, но не следует создавать слои в этой системе координат. Для этих целей используйте WGS 84 или UTM (См. <a href="appendice_2_epsg_3857.html" class="quarto-xref"><span>Приложение B</span></a>).</p>
 </div>
 </div>
 <p>В программе QGIS реализовано перепроецирование “на лету” (on fly). Векторные слои могут иметь различные системы координат, но в основном окне программы они отображаются согласованно - в одной и той же <strong>системе координат проекта</strong>. Для изменения системы координат проекта выберите <strong>“Проект” &gt; “Свойства” &gt; “СК”</strong> или нажмите на символ <img src="./QGIS_icons/mIconProjectionEnabled.svg" class="img-fluid" alt="1"> в правом нижнем углу. После чего появится окно с настройками системы координат <a href="#fig-proj_crs" class="quarto-xref">Рисунок&nbsp;<span>4.1</span></a>.</p>
 <div id="fig-proj_crs" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-proj_crs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/4_1_Система координат проекта.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="./pictures2/4_1_Система координат проекта.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/4_1_Система координат проекта.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./pictures2/4_1_Система координат проекта.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-proj_crs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;4.1: Настройка системы координат проекта
@@ -393,7 +393,7 @@ window.Quarto = {
 <div id="vid-labels" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/4_1_Подписи кварталов.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><video src="./videos/4_1_Подписи%20кварталов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_1_Подписи кварталов.mp4">Video</a>
+<a href="./videos/4_1_Подписи кварталов.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><video src="./videos/4_1_Подписи%20кварталов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_1_Подписи кварталов.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;4.1: Подписи слоя “kvartala”
@@ -408,7 +408,7 @@ window.Quarto = {
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./pictures2/4_2_Текст.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="Текст"><img src="./pictures2/4_2_Текст.png" class="img-fluid figure-img"></a></p>
+<p><a href="./pictures2/4_2_Текст.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="Текст"><img src="./pictures2/4_2_Текст.png" class="img-fluid figure-img"></a></p>
 <figcaption>Текст</figcaption>
 </figure>
 </div>
@@ -416,7 +416,7 @@ window.Quarto = {
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./pictures2/4_2_Буфер.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4" title="Буфер"><img src="./pictures2/4_2_Буфер.png" class="img-fluid figure-img"></a></p>
+<p><a href="./pictures2/4_2_Буфер.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4" title="Буфер"><img src="./pictures2/4_2_Буфер.png" class="img-fluid figure-img"></a></p>
 <figcaption>Буфер</figcaption>
 </figure>
 </div>
@@ -426,7 +426,7 @@ window.Quarto = {
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./pictures2/4_2_Фон.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5" title="Фон"><img src="./pictures2/4_2_Фон.png" class="img-fluid figure-img"></a></p>
+<p><a href="./pictures2/4_2_Фон.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5" title="Фон"><img src="./pictures2/4_2_Фон.png" class="img-fluid figure-img"></a></p>
 <figcaption>Фон</figcaption>
 </figure>
 </div>
@@ -434,7 +434,7 @@ window.Quarto = {
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./pictures2/4_2_Размещение.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6" title="Размещение"><img src="./pictures2/4_2_Размещение.png" class="img-fluid figure-img"></a></p>
+<p><a href="./pictures2/4_2_Размещение.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6" title="Размещение"><img src="./pictures2/4_2_Размещение.png" class="img-fluid figure-img"></a></p>
 <figcaption>Размещение</figcaption>
 </figure>
 </div>
@@ -444,7 +444,7 @@ window.Quarto = {
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./pictures2/4_2_Отрисовка.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7" title="Отрисовка"><img src="./pictures2/4_2_Отрисовка.png" class="img-fluid figure-img"></a></p>
+<p><a href="./pictures2/4_2_Отрисовка.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7" title="Отрисовка"><img src="./pictures2/4_2_Отрисовка.png" class="img-fluid figure-img"></a></p>
 <figcaption>Отрисовка</figcaption>
 </figure>
 </div>
@@ -487,7 +487,7 @@ window.Quarto = {
 <div id="fig-concatenate" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-concatenate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/4_3_Составные подписи.png" class="lightbox" data-glightbox="description: .lightbox-desc-8" data-gallery="quarto-lightbox-gallery-8"><img src="./pictures2/4_3_Составные подписи.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/4_3_Составные подписи.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" data-glightbox="description: .lightbox-desc-8"><img src="./pictures2/4_3_Составные подписи.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-concatenate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;4.3: Создание подписи из нескольких полей
@@ -497,7 +497,7 @@ window.Quarto = {
 <div id="vid-complex_labels" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-complex_labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/4_7_Составные подписи.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-9" data-gallery="quarto-lightbox-gallery-9"><video src="./videos/4_7_Составные%20подписи.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_7_Составные подписи.mp4">Video</a>
+<a href="./videos/4_7_Составные подписи.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-9" data-glightbox="description: .lightbox-desc-9"><video src="./videos/4_7_Составные%20подписи.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_7_Составные подписи.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-complex_labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;4.2: Создание подписи из полей “videl” и “s_ha”
@@ -521,7 +521,7 @@ window.Quarto = {
 <div id="fig-new_string" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-new_string-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/4_4_Настройка форматирования подписей.png" class="lightbox" data-glightbox="description: .lightbox-desc-10" data-gallery="quarto-lightbox-gallery-10"><img src="./pictures2/4_4_Настройка форматирования подписей.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/4_4_Настройка форматирования подписей.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" data-glightbox="description: .lightbox-desc-10"><img src="./pictures2/4_4_Настройка форматирования подписей.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-new_string-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;4.4: Настройка переноса подписей
@@ -532,7 +532,7 @@ window.Quarto = {
 <div id="fig-zoom_string" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-zoom_string-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/4_5_Настройка видимости подписей.png" class="lightbox" data-glightbox="description: .lightbox-desc-11" data-gallery="quarto-lightbox-gallery-11"><img src="./pictures2/4_5_Настройка видимости подписей.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/4_5_Настройка видимости подписей.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" data-glightbox="description: .lightbox-desc-11"><img src="./pictures2/4_5_Настройка видимости подписей.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-zoom_string-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;4.5: Настройка видимости подписей
@@ -561,7 +561,7 @@ window.Quarto = {
 <div id="vid-labels_rules" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-labels_rules-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/4_8_Подписи на основе правил.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-12" data-gallery="quarto-lightbox-gallery-12"><video src="./videos/4_8_Подписи%20на%20основе%20правил.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_8_Подписи на основе правил.mp4">Video</a>
+<a href="./videos/4_8_Подписи на основе правил.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-12" data-glightbox="description: .lightbox-desc-12"><video src="./videos/4_8_Подписи%20на%20основе%20правил.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_8_Подписи на основе правил.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-labels_rules-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;4.3: Создание подписей на основе правил
@@ -594,7 +594,7 @@ window.Quarto = {
 <div id="fig-simple_fill" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-simple_fill-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/4_6_Простая заливка.png" class="lightbox" data-glightbox="description: .lightbox-desc-13" data-gallery="quarto-lightbox-gallery-13"><img src="./pictures2/4_6_Простая заливка.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/4_6_Простая заливка.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" data-glightbox="description: .lightbox-desc-13"><img src="./pictures2/4_6_Простая заливка.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-simple_fill-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;4.6: Простая заливка
@@ -619,7 +619,7 @@ window.Quarto = {
 <div id="vid-two_layers" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-two_layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/4_9_Сложная заливка.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-14" data-gallery="quarto-lightbox-gallery-14"><video src="./videos/4_9_Сложная%20заливка.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_9_Сложная заливка.mp4">Video</a>
+<a href="./videos/4_9_Сложная заливка.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-14" data-glightbox="description: .lightbox-desc-14"><video src="./videos/4_9_Сложная%20заливка.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_9_Сложная заливка.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-two_layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;4.4: Комбинирование двух слоев заливки
@@ -659,7 +659,7 @@ window.Quarto = {
 <div id="vid-unique_values" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-unique_values-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/vid_4_Уникальные значения.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-15" data-gallery="quarto-lightbox-gallery-15"><video src="./videos/vid_4_Уникальные%20значения.mp4" class="img-fluid" controls=""></video></a><a href="./videos/vid_4_Уникальные значения.mp4">Video</a>
+<a href="./videos/vid_4_Уникальные значения.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-15" data-glightbox="description: .lightbox-desc-15"><video src="./videos/vid_4_Уникальные%20значения.mp4" class="img-fluid" controls=""></video></a><a href="./videos/vid_4_Уникальные значения.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-unique_values-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;4.5: Символизация по уникальным значениям преобладающей породы
@@ -687,7 +687,7 @@ window.Quarto = {
 <div id="fig-diapazon_values" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-diapazon_values-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_1_Диапазоны значений.png" class="lightbox" data-glightbox="description: .lightbox-desc-16" data-gallery="quarto-lightbox-gallery-16"><img src="./pictures/4_1_Диапазоны значений.png" class="img-fluid figure-img"></a>
+<a href="./pictures/4_1_Диапазоны значений.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" data-glightbox="description: .lightbox-desc-16"><img src="./pictures/4_1_Диапазоны значений.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diapazon_values-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;4.7: Символизация по диапазонам значений площади выдела
@@ -709,7 +709,7 @@ window.Quarto = {
 <div id="fig-diapazon_values_task" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-diapazon_values_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_2_Диапазоны значений задание.png" class="lightbox" data-glightbox="description: .lightbox-desc-17" data-gallery="quarto-lightbox-gallery-17"><img src="./pictures/4_2_Диапазоны значений задание.png" class="img-fluid figure-img"></a>
+<a href="./pictures/4_2_Диапазоны значений задание.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" data-glightbox="description: .lightbox-desc-17"><img src="./pictures/4_2_Диапазоны значений задание.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diapazon_values_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;4.8: Результат символизации по диапазонам значений
@@ -725,7 +725,7 @@ window.Quarto = {
 <div id="fig-rules_viz" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-rules_viz-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_3_символизация на основе правил.png" class="lightbox" data-glightbox="description: .lightbox-desc-18" data-gallery="quarto-lightbox-gallery-18"><img src="./pictures/4_3_символизация на основе правил.png" class="img-fluid figure-img"></a>
+<a href="./pictures/4_3_символизация на основе правил.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" data-glightbox="description: .lightbox-desc-18"><img src="./pictures/4_3_символизация на основе правил.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rules_viz-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;4.9: Cимволизация на основе правил по среднему возрасту и преобладающей породе
@@ -748,7 +748,7 @@ window.Quarto = {
 <div id="fig-rules_viz_task" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-rules_viz_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_4_символизация по правилам задание.png" class="lightbox" data-glightbox="description: .lightbox-desc-19" data-gallery="quarto-lightbox-gallery-19"><img src="./pictures/4_4_символизация по правилам задание.png" class="img-fluid figure-img"></a>
+<a href="./pictures/4_4_символизация по правилам задание.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" data-glightbox="description: .lightbox-desc-19"><img src="./pictures/4_4_символизация по правилам задание.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rules_viz_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;4.10: Результат символизации по преоблаюадей породе и возрасту
@@ -779,7 +779,7 @@ window.Quarto = {
 <div id="vid-maket" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-maket-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/4_2_макет.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-20" data-gallery="quarto-lightbox-gallery-20"><video src="./videos/4_2_макет.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_2_макет.mp4">Video</a>
+<a href="./videos/4_2_макет.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-20" data-glightbox="description: .lightbox-desc-20"><video src="./videos/4_2_макет.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_2_макет.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-maket-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;4.6: Использование макета для создания карты
@@ -830,7 +830,7 @@ window.Quarto = {
 <div id="fig-maket_task" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-maket_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_5_макет задание.png" class="lightbox" data-glightbox="description: .lightbox-desc-21" data-gallery="quarto-lightbox-gallery-21"><img src="./pictures/4_5_макет задание.png" class="img-fluid figure-img"></a>
+<a href="./pictures/4_5_макет задание.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" data-glightbox="description: .lightbox-desc-21"><img src="./pictures/4_5_макет задание.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-maket_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;4.11: Пример плана лесонасаждений
@@ -858,7 +858,7 @@ window.Quarto = {
 <div id="fig-conditions" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-conditions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_8_Вложенные условия.png" class="lightbox" data-glightbox="description: .lightbox-desc-22" data-gallery="quarto-lightbox-gallery-22"><img src="./pictures/4_8_Вложенные условия.png" class="img-fluid figure-img"></a>
+<a href="./pictures/4_8_Вложенные условия.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" data-glightbox="description: .lightbox-desc-22"><img src="./pictures/4_8_Вложенные условия.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-conditions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;4.12: Символизация на основе правил с вложенными условиями
@@ -869,7 +869,7 @@ window.Quarto = {
 <div id="fig-matrix_legend" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-matrix_legend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_9_Таблица условных обозначений пород.html" class="lightbox" data-glightbox="description: .lightbox-desc-23" data-gallery="quarto-lightbox-gallery-23"><embed src="./pictures/4_9_Таблица условных обозначений пород.html" style="width:4.5in;height:2.8in"></a>
+<a href="./pictures/4_9_Таблица условных обозначений пород.html" class="lightbox" data-gallery="quarto-lightbox-gallery-23" data-glightbox="description: .lightbox-desc-23"><embed src="./pictures/4_9_Таблица условных обозначений пород.html" style="width:4.5in;height:2.8in"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-matrix_legend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;4.13: Легенда в виде матрицы
@@ -880,7 +880,7 @@ window.Quarto = {
 <div id="fig-kvartal_labels" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-kvartal_labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_10_Подписи кварталов.png" class="lightbox" data-glightbox="description: .lightbox-desc-24" data-gallery="quarto-lightbox-gallery-24"><img src="./pictures/4_10_Подписи кварталов.png" class="img-fluid figure-img"></a>
+<a href="./pictures/4_10_Подписи кварталов.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" data-glightbox="description: .lightbox-desc-24"><img src="./pictures/4_10_Подписи кварталов.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kvartal_labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;4.14: Подписи кварталов в виде дроби
@@ -894,7 +894,7 @@ window.Quarto = {
 <div id="vid-apply_styles" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-apply_styles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/4_3 Применение стилей.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-25" data-gallery="quarto-lightbox-gallery-25"><video src="./videos/4_3%20Применение%20стилей.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_3 Применение стилей.mp4">Video</a>
+<a href="./videos/4_3 Применение стилей.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-25" data-glightbox="description: .lightbox-desc-25"><video src="./videos/4_3%20Применение%20стилей.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_3 Применение стилей.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-apply_styles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;4.7: Применение сохраненных стилей слоев
@@ -915,7 +915,7 @@ window.Quarto = {
 <div id="fig-apply_styles_result" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-apply_styles_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_6_результат применения стилей.png" class="lightbox" data-glightbox="description: .lightbox-desc-26" data-gallery="quarto-lightbox-gallery-26"><img src="./pictures/4_6_результат применения стилей.png" class="img-fluid figure-img"></a>
+<a href="./pictures/4_6_результат применения стилей.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26" data-glightbox="description: .lightbox-desc-26"><img src="./pictures/4_6_результат применения стилей.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-apply_styles_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;4.15: Результат выполнения задания
@@ -931,7 +931,7 @@ window.Quarto = {
 <div id="vid-apply_layout" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-apply_layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/4_4 Макет плана лесонасаждений.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-27" data-gallery="quarto-lightbox-gallery-27"><video src="./videos/4_4%20Макет%20плана%20лесонасаждений.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_4 Макет плана лесонасаждений.mp4">Video</a>
+<a href="./videos/4_4 Макет плана лесонасаждений.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-27" data-glightbox="description: .lightbox-desc-27"><video src="./videos/4_4%20Макет%20плана%20лесонасаждений.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_4 Макет плана лесонасаждений.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-apply_layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;4.8: Создание макета плана лесонасаждений
@@ -964,7 +964,7 @@ window.Quarto = {
 <div id="vid-html_table" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-html_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/4_5 добавление HTML.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-28" data-gallery="quarto-lightbox-gallery-28"><video src="./videos/4_5%20добавление%20HTML.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_5 добавление HTML.mp4">Video</a>
+<a href="./videos/4_5 добавление HTML.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-28" data-glightbox="description: .lightbox-desc-28"><video src="./videos/4_5%20добавление%20HTML.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_5 добавление HTML.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-html_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;4.9: Добавление HTML-таблицы в макет
@@ -975,7 +975,7 @@ window.Quarto = {
 <div id="vid-add_legend" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-add_legend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/4_6 добавление легенды.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-29" data-gallery="quarto-lightbox-gallery-29"><video src="./videos/4_6%20добавление%20легенды.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_6 добавление легенды.mp4">Video</a>
+<a href="./videos/4_6 добавление легенды.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-29" data-glightbox="description: .lightbox-desc-29"><video src="./videos/4_6%20добавление%20легенды.mp4" class="img-fluid" controls=""></video></a><a href="./videos/4_6 добавление легенды.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-add_legend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;4.10: Добавление легенды
@@ -1002,7 +1002,7 @@ window.Quarto = {
 <div id="fig-forest_map" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-forest_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_7 план лесонасаждений.png" class="lightbox" data-glightbox="description: .lightbox-desc-30" data-gallery="quarto-lightbox-gallery-30"><img src="./pictures/4_7 план лесонасаждений.png" class="img-fluid figure-img"></a>
+<a href="./pictures/4_7 план лесонасаждений.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30" data-glightbox="description: .lightbox-desc-30"><img src="./pictures/4_7 план лесонасаждений.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-forest_map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;4.16: Результат выполнения задания: план лесонасаждений
@@ -1604,7 +1604,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"openEffect":"zoom","descPosition":"bottom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
