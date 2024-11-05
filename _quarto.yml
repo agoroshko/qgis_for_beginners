@@ -39,6 +39,7 @@ book:
     - chapter6_spatial_operations.qmd
     - chapter7_OSM.qmd
     - chapter8_DEM.qmd
+    - chapter12_homework.qmd
     - references.qmd
   appendices:
     - appendice_1_geopackage.qmd
