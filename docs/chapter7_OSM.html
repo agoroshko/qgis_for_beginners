@@ -176,6 +176,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./chapter12_homework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Домашнее задание - оцифровка</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Библиографический список</span></a>
   </div>
@@ -221,7 +227,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#создание-границы-красноярского-края" id="toc-создание-границы-красноярского-края" class="nav-link active" data-scroll-target="#создание-границы-красноярского-края"><span class="header-section-number">7.1</span> Создание границы Красноярского края</a></li>
   <li><a href="#подготовка-данных" id="toc-подготовка-данных" class="nav-link" data-scroll-target="#подготовка-данных"><span class="header-section-number">7.2</span> Подготовка данных</a></li>
-  <li><a href="#кейс-1-расчет-протяженности-автомобильных-дорог-по-муниципальным-районам" id="toc-кейс-1-расчет-протяженности-автомобильных-дорог-по-муниципальным-районам" class="nav-link" data-scroll-target="#кейс-1-расчет-протяженности-автомобильных-дорог-по-муниципальным-районам"><span class="header-section-number">7.3</span> Кейс 1 Расчет протяженности автомобильных дорог по муниципальным районам</a></li>
+  <li><a href="#кейс-1-вычисление-протяженности-автомобильных-дорог-по-муниципальным-районам" id="toc-кейс-1-вычисление-протяженности-автомобильных-дорог-по-муниципальным-районам" class="nav-link" data-scroll-target="#кейс-1-вычисление-протяженности-автомобильных-дорог-по-муниципальным-районам"><span class="header-section-number">7.3</span> Кейс 1 Вычисление протяженности автомобильных дорог по муниципальным районам</a></li>
   <li><a href="#кейс-2-определить-все-жд-мосты-пересечения-жд-с-реками" id="toc-кейс-2-определить-все-жд-мосты-пересечения-жд-с-реками" class="nav-link" data-scroll-target="#кейс-2-определить-все-жд-мосты-пересечения-жд-с-реками"><span class="header-section-number">7.4</span> Кейс 2 Определить все ЖД мосты (пересечения ЖД с реками)</a></li>
   <li><a href="#кейс-3-определить-процент-площади-муниц.-района-покрытый-водной-поверхностью." id="toc-кейс-3-определить-процент-площади-муниц.-района-покрытый-водной-поверхностью." class="nav-link" data-scroll-target="#кейс-3-определить-процент-площади-муниц.-района-покрытый-водной-поверхностью."><span class="header-section-number">7.5</span> Кейс 3 Определить процент площади муниц. района, покрытый водной поверхностью.</a></li>
   </ul>
@@ -249,7 +255,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><a href="https://www.openstreetmap.org/#map=9/55.983/92.873">Open Street Map (OSM)</a> это некоммерческий проект по созданию подробной, свободной и бесплатной географической карты мира. Наполнение карты осуществляется участниками проекта OSM на добровольных началах (по принципу Википедии). Данные OSM распространяются свободно под открытой лицензией Open Database License. OSM является одним из самых крупных источников информации для создания ГИС.</p>
+<p><a href="https://www.openstreetmap.org/#map=9/55.983/92.873">Open Street Map (OSM)</a> это некоммерческий проект по созданию подробной, свободной и бесплатной географической карты мира. Наполнение карты осуществляется участниками проекта OSM на добровольных началах. Проект функционирует по принципу Википедии: любой участник может добавлять объекты и их описание на карту. Данные OSM распространяются свободно под открытой лицензией Open Database License. OSM является одним из самых крупных источников информации для создания ГИС.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -270,7 +276,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-choice" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-choice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/6_11_Выбор слоев.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="./pictures/6_11_Выбор слоев.png" class="img-fluid figure-img"></a>
+<a href="./pictures/6_11_Выбор слоев.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./pictures/6_11_Выбор слоев.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-choice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;7.1: Окно выбора слоев файла “osm.gpkg”
@@ -305,7 +311,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-border" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-border-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/6_12_Граница КК.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="./pictures/6_12_Граница КК.png" class="img-fluid figure-img"></a>
+<a href="./pictures/6_12_Граница КК.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="./pictures/6_12_Граница КК.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-border-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;7.2: Результат применения инструмента “Объединение по признаку”
@@ -326,7 +332,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="vid-addfile" class="quarto-float">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-addfile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/6_2_объединение по признаку.mp4" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><video src="./videos/6_2_объединение%20по%20признаку.mp4" class="img-fluid" controls=""></video></a><a href="./videos/6_2_объединение по признаку.mp4">Video</a>
+<a href="./videos/6_2_объединение по признаку.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><video src="./videos/6_2_объединение%20по%20признаку.mp4" class="img-fluid" controls=""></video></a><a href="./videos/6_2_объединение по признаку.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-addfile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;7.1: “Объединение по признаку”, поле “admin_level”
@@ -338,7 +344,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="подготовка-данных" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="подготовка-данных"><span class="header-section-number">7.2</span> Подготовка данных</h2>
-<p>Векторные слои выходят за территорию Красноярского края, поэтому для начала обрежем слои так, что бы они содержали объекты только внутри полигона “border”. Для этого поочередно примените инструмент “Обрезать” к каждому из слоев (см. <a href="chapter6_spatial_operations.html#task-task_cut" class="quarto-xref">Задание&nbsp;<span>6.3</span></a>).</p>
+<p>Векторные слои выходят за территорию Красноярского края, поэтому для начала обрежем слои по границе полигона “border”. Для этого поочередно примените инструмент <strong>“Обрезать”</strong> к каждому из слоев (см. <a href="chapter6_spatial_operations.html#task-task_cut" class="quarto-xref">Задание&nbsp;<span>6.4</span></a>).</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -349,15 +355,41 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Используйте инструмент “Обрезать” для извлечения из всех слоев объектов на территории Красноярского края. Сохраните новые слои в файл “osm_krai.gpkg”.</p>
+<p>Используйте инструмент <strong>“Обрезать”</strong> для обрезки всех слоев по границе Красноярского края. Сохраните все новые слои в файл “osm_krai.gpkg”.</p>
 </div>
 </div>
 </section>
-<section id="кейс-1-расчет-протяженности-автомобильных-дорог-по-муниципальным-районам" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="кейс-1-расчет-протяженности-автомобильных-дорог-по-муниципальным-районам"><span class="header-section-number">7.3</span> Кейс 1 Расчет протяженности автомобильных дорог по муниципальным районам</h2>
+<section id="кейс-1-вычисление-протяженности-автомобильных-дорог-по-муниципальным-районам" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="кейс-1-вычисление-протяженности-автомобильных-дорог-по-муниципальным-районам"><span class="header-section-number">7.3</span> Кейс 1 Вычисление протяженности автомобильных дорог по муниципальным районам</h2>
+<p>Задача: Рассчитать протяженность крупных дорог (в слое “roads”, в поле “fclass” это значения ‘trunk’, ‘primary’ и ‘secondary’) по муниципальным районам Красноярского края. В результате должна быть получена таблица с суммарной длиной дорог на территории каждого района.</p>
+<p>!!! Фото результата.</p>
+<p>Исходные данные: слои “roads” и “level_6”.</p>
+<p>Этапы выполнения:</p>
+<ul>
+<li>из слоя “roads” выбрать нужные типы дорог (в поле “fclass” значения ‘trunk’, ‘primary’ и ‘secondary’);</li>
+<li>используйте инструмент “Пересечение”, что бы обрезать дороги по границам муниципальных районов и добавить в атрибуты название муниц. района;</li>
+<li>у каждой дороги рассчитать длину (в километрах);</li>
+<li>используйте инструмент “Агрегировать” для того, что бы рассчитать суммарную протяженность дорог для каждого района;</li>
+<li>создайте карту с окраской районов по протяженности дорог.</li>
+</ul>
+<p>Описание:</p>
+<p>Сначала следует рассмотреть структуру исходных слоев:</p>
+<ul>
+<li>слой “level_6” содержит полигоны, границы муниципальных районов Красноярского края. В таблице атрибутов содержится название для каждого района (поле “local_name”);</li>
+<li>слой “roads” содержит линейные объекты, дороги. В атрибутах слоя указаны характеристики дорог, в том числе в поле “fclass” указан тип дороги (<a href="https://wiki.openstreetmap.org/wiki/Key:highway">подробнее о типах дорог в OSM</a>). Согласно заданию, из всех дорог необходимо выбрать дороги с типами ‘trunk’, ‘primary’ и ‘secondary’.</li>
+</ul>
+<p>Для последующего подсчета длины нужно разбить дороги на части по границам муниципальных районов и добавить поле принадлежности к тому или иному району (инструмент “Пересечение”).</p>
+<p>После чего в слой дорог добавляют еще одно поле в котором рассчитывают длину каждой части дороги. На последнем этапе суммирую протяженность дорог для каждого муниципального района (инструмент “Агрегировать”). При этом геометрии дорог так же будут объединены в приделах района.</p>
 </section>
 <section id="кейс-2-определить-все-жд-мосты-пересечения-жд-с-реками" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="кейс-2-определить-все-жд-мосты-пересечения-жд-с-реками"><span class="header-section-number">7.4</span> Кейс 2 Определить все ЖД мосты (пересечения ЖД с реками)</h2>
+<p>Задача: Рассчитать количество железнодорожных мостов в каждом административном районе. Создать карту.</p>
+<p>Исходные данные: слои “railways”, “waterways” и “level_6”.</p>
+<p>Этапы выполнения:</p>
+<ul>
+<li>Получить точечный слой пересечений рек и дорог (инструмент “Пересечения линий”).</li>
+</ul>
+<p>Описание:</p>
 </section>
 <section id="кейс-3-определить-процент-площади-муниц.-района-покрытый-водной-поверхностью." class="level2" data-number="7.5">
 <h2 data-number="7.5" class="anchored" data-anchor-id="кейс-3-определить-процент-площади-муниц.-района-покрытый-водной-поверхностью."><span class="header-section-number">7.5</span> Кейс 3 Определить процент площади муниц. района, покрытый водной поверхностью.</h2>
@@ -915,7 +947,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

@@ -6,11 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Андрей Горошко">
-<meta name="author" content="Ирина Воробьева">
-<meta name="author" content="Виктор Немич">
 
-<title>Основы геоинформационных систем в QGIS</title>
+<title>Основы геоинформационных систем в QGIS - 9&nbsp; Домашнее задание - оцифровка</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapter0_resources.html" rel="next">
+<link href="./references.html" rel="next">
+<link href="./chapter8_DEM.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -101,7 +99,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Введение</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter12_homework.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Домашнее задание - оцифровка</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -115,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Введение</span></a>
   </div>
 </li>
@@ -175,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter12_homework.html" class="sidebar-item-text sidebar-link">
+  <a href="./chapter12_homework.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Домашнее задание - оцифровка</span></span></a>
   </div>
 </li>
@@ -220,79 +218,23 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Содержание</h2>
-   
-  <ul>
-  <li><a href="#введение" id="toc-введение" class="nav-link active" data-scroll-target="#введение">Введение</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Основы геоинформационных систем в QGIS</h1>
-<p class="subtitle lead">Геоинформационные системы в лесном хозяйстве</p>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Домашнее задание - оцифровка</span></h1>
 </div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Авторы</div>
-  <div class="quarto-title-meta-heading">принадлежность</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author">Андрей Горошко </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            <a href="https://www.sibsau.ru/">
-            СибГУ им. М.Ф. Решетнева
-            </a>
-          </p>
-      </div>
-    <div class="quarto-title-meta-contents">
-    <p class="author">Ирина Воробьева </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            <a href="https://www.sibsau.ru/">
-            СибГУ им. М.Ф. Решетнева
-            </a>
-          </p>
-      </div>
-    <div class="quarto-title-meta-contents">
-    <p class="author">Виктор Немич </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            <a href="https://www.sibsau.ru/">
-            СибГУ им. М.Ф. Решетнева
-            </a>
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
-    <div>
-    <div class="quarto-title-meta-heading">Дата публикации</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">5 ноября 2024 г.</p>
-    </div>
-  </div>
+    
   
     
-    <div>
-    <div class="quarto-title-meta-heading">Doi</div>
-    <div class="quarto-title-meta-contents">
-      <p class="doi">
-        <a href="https://doi.org/10.5281/zenodo.10034638">10.5281/zenodo.10034638</a>
-      </p>
-    </div>
-  </div>
   </div>
   
 
@@ -300,26 +242,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="введение" class="level1 unnumbered">
-<h1 class="unnumbered">Введение</h1>
-<p>В настоящее время QGIS является наиболее популярной программой с открытым исходным кодом для работы с геоинформационными системами. Она распространяется под открытой лицензией (GNU GPL 2.0), бесплатна для коммерческого и некоммерческого использования а по функционалу и стабильности стоит в одном ряду с платными продуктами. Недостатком этого программного продукта является малое количество обучающих курсов на русском языке, что в определенной степени компенсируется обширным сообществом, в том числе и в России. Настоящее пособие поможет студентам и всем желающим войти в мир географических информационных систем путем выполнения практических заданий в программе QGIS. Выполняемые задания относятся к области лесного хозяйства, однако получаемые навыки универсальны и подходят для многих областей использования ГИС.</p>
-<p>Для примеров используется программный продукт <strong>QGIS 3.34 LTR</strong> как наиболее стабильный и актуальный на данный момент (официальный сайт для загрузки программы <a href="https://qgis.org/ru/site/" class="uri">https://qgis.org/ru/site/</a>).</p>
-<p>Следуя словам Конфуция: <strong>“Скажи мне – и я забуду, покажи мне – и я запомню, дай мне сделать – и я пойму”</strong>, пособие условно можно разделить на блоки, каждый из которых состоит из трех связанных частей:</p>
-<ul>
-<li>Краткая теоретическая информация;</li>
-<li>Применение на практике в виде примера;</li>
-<li>Задание для самостоятельного выполнения на основе предыдущих частей (т.е. каждому заданию предшествует пример на основе которого это задание возможно выполнить).</li>
-</ul>
-<p>Пособие создано при помощи Quarto, языка R и RStudio.</p>
-Первая дата публикации: 03.10.2023
-<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
-<span property="dct:title">Основы геоинформационных систем в QGIS</span> by <span property="cc:attributionName">Горошко А.А., Воробьева И.А., Немич В.Н.</span> is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a>
-</p>
-<p>Горошко, А., Воробьева, И. и Немич, В. (2024) Основы геоинформационных систем в QGIS. Zenodo. doi: 10.5281/zenodo.10034639.</p>
-<p><a href="https://zenodo.org/doi/10.5281/zenodo.10034638"><img src="https://zenodo.org/badge/687393748.svg" class="img-fluid"></a></p>
+<p>Домашнее задание для групп БЛВ21-01, БЛЛ21-01, БЛХ21-02, БЛХ21-01</p>
+<p>Для выполнения домашнего задания необходимо оцифровать квартала лесничества, согласно Вашему варианту.</p>
+<p>Для этого создаются отдельные слои: реки, дороги, выделы, в которые добавляются геометрии соответствующих объектов.</p>
+<p>Необходимые для выполнения задания материалы, описание выполнения задания а так же индивидуальные варианты расположены в облаке по <a href="https://disk.yandex.ru/d/S7idEdpWOqalrQ">ссылке</a>.</p>
+<p>Задание необходимо выполнить до 11.11.2024.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -855,10 +784,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./chapter8_DEM.html" class="pagination-link  aria-label=" &lt;span="" модель="" рельефа&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter0_resources.html" class="pagination-link" aria-label="Дополнительные ресурсы">
-        <span class="nav-page-text">Дополнительные ресурсы</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="Библиографический список">
+        <span class="nav-page-text">Библиографический список</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -304,7 +304,7 @@ window.Quarto = {
 <p>Для выполнения заданий из раздела “Создание тематических карт” загрузите файлы по <a href="https://github.com/agoroshko/qgis_for_beginners/tree/main/files">ссылке 1</a> или <a href="https://disk.yandex.ru/d/IuXJbTCAmIZvaw">ссылке 2</a></p>
 </div>
 </div>
-<p>Важной частью географических информационных систем является возможность визуализации информации. Графический анализ позволяет устранить ошибки данных или выявить закономерности. Раздел посвящен возможностям визуализации в программе QGIS. Для выполнения заданий из этого раздела загрузите необходимые файлы. Обратите внимание, загруженные файлы сохранены в формате <strong>GeoPackage</strong> (расширение <strong>.gpkg</strong>). Особенности этого формата рассмотрены в приложении (<a href="appendice_1_geopackage.html" class="quarto-xref"><span>Приложение A</span></a>).<br>
+<p>Важной частью географических информационных систем является возможность визуализации информации. Графический анализ позволяет устранить ошибки данных или выявить закономерности. Раздел посвящен возможностям визуализации в программе QGIS. Для выполнения заданий из этого раздела загрузите необходимые файлы. Обратите внимание, загруженные файлы сохранены в формате <strong>GeoPackage</strong> (расширение <strong>.gpkg</strong>). Особенности этого формата рассмотрены в приложении (<span class="quarto-unresolved-ref">?sec-gpkg</span>).<br>
 Исходные данные представлены четырьмя векторными слоями, которые содержат информацию о части Мининского лесничества, Караульного участкового лесничества:</p>
 <ul>
 <li>kvartala.gpkg - границы кварталов;</li>
@@ -345,7 +345,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Систему координат <strong>WGS 84 / Pseudo-Mercator (EPSG:3857)</strong> удобно ипользовать в качестве системы координат проекта, но не следует создавать слои в этой системе координат. Для этих целей используйте WGS 84 или UTM (См. <a href="appendice_2_epsg_3857.html" class="quarto-xref"><span>Приложение B</span></a>).</p>
+<p>Систему координат <strong>WGS 84 / Pseudo-Mercator (EPSG:3857)</strong> удобно ипользовать в качестве системы координат проекта, но не следует создавать слои в этой системе координат. Для этих целей используйте WGS 84 или UTM (См. <span class="quarto-unresolved-ref">?sec-epsg3857</span>).</p>
 </div>
 </div>
 <p>В программе QGIS реализовано перепроецирование “на лету” (on fly). Векторные слои могут иметь различные системы координат, но в основном окне программы они отображаются согласованно - в одной и той же <strong>системе координат проекта</strong>. Для изменения системы координат проекта выберите <strong>“Проект” &gt; “Свойства” &gt; “СК”</strong> или нажмите на символ <img src="./QGIS_icons/mIconProjectionEnabled.svg" class="img-fluid" alt="1"> в правом нижнем углу. После чего появится окно с настройками системы координат <a href="#fig-proj_crs" class="quarto-xref">Рисунок&nbsp;<span>4.1</span></a>.</p>
@@ -869,7 +869,7 @@ window.Quarto = {
 <div id="fig-matrix_legend" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-matrix_legend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/4_9_Таблица условных обозначений пород.html" class="lightbox" data-gallery="quarto-lightbox-gallery-23" data-glightbox="description: .lightbox-desc-23"><embed src="./pictures/4_9_Таблица условных обозначений пород.html" style="width:4.5in;height:2.8in"></a>
+<a href="./pictures/4_9_Таблица условных обозначений пород.html" class="lightbox" data-gallery="quarto-lightbox-gallery-23" data-glightbox="description: .lightbox-desc-23"><embed src="./pictures/4_9_Таблица условных обозначений пород.html" style="width:4.5in;height:3in"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-matrix_legend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;4.13: Легенда в виде матрицы
@@ -1604,7 +1604,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false,"openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
