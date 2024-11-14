@@ -227,9 +227,12 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#создание-границы-красноярского-края" id="toc-создание-границы-красноярского-края" class="nav-link active" data-scroll-target="#создание-границы-красноярского-края"><span class="header-section-number">7.1</span> Создание границы Красноярского края</a></li>
   <li><a href="#подготовка-данных" id="toc-подготовка-данных" class="nav-link" data-scroll-target="#подготовка-данных"><span class="header-section-number">7.2</span> Подготовка данных</a></li>
-  <li><a href="#кейс-1-вычисление-протяженности-автомобильных-дорог-по-муниципальным-районам" id="toc-кейс-1-вычисление-протяженности-автомобильных-дорог-по-муниципальным-районам" class="nav-link" data-scroll-target="#кейс-1-вычисление-протяженности-автомобильных-дорог-по-муниципальным-районам"><span class="header-section-number">7.3</span> Кейс 1 Вычисление протяженности автомобильных дорог по муниципальным районам</a></li>
-  <li><a href="#кейс-2-определить-все-жд-мосты-пересечения-жд-с-реками" id="toc-кейс-2-определить-все-жд-мосты-пересечения-жд-с-реками" class="nav-link" data-scroll-target="#кейс-2-определить-все-жд-мосты-пересечения-жд-с-реками"><span class="header-section-number">7.4</span> Кейс 2 Определить все ЖД мосты (пересечения ЖД с реками)</a></li>
-  <li><a href="#кейс-3-определить-процент-площади-муниц.-района-покрытый-водной-поверхностью." id="toc-кейс-3-определить-процент-площади-муниц.-района-покрытый-водной-поверхностью." class="nav-link" data-scroll-target="#кейс-3-определить-процент-площади-муниц.-района-покрытый-водной-поверхностью."><span class="header-section-number">7.5</span> Кейс 3 Определить процент площади муниц. района, покрытый водной поверхностью.</a></li>
+  <li><a href="#кейсовые-задания" id="toc-кейсовые-задания" class="nav-link" data-scroll-target="#кейсовые-задания"><span class="header-section-number">7.3</span> Кейсовые задания</a>
+  <ul class="collapse">
+  <li><a href="#кейс-1-вычисление-протяженности-автомобильных-дорог-по-муниципальным-районам" id="toc-кейс-1-вычисление-протяженности-автомобильных-дорог-по-муниципальным-районам" class="nav-link" data-scroll-target="#кейс-1-вычисление-протяженности-автомобильных-дорог-по-муниципальным-районам"><span class="header-section-number">7.3.1</span> Кейс 1 Вычисление протяженности автомобильных дорог по муниципальным районам</a></li>
+  <li><a href="#кейс-2-построить-карту-количества-железнодорожных-мостов" id="toc-кейс-2-построить-карту-количества-железнодорожных-мостов" class="nav-link" data-scroll-target="#кейс-2-построить-карту-количества-железнодорожных-мостов"><span class="header-section-number">7.3.2</span> Кейс 2 Построить карту количества железнодорожных мостов</a></li>
+  <li><a href="#кейс-3-рассчитать-площадь-покрытую-водной-поверхностью-для-каждого-муниципального-района." id="toc-кейс-3-рассчитать-площадь-покрытую-водной-поверхностью-для-каждого-муниципального-района." class="nav-link" data-scroll-target="#кейс-3-рассчитать-площадь-покрытую-водной-поверхностью-для-каждого-муниципального-района."><span class="header-section-number">7.3.3</span> Кейс 3 Рассчитать площадь, покрытую водной поверхностью для каждого муниципального района.</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -266,17 +269,17 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Для выполнения последующих заданий загрузите файлы по <a href="">ссылке 1</a> или <a href="">ссылке 2</a> и создайте новый проект:</p>
+<p>Для выполнения последующих заданий загрузите файл по <a href="">ссылке 1</a> или <a href="https://disk.yandex.ru/d/oCsbwolnayypiA">ссылке 2</a> и создайте новый проект:</p>
 <ul>
-<li>Создайте новую папку проекта под названием “Раздел 6 OSM” а так же новый проект в QGIS.</li>
+<li>Создайте новую папку проекта под названием “Раздел 7 OSM” а так же новый проект в QGIS.</li>
 </ul>
 </div>
 </div>
-<p>Файл <strong>“osm.gpkg”</strong> является файлом GeoPackage и содержит несколько векторных слоев для территории Красноярского края, полученных из Open Street Map (получить аналогичные данные из базы данных OSM возможно на сайте https://download.geofabrik.de). При загрузке файла <strong>“osm.gpkg”</strong> появится окно выбора слоев для добавления в проект. По умолчанию выбраны все слои, так же возможно выбрать некоторые слои из списка. В описании каждого слоя указывается тип геометрии и количество объектов (<a href="#fig-choice" class="quarto-xref">Рисунок&nbsp;<span>7.1</span></a>).</p>
+<p>Файл <strong>“osm.gpkg”</strong> является файлом GeoPackage и содержит несколько векторных слоев для территории Красноярского края, полученных из базы данных Open Street Map (получить аналогичные данные возможно по <a href="https://download.geofabrik.de">ссылке</a>, регион - Siberian Federal District). При загрузке файла <strong>“osm.gpkg”</strong> появится окно выбора слоев для загрузки в проект. По умолчанию выбраны все слои, но возможно выбрать только некоторые слои из списка. Все слои содержатся в одном файле <strong>“osm.gpkg”</strong> который является контейнером базы данных SQLite. В описании каждого слоя указывается тип геометрии и количество объектов (<a href="#fig-choice" class="quarto-xref">Рисунок&nbsp;<span>7.1</span></a>).</p>
 <div id="fig-choice" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-choice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/6_11_Выбор слоев.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./pictures/6_11_Выбор слоев.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/7_1_Загрузка слоев.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./pictures2/7_1_Загрузка слоев.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-choice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;7.1: Окно выбора слоев файла “osm.gpkg”
@@ -293,21 +296,21 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Загрузите в проект все слои из файла “osm.gpkg”. Сохраните проект в папку проекта под названием “Раздел 6 OSM”.</p>
+<p>Загрузите в проект все слои из файла “osm.gpkg”. Сохраните проект в папку проекта под названием “Раздел 7 OSM”.</p>
 </div>
 </div>
 <p>В результате выполнения задания загружено 6 слоев:</p>
 <ul>
-<li><strong>“level_6”</strong> - деление Красноярского края на районы (название района - поле “local_name”);</li>
+<li><strong>“level_6”</strong> - административные районы в границах Красноярского края;</li>
+<li><strong>“places”</strong> - населенные пункты;</li>
 <li><strong>“railways”</strong> - железные дороги;</li>
 <li><strong>“roads”</strong> - дороги;</li>
-<li><strong>“transport”</strong> - остановочные пункты;</li>
 <li><strong>“water”</strong> - площадные водные объекты (крупные реки, озера);</li>
-<li><strong>“waterways”</strong> - линейные водные объекты (небольшие реки).</li>
+<li><strong>“waterways”</strong> - линейные водные объекты (реки в виде линий).</li>
 </ul>
 <section id="создание-границы-красноярского-края" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="создание-границы-красноярского-края"><span class="header-section-number">7.1</span> Создание границы Красноярского края</h2>
-<p>Для создания границы Красноярского края из слоя <strong>“level_6”</strong> применяется инструмент <strong>“Вектор” &gt; “Геообработка” &gt; “Объединение по признаку…”</strong>. В качестве исходного слоя указывается <strong>“level_6”</strong>, в пункте <strong>“поле слияния”</strong> отмечается поле - <strong>“admin_level”</strong>. В результате геометрии с одинаковым атрибутом “admin_level” будут объединены между собой. Поскольку все геометрии слоя имеют одинаковое значение, они будут объединены, создав таким образом границу Красноярского края (<a href="#fig-border" class="quarto-xref">Рисунок&nbsp;<span>7.2</span></a>).</p>
+<p>Для создания границы Красноярского края из слоя <strong>“level_6”</strong> применяется инструмент <strong>“Вектор” &gt; “Геообработка” &gt; “Объединение по признаку…”</strong>. В качестве исходного слоя указывается <strong>“level_6”</strong>, в пункте <strong>“поле слияния”</strong> отмечается поле - <strong>“admin_level”</strong>. В результате геометрии с одинаковым атрибутом “admin_level” будут объединены между собой. Поскольку все геометрии слоя имеют одинаковое значение в поле <strong>“admin_level”</strong> (число 6), они будут объединены, создав таким образом границу Красноярского края (<a href="#fig-border" class="quarto-xref">Рисунок&nbsp;<span>7.2</span></a>).</p>
 <div id="fig-border" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-border-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -335,7 +338,7 @@ ul.task-list li input[type="checkbox"] {
 <a href="./videos/6_2_объединение по признаку.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><video src="./videos/6_2_объединение%20по%20признаку.mp4" class="img-fluid" controls=""></video></a><a href="./videos/6_2_объединение по признаку.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-addfile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Видео&nbsp;7.1: “Объединение по признаку”, поле “admin_level”
+Видео&nbsp;7.1: Применение инструмента “Объединение по признаку”, объединение по полю “admin_level”
 </figcaption>
 </figure>
 </div>
@@ -344,7 +347,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="подготовка-данных" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="подготовка-данных"><span class="header-section-number">7.2</span> Подготовка данных</h2>
-<p>Векторные слои выходят за территорию Красноярского края, поэтому для начала обрежем слои по границе полигона “border”. Для этого поочередно примените инструмент <strong>“Обрезать”</strong> к каждому из слоев (см. <a href="chapter6_spatial_operations.html#task-task_cut" class="quarto-xref">Задание&nbsp;<span>6.4</span></a>).</p>
+<p>Некоторые объекты слоя <strong>“places”</strong> не находятся на территории Красноярского края. Обрежем слой по границе полигона <strong>“border”</strong> что бы удалить населенные пункты не входящие в границы Красноярского края. Для этого используется инструмент <strong>“Обрезать”</strong> (см. <a href="chapter6_spatial_operations.html#task-task_cut" class="quarto-xref">Задание&nbsp;<span>6.4</span></a>).</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -355,51 +358,128 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Используйте инструмент <strong>“Обрезать”</strong> для обрезки всех слоев по границе Красноярского края. Сохраните все новые слои в файл “osm_krai.gpkg”.</p>
+<p>Используйте инструмент “Обрезать” для обрезки слоя “places” по границе Красноярского края. Сохраните слой в файл “osm_krai.gpkg” под названием “places_border”.</p>
 </div>
 </div>
 </section>
-<section id="кейс-1-вычисление-протяженности-автомобильных-дорог-по-муниципальным-районам" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="кейс-1-вычисление-протяженности-автомобильных-дорог-по-муниципальным-районам"><span class="header-section-number">7.3</span> Кейс 1 Вычисление протяженности автомобильных дорог по муниципальным районам</h2>
-<p>Задача: Рассчитать протяженность крупных дорог (в слое “roads”, в поле “fclass” это значения ‘trunk’, ‘primary’ и ‘secondary’) по муниципальным районам Красноярского края. В результате должна быть получена таблица с суммарной длиной дорог на территории каждого района.</p>
-<p>!!! Фото результата.</p>
-<p>Исходные данные: слои “roads” и “level_6”.</p>
-<p>Этапы выполнения:</p>
+<section id="кейсовые-задания" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="кейсовые-задания"><span class="header-section-number">7.3</span> Кейсовые задания</h2>
+<p>Кейсовые задания предполагают решение задач с применением уже изученных а так же новых инструментов. Это комплексные задания, требующие декомпозиции задачи и решения в несколько шагов, на каждом из которых применяется свой набор инструментов. Для решения последующих заданий Вы можете использовать любые источники информации а так же помощь ваших коллег.<br>
+Часть инструментов, необходимых для решения заданий, находится в меню <strong>“Инструменты анализа”</strong> (<a href="#fig-geotools" class="quarto-xref">Рисунок&nbsp;<span>7.3</span></a>). Для быстрого поиска нужного инструмента лучше всего использвать поиск по названию (строка “Поиск…” в верхней части окна”).</p>
+<div id="fig-geotools" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-geotools-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/7_2_Инструменты анализа.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><img src="./pictures2/7_2_Инструменты анализа.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-geotools-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;7.3: Окно “Инструменты анализа”
+</figcaption>
+</figure>
+</div>
+<p>Окно <strong>“Инструменты анализа”</strong> открывается в правой части программы нажатием на иконку <strong>“Панель инструментов”</strong> <img src="./QGIS_icons/processingAlgorithm.svg" class="img-fluid" alt="1">. Если иконка отсутствует, убедитесь что в пункте <strong>“Модули” &gt; “Управление модулями…” &gt; вкладка слева “Установленные”</strong> присутствует галочка напротив инструмента <strong>“Processing”</strong>. Если галочка отсутствует - поставьте ее (см. <a href="#fig-processing" class="quarto-xref">Рисунок&nbsp;<span>7.4</span></a>).</p>
+<div id="fig-processing" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-processing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/7_3_Модули processing.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><img src="./pictures2/7_3_Модули processing.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-processing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;7.4: Активация модуля “Processing” (галочка установлена)
+</figcaption>
+</figure>
+</div>
+<section id="кейс-1-вычисление-протяженности-автомобильных-дорог-по-муниципальным-районам" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="кейс-1-вычисление-протяженности-автомобильных-дорог-по-муниципальным-районам"><span class="header-section-number">7.3.1</span> Кейс 1 Вычисление протяженности автомобильных дорог по муниципальным районам</h3>
+<p><strong>Задача:</strong> Вычислить протяженность крупных дорог (в слое “roads”, в поле “fclass” это значения ‘trunk’, ‘primary’ и ‘secondary’) для каждого муниципального района Красноярского края. В результате должна быть получена таблица с суммарной длиной дорог на территории каждого района. Результат выполнения кейса приведен на рисунке ниже (<a href="#fig-case_1_result" class="quarto-xref">Рисунок&nbsp;<span>7.5</span></a>).</p>
+<div id="fig-case_1_result" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-case_1_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/7_4_Результат кейса 1.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6"><img src="./pictures2/7_4_Результат кейса 1.PNG" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-case_1_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;7.5: Таблица - результат выполнения кейса 1
+</figcaption>
+</figure>
+</div>
+<p><strong>Исходные данные:</strong> слои “roads” и “level_6”.</p>
+<p><strong>Описание:</strong> Сначала следует рассмотреть структуру исходных слоев:</p>
 <ul>
-<li>из слоя “roads” выбрать нужные типы дорог (в поле “fclass” значения ‘trunk’, ‘primary’ и ‘secondary’);</li>
-<li>используйте инструмент “Пересечение”, что бы обрезать дороги по границам муниципальных районов и добавить в атрибуты название муниц. района;</li>
-<li>у каждой дороги рассчитать длину (в километрах);</li>
-<li>используйте инструмент “Агрегировать” для того, что бы рассчитать суммарную протяженность дорог для каждого района;</li>
-<li>создайте карту с окраской районов по протяженности дорог.</li>
-</ul>
-<p>Описание:</p>
-<p>Сначала следует рассмотреть структуру исходных слоев:</p>
-<ul>
-<li>слой “level_6” содержит полигоны, границы муниципальных районов Красноярского края. В таблице атрибутов содержится название для каждого района (поле “local_name”);</li>
+<li>слой “level_6” содержит полигоны, границы муниципальных районов Красноярского края. В таблице атрибутов слоя содержится название для каждого района (поле “local_name”);</li>
 <li>слой “roads” содержит линейные объекты, дороги. В атрибутах слоя указаны характеристики дорог, в том числе в поле “fclass” указан тип дороги (<a href="https://wiki.openstreetmap.org/wiki/Key:highway">подробнее о типах дорог в OSM</a>). Согласно заданию, из всех дорог необходимо выбрать дороги с типами ‘trunk’, ‘primary’ и ‘secondary’.</li>
 </ul>
 <p>Для последующего подсчета длины нужно разбить дороги на части по границам муниципальных районов и добавить поле принадлежности к тому или иному району (инструмент “Пересечение”).</p>
-<p>После чего в слой дорог добавляют еще одно поле в котором рассчитывают длину каждой части дороги. На последнем этапе суммирую протяженность дорог для каждого муниципального района (инструмент “Агрегировать”). При этом геометрии дорог так же будут объединены в приделах района.</p>
-</section>
-<section id="кейс-2-определить-все-жд-мосты-пересечения-жд-с-реками" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="кейс-2-определить-все-жд-мосты-пересечения-жд-с-реками"><span class="header-section-number">7.4</span> Кейс 2 Определить все ЖД мосты (пересечения ЖД с реками)</h2>
-<p>Задача: Рассчитать количество железнодорожных мостов в каждом административном районе. Создать карту.</p>
-<p>Исходные данные: слои “railways”, “waterways” и “level_6”.</p>
-<p>Этапы выполнения:</p>
+<p>После чего в слой дорог добавляют еще одно поле в котором рассчитывают длину каждой части дороги. На последнем этапе суммируют протяженность дорог для каждого муниципального района (инструмент “Агрегировать”). При этом геометрии дорог так же будут объединены в границах каждого района а тип геометрии слоя конвертируется из линии в мультилинию.</p>
+<p><strong>Этапы выполнения:</strong></p>
 <ul>
-<li>Получить точечный слой пересечений рек и дорог (инструмент “Пересечения линий”).</li>
+<li>из слоя “roads” выберите нужные типы дорог (в поле “fclass” значения ‘trunk’, ‘primary’ и ‘secondary’) (см. <a href="chapter5_queries.html#task-inquery" class="quarto-xref">Задание&nbsp;<span>5.9</span></a>);</li>
+<li>используйте инструмент “Пересечение”, что бы обрезать дороги по границам муниципальных районов и добавить в атрибуты дорог название муниципального района (см. <a href="chapter6_spatial_operations.html#task-task_cut" class="quarto-xref">Задание&nbsp;<span>6.4</span></a>);</li>
+<li>для каждой дороги рассчитайте длину (единицы измерения километры, 3 знака после запятой) (см. <a href="chapter6_spatial_operations.html#task-task_measure_units" class="quarto-xref">Задание&nbsp;<span>6.7</span></a>, <a href="chapter6_spatial_operations.html#task-length" class="quarto-xref">Задание&nbsp;<span>6.8</span></a>);</li>
+<li>используйте инструмент “Агрегировать” для того, что бы рассчитать суммарную протяженность дорог для каждого района;</li>
+<li>сохраните таблицу как файл Excel (.xlsx).</li>
 </ul>
-<p>Описание:</p>
 </section>
-<section id="кейс-3-определить-процент-площади-муниц.-района-покрытый-водной-поверхностью." class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="кейс-3-определить-процент-площади-муниц.-района-покрытый-водной-поверхностью."><span class="header-section-number">7.5</span> Кейс 3 Определить процент площади муниц. района, покрытый водной поверхностью.</h2>
+<section id="кейс-2-построить-карту-количества-железнодорожных-мостов" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="кейс-2-построить-карту-количества-железнодорожных-мостов"><span class="header-section-number">7.3.2</span> Кейс 2 Построить карту количества железнодорожных мостов</h3>
+<p><strong>Задача:</strong> Подсчитать количество железнодорожных мостов (пересечения рек и дорог) в каждом административном районе Красноярского края. Построить карту (см. <a href="#fig-case_2_result" class="quarto-xref">Рисунок&nbsp;<span>7.6</span></a>).</p>
+<div id="fig-case_2_result" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-case_2_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/7_6_Карта мостов.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7"><img src="./pictures2/7_6_Карта мостов.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-case_2_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;7.6: Карта - результат выполнения кейса 2
+</figcaption>
+</figure>
+</div>
+<p><strong>Исходные данные:</strong> слои “railways”, “waterways” и “level_6”.</p>
+<p><strong>Описание:</strong> Исходными данным для выполнения задания является полигональный слой административных районов (“level_6”), линейный слой железных дорог (“railways”) и линейный слой рек (“waterways”). В слое “waterways” содержатся различные реки (от крупных до мелких). В местах пересечения ЖД и небольших рек обычно стороят насыпи а не мосты, поэтому из слоя “waterways” необходимо выбрать только крупные реки. Для этого применяется фильтр к полю “fclass” и выбираются геометрии с атрибутом “river” (крупные реки). После этого, используйте инструмент “Пересечение линий” на слоях “railways” и отфильтрованом слое “waterways”. В результате будет получен точечный слой пересечения линий из этих слоев.<br>
+Следующая сложность заключается в том, что железная дорога часто имеет 2 колеи, но мост при этом один (см. <a href="#fig-case_2_points" class="quarto-xref">Рисунок&nbsp;<span>7.7</span></a>).</p>
+<div id="fig-case_2_points" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-case_2_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/7_5_Задвоение точек.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-8" data-glightbox="description: .lightbox-desc-8"><img src="./pictures2/7_5_Задвоение точек.PNG" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-case_2_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;7.7: Задвоение точек пересечения
+</figcaption>
+</figure>
+</div>
+<p>Одинм из способов удаления близко расположенных точек: построение буферов небольшого радиуса (30 м) вокруг каждой из точек (в инструменте “Буферизация…” должен быть установлен чек-бокс в пункте “Результат объединения”). Таким боразом, точки на расстоянии менее 30 метров будут объединены общей буферной зоной. С помощью инструмента “Центроиды” (должен быть установлен чек-бокс в пункте “Создать центроиды для каждой части”) извлекаются центроиды из объединенных буферов. Эти центроиды соответствуют положению ЖД моста.<br>
+После того как точечный слой ЖД мостов получен, остается подсчитать количество мостов в каждом муниципальном районе (для этого применяют инструмент “Подсчет точек в полигоне” к слою ЖД мостов и слою “level_6”) и создать карту.</p>
+<p><strong>Этапы выполнения:</strong></p>
+<ul>
+<li>Выбрать из слоя “waterways” крупные реки (в поле “fclass” значение “river”) (см. <a href="chapter5_queries.html#task-task_t1" class="quarto-xref">Задание&nbsp;<span>5.1</span></a>);</li>
+<li>Получить точечный слой пересечений крупных рек и железных дорог (инструмент “Пересечения линий”);</li>
+<li>Построить буферы радиусом 30 м с объединением пересекающихся буферов (перед построением буферов необходимо перепроецировать слой в систему координат ESRI: 102025) (см. <a href="chapter6_spatial_operations.html#sec-ref_sys" class="quarto-xref"><span>Глава 6.1</span></a> и <a href="chapter6_spatial_operations.html#sec-buffer" class="quarto-xref"><span>Глава 6.2</span></a>);</li>
+<li>Извлечь центроиды из буферов (используется инструмент “Центроиды”, с установленным чек-боксом “Создать центроиды для каждой части”);</li>
+<li>Рассчитать количество мостов в каждом административном районе (инструмент “Подсчет точек в полигоне”).</li>
+<li>Составить карту количества ЖД мостов по регионам (см. <a href="chapter4_thematic_maps.html#sec-thematic_maps_numsym" class="quarto-xref"><span>Глава 4.7</span></a>).</li>
+</ul>
+</section>
+<section id="кейс-3-рассчитать-площадь-покрытую-водной-поверхностью-для-каждого-муниципального-района." class="level3" data-number="7.3.3">
+<h3 data-number="7.3.3" class="anchored" data-anchor-id="кейс-3-рассчитать-площадь-покрытую-водной-поверхностью-для-каждого-муниципального-района."><span class="header-section-number">7.3.3</span> Кейс 3 Рассчитать площадь, покрытую водной поверхностью для каждого муниципального района.</h3>
+<p><strong>Задача:</strong> Рассчитайте площадь муниципальных районов покрытую реками и озерами (в процентах от общей площади района). Постройте карту.</p>
+<p><strong>Исходные данные:</strong> слой муниципальных районов “level_6”; слой площадных водных объектов “water”.</p>
+<p><strong>Описание:</strong></p>
+<p><strong>Этапы выполнения:</strong></p>
+<ul>
+<li>Переклассификация слоя “water”: реки (reservoir, riverbank) и озера (water)</li>
+<li>Расчет площади для каждой геометрии (две колонки для рек и озер отдельно)</li>
+<li>В слое админ. границ так же расчет площади</li>
+<li>Пересечение водных объектов с админ. границами</li>
+</ul>
 
 
 <div class="hidden" aria-hidden="true">
 <span class="glightbox-desc lightbox-desc-1">Рисунок&nbsp;7.1: Окно выбора слоев файла “osm.gpkg”</span>
 <span class="glightbox-desc lightbox-desc-2">Рисунок&nbsp;7.2: Результат применения инструмента “Объединение по признаку”</span>
-<span class="glightbox-desc lightbox-desc-3">Видео&nbsp;7.1: “Объединение по признаку”, поле “admin_level”</span>
+<span class="glightbox-desc lightbox-desc-3">Видео&nbsp;7.1: Применение инструмента “Объединение по признаку”, объединение по полю “admin_level”</span>
+<span class="glightbox-desc lightbox-desc-4">Рисунок&nbsp;7.3: Окно “Инструменты анализа”</span>
+<span class="glightbox-desc lightbox-desc-5">Рисунок&nbsp;7.4: Активация модуля “Processing” (галочка установлена)</span>
+<span class="glightbox-desc lightbox-desc-6">Рисунок&nbsp;7.5: Таблица - результат выполнения кейса 1</span>
+<span class="glightbox-desc lightbox-desc-7">Рисунок&nbsp;7.6: Карта - результат выполнения кейса 2</span>
+<span class="glightbox-desc lightbox-desc-8">Рисунок&nbsp;7.7: Задвоение точек пересечения</span>
 </div>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -947,7 +1027,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
