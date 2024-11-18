@@ -304,7 +304,7 @@ window.Quarto = {
 </ul>
 </div>
 </div>
-<p>Панель меню <strong>“Вектор” &gt; “Геообработка”</strong> содержит основные инстументы для изменения векторных объектов (<a href="chapter7_OSM.html#fig-geotools" class="quarto-xref">Рисунок&nbsp;<span>7.3</span></a>).</p>
+<p>Панель меню <strong>“Вектор” &gt; “Геообработка”</strong> содержит основные инстументы для изменения векторных объектов (<a href="chapter7_OSM.html#fig-geotools" class="quarto-xref">Рисунок&nbsp;<span>7.4</span></a>).</p>
 <div id="fig-geotools" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-geotools-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -706,7 +706,7 @@ window.Quarto = {
 </figure>
 </div>
 <p>Более корректно использовать относительную разность (в процентах) а не абсолютные значения. Для этого создадим новое поле “diff_area_perc” (тип поля - десятичное) и заполним его выражением <code>abs("area" * 100 / "s_ga" - 100)</code>. Функция <code>abs()</code> возвращает абсолютное значение выражения в скобках.</p>
-<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div id="task-diff_area_perc" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1329,7 +1329,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

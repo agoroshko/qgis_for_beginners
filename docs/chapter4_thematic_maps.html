@@ -701,7 +701,7 @@ window.Quarto = {
 </figure>
 </div>
 <p>В столбце <strong>“Знак”</strong> возможно отключить видимость отдельного интервала или изменить стиль. В столбце <strong>“Значения”</strong> отображааются границы интервала, которые возможно изменить вручную. Столбец <strong>“Легенда”</strong> отображает подписи в легенде, которые так же возможно изменить вручную.</p>
-<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div id="task-unique_symbols" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1610,7 +1610,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","loop":false});
+<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
