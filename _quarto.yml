@@ -6,6 +6,7 @@ lightbox: true
 
 language:
   section-title-appendices: "Приложения"
+  callout-tip-title: "Задание"
   
 citation: 
   url: https://agoroshko.github.io/qgis_for_beginners
@@ -40,11 +41,13 @@ book:
     - chapter7_OSM.qmd
     - chapter8_DEM.qmd
     - chapter12_homework.qmd
+    - chapter14_coordinates.qmd
     - references.qmd
   appendices:
     - appendice_1_geopackage.qmd
     - appendice_2_epsg_3857.qmd
     - appendice_3_csv.qmd
+    - appendice_4_forestry_map.qmd
   navbar: 
     logo: "./cover.png"
     
@@ -75,6 +78,8 @@ format:
     number-sections: true
   pdf:
     documentclass: scrreprt
-
+  docx: default
+    # toc: true
+    # number-sections: true
 
 

@@ -10,7 +10,7 @@
 
 ::: {.callout-note}
 ## Обратите внимание!
-Дополнительную информацию о приложении QField можно получить на сайте проекта ["Картетика"](https://cartetika.ru/tpost/kugvp2hpe1-qfield-qgis-v-mobilnom-prilozhenii).
+Дополнительную информацию о приложении QField можно получить на сайте проекта ["Картетика"](https://cartetika.ru/tpost/kugvp2hpe1-qfield-qgis-v-mobilnom-prilozhenii) а так же на официальном сайте приложения ["QField"](https://qfield.org/).
 :::
 
 Связь между QGIS и QField обеспечивает плагин "QField Sync" который устанавливается в программу QGIS (пункт **"Модули" > "Управление модулями..." > поиск модуля "QField Sync"**). 

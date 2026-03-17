@@ -71,7 +71,7 @@
 
 ![Создание и заполнение поля "area_videl"](./videos/3_3_Заполнение поля area_videl.mp4){#vid-make_field_area}
 
-::: {#task-task .callout-tip}
+::: {#task-task_area .callout-tip}
 
 - В слое "Выделы" создайте новое поле: имя - "area_videl"; тип - десятичное число (real); длина - 10; точность - 2
 - Рассчитайте площадь для каждого выдела. Используйте редактрор выражений что бы заполнить поле "area_videl" функцией `$area` (@vid-make_field_area).
