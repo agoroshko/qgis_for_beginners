@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Основы геоинформационных систем в QGIS - 8&nbsp; Цифровая модель рельефа</title>
+<title>8&nbsp; Цифровая модель рельефа – Основы геоинформационных систем в QGIS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,19 +30,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapter12_homework.html" rel="next">
+<link href="./chapter14_coordinates.html" rel="next">
 <link href="./chapter7_OSM.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-14cbc709409b9607cfe384ca3dce8273.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -77,7 +81,169 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -85,13 +251,14 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="././cover.png" alt="" class="navbar-logo">
+    <img src="././cover.png" alt="" class="navbar-logo light-content">
+    <img src="././cover.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Основы геоинформационных систем в QGIS</span>
     </a>
   </div>
-        <div class="quarto-navbar-tools">
+        <div class="quarto-navbar-tools tools-end">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Переключить темный режим"><i class="bi"></i></a>
 </div>
           <div id="quarto-search" class="" title="Поиск"></div>
@@ -99,11 +266,11 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter8_DEM.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -176,8 +343,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter12_homework.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Домашнее задание - оцифровка</span></span></a>
+  <a href="./chapter14_coordinates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Каталог координат</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -188,9 +355,9 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Приложения</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Переключить раздел">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Переключить раздел">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -211,6 +378,18 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./appendice_3_csv.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Формат данных CSV</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendice_4_forestry_map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Создание плана лесонасаждений</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter12_homework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Домашнее задание - оцифровка</span></span></a>
   </div>
 </li>
       </ul>
@@ -241,6 +420,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></h1>
@@ -270,7 +450,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Загрузите файлы!
+<span class="screen-reader-only">Уведомление</span>Загрузите файлы!
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -286,10 +466,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="визуализация" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="визуализация"><span class="header-section-number">8.2</span> Визуализация</h2>
 <p>Настройки отображения растра устанавливаются в контекстном меню слоя <strong>“Свойства..” &gt; “Стиль”</strong>. В пункте <strong>“Изображение”</strong> настраивается режим отображения. Для количественных данных используются режимы <strong>“Одноканальное серое”</strong> и <strong>“Одноканальное псевдоцветное”</strong>. Классифицированные изображения визуализируют при помощи режима <strong>“Палитра / Уникальные значения”</strong>. Для многоканальных растров используют режим <strong>“Многоканальное цветное”</strong>. Режимы <strong>“Теневой рельеф”</strong> и <strong>“Изолинии”</strong> применяются для цифровых моделей рельефа.</p>
-<div id="vid-gradient" class="quarto-float">
+<div id="vid-gradient" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-gradient-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/7_1_градиент.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><video src="./videos/7_1_градиент.mp4" class="img-fluid" controls=""></video></a><a href="./videos/7_1_градиент.mp4">Video</a>
+<a href="./videos/7_1_градиент.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Видео&nbsp;8.1: Настройка стиля отображения растра “DEM”"><video src="./videos/7_1_градиент.mp4" class="img-fluid" controls=""></video></a><a href="./videos/7_1_градиент.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-gradient-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;8.1: Настройка стиля отображения растра “DEM”
@@ -315,10 +495,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Инструмент <strong>“Растр” &gt; “Калькулятор растров…”</strong> позволяет проводить арифметические операции с растровыми изображениями. Для составления выражений используются каналы растров и арифметические операторы. Калькулятор растров так же используется для классификации изображения т.е. разбиения его на классы.<br>
 Для примера, воспользуемся инструментом <strong>“Калькулятор растров”</strong> и разобьем (классифицируем) растровый слой “DEM” на 2 класса. Первый класс будет иметь метку 0, в него войдут все пиксели с высотой до 250 метров. Второму классу будет присвоена метка 1, он будет содержать пиксели с высотой большей или равной 250 метров.<br>
 Что бы провести классификацию записывают выражение <code>"DEM@1"  &gt;= 250</code> в <strong>“Калькуляторе растров”</strong>. В результате каждый пиксель изображения проверяется на соответсвтие условию. Пикселям, соответсвтующим условию, присваивается значение 1, не соответствующим - 0. Созданный растр будет содержать пиксели только с двумя значениями: 0 и 1 (высота до 250 и более 250 метров соответственно, см. <a href="#vid-classification2" class="quarto-xref">Видео&nbsp;<span>8.2</span></a>).</p>
-<div id="vid-classification2" class="quarto-float">
+<div id="vid-classification2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-classification2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/7_2_классификация на 2 класса.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><video src="./videos/7_2_классификация%20на%202%20класса.mp4" class="img-fluid" controls=""></video></a><a href="./videos/7_2_классификация на 2 класса.mp4">Video</a>
+<a href="./videos/7_2_классификация на 2 класса.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Видео&nbsp;8.2: Классификация растрового изображения “DEM”"><video src="./videos/7_2_классификация%20на%202%20класса.mp4" class="img-fluid" controls=""></video></a><a href="./videos/7_2_классификация на 2 класса.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-classification2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;8.2: Классификация растрового изображения “DEM”
@@ -336,10 +516,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <p>Ориентируясь на пример выше, проведите классификацию растра “DEM” на 2 класса: класс с меткой 0 должен содержать пиксели до 300 метров; класс с меткой 1 должен содержать пиксели с высотой больше или равной 300 метрам. Результат выполнения задания приведен на рисунке ниже (см. <a href="#fig-two_classes_task" class="quarto-xref">Рисунок&nbsp;<span>8.1</span></a>).</p>
-<div id="fig-two_classes_task" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-two_classes_task" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-two_classes_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/8_1_Задание бинарная классификация.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><img src="./pictures2/8_1_Задание бинарная классификация.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/8_1_Задание бинарная классификация.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Рисунок&nbsp;8.1: Результат выполнения задания, черные пиксели имеют высоту < 300 м, белые >= 300 м"><img src="./pictures2/8_1_Задание бинарная классификация.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-two_classes_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;8.1: Результат выполнения задания, черные пиксели имеют высоту &lt; 300 м, белые &gt;= 300 м
@@ -357,7 +537,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Обратите внимание!
+<span class="screen-reader-only">Уведомление</span>Обратите внимание!
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -375,10 +555,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <p>Классифицируйте раст “DEM” по 3 классам, как показано выше. К полученному изображению примените стиль отображения “Палитра / Уникальные значения”. Результат должен соответствовать изображению ниже (<a href="#fig-classification_task" class="quarto-xref">Рисунок&nbsp;<span>8.2</span></a>).</p>
-<div id="fig-classification_task" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-classification_task" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-classification_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/7_1_DEM_3_class.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><img src="./pictures/7_1_DEM_3_class.jpg" class="img-fluid figure-img"></a>
+<a href="./pictures/7_1_DEM_3_class.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Рисунок&nbsp;8.2: Результат классификации изображения"><img src="./pictures/7_1_DEM_3_class.jpg" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-classification_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;8.2: Результат классификации изображения
@@ -398,10 +578,10 @@ ul.task-list li input[type="checkbox"] {
 <li>задать “Текущий охват карты”;</li>
 <li>“Указать на карте” напрямую (<a href="#fig-crop_by_videla" class="quarto-xref">Рисунок&nbsp;<span>8.3</span></a>).</li>
 </ul>
-<div id="fig-crop_by_videla" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-crop_by_videla" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-crop_by_videla-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/7_1_Обрезка по охвату.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><img src="./pictures/7_1_Обрезка по охвату.png" class="img-fluid figure-img"></a>
+<a href="./pictures/7_1_Обрезка по охвату.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Рисунок&nbsp;8.3: Окно инструмента “Обрезать растр по охвату”"><img src="./pictures/7_1_Обрезка по охвату.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-crop_by_videla-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;8.3: Окно инструмента “Обрезать растр по охвату”
@@ -423,10 +603,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p>При использовании инструмента <strong>“Обрезать растр по маске…”</strong> в качестве “Исходного слоя” указывается растровое изображение, которое должно быть обрезано. В пункте “Слой маски” указывается векторный слой, по границам которого будет проведена обрезка. Чек-бокс <strong>“Только выделенные объекты”</strong> позволяет провести обрезку по границам выделенных объектов векторного слоя (<a href="#fig-crop_by_uchlesn" class="quarto-xref">Рисунок&nbsp;<span>8.4</span></a>).</p>
-<div id="fig-crop_by_uchlesn" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-crop_by_uchlesn" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-crop_by_uchlesn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/7_2_Обрезка растра по маске.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6"><img src="./pictures/7_2_Обрезка растра по маске.png" class="img-fluid figure-img"></a>
+<a href="./pictures/7_2_Обрезка растра по маске.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Рисунок&nbsp;8.4: Окно инструмента “Обрезать растр по маске”"><img src="./pictures/7_2_Обрезка растра по маске.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-crop_by_uchlesn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;8.4: Окно инструмента “Обрезать растр по маске”
@@ -453,10 +633,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Зональная статистика предполагает разделение территории на несколько зон для каждой из которых извлекается значение из растрового слоя. При этом должна быть выбрана функция для агрегирования значений пикселей внутри каждой зоны. Это может быть среднее значение, медиана и др.<br>
 Для выбора инструмента <strong>“Зональная статистика”</strong> активируйте <strong>“Панель инструментов”</strong> <img src="./icons/7_1_панель инструментов.png" class="img-fluid" alt="Панель инструментов">, в пункте <strong>“Анализ растров”</strong> выберите <strong>“Зональная статистика”</strong>. В открывшемся окне пункт <strong>“Исходный слой”</strong> определяет векторный полигональный слой с зонами, в пункте <strong>“Растровый слой”</strong> задается растровое изображение из которого будут извлечены значения для каждой зоны. Пункт <strong>“Статистики для расчета”</strong> позволяет выбрать несколько статистик, которые будут добавлены в атрибутивную информацию векторного слоя для каждой зоны (среднее, медиана и т.д.).<br>
 В следующем примере была рассчитана максимальная, минимальная и средняя высота для каждого выдела. В инструменте <strong>“Зональная статистика”</strong>, пункте <strong>“Исходный слой”</strong> указывается векторный слой выделов (“videl”), в пункте растровый слой - слой “DEM”, префикс поля ввода - “dem_”. В пункте <strong>“Статистики расчета”</strong> указываются: <strong>“Количество”; “Среднее”; “Минимум”; “Максимум”</strong>. После выполнения появится временный векторный слой под названием “Зональная статистика” с рассчитанными показателями высоты для каждого выдела (поле “dem_count” - количество пикселей растрового слоя, попадающих в выдел; “dem_mean” - средняя высота для выдела; “dem_min” - минимальная высота для выдела; “dem_max” - максимальная высота для выдела) (<a href="#vid-zonal_stat" class="quarto-xref">Видео&nbsp;<span>8.3</span></a>).</p>
-<div id="vid-zonal_stat" class="quarto-float">
+<div id="vid-zonal_stat" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-zonal_stat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/7_3_зональная статистика.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7"><video src="./videos/7_3_зональная%20статистика.mp4" class="img-fluid" controls=""></video></a><a href="./videos/7_3_зональная статистика.mp4">Video</a>
+<a href="./videos/7_3_зональная статистика.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Видео&nbsp;8.3: Настройка стиля отображения растра “DEM”"><video src="./videos/7_3_зональная%20статистика.mp4" class="img-fluid" controls=""></video></a><a href="./videos/7_3_зональная статистика.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-zonal_stat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;8.3: Настройка стиля отображения растра “DEM”
@@ -479,10 +659,10 @@ ul.task-list li input[type="checkbox"] {
 <li>Окрасьте выделы, со средней высотой более 400 м, в красный цвет (режим стиля - “Символизация на основе правил”)</li>
 <li>Создайте макет и сохраните изображение, которое должно соответствовать рисунку ниже (<a href="#fig-task_dem_mean" class="quarto-xref">Рисунок&nbsp;<span>8.5</span></a>).</li>
 </ol>
-<div id="fig-task_dem_mean" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-task_dem_mean" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-task_dem_mean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/7_3_Выдела с высотой более 400.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" data-glightbox="description: .lightbox-desc-8"><img src="./pictures/7_3_Выдела с высотой более 400.png" class="img-fluid figure-img"></a>
+<a href="./pictures/7_3_Выдела с высотой более 400.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Рисунок&nbsp;8.5: Результат выполнения задания"><img src="./pictures/7_3_Выдела с высотой более 400.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-task_dem_mean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;8.5: Результат выполнения задания
@@ -500,7 +680,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Обратите внимание!
+<span class="screen-reader-only">Уведомление</span>Обратите внимание!
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -508,10 +688,10 @@ ul.task-list li input[type="checkbox"] {
 Для перепроецирования растра в другую систему координат используется инструмент <strong>“Растр” &gt; “Проекции” &gt; “Деформация (перепроецирование)…”</strong>. В качестве исходного слоя выбирается цифровая модель рельефа (слой “DEM”), в пункте “Целевая система координат” задается EPSG:32646 - WGS 84 / UTM zone 46N. В пункте “Перепроецировано” указывается папка для сохранения растрового слоя (папка проекта) и название “DEM_UTM.tif” (<a href="#fig-dem_reproject" class="quarto-xref">Рисунок&nbsp;<span>8.6</span></a>).</p>
 </div>
 </div>
-<div id="fig-dem_reproject" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-dem_reproject" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dem_reproject-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/7_7_Перепроецирование растра DEM.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" data-glightbox="description: .lightbox-desc-9"><img src="./pictures/7_7_Перепроецирование растра DEM.png" class="img-fluid figure-img"></a>
+<a href="./pictures/7_7_Перепроецирование растра DEM.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Рисунок&nbsp;8.6: Перепроецирование растра DEM"><img src="./pictures/7_7_Перепроецирование растра DEM.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dem_reproject-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;8.6: Перепроецирование растра DEM
@@ -533,10 +713,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>На основе цифровой модели рельефа возможен расчет экспозиции и крутизны склона а так же топографических индексов TPI, TRI и др. Для примера рассчитаем экспозицию, крутизну и TPI.<br>
 Для расчета экспозиции склона перейдите в пункт <strong>“Растр” &gt; “Анализ” &gt; “Экспозиция…”</strong>. В качестве исходного слоя выберите цифровую модель рельефа (слой “DEM_UTM”). Новый растр возможно сохранить сразу на диск, а не в виде временного слоя, для этого в пункте <strong>“Экспозиция”</strong> выберите <strong>“Сохранить в файл…”</strong> и укажите директорию проекта и название файла <strong>“aspect.tif”</strong>. После применения инструмента в панеле слоев появится новый слой “aspect” в каждой ячейке которого будет указана экспозиция склона в виде азимута (угол, отсчитываемый от северного направления географического меридиана). Равнинные участки будут иметь значние -9999, если не отмечен чек-бокс “Возвращать 0 в плоских областях…” (<a href="#fig-aspect" class="quarto-xref">Рисунок&nbsp;<span>8.7</span></a>).</p>
-<div id="fig-aspect" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-aspect" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-aspect-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/7_4_Экспозиция.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" data-glightbox="description: .lightbox-desc-10"><img src="./pictures/7_4_Экспозиция.png" class="img-fluid figure-img"></a>
+<a href="./pictures/7_4_Экспозиция.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Рисунок&nbsp;8.7: Инструмент “Экспозиция”"><img src="./pictures/7_4_Экспозиция.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-aspect-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;8.7: Инструмент “Экспозиция”
@@ -557,10 +737,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p>Для расчета крутизны склона на основе цифровой модели рельефа используется инструмент <strong>“Растр” &gt; “Анализ” &gt; “Крутизна…”</strong>. В качестве исходного слоя выбирается цифровая модель рельефа (слой “DEM_UTM”), результат выполнения сохраните на диск под названием “slope.tif”. В результате будет создан растровый слой, в каждой ячейке которого указана крутина склона в градусах (<a href="#fig-slope" class="quarto-xref">Рисунок&nbsp;<span>8.8</span></a>).</p>
-<div id="fig-slope" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-slope" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-slope-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/7_5_Крутизна.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" data-glightbox="description: .lightbox-desc-11"><img src="./pictures/7_5_Крутизна.png" class="img-fluid figure-img"></a>
+<a href="./pictures/7_5_Крутизна.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Рисунок&nbsp;8.8: Инструмент “Крутизна”"><img src="./pictures/7_5_Крутизна.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-slope-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;8.8: Инструмент “Крутизна”
@@ -591,7 +771,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Обратите внимание!
+<span class="screen-reader-only">Уведомление</span>Обратите внимание!
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -599,10 +779,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p>Для создания многоканального изображения необходимо поставить чек-бокс в пункте <strong>“Поместить каждый входной слой в отдельный канал”</strong>, иначе склейка изображений произойдет в виде мозайки. “Выходной тип данных” должен соответствовать данным растровых изображений. Результатом применения инструмента станет многоканальный растровый слой “DEM_indexes” (<a href="#vid-dem_multi" class="quarto-xref">Видео&nbsp;<span>8.4</span></a>).</p>
-<div id="vid-dem_multi" class="quarto-float">
+<div id="vid-dem_multi" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-dem_multi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/7_4_многоканальное изображение.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-12" data-glightbox="description: .lightbox-desc-12"><video src="./videos/7_4_многоканальное%20изображение.mp4" class="img-fluid" controls=""></video></a><a href="./videos/7_4_многоканальное изображение.mp4">Video</a>
+<a href="./videos/7_4_многоканальное изображение.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Видео&nbsp;8.4: Cоздание многоканального изображения"><video src="./videos/7_4_многоканальное%20изображение.mp4" class="img-fluid" controls=""></video></a><a href="./videos/7_4_многоканальное изображение.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-dem_multi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;8.4: Cоздание многоканального изображения
@@ -626,10 +806,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="sec-multichannel_img_classif" class="level2" data-number="8.8">
 <h2 data-number="8.8" class="anchored" data-anchor-id="sec-multichannel_img_classif"><span class="header-section-number">8.8</span> Классификация многоканального изображения</h2>
 <p>Созданный многоканальный растр “DEM_indexes” позволяет провдить фильтрацию сразу по нескольким каналам (переменным). Для этого используется <strong>“Растр” &gt; “Калькулятор растров”</strong> который уже применялся для классификации растра “DEM” в предыдущем разделе (<a href="#sec-dem_classification" class="quarto-xref"><span>Глава 8.3</span></a>). В пункте “Каналы растра” отображаются растровые слои проекта в виде названия и номера канала отделенных символом “@”, которые возможно использовать в вырежении для классификации по нескольким каналам. Например, для выделения участков земли на высоте более 300 м и крутизной более 30 градусов используется выражение: <code>"DEM_indexes@2"&gt;30 AND "DEM_indexes@3"&gt;300</code> (2 канал - “slope”, 3 канал - “DEM_UTM”). Аналогично задается условие для выбороа участков на высоте от 200 до 300 метров с уклоном менее 20 градусов: <code>"DEM_indexes@2"&lt; 20 AND "DEM_indexes@3" &gt; 200 AND "DEM_indexes@3" &lt; 300</code> (<a href="#fig-multi_classification" class="quarto-xref">Рисунок&nbsp;<span>8.9</span></a>).</p>
-<div id="fig-multi_classification" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-multi_classification" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-multi_classification-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/7_7_классификация многоканального растра.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" data-glightbox="description: .lightbox-desc-13"><img src="./pictures/7_7_классификация многоканального растра.png" class="img-fluid figure-img"></a>
+<a href="./pictures/7_7_классификация многоканального растра.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Рисунок&nbsp;8.9: Классификация многоканального изображения"><img src="./pictures/7_7_классификация многоканального растра.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-multi_classification-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;8.9: Классификация многоканального изображения
@@ -649,10 +829,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Используя многоканальный растр “DEM_indexes”, выделите участки с южной экспозицией склона (от 135 до 225 градусов) находящиеся на высоте до 300 метров. Сохраните новый растровый слой под названием “DEM_classification.tif”. Результат выполнения задания представлен на рисунке ниже (<a href="#fig-task_multi_classification" class="quarto-xref">Рисунок&nbsp;<span>8.10</span></a>).</p>
 </div>
 </div>
-<div id="fig-task_multi_classification" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-task_multi_classification" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-task_multi_classification-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/7_8_результат задания классификации.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" data-glightbox="description: .lightbox-desc-14"><img src="./pictures/7_8_результат задания классификации.png" class="img-fluid figure-img"></a>
+<a href="./pictures/7_8_результат задания классификации.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Рисунок&nbsp;8.10: Результат выполнения задания по классификации (пиксели, соответствующие условию, окрашены в белый)"><img src="./pictures/7_8_результат задания классификации.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-task_multi_classification-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;8.10: Результат выполнения задания по классификации (пиксели, соответствующие условию, окрашены в белый)
@@ -663,10 +843,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="создание-изолиний" class="level2" data-number="8.9">
 <h2 data-number="8.9" class="anchored" data-anchor-id="создание-изолиний"><span class="header-section-number">8.9</span> Создание изолиний</h2>
 <p>Инструмент <strong>“Растр” &gt; “Извлечение” &gt; “Создать изолинии..** используется для построения изолиний (горизонталей). В пункте”Исходный слой” указывается цифровая модель рельефа, пункт </strong>”Расстояние между изолиниями”** определяет высоту сечения рельефа в метрах. Результатом применения инструмента является временный векторный слой горизонталей с атрибутом “ELEV” в котором указана высота каждой конкретной горизонтали (<a href="#fig-make_izos" class="quarto-xref">Рисунок&nbsp;<span>8.11</span></a>).</p>
-<div id="fig-make_izos" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-make_izos" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-make_izos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/7_9_Создать изолинии.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" data-glightbox="description: .lightbox-desc-15"><img src="./pictures/7_9_Создать изолинии.png" class="img-fluid figure-img"></a>
+<a href="./pictures/7_9_Создать изолинии.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Рисунок&nbsp;8.11: Инструмент “Создать изолинии”"><img src="./pictures/7_9_Создать изолинии.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-make_izos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;8.11: Инструмент “Создать изолинии”
@@ -695,10 +875,10 @@ ul.task-list li input[type="checkbox"] {
 <li>горизонтали, отметки которых кратны 100 (каждая пятая горизонталь), оформляются утолщенной линией.</li>
 </ul>
 <p>Для второго условия применяется оператор <code>%</code> который возвращает остаток от деления. Для горизонталей, отметка которых кратна 100 метров, выражение <code>"ELEV" % 100</code> будет возвращать значение <strong>0</strong> (“ELEV” - поле в слое “Горизонтали” которое содержит отметку для каждой горизонтали) (<a href="#fig-make_izos_style" class="quarto-xref">Рисунок&nbsp;<span>8.12</span></a>).</p>
-<div id="fig-make_izos_style" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-make_izos_style" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-make_izos_style-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/7_10_Оформление горизонталей.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" data-glightbox="description: .lightbox-desc-16"><img src="./pictures/7_10_Оформление горизонталей.png" class="img-fluid figure-img"></a>
+<a href="./pictures/7_10_Оформление горизонталей.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Рисунок&nbsp;8.12: Создание стиля горизонталей"><img src="./pictures/7_10_Оформление горизонталей.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-make_izos_style-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;8.12: Создание стиля горизонталей
@@ -718,10 +898,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Настройте стиль слоя “Горизонтали” так, что бы горизонтали с отметками кратными 100 имели толщину линий 0.4, а все остальные горизонтали толщину 0.1. Цвет горизонталей коричневый. Для этого перейдите в контекстрое меню слоя <strong>“Стиль” &gt; режим “Символизация на основе правил”</strong> (<a href="#fig-make_izos_task" class="quarto-xref">Рисунок&nbsp;<span>8.13</span></a>).</p>
 </div>
 </div>
-<div id="fig-make_izos_task" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-make_izos_task" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-make_izos_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/7_11_Горизонтали.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" data-glightbox="description: .lightbox-desc-17"><img src="./pictures/7_11_Горизонтали.png" class="img-fluid figure-img"></a>
+<a href="./pictures/7_11_Горизонтали.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Рисунок&nbsp;8.13: Результат выполнения задания по построению горизонталей"><img src="./pictures/7_11_Горизонтали.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-make_izos_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;8.13: Результат выполнения задания по построению горизонталей
@@ -734,10 +914,10 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>“Разрешенные позиции”</strong> - на линии;</li>
 <li><strong>“Повтор подписей”</strong> - “Интервал” 10 000, “метры в масштабе”.</li>
 </ul>
-<div id="fig-izos_labels" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-izos_labels" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-izos_labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/7_12_Подписи горизонталей.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" data-glightbox="description: .lightbox-desc-18"><img src="./pictures/7_12_Подписи горизонталей.png" class="img-fluid figure-img"></a>
+<a href="./pictures/7_12_Подписи горизонталей.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Рисунок&nbsp;8.14: Результат выполнения задания по построению горизонталей"><img src="./pictures/7_12_Подписи горизонталей.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-izos_labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;8.14: Результат выполнения задания по построению горизонталей
@@ -757,10 +937,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Добавьте подписи для горизонталей, отметки которых кратны 100. Для этого перейдите в контекстное меню слоя (<strong>“Стиль” &gt; “Надписи” &gt; режим “Подписи на основе правил”</strong>) и настройте подписи (<a href="#fig-izos_labels_task" class="quarto-xref">Рисунок&nbsp;<span>8.15</span></a>).</p>
 </div>
 </div>
-<div id="fig-izos_labels_task" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-izos_labels_task" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-izos_labels_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/7_13_Подписи горизонталей результат задания.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" data-glightbox="description: .lightbox-desc-19"><img src="./pictures/7_13_Подписи горизонталей результат задания.png" class="img-fluid figure-img"></a>
+<a href="./pictures/7_13_Подписи горизонталей результат задания.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Рисунок&nbsp;8.15: Результат выполнения задания (подписи горизонталей)"><img src="./pictures/7_13_Подписи горизонталей результат задания.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-izos_labels_task-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;8.15: Результат выполнения задания (подписи горизонталей)
@@ -769,212 +949,75 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Видео&nbsp;8.1: Настройка стиля отображения растра “DEM”</span>
-<span class="glightbox-desc lightbox-desc-2">Видео&nbsp;8.2: Классификация растрового изображения “DEM”</span>
-<span class="glightbox-desc lightbox-desc-3">Рисунок&nbsp;8.1: Результат выполнения задания, черные пиксели имеют высоту &lt; 300 м, белые &gt;= 300 м</span>
-<span class="glightbox-desc lightbox-desc-4">Рисунок&nbsp;8.2: Результат классификации изображения</span>
-<span class="glightbox-desc lightbox-desc-5">Рисунок&nbsp;8.3: Окно инструмента “Обрезать растр по охвату”</span>
-<span class="glightbox-desc lightbox-desc-6">Рисунок&nbsp;8.4: Окно инструмента “Обрезать растр по маске”</span>
-<span class="glightbox-desc lightbox-desc-7">Видео&nbsp;8.3: Настройка стиля отображения растра “DEM”</span>
-<span class="glightbox-desc lightbox-desc-8">Рисунок&nbsp;8.5: Результат выполнения задания</span>
-<span class="glightbox-desc lightbox-desc-9">Рисунок&nbsp;8.6: Перепроецирование растра DEM</span>
-<span class="glightbox-desc lightbox-desc-10">Рисунок&nbsp;8.7: Инструмент “Экспозиция”</span>
-<span class="glightbox-desc lightbox-desc-11">Рисунок&nbsp;8.8: Инструмент “Крутизна”</span>
-<span class="glightbox-desc lightbox-desc-12">Видео&nbsp;8.4: Cоздание многоканального изображения</span>
-<span class="glightbox-desc lightbox-desc-13">Рисунок&nbsp;8.9: Классификация многоканального изображения</span>
-<span class="glightbox-desc lightbox-desc-14">Рисунок&nbsp;8.10: Результат выполнения задания по классификации (пиксели, соответствующие условию, окрашены в белый)</span>
-<span class="glightbox-desc lightbox-desc-15">Рисунок&nbsp;8.11: Инструмент “Создать изолинии”</span>
-<span class="glightbox-desc lightbox-desc-16">Рисунок&nbsp;8.12: Создание стиля горизонталей</span>
-<span class="glightbox-desc lightbox-desc-17">Рисунок&nbsp;8.13: Результат выполнения задания по построению горизонталей</span>
-<span class="glightbox-desc lightbox-desc-18">Рисунок&nbsp;8.14: Результат выполнения задания по построению горизонталей</span>
-<span class="glightbox-desc lightbox-desc-19">Рисунок&nbsp;8.15: Результат выполнения задания (подписи горизонталей)</span>
-</div>
 </section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
       return false;
     }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Скопировано");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Скопировано");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
     }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
@@ -982,162 +1025,184 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
       return codeEl.innerText;
     }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Скопировано");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Скопировано");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-        return container.innerHTML
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1145,222 +1210,205 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter7_OSM.html" class="pagination-link  aria-label=" &lt;span="" street="" map="" (osm)&lt;="" span&gt;"="">
+      <a href="./chapter7_OSM.html" class="pagination-link" aria-label="Open Street Map (OSM)">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Open Street Map (OSM)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter12_homework.html" class="pagination-link" aria-label="<span class='chapter-number'>9</span>&nbsp; <span class='chapter-title'>Домашнее задание - оцифровка</span>">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Домашнее задание - оцифровка</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter14_coordinates.html" class="pagination-link" aria-label="Каталог координат">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Каталог координат</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
     }
-  });
-
-};
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
           </script>
 
 

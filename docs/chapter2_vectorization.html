@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Основы геоинформационных систем в QGIS - 2&nbsp; Векторизация</title>
+<title>2&nbsp; Векторизация – Основы геоинформационных систем в QGIS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,17 +32,21 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <link href="./chapter3_attributes.html" rel="next">
 <link href="./chapter1_georeferencing.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-14cbc709409b9607cfe384ca3dce8273.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -77,7 +81,169 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -85,13 +251,14 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="././cover.png" alt="" class="navbar-logo">
+    <img src="././cover.png" alt="" class="navbar-logo light-content">
+    <img src="././cover.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Основы геоинформационных систем в QGIS</span>
     </a>
   </div>
-        <div class="quarto-navbar-tools">
+        <div class="quarto-navbar-tools tools-end">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Переключить темный режим"><i class="bi"></i></a>
 </div>
           <div id="quarto-search" class="" title="Поиск"></div>
@@ -99,11 +266,11 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter2_vectorization.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Векторизация</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -182,15 +349,21 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./chapter14_coordinates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Каталог координат</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Библиографический список</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Приложения</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Переключить раздел">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Переключить раздел">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -211,6 +384,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./appendice_3_csv.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Формат данных CSV</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendice_4_forestry_map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Создание плана лесонасаждений</span></span></a>
   </div>
 </li>
       </ul>
@@ -251,6 +430,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title"><span id="sec-vectorization" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Векторизация</span></span></h1>
@@ -278,7 +458,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note&nbsp;2.1: Загрузите файлы!
+Уведомление&nbsp;2.1: Загрузите файлы!
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -297,7 +477,7 @@ Note&nbsp;2.1: Загрузите файлы!
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Обратите внимание!
+<span class="screen-reader-only">Уведомление</span>Обратите внимание!
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -316,7 +496,7 @@ Note&nbsp;2.1: Загрузите файлы!
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Обратите внимание!
+<span class="screen-reader-only">Уведомление</span>Обратите внимание!
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -324,10 +504,10 @@ Note&nbsp;2.1: Загрузите файлы!
 </div>
 </div>
 <p>Для записи названий скал создадим новое поле. В области “Новое поле” введите “Имя” - <strong>“name”</strong>, «Тип» – <strong>“Текст”</strong>, размер можно оставить без изменений (80 символов). После нажатия на иконку <strong>“Добавить в список полей”</strong> <img src="./QGIS_icons/mActionNewAttribute.svg" class="img-fluid" alt="1">, поле с заданными параметрами появится в области <strong>“Список полей”</strong>. Теперь слой содержит два поля: <strong>“id”</strong> (создается по умолчанию) и только что добавленное поле <strong>“name”</strong> в которое будут записываться названия объектов. Так же есть возможность удалить поле при помощи иконки <strong>“Удалить поле”</strong> <img src="./QGIS_icons/mActionDeleteAttribute.svg" class="img-fluid" alt="1"> (<a href="#fig-point_layer" class="quarto-xref">Рисунок&nbsp;<span>2.1</span></a>).</p>
-<div id="fig-point_layer" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-point_layer" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-point_layer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/2_1_Создание точечного слоя.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./pictures2/2_1_Создание точечного слоя.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/2_1_Создание точечного слоя.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Рисунок&nbsp;2.1: Окно “Создать слой”"><img src="./pictures2/2_1_Создание точечного слоя.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-point_layer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;2.1: Окно “Создать слой”
@@ -335,10 +515,10 @@ Note&nbsp;2.1: Загрузите файлы!
 </figure>
 </div>
 <p>После задания всех параметов нажмите <strong>“ОК”</strong>, новый слой будет сохранен на диск и появится в панеле <strong>“Слои”</strong>.</p>
-<div id="vid-add_rocks_layer" class="quarto-float">
+<div id="vid-add_rocks_layer" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-add_rocks_layer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/2_5_Добавление точечного слоя.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><video src="./videos/2_5_Добавление%20точечного%20слоя.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_5_Добавление точечного слоя.mp4">Video</a>
+<a href="./videos/2_5_Добавление точечного слоя.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Видео&nbsp;2.1: Создание точечного векторного слоя “Скалы”"><video src="./videos/2_5_Добавление%20точечного%20слоя.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_5_Добавление точечного слоя.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-add_rocks_layer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;2.1: Создание точечного векторного слоя “Скалы”
@@ -351,7 +531,7 @@ Note&nbsp;2.1: Загрузите файлы!
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Обратите внимание!
+<span class="screen-reader-only">Уведомление</span>Обратите внимание!
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -389,10 +569,10 @@ Note&nbsp;2.1: Загрузите файлы!
 <li><strong>“Отменить”</strong> <img src="./QGIS_icons/mActionUndo.svg" class="img-fluid" alt="1"> и другие.</li>
 </ul>
 <p>Что бы добавить первую точку выберите инструмент <strong>“Добавить объект”</strong> <img src="./QGIS_icons/mActionCapturePoint.svg" class="img-fluid" alt="1"> и нажмите на одну из подписанных скал. Появится окно <strong>“Атрибуты объекта”</strong> в котором нужно заполнить ранее созданное поле <strong>“name”</strong> - название скалы (поле “id” оставьте без изменений - <a href="#fig-attr_window" class="quarto-xref">Рисунок&nbsp;<span>2.2</span></a>), после чего нажать <strong>“ОК”</strong>. Новый объект появится на карте. Аналогичным способом добавляют остальные вершины скал.</p>
-<div id="fig-attr_window" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-attr_window" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-attr_window-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/2_2_Заполнение атрибутов точечного слоя.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><img src="./pictures2/2_2_Заполнение атрибутов точечного слоя.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/2_2_Заполнение атрибутов точечного слоя.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Рисунок&nbsp;2.2: Окно “Атрибуты объектов”"><img src="./pictures2/2_2_Заполнение атрибутов точечного слоя.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-attr_window-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;2.2: Окно “Атрибуты объектов”
@@ -405,17 +585,17 @@ Note&nbsp;2.1: Загрузите файлы!
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Обратите внимание!
+<span class="screen-reader-only">Уведомление</span>Обратите внимание!
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Хотя названия полей <strong>всегда задаются латинскими буквами без пробелов и специальных символов</strong>, для содежимиого полей таких ограничений нет, использование кириллицы вполне допустимо. Основное ограничение содержимого поля - тип данных поля, задается при создании.</p>
 </div>
 </div>
-<div id="vid-add_rocks_points" class="quarto-float">
+<div id="vid-add_rocks_points" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-add_rocks_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/2_6_Добавление точек.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><video src="./videos/2_6_Добавление%20точек.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_6_Добавление точек.mp4">Video</a>
+<a href="./videos/2_6_Добавление точек.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Видео&nbsp;2.2: Добавление объектов в слой “Скалы”"><video src="./videos/2_6_Добавление%20точек.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_6_Добавление точек.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-add_rocks_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;2.2: Добавление объектов в слой “Скалы”
@@ -439,10 +619,10 @@ Note&nbsp;2.1: Загрузите файлы!
 <section id="изменение-положения-точечных-объектов" class="level3" data-number="2.1.3">
 <h3 data-number="2.1.3" class="anchored" data-anchor-id="изменение-положения-точечных-объектов"><span class="header-section-number">2.1.3</span> Изменение положения точечных объектов</h3>
 <p>Изменение формы существующих объектов выполняется при помощи <strong>“Инструмента правки вершин”</strong> <img src="./QGIS_icons/mActionVertexToolActiveLayer.svg" class="img-fluid" alt="1">, позволяющего изменить местоположение вершин и сегментов а так же добавить/удалить вершины. Воспользуемся этим инструментом что бы передвинуть добавленные точки. Для этого активируйте инструмент и передвиньте любую из точек, нажав на нее.</p>
-<div id="vid-move_rock_point" class="quarto-float">
+<div id="vid-move_rock_point" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-move_rock_point-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/2_7_Перемещение точек.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><video src="./videos/2_7_Перемещение%20точек.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_7_Перемещение точек.mp4">Video</a>
+<a href="./videos/2_7_Перемещение точек.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Видео&nbsp;2.3: Перемещение отдельных точек"><video src="./videos/2_7_Перемещение%20точек.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_7_Перемещение точек.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-move_rock_point-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;2.3: Перемещение отдельных точек
@@ -463,10 +643,10 @@ Note&nbsp;2.1: Загрузите файлы!
 </div>
 </div>
 <p>Для перемещения сразу нескльких точек, выделите их (зажмите левую кнопку мыши &gt; потяните курсор &gt; выделите точки синим контуром) и переместите одну из точек на новое место. Остальные точки сместятся вслед за ней.</p>
-<div id="vid-move_rocks_points" class="quarto-float">
+<div id="vid-move_rocks_points" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-move_rocks_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/2_8_Перемещение точек 2.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6"><video src="./videos/2_8_Перемещение%20точек%202.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_8_Перемещение точек 2.mp4">Video</a>
+<a href="./videos/2_8_Перемещение точек 2.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Видео&nbsp;2.4: Перемещение нескольких точек"><video src="./videos/2_8_Перемещение%20точек%202.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_8_Перемещение точек 2.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-move_rocks_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;2.4: Перемещение нескольких точек
@@ -487,20 +667,20 @@ Note&nbsp;2.1: Загрузите файлы!
 </div>
 </div>
 <p>Пока точки выделены вы можете удалить их, нажав клавишу “Delete”. Для отмены последних действий используйте инструмент “Отменить” <img src="./QGIS_icons/mActionUndo.svg" class="img-fluid" alt="1"> или сочетание клавиш <code>Ctrl+Z</code>. Инструмент “Вернуть” <img src="./QGIS_icons/mActionRedo.svg" class="img-fluid" alt="1"> позволяет вернуть отмененные изменения (<code>Ctrl+Shift+Z</code>). Для просмотра изменений возможно использовать панель <strong>“История изменений”</strong> которая включается в меню <strong>“Настройки” &gt; “Панели” &gt; “История изменений”</strong> и позволяет так же отменить и вернуть изменения (<a href="#fig-change_hist" class="quarto-xref">Рисунок&nbsp;<span>2.3</span></a>, <a href="#vid-undo_redo" class="quarto-xref">Видео&nbsp;<span>2.5</span></a>).</p>
-<div id="fig-change_hist" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-change_hist" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-change_hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/2_3_Панель история изменений.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7"><img src="./pictures2/2_3_Панель история изменений.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/2_3_Панель история изменений.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Рисунок&nbsp;2.3: Панель “История изменений”"><img src="./pictures2/2_3_Панель история изменений.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-change_hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;2.3: Панель “История изменений”
 </figcaption>
 </figure>
 </div>
-<div id="vid-undo_redo" class="quarto-float">
+<div id="vid-undo_redo" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-undo_redo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/2_9_Отмена изменений.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-8" data-glightbox="description: .lightbox-desc-8"><video src="./videos/2_9_Отмена%20изменений.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_9_Отмена изменений.mp4">Video</a>
+<a href="./videos/2_9_Отмена изменений.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Видео&nbsp;2.5: Отмена и возврат изменений"><video src="./videos/2_9_Отмена%20изменений.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_9_Отмена изменений.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-undo_redo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;2.5: Отмена и возврат изменений
@@ -514,7 +694,7 @@ Note&nbsp;2.1: Загрузите файлы!
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Обратите внимание!
+<span class="screen-reader-only">Уведомление</span>Обратите внимание!
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -541,20 +721,20 @@ Note&nbsp;2.1: Загрузите файлы!
 <section id="удаление-точечных-объектов" class="level3" data-number="2.1.4">
 <h3 data-number="2.1.4" class="anchored" data-anchor-id="удаление-точечных-объектов"><span class="header-section-number">2.1.4</span> Удаление точечных объектов</h3>
 <p>Другой способ удаления объектов заключается в выделении их при помощи <strong>“Панели выбора объектов”</strong> (в которой выбирается один из инструментов). Выделенные объекты окрасятся в желтый цвет, после чего нажимается клавиша <strong>Delete</strong> или иконка <strong>“Удалить выделенное”</strong> <img src="./QGIS_icons/mActionDeleteSelectedFeatures.svg" class="img-fluid" alt="1">. Появится предупреждающее окно в котором нужно нажать “Удалить объект” (<a href="#fig-confirm_del" class="quarto-xref">Рисунок&nbsp;<span>2.4</span></a>). Для примера используем инструмент “Выбрать объекты в прямоугольнике или точке” <img src="./QGIS_icons/mActionSelectRectangle.svg" class="img-fluid" alt="1"> для выбора и удаления объектов (<a href="#vid-delete_points" class="quarto-xref">Видео&nbsp;<span>2.6</span></a>).</p>
-<div id="fig-confirm_del" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-confirm_del" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-confirm_del-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/2_4_Подтверждение удаления.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" data-glightbox="description: .lightbox-desc-9"><img src="./pictures2/2_4_Подтверждение удаления.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/2_4_Подтверждение удаления.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Рисунок&nbsp;2.4: Подтверждение удаления объектов"><img src="./pictures2/2_4_Подтверждение удаления.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-confirm_del-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;2.4: Подтверждение удаления объектов
 </figcaption>
 </figure>
 </div>
-<div id="vid-delete_points" class="quarto-float">
+<div id="vid-delete_points" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-delete_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/2_10_Удаление объектов.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-10" data-glightbox="description: .lightbox-desc-10"><video src="./videos/2_10_Удаление%20объектов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_10_Удаление объектов.mp4">Video</a>
+<a href="./videos/2_10_Удаление объектов.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Видео&nbsp;2.6: Выбор и удаление объектов"><video src="./videos/2_10_Удаление%20объектов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_10_Удаление объектов.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-delete_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;2.6: Выбор и удаление объектов
@@ -579,10 +759,10 @@ Note&nbsp;2.1: Загрузите файлы!
 <section id="таблица-атрибутов-слоя" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="таблица-атрибутов-слоя"><span class="header-section-number">2.2</span> Таблица атрибутов слоя</h2>
 <p>При добавлении точечных объектов в поле <strong>“name”</strong> записывались названия скал. Эти названия хранятся в таблице атрибутов и могут использоваться для подписи объектов, по аналогии с подписями кварталов (<a href="chapter1_georeferencing.html#task-task_kvnet" class="quarto-xref">Задание&nbsp;<span>1.3</span></a>). Вы можете открыть таблицу атрибутов и убедиться в этом. Для этого в панеле слоев откройте контекстное меню слоя “Скалы” и выберите пункт <strong>“Открыть таблицу атрибутов”</strong> <img src="./QGIS_icons/mActionOpenTable.svg" class="img-fluid" alt="Открыть таблицу атрибутов">. Таблица атрибутов откроется в отдельном окне (<a href="#fig-attr_table" class="quarto-xref">Рисунок&nbsp;<span>2.5</span></a>).</p>
-<div id="fig-attr_table" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-attr_table" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-attr_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/2_5_Таблиа атрибутов.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" data-glightbox="description: .lightbox-desc-11"><img src="./pictures2/2_5_Таблиа атрибутов.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/2_5_Таблиа атрибутов.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Рисунок&nbsp;2.5: Таблица атрибутов"><img src="./pictures2/2_5_Таблиа атрибутов.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-attr_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;2.5: Таблица атрибутов
@@ -590,10 +770,10 @@ Note&nbsp;2.1: Загрузите файлы!
 </figure>
 </div>
 <p>Каждая строка таблицы атрибутов связана с отдельной геометрией (точкой), столбцы - атрибутивные характеристики. При выделении строки в таблице атрибутов, связанная точка будет выделена желтым цветом, и наоборот, при выделении точек в главном окне программы, они будут выделены синим цветом в таблице атрибутов (<a href="#vid-attr_table" class="quarto-xref">Видео&nbsp;<span>2.7</span></a>). Конечно, атрибутов (столбцов) может быть больше чем 1 или 2. Для точек это могли бы быть дополнительные стобцы в виде координат, значений высот и т.д.</p>
-<div id="vid-attr_table" class="quarto-float">
+<div id="vid-attr_table" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-attr_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/2_10_Таблица атрибутов.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-12" data-glightbox="description: .lightbox-desc-12"><video src="./videos/2_10_Таблица%20атрибутов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_10_Таблица атрибутов.mp4">Video</a>
+<a href="./videos/2_10_Таблица атрибутов.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Видео&nbsp;2.7: Связь таблицы атрибутов с геометриями"><video src="./videos/2_10_Таблица%20атрибутов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_10_Таблица атрибутов.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-attr_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;2.7: Связь таблицы атрибутов с геометриями
@@ -614,10 +794,10 @@ Note&nbsp;2.1: Загрузите файлы!
 </div>
 </div>
 <p>Таким образом каждой точке соответствует название скалы. Эти названия можно использовать, например, в качестве подписей точек. Для добавления подписей скал перейдите в контекстное меню слоя <strong>“Скалы” &gt; “Свойства…” &gt; “Подписи”</strong>. Режим <strong>“Без подписей”</strong> измените на <strong>“Обычные подписи”</strong>, в поле <strong>“Значение”</strong> выберите атрибут <strong>“name”</strong> (в это поле записывались названия скал при создании объектов), на вкладке <strong>“Буфер”</strong> поставьте чек-бокс в пункте <strong>“Буферизовать подписи”</strong> (это сделает их более читаемыми на темном фоне) и нажмите <strong>“ОК”</strong>. Рядом с каждой точкой появится подпись - название скалы (<a href="#vid-rocks_labels" class="quarto-xref">Видео&nbsp;<span>2.8</span></a>).</p>
-<div id="vid-rocks_labels" class="quarto-float">
+<div id="vid-rocks_labels" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-rocks_labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/2_11_Подписи скал.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-13" data-glightbox="description: .lightbox-desc-13"><video src="./videos/2_11_Подписи%20скал.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_11_Подписи скал.mp4">Video</a>
+<a href="./videos/2_11_Подписи скал.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Видео&nbsp;2.8: Добавление подписей"><video src="./videos/2_11_Подписи%20скал.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_11_Подписи скал.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-rocks_labels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;2.8: Добавление подписей
@@ -642,10 +822,10 @@ Note&nbsp;2.1: Загрузите файлы!
 <h2 data-number="2.3" class="anchored" data-anchor-id="оцифровка-линейных-объектов"><span class="header-section-number">2.3</span> Оцифровка линейных объектов</h2>
 <p>По аналогии с точечными объектами могут оцифровываться и линейные объекты. Обычно к таковым относят объекты большой протяженности и малой ширины (дороги, небольшие реки, лэп и т.д.). В векторной моделе данных линии представляют из себя последовательность соединенных точек. Соответственно образуются две части такого вида геометрии: <strong>вершины</strong> (точки) и <strong>сегменты</strong> (линии их соединяющие). Для примера оцифруем некоторые тропы и дороги на территории заповедника “Столбы”.<br>
 Каждый векторный слой может содержать только один тип геометрии (точка, линия, полигон) поэтому для оцифровки линейных объектов создадим новый векторный слой (см. <a href="#task-task_make_new_layer" class="quarto-xref">Задание&nbsp;<span>2.1</span></a>) под названием <strong>“Дороги”</strong>, <strong>“Тип геометрии” - “Линия”</strong>. Так же добавим атрибут <strong>“Имя” - “type”, “Тип” - “Текст”</strong> куда будем запиcывать тип дороги (автомобильная дорга или тропа) (<a href="#fig-make_roads_layer" class="quarto-xref">Рисунок&nbsp;<span>2.6</span></a>).</p>
-<div id="fig-make_roads_layer" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-make_roads_layer" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-make_roads_layer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/2_6_Создание слоя Дороги.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" data-glightbox="description: .lightbox-desc-14"><img src="./pictures2/2_6_Создание слоя Дороги.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/2_6_Создание слоя Дороги.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Рисунок&nbsp;2.6: Создание векторного слоя “Дороги”"><img src="./pictures2/2_6_Создание слоя Дороги.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-make_roads_layer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;2.6: Создание векторного слоя “Дороги”
@@ -668,10 +848,10 @@ Note&nbsp;2.1: Загрузите файлы!
 <section id="оцифровка-автомобильной-дороги" class="level3" data-number="2.3.1">
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="оцифровка-автомобильной-дороги"><span class="header-section-number">2.3.1</span> Оцифровка автомобильной дороги</h3>
 <p>Первым добавленным объектом будет <strong>автомобильная дорога</strong> на территории заповедника “Столбы”. Для этого переключите слой “Дороги” в <strong>“Режим редактирования”</strong> <img src="./QGIS_icons/mActionToggleEditing.svg" class="img-fluid" alt="Режим редактирования"> (см. <a href="#task-task_add_points" class="quarto-xref">Задание&nbsp;<span>2.2</span></a>), и оцифруйте дорогу, путем расставления точек поворота по линии дороги. В поле <strong>“type”</strong> сделайте запись <strong>“автомобильная дорога”</strong>. После добавления дорги сохраните измененеия в слое, нажав на иконку <strong>“Сохранить изменения”</strong> <img src="./QGIS_icons/mActionSaveAllEdits.svg" class="img-fluid" alt="1"> (<a href="#vid-road_vectorization" class="quarto-xref">Видео&nbsp;<span>2.9</span></a>).</p>
-<div id="vid-road_vectorization" class="quarto-float">
+<div id="vid-road_vectorization" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-road_vectorization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/2_12_Оцифровка дороги.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-15" data-glightbox="description: .lightbox-desc-15"><video src="./videos/2_12_Оцифровка%20дороги.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_12_Оцифровка дороги.mp4">Video</a>
+<a href="./videos/2_12_Оцифровка дороги.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Видео&nbsp;2.9: Оцифровка автомобильной дороги"><video src="./videos/2_12_Оцифровка%20дороги.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_12_Оцифровка дороги.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-road_vectorization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;2.9: Оцифровка автомобильной дороги
@@ -679,10 +859,10 @@ Note&nbsp;2.1: Загрузите файлы!
 </figure>
 </div>
 <p>По умолчанию новые слои имеют тонкие линии и случайный цвет. Что бы линии были более заметны, увеличим толщину линий и зададим яркий цвет, для этого перейдите в <strong>“Свойства…” слоя &gt; “Стиль”</strong> измените цвет на более яркий и увеличьте толщину линий до 0,66 (<a href="#vid-road_style_change" class="quarto-xref">Видео&nbsp;<span>2.10</span></a>).</p>
-<div id="vid-road_style_change" class="quarto-float">
+<div id="vid-road_style_change" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-road_style_change-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/2_13_Изменение стиля.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-16" data-glightbox="description: .lightbox-desc-16"><video src="./videos/2_13_Изменение%20стиля.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_13_Изменение стиля.mp4">Video</a>
+<a href="./videos/2_13_Изменение стиля.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Видео&nbsp;2.10: Изменение стиля слоя “Дороги”"><video src="./videos/2_13_Изменение%20стиля.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_13_Изменение стиля.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-road_style_change-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;2.10: Изменение стиля слоя “Дороги”
@@ -714,10 +894,10 @@ Note&nbsp;2.1: Загрузите файлы!
 <div aria-describedby="fig-topology_errors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-topology_errors" style="flex-basis: 100.0%;justify-content: flex-start;">
-<div id="fig-topology_errors1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-topology_errors1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-topology_errors1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/2_7_Ошибки топологии 1.png" class="lightbox" data-gallery="fig-topology_errors" data-glightbox="description: .lightbox-desc-17"><img src="./pictures2/2_7_Ошибки топологии 1.png" class="img-fluid figure-img" data-ref-parent="fig-topology_errors"></a>
+<a href="./pictures2/2_7_Ошибки топологии 1.png" class="lightbox" data-gallery="fig-topology_errors" title="Рисунок&nbsp;2.7&nbsp;(a): Ошибка топологии - разрыв"><img src="./pictures2/2_7_Ошибки топологии 1.png" class="img-fluid figure-img" data-ref-parent="fig-topology_errors"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-topology_errors1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Ошибка топологии - разрыв
@@ -728,10 +908,10 @@ Note&nbsp;2.1: Загрузите файлы!
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-topology_errors" style="flex-basis: 100.0%;justify-content: flex-start;">
-<div id="fig-topology_errors2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-topology_errors2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-topology_errors2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/2_7_Ошибки топологии 2.png" class="lightbox" data-gallery="fig-topology_errors" data-glightbox="description: .lightbox-desc-18"><img src="./pictures2/2_7_Ошибки топологии 2.png" class="img-fluid figure-img" data-ref-parent="fig-topology_errors"></a>
+<a href="./pictures2/2_7_Ошибки топологии 2.png" class="lightbox" data-gallery="fig-topology_errors" title="Рисунок&nbsp;2.7&nbsp;(b): Ошибка топологии - пересечение"><img src="./pictures2/2_7_Ошибки топологии 2.png" class="img-fluid figure-img" data-ref-parent="fig-topology_errors"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-topology_errors2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Ошибка топологии - пересечение
@@ -742,10 +922,10 @@ Note&nbsp;2.1: Загрузите файлы!
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-topology_errors" style="flex-basis: 100.0%;justify-content: flex-start;">
-<div id="fig-topology_errors3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-topology_errors3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-topology_errors3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/2_7_Ошибки топологии 3.png" class="lightbox" data-gallery="fig-topology_errors" data-glightbox="description: .lightbox-desc-19"><img src="./pictures2/2_7_Ошибки топологии 3.png" class="img-fluid figure-img" data-ref-parent="fig-topology_errors"></a>
+<a href="./pictures2/2_7_Ошибки топологии 3.png" class="lightbox" data-gallery="fig-topology_errors" title="Рисунок&nbsp;2.7&nbsp;(c): Пример корректной топологии"><img src="./pictures2/2_7_Ошибки топологии 3.png" class="img-fluid figure-img" data-ref-parent="fig-topology_errors"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-topology_errors3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (c) Пример корректной топологии
@@ -785,10 +965,10 @@ Note&nbsp;2.1: Загрузите файлы!
 <div aria-describedby="fig-snapping_lines-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-snapping_lines" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-snap_vert" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-snap_vert" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-snap_vert-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/2_15_Прилипание к вершинам.png" class="lightbox" data-gallery="fig-snapping_lines" data-glightbox="description: .lightbox-desc-20"><img src="./pictures2/2_15_Прилипание к вершинам.png" class="img-fluid figure-img" data-ref-parent="fig-snapping_lines"></a>
+<a href="./pictures2/2_15_Прилипание к вершинам.png" class="lightbox" data-gallery="fig-snapping_lines" title="Рисунок&nbsp;2.8&nbsp;(a): Прилипание к вершинам"><img src="./pictures2/2_15_Прилипание к вершинам.png" class="img-fluid figure-img" data-ref-parent="fig-snapping_lines"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-snap_vert-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Прилипание к вершинам
@@ -797,10 +977,10 @@ Note&nbsp;2.1: Загрузите файлы!
 </div>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-snapping_lines" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-snap_segment" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-snap_segment" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-snap_segment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/2_15_Прилипание к сегментам.png" class="lightbox" data-gallery="fig-snapping_lines" data-glightbox="description: .lightbox-desc-21"><img src="./pictures2/2_15_Прилипание к сегментам.png" class="img-fluid figure-img" data-ref-parent="fig-snapping_lines"></a>
+<a href="./pictures2/2_15_Прилипание к сегментам.png" class="lightbox" data-gallery="fig-snapping_lines" title="Рисунок&nbsp;2.8&nbsp;(b): Прилипание к сегментам"><img src="./pictures2/2_15_Прилипание к сегментам.png" class="img-fluid figure-img" data-ref-parent="fig-snapping_lines"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-snap_segment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Прилипание к сегментам
@@ -815,10 +995,10 @@ Note&nbsp;2.1: Загрузите файлы!
 </figcaption>
 </figure>
 </div>
-<div id="vid-roads_digitazing" class="quarto-float">
+<div id="vid-roads_digitazing" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-roads_digitazing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/2_14_Оцифровка троп.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-22" data-glightbox="description: .lightbox-desc-22"><video src="./videos/2_14_Оцифровка%20троп.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_14_Оцифровка троп.mp4">Video</a>
+<a href="./videos/2_14_Оцифровка троп.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="Видео&nbsp;2.11: Оцифровка троп"><video src="./videos/2_14_Оцифровка%20троп.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_14_Оцифровка троп.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-roads_digitazing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;2.11: Оцифровка троп
@@ -843,10 +1023,10 @@ Note&nbsp;2.1: Загрузите файлы!
 <h3 data-number="2.3.3" class="anchored" data-anchor-id="редактирование-линейных-объектов"><span class="header-section-number">2.3.3</span> Редактирование линейных объектов</h3>
 <p>Редактирование добавленных линейных объектов выполняется при помощи <strong>“Инструмента редактирования вершин”</strong> <img src="./QGIS_icons/mActionVertexToolActiveLayer.svg" class="img-fluid" alt="1"> (см. <a href="#task-vertex_tool_task_1" class="quarto-xref">Задание&nbsp;<span>2.3</span></a> и <a href="#task-vertex_tool_task_2" class="quarto-xref">Задание&nbsp;<span>2.4</span></a>), однако, по сравнению с точечными объектами, этот инструмент имеет гораздо больше возможностей редактирования линейных объектов. Рассмотрим эти возможности на примере объектов из слоя “Дороги”.<br>
 Выбрав <strong>“Инструмент редактирования вершин”</strong> <img src="./QGIS_icons/mActionVertexToolActiveLayer.svg" class="img-fluid" alt="1"> и нажав правой кнопкой мыши на одну из линий, отоброзятся составные части этой линии (вершины в виде красных кругов и сегменты, соединяющие их). Инструмент позволяет редактировать положение вершин и сегментов а так же добавлять или удалять новые вершины. Для перемещения вершины, нажмите на нее левой клавишей мыши и перетяните в нужное место (<a href="#vid-vertex_change_pos" class="quarto-xref">Видео&nbsp;<span>2.12</span></a>).</p>
-<div id="vid-vertex_change_pos" class="quarto-float">
+<div id="vid-vertex_change_pos" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-vertex_change_pos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/2_15_Изменение положения вершин.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-23" data-glightbox="description: .lightbox-desc-23"><video src="./videos/2_15_Изменение%20положения%20вершин.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_15_Изменение положения вершин.mp4">Video</a>
+<a href="./videos/2_15_Изменение положения вершин.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="Видео&nbsp;2.12: Перемещение вершин"><video src="./videos/2_15_Изменение%20положения%20вершин.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_15_Изменение положения вершин.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-vertex_change_pos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;2.12: Перемещение вершин
@@ -867,10 +1047,10 @@ Note&nbsp;2.1: Загрузите файлы!
 </div>
 </div>
 <p>Для добавления новой вершины нажмите левой клавишей мыши на середину сегмента (при наведении курсора на сегмент его середина будет выделена символом “+”) и переместите новую вершину в нужное место. Аналогично сегмент можно добавить в начале и конце линии, нажав на символ “+” (<a href="#vid-add_vertex" class="quarto-xref">Видео&nbsp;<span>2.13</span></a>).</p>
-<div id="vid-add_vertex" class="quarto-float">
+<div id="vid-add_vertex" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-add_vertex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/2_16_Добавление вершин.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-24" data-glightbox="description: .lightbox-desc-24"><video src="./videos/2_16_Добавление%20вершин.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_16_Добавление вершин.mp4">Video</a>
+<a href="./videos/2_16_Добавление вершин.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="Видео&nbsp;2.13: Добавление вершин"><video src="./videos/2_16_Добавление%20вершин.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_16_Добавление вершин.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-add_vertex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;2.13: Добавление вершин
@@ -891,10 +1071,10 @@ Note&nbsp;2.1: Загрузите файлы!
 </div>
 </div>
 <p>Для перемещения сегмента целиком нажмите на него (не на середину) левой клавишей мыши и переместите на нужное место. При этом изменится положение двух вершин, образующих сегмент (<a href="#vid-move_segment" class="quarto-xref">Видео&nbsp;<span>2.14</span></a>).</p>
-<div id="vid-move_segment" class="quarto-float">
+<div id="vid-move_segment" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-move_segment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/2_17_Перемещение сегмента.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-25" data-glightbox="description: .lightbox-desc-25"><video src="./videos/2_17_Перемещение%20сегмента.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_17_Перемещение сегмента.mp4">Video</a>
+<a href="./videos/2_17_Перемещение сегмента.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="Видео&nbsp;2.14: Перемещение сегмента"><video src="./videos/2_17_Перемещение%20сегмента.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_17_Перемещение сегмента.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-move_segment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;2.14: Перемещение сегмента
@@ -915,10 +1095,10 @@ Note&nbsp;2.1: Загрузите файлы!
 </div>
 </div>
 <p>Для выделения нескольких вершин зажмите левую клавишу мыши и потяните курср. Вершины попадающие в синюю область будут подсвечены синим цветом. Выделенные вершины возможно удалить, нажав клавишу “Delete” или переместить все вместе (для этого переместите одну из выделенных вершин, остальные последуют за ней). С нажатой клавишей “Shift” возможно выделить произвольные вершины (<a href="#vid-del_vertex" class="quarto-xref">Видео&nbsp;<span>2.15</span></a>).</p>
-<div id="vid-del_vertex" class="quarto-float">
+<div id="vid-del_vertex" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-del_vertex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/2_18_Выделение вершин.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-26" data-glightbox="description: .lightbox-desc-26"><video src="./videos/2_18_Выделение%20вершин.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_18_Выделение вершин.mp4">Video</a>
+<a href="./videos/2_18_Выделение вершин.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="Видео&nbsp;2.15: Выделение вершин"><video src="./videos/2_18_Выделение%20вершин.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_18_Выделение вершин.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-del_vertex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;2.15: Выделение вершин
@@ -939,10 +1119,10 @@ Note&nbsp;2.1: Загрузите файлы!
 </div>
 </div>
 <p>Во время оцифровки дорог, для каждого объекта было заполнено поле (атрибут) “type”, который принимал 2 значения: “автомобильная дорога” или “тропа”. Такие атрибуты называют группирующими потому что они позволяют разделить объекты на несколько групп (на 2 группы в данном случае). Воспользуемся атрибутом “type” что бы раскрасить дороги и тропы в разные цвета. Для этого перейдите в свойства слоя “Дороги” &gt; “Стиль”, измените режим “Простая символика” на “Символизация по уникальным значениям”, в поле “Значение” выберите поле для классификации (“type”) и нажмите “Классифицировать” (<a href="#fig-roads_style" class="quarto-xref">Рисунок&nbsp;<span>2.9</span></a>). В окне появятся 3 класса объектов с разным цветом линии, после чего нажмите “ОК”.</p>
-<div id="fig-roads_style" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-roads_style" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-roads_style-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/2_11_Стиль слоя Дороги.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27" data-glightbox="description: .lightbox-desc-27"><img src="./pictures2/2_11_Стиль слоя Дороги.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/2_11_Стиль слоя Дороги.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27" title="Рисунок&nbsp;2.9: Настройка стиля слоя “Дороги”"><img src="./pictures2/2_11_Стиль слоя Дороги.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-roads_style-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;2.9: Настройка стиля слоя “Дороги”
@@ -961,10 +1141,10 @@ Note&nbsp;2.1: Загрузите файлы!
 </div>
 <div class="callout-body-container callout-body">
 <p>По примеру выше, настройте стиль слоя “Дороги”. Результат выполнения задания изображен на рисунке ниже (<a href="#fig-roads_classif_result" class="quarto-xref">Рисунок&nbsp;<span>2.10</span></a>)</p>
-<div id="fig-roads_classif_result" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-roads_classif_result" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-roads_classif_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/2_16_Классификация дорог.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28" data-glightbox="description: .lightbox-desc-28"><img src="./pictures2/2_16_Классификация дорог.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/2_16_Классификация дорог.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28" title="Рисунок&nbsp;2.10: Результат выполнения задания"><img src="./pictures2/2_16_Классификация дорог.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-roads_classif_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;2.10: Результат выполнения задания
@@ -979,10 +1159,10 @@ Note&nbsp;2.1: Загрузите файлы!
 <h2 data-number="2.4" class="anchored" data-anchor-id="оцифровка-полигональных-объектов"><span class="header-section-number">2.4</span> Оцифровка полигональных объектов</h2>
 <p>Полигоны используют для оцифровки площадных объектов (больших рек, земельных участков, лесных кварталов и выделов). Полигон можно рассматривать как замкнутую линию (начальная и конечная точки имеют одинаковые координаты). Во многом оцифровка полигональных объектов схожа с линейными, но имеет свои особенности. Рассмотрим оцифровку полигональных объектов на примере лесных кварталов учебно-опытного лесхоза СибГУ. Для этого используем план лесонасаждений из предыдущего раздела (см. <a href="chapter1_georeferencing.html#task-georef_forestplan" class="quarto-xref">Задание&nbsp;<span>1.12</span></a>).<br>
 Как было упомянуто, каждый векторный слой может содержать только один тип геометрии (точка, линия или полигон), поэтому для начала необходимо создать новый векторный слой под названием <strong>“Выделы”</strong>, <strong>“Тип геометрии” - “Полигон”</strong>. Так же добавим новое поле <strong>“videl”</strong> куда будем записывать номер выдела при оцифровке (<strong>“Тип” - “Целое число”</strong>, <strong>“Размер” - 2</strong>) и удалим поле <strong>“id”</strong> (поле добавляется автоматически при создании нового векторного слоя в формате Шейп-файл) (<a href="#fig-videl_layer" class="quarto-xref">Рисунок&nbsp;<span>2.11</span></a>).</p>
-<div id="fig-videl_layer" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-videl_layer" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-videl_layer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/2_12_Создание слоя выделы.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29" data-glightbox="description: .lightbox-desc-29"><img src="./pictures2/2_12_Создание слоя выделы.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/2_12_Создание слоя выделы.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29" title="Рисунок&nbsp;2.11: Создание полигонального векторного слоя “Выделы”"><img src="./pictures2/2_12_Создание слоя выделы.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-videl_layer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;2.11: Создание полигонального векторного слоя “Выделы”
@@ -990,10 +1170,10 @@ Note&nbsp;2.1: Загрузите файлы!
 </figure>
 </div>
 <p>Для добавления первого полигона переведите слой <strong>“Выделы”</strong> в <strong>“Режим редактирования”</strong> <img src="./QGIS_icons/mActionToggleEditing.svg" class="img-fluid" alt="Режим редактирования"> и оцифруйте один выдел на плане лесонасаждений. Оцифровка производится аналогично линейными объектами, но начальная и конечная точка будут связаны. В атрибутивное поле “videl” запишите номер выдела (<a href="#vid-videls_digitation" class="quarto-xref">Видео&nbsp;<span>2.16</span></a>).</p>
-<div id="vid-videls_digitation" class="quarto-float">
+<div id="vid-videls_digitation" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-videls_digitation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/2_1_Оцифровка выделов.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-30" data-glightbox="description: .lightbox-desc-30"><video src="./videos/2_1_Оцифровка%20выделов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_1_Оцифровка выделов.mp4">Video</a>
+<a href="./videos/2_1_Оцифровка выделов.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-30" title="Видео&nbsp;2.16: Оцифровка выделов"><video src="./videos/2_1_Оцифровка%20выделов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_1_Оцифровка выделов.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-videls_digitation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;2.16: Оцифровка выделов
@@ -1019,10 +1199,10 @@ Note&nbsp;2.1: Загрузите файлы!
 Для исключения пересечений между полигонами используется настройка наложений<br>
 <img src="./pictures2/2_10_Настройка прилипания 3.png" class="img-fluid" alt="1"><br>
 В режиме <strong>“Вычитать наложения на текущем слое”</strong>, новый полигон, пересекающийся с существующим, будет обрезан по границе последнего. Воспользуемся этой настройкой для топологически корректоной оцифровки оставшихся выделов. Новый полигон добавляют так, что бы в местах общей границы он пересекался с существующим (<a href="#vid-videls_topology" class="quarto-xref">Видео&nbsp;<span>2.17</span></a>).</p>
-<div id="vid-videls_topology" class="quarto-float">
+<div id="vid-videls_topology" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-videls_topology-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/2_2_Топология выделов.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-31" data-glightbox="description: .lightbox-desc-31"><video src="./videos/2_2_Топология%20выделов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_2_Топология выделов.mp4">Video</a>
+<a href="./videos/2_2_Топология выделов.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-31" title="Видео&nbsp;2.17: Топология выделов"><video src="./videos/2_2_Топология%20выделов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_2_Топология выделов.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-videls_topology-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;2.17: Топология выделов
@@ -1054,10 +1234,10 @@ Note&nbsp;2.1: Загрузите файлы!
 </div>
 <div class="callout-body-container callout-body">
 <p>По примеру выше, настройте подписи и стиль слоя “Выделы”. Результат должен соответствовать рисунку ниже (<a href="#fig-task_videla" class="quarto-xref">Рисунок&nbsp;<span>2.12</span></a>).</p>
-<div id="fig-task_videla" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-task_videla" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-task_videla-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/2_13_Результат задания.png" class="lightbox" data-gallery="quarto-lightbox-gallery-32" data-glightbox="description: .lightbox-desc-32"><img src="./pictures2/2_13_Результат задания.png" class="img-fluid figure-img" style="width:70.0%"></a>
+<a href="./pictures2/2_13_Результат задания.png" class="lightbox" data-gallery="quarto-lightbox-gallery-32" title="Рисунок&nbsp;2.12: Результат выполнения задания"><img src="./pictures2/2_13_Результат задания.png" class="img-fluid figure-img" style="width:70.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-task_videla-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;2.12: Результат выполнения задания
@@ -1086,17 +1266,17 @@ Note&nbsp;2.1: Загрузите файлы!
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Обратите внимание!
+<span class="screen-reader-only">Уведомление</span>Обратите внимание!
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Чаще всего выбор объектов не конечная цель а промежуточный этап. Частая задача: применить тот или иной инструмент только к выбранным (выделенным) объектам. В таком случае: 1. выбираются объекты по заданными критериям; 2. к выбранным объектам применяется необходимый инструмент. В последующих разделах способы выделения объектов будут рассмотрены более детально (см. <a href="chapter5_queries.html" class="quarto-xref"><span>Глава 5</span></a>).</p>
 </div>
 </div>
-<div id="vid-pickobj" class="quarto-float">
+<div id="vid-pickobj" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-pickobj-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/2_3_Выбор объектов.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-33" data-glightbox="description: .lightbox-desc-33"><video src="./videos/2_3_Выбор%20объектов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_3_Выбор объектов.mp4">Video</a>
+<a href="./videos/2_3_Выбор объектов.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-33" title="Видео&nbsp;2.18: Выбор объектов разными способами"><video src="./videos/2_3_Выбор%20объектов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_3_Выбор объектов.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-pickobj-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;2.18: Выбор объектов разными способами
@@ -1115,10 +1295,10 @@ Note&nbsp;2.1: Загрузите файлы!
 <div class="callout-body-container callout-body">
 <p>Выберите несколько выделов и удалите их. После удаления выключите режим редактирования,<br>
 <strong>НЕ сохраняйте изменения в слое!</strong> (см. <a href="#vid-task_delete" class="quarto-xref">Видео&nbsp;<span>2.19</span></a>).</p>
-<div id="vid-task_delete" class="quarto-float">
+<div id="vid-task_delete" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-task_delete-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./videos/2_4_Задание по удалению выделов.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-34" data-glightbox="description: .lightbox-desc-34"><video src="./videos/2_4_Задание%20по%20удалению%20выделов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_4_Задание по удалению выделов.mp4">Video</a>
+<a href="./videos/2_4_Задание по удалению выделов.mp4" class="lightbox" data-gallery="quarto-lightbox-gallery-34" title="Видео&nbsp;2.19: Выбор и удаление выделов"><video src="./videos/2_4_Задание%20по%20удалению%20выделов.mp4" class="img-fluid" controls=""></video></a><a href="./videos/2_4_Задание по удалению выделов.mp4">Video</a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-task_delete-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Видео&nbsp;2.19: Выбор и удаление выделов
@@ -1135,10 +1315,10 @@ Note&nbsp;2.1: Загрузите файлы!
 <li>Задвоение вершин - геометрия содержит две вершины с одинаковыми координатами;</li>
 <li>Самопересечение линий - линия пересекает саму себя;</li>
 </ul>
-<div id="fig-invalidgeom2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-invalidgeom2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-invalidgeom2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/6_2 Самопересечение линий.png" class="lightbox" data-gallery="quarto-lightbox-gallery-35" data-glightbox="description: .lightbox-desc-35"><img src="./pictures/6_2 Самопересечение линий.png" class="img-fluid figure-img" style="width:60.0%"></a>
+<a href="./pictures/6_2 Самопересечение линий.png" class="lightbox" data-gallery="quarto-lightbox-gallery-35" title="Рисунок&nbsp;2.13: Самопересечение линий"><img src="./pictures/6_2 Самопересечение линий.png" class="img-fluid figure-img" style="width:60.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-invalidgeom2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;2.13: Самопересечение линий
@@ -1148,10 +1328,10 @@ Note&nbsp;2.1: Загрузите файлы!
 <ul>
 <li>Самопересечение полигонов - полигон пересекает сам себя;</li>
 </ul>
-<div id="fig-invalidgeom3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-invalidgeom3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-invalidgeom3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/6_3 Самопересечение полигонов.png" class="lightbox" data-gallery="quarto-lightbox-gallery-36" data-glightbox="description: .lightbox-desc-36"><img src="./pictures/6_3 Самопересечение полигонов.png" class="img-fluid figure-img" style="width:60.0%"></a>
+<a href="./pictures/6_3 Самопересечение полигонов.png" class="lightbox" data-gallery="quarto-lightbox-gallery-36" title="Рисунок&nbsp;2.14: Самопересечение линий"><img src="./pictures/6_3 Самопересечение полигонов.png" class="img-fluid figure-img" style="width:60.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-invalidgeom3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;2.14: Самопересечение линий
@@ -1161,10 +1341,10 @@ Note&nbsp;2.1: Загрузите файлы!
 <ul>
 <li>Висячая линия в полигоне - полигон содержит в своем контуре линию.</li>
 </ul>
-<div id="fig-invalidgeom4" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-invalidgeom4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-invalidgeom4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures/6_4 Висячая линия.png" class="lightbox" data-gallery="quarto-lightbox-gallery-37" data-glightbox="description: .lightbox-desc-37"><img src="./pictures/6_4 Висячая линия.png" class="img-fluid figure-img" style="width:60.0%"></a>
+<a href="./pictures/6_4 Висячая линия.png" class="lightbox" data-gallery="quarto-lightbox-gallery-37" title="Рисунок&nbsp;2.15: Висячая линия"><img src="./pictures/6_4 Висячая линия.png" class="img-fluid figure-img" style="width:60.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-invalidgeom4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Рисунок&nbsp;2.15: Висячая линия
@@ -1174,230 +1354,75 @@ Note&nbsp;2.1: Загрузите файлы!
 <p>Ошибки геометрий подсвечиваются знаком “X” зеленого цвета. Нужно отметить, что некоторые инструменты прилипания (например “Вычитать наложения на текущем слое”) не работают с геометриями содержащими ошибки.</p>
 
 
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Рисунок&nbsp;2.1: Окно “Создать слой”</span>
-<span class="glightbox-desc lightbox-desc-2">Видео&nbsp;2.1: Создание точечного векторного слоя “Скалы”</span>
-<span class="glightbox-desc lightbox-desc-3">Рисунок&nbsp;2.2: Окно “Атрибуты объектов”</span>
-<span class="glightbox-desc lightbox-desc-4">Видео&nbsp;2.2: Добавление объектов в слой “Скалы”</span>
-<span class="glightbox-desc lightbox-desc-5">Видео&nbsp;2.3: Перемещение отдельных точек</span>
-<span class="glightbox-desc lightbox-desc-6">Видео&nbsp;2.4: Перемещение нескольких точек</span>
-<span class="glightbox-desc lightbox-desc-7">Рисунок&nbsp;2.3: Панель “История изменений”</span>
-<span class="glightbox-desc lightbox-desc-8">Видео&nbsp;2.5: Отмена и возврат изменений</span>
-<span class="glightbox-desc lightbox-desc-9">Рисунок&nbsp;2.4: Подтверждение удаления объектов</span>
-<span class="glightbox-desc lightbox-desc-10">Видео&nbsp;2.6: Выбор и удаление объектов</span>
-<span class="glightbox-desc lightbox-desc-11">Рисунок&nbsp;2.5: Таблица атрибутов</span>
-<span class="glightbox-desc lightbox-desc-12">Видео&nbsp;2.7: Связь таблицы атрибутов с геометриями</span>
-<span class="glightbox-desc lightbox-desc-13">Видео&nbsp;2.8: Добавление подписей</span>
-<span class="glightbox-desc lightbox-desc-14">Рисунок&nbsp;2.6: Создание векторного слоя “Дороги”</span>
-<span class="glightbox-desc lightbox-desc-15">Видео&nbsp;2.9: Оцифровка автомобильной дороги</span>
-<span class="glightbox-desc lightbox-desc-16">Видео&nbsp;2.10: Изменение стиля слоя “Дороги”</span>
-<span class="glightbox-desc lightbox-desc-17">Рисунок&nbsp;2.7&nbsp;(a): Ошибка топологии - разрыв</span>
-<span class="glightbox-desc lightbox-desc-18">Рисунок&nbsp;2.7&nbsp;(b): Ошибка топологии - пересечение</span>
-<span class="glightbox-desc lightbox-desc-19">Рисунок&nbsp;2.7&nbsp;(c): Пример корректной топологии</span>
-<span class="glightbox-desc lightbox-desc-20">Рисунок&nbsp;2.8&nbsp;(a): Прилипание к вершинам</span>
-<span class="glightbox-desc lightbox-desc-21">Рисунок&nbsp;2.8&nbsp;(b): Прилипание к сегментам</span>
-<span class="glightbox-desc lightbox-desc-22">Видео&nbsp;2.11: Оцифровка троп</span>
-<span class="glightbox-desc lightbox-desc-23">Видео&nbsp;2.12: Перемещение вершин</span>
-<span class="glightbox-desc lightbox-desc-24">Видео&nbsp;2.13: Добавление вершин</span>
-<span class="glightbox-desc lightbox-desc-25">Видео&nbsp;2.14: Перемещение сегмента</span>
-<span class="glightbox-desc lightbox-desc-26">Видео&nbsp;2.15: Выделение вершин</span>
-<span class="glightbox-desc lightbox-desc-27">Рисунок&nbsp;2.9: Настройка стиля слоя “Дороги”</span>
-<span class="glightbox-desc lightbox-desc-28">Рисунок&nbsp;2.10: Результат выполнения задания</span>
-<span class="glightbox-desc lightbox-desc-29">Рисунок&nbsp;2.11: Создание полигонального векторного слоя “Выделы”</span>
-<span class="glightbox-desc lightbox-desc-30">Видео&nbsp;2.16: Оцифровка выделов</span>
-<span class="glightbox-desc lightbox-desc-31">Видео&nbsp;2.17: Топология выделов</span>
-<span class="glightbox-desc lightbox-desc-32">Рисунок&nbsp;2.12: Результат выполнения задания</span>
-<span class="glightbox-desc lightbox-desc-33">Видео&nbsp;2.18: Выбор объектов разными способами</span>
-<span class="glightbox-desc lightbox-desc-34">Видео&nbsp;2.19: Выбор и удаление выделов</span>
-<span class="glightbox-desc lightbox-desc-35">Рисунок&nbsp;2.13: Самопересечение линий</span>
-<span class="glightbox-desc lightbox-desc-36">Рисунок&nbsp;2.14: Самопересечение линий</span>
-<span class="glightbox-desc lightbox-desc-37">Рисунок&nbsp;2.15: Висячая линия</span>
-</div>
 </section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
       return false;
     }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Скопировано");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Скопировано");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
     }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
@@ -1405,162 +1430,184 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
       return codeEl.innerText;
     }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Скопировано");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Скопировано");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-        return container.innerHTML
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1568,222 +1615,205 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter1_georeferencing.html" class="pagination-link  aria-label=" &lt;span="" привязка="" растра&lt;="" span&gt;"="">
+      <a href="./chapter1_georeferencing.html" class="pagination-link" aria-label="Пространственная привязка растра">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Пространственная привязка растра</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter3_attributes.html" class="pagination-link" aria-label="<span class='chapter-number'>3</span>&nbsp; <span class='chapter-title'>Атрибутивная информация</span>">
+      <a href="./chapter3_attributes.html" class="pagination-link" aria-label="Атрибутивная информация">
         <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Атрибутивная информация</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
     }
-  });
-
-};
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
           </script>
 
 
