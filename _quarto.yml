@@ -40,7 +40,6 @@ book:
     - chapter6_spatial_operations.qmd
     - chapter7_OSM.qmd
     - chapter8_DEM.qmd
-    - chapter12_homework.qmd
     - chapter14_coordinates.qmd
     - references.qmd
   appendices:
@@ -48,6 +47,7 @@ book:
     - appendice_2_epsg_3857.qmd
     - appendice_3_csv.qmd
     - appendice_4_forestry_map.qmd
+    - chapter12_homework.qmd
   navbar: 
     logo: "./cover.png"
     
