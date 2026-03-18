@@ -451,23 +451,23 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">1</td>
-<td style="text-align: center;">95.5611</td>
-<td style="text-align: center;">56.6681</td>
+<td style="text-align: center;">95.561182</td>
+<td style="text-align: center;">56.668171</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">2</td>
-<td style="text-align: center;">95.7222</td>
-<td style="text-align: center;">56.7118</td>
+<td style="text-align: center;">95.722211</td>
+<td style="text-align: center;">56.711855</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">3</td>
-<td style="text-align: center;">95.7122</td>
-<td style="text-align: center;">56.8468</td>
+<td style="text-align: center;">95.712236</td>
+<td style="text-align: center;">56.846833</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">4</td>
-<td style="text-align: center;">95.6611</td>
-<td style="text-align: center;">56.5421</td>
+<td style="text-align: center;">95.661184</td>
+<td style="text-align: center;">56.542115</td>
 </tr>
 </tbody>
 </table>
@@ -575,7 +575,20 @@ ul.task-list li input[type="checkbox"] {
 <p>По примеру выше импортируйте файл <strong>.csv</strong> в QGIS.</p>
 </div>
 </div>
-<p>Мы успешно импортировали поворотные точки лесосеки, однако, что бы рассчитать площадь объект должен быть полигоном а не набором точек. Теперь задача состоит в том, что бы превратить точки в полигон. В QGIS такое преобразование включает промежуточный этап: точки конвертируются в линию после чего линия конвертируется в полигон. Используем инструмент <strong>“Точки в контур”</strong> в панеле инструментов для создания замкнутой линии. В настройках выберите слой с точками, поставьте чек-бокс “Создать замкнутые контуры”. Поле “Выражение порядка” позволяет задать порядок соединения точек. Для этого в таблице атрибутов у каждой точки должен быть порядковый номер (в нашем случае это поле “n”). Если выражение порядка не задано, точки будут соединены в последовательности таблицы атрибутов. После всех настроек нажмите “Выполнить”, в панеле слоев появится новый временный слой с линией (<a href="#fig-points_to_line" class="quarto-xref">Рисунок&nbsp;<span>9.3</span></a>).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Уведомление</span>Обратите внимание!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Каталог координат может содержать неограниченное количество столбцов. Кроме обязательной пары столбцов с координатам, могут присутствовать дополнительные столбцы с характеристиками точек. В нашем примере такой дополнительный столбец (“n”) содержит порядковый номер точки. При импорте в QGIS дополнительные столбцы сохраняются и становятся частью таблицы атрибутов слоя точек. Это может быть полезно при решении некоторых задач.</p>
+</div>
+</div>
+<p>Мы успешно импортировали поворотные точки лесосеки, однако, что бы рассчитать площадь объект должен быть полигоном а не набором точек. Теперь задача состоит в том, что бы превратить точки в полигон. В QGIS такое преобразование включает промежуточный этап: точки конвертируются в линию после чего линия конвертируется в полигон. Используем инструмент <strong>“Точки в контур”</strong> в панеле инструментов для создания замкнутой линии. В настройках исходного слоя выберите слой с точками, поставьте чек-бокс <strong>“Создать замкнутые контуры”</strong> (в этом случае первая и последняя точки будут соединены). Поле <strong>“Выражение порядка”</strong> позволяет задать порядок соединения точек. Для этого в таблице атрибутов у каждой точки должен быть порядковый номер (в нашем случае это поле <strong>“n”</strong>). Если выражение порядка не задано, точки будут соединены в той последовательности в которой они представлены в таблицы атрибутов. После всех настроек нажмите “Выполнить”, в панеле слоев появится новый временный слой с линией (<a href="#fig-points_to_line" class="quarto-xref">Рисунок&nbsp;<span>9.3</span></a>).</p>
 <div id="fig-points_to_line" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-points_to_line-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -695,12 +708,123 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="экспорт-в-каталог-координат" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="экспорт-в-каталог-координат"><span class="header-section-number">9.2</span> Экспорт в каталог координат</h2>
-<p>Инструмент - Извлечь вершины Удалить лишние поля (расстояние и угол) Рассчитать координаты в атрибутах (lat - round(y(<span class="citation" data-cites="geometry">(<a href="references.html#ref-geometry" role="doc-biblioref"><strong>geometry?</strong></a>)</span>), 6)) Инструмент “Добавить к слою поля x/y”.</p>
-<p>Сохранить в Excel</p>
+<p>В предыдущем разделе мы рассмотрели как построить полигон по координатам поворотных точек. Обратная задача - конвертирование полигона, линии или точек в каталог координат. Если мы работаем с линией или полигоном, задача состоит из 3-х этапов:</p>
+<ol type="1">
+<li>Конвертирование в точечную геометрию;</li>
+<li>Расчет координат для каждой точки;</li>
+<li>Экспорт в табличный формат (например Excel).</li>
+</ol>
+<p>В случае с точечной геометрией первый этап пропускается. В этом разделе мы преобразуем границу выдела в каталог координат. Испольуйте инструмент <strong>“Выбрать объекты в прямоугольнике или точке”</strong> <img src="./QGIS_icons/mActionSelectRectangle.svg" class="img-fluid" alt="1"> что бы выбрать один выдел в слое “videla” (см. <a href="chapter2_vectorization.html#sec-pickobj" class="quarto-xref"><span>Глава 2.5</span></a>). После чего выбранный выдел будет обозначен желтым цветом. Используйте инструмент <strong>“Извлечь вершины”</strong> в панеле инструментов анализа что бы получить точечный слой поворотных точек выбранного выдела. В качестве исходного слоя задается слой “videla”, так же необходимо поставить чек-бокс “Только выделенные объекты” что бы конвертировать в поворотные точки не все объекты слоя а только выделенные (для этого вначале нами был выбран один выдел) (<a href="#fig-extract_vertexes" class="quarto-xref">Рисунок&nbsp;<span>9.9</span></a>). В результате появится новый временный точечный слой содержащий поворотные точки (вершины) полигона.</p>
+<div id="fig-extract_vertexes" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-extract_vertexes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/14/14_7_Извлечь вершины.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Рисунок&nbsp;9.9: Окно настроек инструмента “Извлечь вершины”"><img src="./pictures2/14/14_7_Извлечь вершины.png" class="img-fluid figure-img" style="width:85.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-extract_vertexes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.9: Окно настроек инструмента “Извлечь вершины”
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;9.8
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>По примеру выше выделите один любой выдел и конвертируйте его в точечный слой (см. <a href="#fig-poly_to_vertex_result" class="quarto-xref">Рисунок&nbsp;<span>9.10</span></a>).</p>
+<div id="fig-poly_to_vertex_result" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-poly_to_vertex_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/14/14_8_Вершины полигона.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Рисунок&nbsp;9.10: Пример выполненного задания"><img src="./pictures2/14/14_8_Вершины полигона.png" class="img-fluid figure-img" style="width:50.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-poly_to_vertex_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.10: Пример выполненного задания
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Любопытные изменения произошли в атрибутивной таблице поворотных точек. Исходный слой “videla” содержал таксационную характеристику для каждого выдела. В слое поворотных точек характеристика выдела была продублирована для каждой вершины. Так же были добавлены новые столбцы:</p>
+<ul>
+<li>“vertex_index” - порядковый номер вершины в контуре геометрии (отсчет вершин начинается с 0). Это порядок в котором вершины полигона добавлялись при его создании.</li>
+<li>“distance” - кумулятивное (накопленное) расстояние между вершинами начиная с 0 точки, зависит от системы координат слоя. В нашем случае слой “videla” имел географическую систему координат WGS84, поэтому расстояние было рассчитано в градусах.</li>
+<li>“angle” -</li>
+</ul>
+<p>Последний этап, добавление координат в таблицу атрибутов, выполняется при помощи инструмента <strong>“Добавить к слою поля X/Y”</strong>. В качестве исходного слоя задается точечный слой с поворотными точками, пункт <strong>“Система координат”</strong> определяет в какой системе будут рассчитаны координаты (см. <a href="#fig-add_coords" class="quarto-xref">Рисунок&nbsp;<span>9.11</span></a>). В результате будет создан временный слой в атрибутах которого будут указаны координаты для каждой точки (столбцы “x” и “y” в таблице атрибутов).</p>
+<div id="fig-add_coords" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-add_coords-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/14/14_9_add_coords.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Рисунок&nbsp;9.11: Окно настроек инструмента “Добавить к слою поля X/Y”"><img src="./pictures2/14/14_9_add_coords.png" class="img-fluid figure-img" style="width:85.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-add_coords-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.11: Окно настроек инструмента “Добавить к слою поля X/Y”
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Уведомление</span>Обратите внимание!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Для того что бы округлить координаты используйте функцию <code>round(value, places)</code>, где <code>value</code> - десятичное число, <code>places</code> - количество знаков после запятой, до которого нужно округлить <code>value</code>. Обычно географические координаты округляют до 6 знаков, спроецированные до 2-х т.к. в географической системе координаты измеряются в десятичных градусах, в спроецированной - в метрах.</p>
+<div id="fig-fig" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fig-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/14/14_10_round.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Рисунок&nbsp;9.12: Справка по функции “round()”"><img src="./pictures2/14/14_10_round.png" class="img-fluid figure-img" style="width:70.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.12: Справка по функции “round()”
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>После того как получены координаты для каждой точки, остается сохранить слой в таблицу. Для этого нажмите правой кнопкой мыше по слою в панеле слоев &gt; “Экспорт” &gt; “Сохранить объекты как…”. В появившемся окне выберите “Формат” - “XLSX - электронная таблица MS Office Open XML”, в пункте “Имя файла” нажмите на “…” и укажите место сохранения таблицы и ее название. В пункте “Выберите поля для экспорта” вы можете выбрать те поля, которые будут сохранены в таблицу (см. <a href="#fig-save_table" class="quarto-xref">Рисунок&nbsp;<span>9.13</span></a>). Нажмите ОК и таблица с каталогом координат будет создана.</p>
+<div id="fig-save_table" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-save_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/14/14_11_Экспорт в таблицу.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Рисунок&nbsp;9.13: Окно настроек инструмента “Добавить к слою поля X/Y”"><img src="./pictures2/14/14_11_Экспорт в таблицу.png" class="img-fluid figure-img" style="width:65.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-save_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.13: Окно настроек инструмента “Добавить к слою поля X/Y”
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;9.9
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>По примеру выше создайте каталог координат.</p>
+<div id="fig-coords_table" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-coords_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/14/14_12_Каталог координат.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Рисунок&nbsp;9.14: Пример выполненного задания"><img src="./pictures2/14/14_12_Каталог координат.png" class="img-fluid figure-img" style="width:50.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coords_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.14: Пример выполненного задания
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="полярная-система-координат" class="level2" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="полярная-система-координат"><span class="header-section-number">9.3</span> Полярная система координат</h2>
-<p>Такие же преобразования, что и с географической.</p>
 
 
 </section>
