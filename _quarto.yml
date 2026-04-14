@@ -40,6 +40,7 @@ book:
     - chapter6_spatial_operations.qmd
     - chapter7_OSM.qmd
     - chapter8_DEM.qmd
+    - chapter13_qfield.qmd
     - chapter14_coordinates.qmd
     - references.qmd
   appendices:
@@ -69,6 +70,7 @@ number-sections: true
 
 format:
   html:
+    css: styles.css
     theme:
       light: 
         - cosmo
