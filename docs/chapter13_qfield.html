@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>9&nbsp; Мобильное приложение QField – Основы геоинформационных систем в QGIS</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./chapter14_coordinates.html" rel="next">
+<link href="./chapter8_DEM.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-bce977a10065f1546ac742a2ca57dec9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Поиск не дал результатов",
+    "search-matching-documents-text": "Результаты поиска",
+    "search-copy-link-title": "Скопировать ссылку",
+    "search-hide-matches-text": "Скрыть дополнительные результаты",
+    "search-more-match-text": "дополнительный результат в этом документе",
+    "search-more-matches-text": "дополнительных результата(-ов) в этом документе",
+    "search-clear-button-title": "Очистить",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Отменить",
+    "search-submit-button-title": "Найти",
+    "search-label": "Поиск"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="././cover.png" alt="" class="navbar-logo light-content">
+    <img src="././cover.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Основы геоинформационных систем в QGIS</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Переключить темный режим"><i class="bi"></i></a>
+</div>
+          <div id="quarto-search" class="" title="Поиск"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter13_qfield.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Мобильное приложение QField</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Введение</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter0_resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Дополнительные ресурсы</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter1_georeferencing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Пространственная привязка растра</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter2_vectorization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Векторизация</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter3_attributes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Атрибутивная информация</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter4_thematic_maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cоздание тематических карт</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter5_queries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Запросы</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter6_spatial_operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Пространственные операции</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter7_OSM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Open Street Map (OSM)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter8_DEM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter13_qfield.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Мобильное приложение QField</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter14_coordinates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Каталог координат</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Библиографический список</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Приложения</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Переключить раздел">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendice_1_geopackage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Формат данных GeoPackage</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendice_2_epsg_3857.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Системы координат</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendice_3_csv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Формат данных CSV</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendice_4_forestry_map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Создание плана лесонасаждений</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter12_homework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Домашнее задание - оцифровка</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Содержание</h2>
+   
+  <ul>
+  <li><a href="#создание-нового-проекта-в-qgis" id="toc-создание-нового-проекта-в-qgis" class="nav-link active" data-scroll-target="#создание-нового-проекта-в-qgis"><span class="header-section-number">9.1</span> Создание нового проекта в QGIS</a></li>
+  <li><a href="#создание-слоев-для-сбора-данных" id="toc-создание-слоев-для-сбора-данных" class="nav-link" data-scroll-target="#создание-слоев-для-сбора-данных"><span class="header-section-number">9.2</span> Создание слоев для сбора данных</a></li>
+  <li><a href="#настройки-экспорта-проекта" id="toc-настройки-экспорта-проекта" class="nav-link" data-scroll-target="#настройки-экспорта-проекта"><span class="header-section-number">9.3</span> Настройки экспорта проекта</a></li>
+  <li><a href="#оффлайн-базовая-карта" id="toc-оффлайн-базовая-карта" class="nav-link" data-scroll-target="#оффлайн-базовая-карта"><span class="header-section-number">9.4</span> Оффлайн базовая карта</a></li>
+  <li><a href="#импорт-проекта-в-qfield-android" id="toc-импорт-проекта-в-qfield-android" class="nav-link" data-scroll-target="#импорт-проекта-в-qfield-android"><span class="header-section-number">9.5</span> Импорт проекта в QField (Android)</a></li>
+  <li><a href="#qfield---навигация-и-сбор-данных" id="toc-qfield---навигация-и-сбор-данных" class="nav-link" data-scroll-target="#qfield---навигация-и-сбор-данных"><span class="header-section-number">9.6</span> QField - Навигация и сбор данных</a></li>
+  <li><a href="#экспорт-в-qgis" id="toc-экспорт-в-qgis" class="nav-link" data-scroll-target="#экспорт-в-qgis"><span class="header-section-number">9.7</span> Экспорт в QGIS</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Мобильное приложение QField</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Использование гис для мобильных устройств (смартфонов и планшетов) особенно удобно при выполнении полевых работ. Чаще всего мобильные ГИС выполняют 2 основные функции:</p>
+<ul>
+<li><p>Ориентирование на местности. Поскольку прием GNSS сигнала не требует подключения к телефонной сети или интернету, ориентирование на местности возможно проводить в самых удаленных районах.</p></li>
+<li><p>Сбор полевых данных. Большинство приложений позволяет добавлять новую информацию в ГИС на мобильном устройстве. Чаще всего это координаты объектов, атрибутивная информация, фотография. После записи, данные с мобильного устройства синхронизируются с базой данных на компьютере (через интернет или по проводу). Некоторые решения предлагают совместную работу и синхронизацию данных с нескольких устройств.</p></li>
+</ul>
+<p>Мобильные ГИС приложение, как правило, интегрированы с тем или иным десктопным приложением. Такие пары образуют ArcGIS - ArcGIS Field Maps, NextGIS - NextGIS Mobile. Для QGIS существуют два приложения для мобильных устройств: <a href="https://merginmaps.com/">MerginMaps</a> и <a href="https://qfield.org/">QField</a>. Оба приложения доступны на платформах Android и iOS, распространяются под открытой лицензией (AGPL-3.0 и GPLv2 соответственно) а так же имеют схожий функционал. В этом разделе будет рассмотено использование связки приложений QGIS - QField для ориентирования на местности и сбора полевых данных.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Уведомление</span>Обратите внимание!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Дополнительную информацию о приложении QField можно получить на сайте проекта <a href="https://cartetika.ru/tpost/kugvp2hpe1-qfield-qgis-v-mobilnom-prilozhenii">“Картетика”</a> а так же на официальном сайте приложения <a href="https://qfield.org/">“QField”</a>.</p>
+</div>
+</div>
+<p>Связь между QGIS и QField обеспечивает плагин “QField Sync” который устанавливается в программу QGIS (пункт <strong>“Модули” &gt; “Управление модулями…” &gt; поиск модуля “QField Sync”</strong>).</p>
+<p>Плагин отвечает за настройку проекта, экспорт в QField а так же импорт из QField. Перенос проекта в мобильное приложение QField выполняется в несколько этапов:</p>
+<ul>
+<li>Создание и настройка проекта в QGIS. На этом этапе выбираются необходимые слои а так же настраиваются их стили отображения.</li>
+<li>Подготавливаются слои для сбора полевых данных. В зависимости от типа полевых данных это могут быть точечные, линейные или полигональные слои с настроенной таблицей атрибутов. Обычно такие слои создаются пустыми. Они предназначены для сбора полевых данных в QField.</li>
+<li>Задаются настройки экспорта проекта в плагине “QField Sync”. Проект и все файлы сохраняются в отдельную папку.</li>
+<li>Сохраненный проект копируется на мобильное устройство, после чего производится импорт проекта в QField.</li>
+<li>По окончании сбора полевых данных производят экспорт из QField в QGIS.</li>
+</ul>
+<p>Рассмотрим эти этапы на примере решения задачи учета городских насаждений. В ходе решения задачи мы будем использовать приложение QField для отметки положения отдельных деревьев и записи их характеристик. Для начала создадим геоинформационную основу - новый проект с базовыми слоями, затем добавим слой для сбора данных и наконец экспортируем проект из QGIS в QField.</p>
+<section id="создание-нового-проекта-в-qgis" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="создание-нового-проекта-в-qgis"><span class="header-section-number">9.1</span> Создание нового проекта в QGIS</h2>
+<p>Новый проект, в ходе выполнения заданий практикума, обучающимися создавался неоднократно, поэтому для этого этапа подробного описания не приводится.</p>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;9.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Создайте новую папку проекта и новый проект. Добавьте в проект слой “Google Satellite” из модуля QuickMapServices (см. <a href="chapter1_georeferencing.html#sec-qms" class="quarto-xref"><span>Глава 1.5.2</span></a>). Этот слой будет использоваться в качестве базовой карты в нашем проекте.</p>
+</div>
+</div>
+</section>
+<section id="создание-слоев-для-сбора-данных" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="создание-слоев-для-сбора-данных"><span class="header-section-number">9.2</span> Создание слоев для сбора данных</h2>
+<p>Настройки слоев для сбора полевых данных определяются характером собираемых данных:</p>
+<ul>
+<li>выбор типа геометрии собираемых данных (точка, линия, полигон);</li>
+<li>выбор и настройка собираемых атрибутов (полей, которые будут заполнены при полевых работах).</li>
+</ul>
+<p>В ходе проекта по учету городских насаждений предполагается отмечать на карте отдельные деревья и у каждого дерева определять следующие характеристики:</p>
+<p>-Вид дерева; -Высота дерева; -Диаметр дерева на высоте 1,3 м; -Погибшее дерево или нет; -Фотография дерева; -Комментарий.</p>
+<p>В соответствии с поставленными условиями задачи, создадим новый векторный слой “data.gpkg” c точечным типом геометрии. В таблицу атрибутов слоя добавим следующие поля:</p>
+<div id="tbl-qgis_fields" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-qgis_fields-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Таблица&nbsp;9.1: Необходимые поля для сбора полевых данных
+</figcaption>
+<div aria-describedby="tbl-qgis_fields-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 16%">
+<col style="width: 22%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Название поля</th>
+<th style="text-align: center;">Тип данных</th>
+<th style="text-align: center;">Описание</th>
+<th style="text-align: center;">Отображение в QField</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">species</td>
+<td style="text-align: center;">текст, длина 50</td>
+<td style="text-align: center;">в это поле будет записываться вид дерева</td>
+<td style="text-align: center;">список значений, обязательное поле</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">H_m</td>
+<td style="text-align: center;">десятичное число</td>
+<td style="text-align: center;">в это поле будет записываться высота дерева</td>
+<td style="text-align: center;">числовое поле ввода</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">DBH_cm</td>
+<td style="text-align: center;">десятичное чсло</td>
+<td style="text-align: center;">в это поле будет записываться диаметр дерева</td>
+<td style="text-align: center;">числовое поле ввода</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">is_dead</td>
+<td style="text-align: center;">логическое</td>
+<td style="text-align: center;">значение “Истина” (True) будет указывать на то, что обследуемое дерево погибло</td>
+<td style="text-align: center;">чек-бокс</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">photo</td>
+<td style="text-align: center;">текст, длина 200</td>
+<td style="text-align: center;">это поле будет содержать путь к фотографии</td>
+<td style="text-align: center;">миниатюра фотографии</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">comment</td>
+<td style="text-align: center;">текст, длина 200</td>
+<td style="text-align: center;">заметка произвольной формы</td>
+<td style="text-align: center;">поле ввода текста</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;9.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Создайте точечный слой <strong>“data.gpkg”</strong> а так же все необходимые поля (см. <a href="#tbl-qgis_fields" class="quarto-xref">Таблица&nbsp;<span>9.1</span></a>). Слой “data.gpkg” должен быть первым по порядку в панеле слоев.</p>
+</div>
+</div>
+<p>Далее перейдем к настройке полей. Эта настройка будет влиять на то, как отображаются поля при добавлении новых объектов в QGIS и QField. В контекстром меню слоя “data” выберите пункт <strong>“Свойства” &gt; “Формы полей”</strong>. В верхней части окна переключитей режим “Создать автоматически” на “Кнструктор форм”. В средней части окна (“Макет формы”) отображаются поля которые будут показаны при добавлении нового объекта. Удалите поле <strong>“fid”</strong>, остальные поля мы сейчас настроим.</p>
+<div id="fig-form" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-form-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/13/13_1_Макет форм.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Рисунок&nbsp;9.1: Макет формы"><img src="./pictures2/13/13_1_Макет форм.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-form-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.1: Макет формы
+</figcaption>
+</figure>
+</div>
+<p>Нажмите на поле “species”, в правой части окна появятся настройки поля. В подразделе “Общие” &gt; “Псевдоним” введите название “Вид дерева”. Это псевдоним, который будет отображаться вместо изначального названия поля. В подпункте “Вид формы” из выпадающего списка выберите “Карта значений”, эта настройка позволит создать список с выбором пород. Заполним его несколькими породами деревьев как показано на рисунке ниже.</p>
+<div id="fig-species" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-species-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/13/13_2_species.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Рисунок&nbsp;9.2: Настройки поля “species”"><img src="./pictures2/13/13_2_species.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-species-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.2: Настройки поля “species”
+</figcaption>
+</figure>
+</div>
+<p>В подпункте “Ограничения” поставьте два чек-бокса в пунктах “Не пустое” и “Принудительное ограничение Не пустое”. Это сделает поле обязательным для заполнения. Если поле не заполнено, новый объект сохранить будет невозможно. Похожим образом насатраиваются остальные поля, но некоторые настройки будут отличаться.</p>
+<p>В настройках поля “H_m” укажите псевдоним “Высота, м”, “Вид формы” &gt; “Диапазон”. Так же задайте допустимые минимальное (0) и максимальное (50) значения и точность (1). Для поля “DBH_cm” проведите аналогичные настройки: “Псевдоним” - “Диаметр на высоте 1,3 м, см”; “Вид формы” - “Диапазон”; минимальное значение - 0; максимальное значение - 150; точность - 1.</p>
+<div id="fig-H_m" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-H_m-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/13/13_3_H_m.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Рисунок&nbsp;9.3: Настройки поля “H_m”"><img src="./pictures2/13/13_3_H_m.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-H_m-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.3: Настройки поля “H_m”
+</figcaption>
+</figure>
+</div>
+<div id="fig-DBH_cm" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-DBH_cm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/13/13_4_DBH_cm.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Рисунок&nbsp;9.4: Настройки поля “DBH_cm”"><img src="./pictures2/13/13_4_DBH_cm.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-DBH_cm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.4: Настройки поля “DBH_cm”
+</figcaption>
+</figure>
+</div>
+<p>В поле “is_dead” проведите следующие настройки: “Псевдоним” - “Мертвое дерево”; “Вид формы” - “Флажок”.</p>
+<div id="fig-is_dead" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-is_dead-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/13/13_5_is_dead.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Рисунок&nbsp;9.5: Настройки поля “is_dead”"><img src="./pictures2/13/13_5_is_dead.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-is_dead-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.5: Настройки поля “is_dead”
+</figcaption>
+</figure>
+</div>
+<p>В поле “photo” проведем настройки для хранения ссылок на фотографии. Для начала в папке прокета создайте папку “DCIM”, в эту папку будут сохраняться фотографии в то время как поле “photo” будет хранить ссылки на них. В поле “photo” проведите следующие настройки. “Псевдоним” - “Фотография”, “Вид формы” - “Вложение”. В пункте “Путь по умолчанию” введите “/DCIM/” (без кавычек), так мы укажем приложению папку для сохранения фотографий. В пункте “Хранить пути как” выберите “Относительно расположения проекта”. Снимите чек-бокс в пункте “Отобразить путь к ресурсу”, в подпункте “Встроенный просмотр документов” выберите “Изображение”. Остальные настройки оставьте по умолчанию.</p>
+<div id="fig-photo" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-photo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/13/13_6_photo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Рисунок&nbsp;9.6: Настройки поля “photo”"><img src="./pictures2/13/13_6_photo.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-photo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.6: Настройки поля “photo”
+</figcaption>
+</figure>
+</div>
+<p>В поле “comment” можно будет ввести произвольный текст (заметку) о конкретном дереве, поэтому настроим его следующим образом: “Псевдоним” - “Комментарий”, “Вид формы” - “Текстовое поле”. Остальные настройки оставьте по умолчанию.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Уведомление</span>Обратите внимание!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Мы рассмотрели пример настройки полей для сбора данных различного типа. Вы можете создать произвольное количество полей под ваши задачи и задать необходимые настройки. Кроме того, вы можете добавить больше векторных слоев и задать для них стили отображения. То что вы видите в QGIS будет перенесено в приложение QField практически без ограничений. За дополнительной информацией по работе с QField обратитесь к официальной документаци приложения <a href="https://docs.qfield.org/">QField</a>.</p>
+</div>
+</div>
+</section>
+<section id="настройки-экспорта-проекта" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="настройки-экспорта-проекта"><span class="header-section-number">9.3</span> Настройки экспорта проекта</h2>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;9.3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Перед настройкой экспорта сохраните проект.</p>
+</div>
+</div>
+<p>Вами уже были настроены стили отображения и слои для сбора данных. Осталось настроить экспорт проекта в плагине “QField Sync”. Перейдите в пункт <strong>“Модули” &gt; “QField Sync” &gt; “Configure current project”</strong>. В окне доступно две вкладки конфигурирования проекта, в зависимости от способа переноса проекта в мобильное устройство: “QFieldCloud Packaging” - если вы используюте облачный сервер “QFieldCloud”; “Cable Packaging” - при копировании проекта напрямую (не обязательно через проводное соединение, можно отправить заархивированный проект, например, через облако). В этом примере мы будем использовать вкладку “Cable Packaging”.</p>
+<div id="fig-qgis_export_settings" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-qgis_export_settings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/13/13_7_qgis_export_settings.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Рисунок&nbsp;9.7: Настройки конфигурирования проекта “QField Sync”"><img src="./pictures2/13/13_7_qgis_export_settings.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-qgis_export_settings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.7: Настройки конфигурирования проекта “QField Sync”
+</figcaption>
+</figure>
+</div>
+<p>В верхней части окна производится настройка для каждого слоя. Возможны 4 режима:</p>
+<ul>
+<li>“Copy” - слой будет скопирован в новый проект;</li>
+<li>“Offline editing” - слой будет подготовлен для редактирования;</li>
+<li>“Directly access data source” - загрузка слоя из интернета (например для Google Satellite);</li>
+<li>“Remove from project” - слой будет удален из проекта.</li>
+</ul>
+<p>Напротив слоя “data” выберите режим “Offline editing”, напротив слоя “Google Satellite” выберите режим “Directly access data source” (в таком режиме базовая карта будет доступна, но только при наличии интернета).</p>
+</section>
+<section id="оффлайн-базовая-карта" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="оффлайн-базовая-карта"><span class="header-section-number">9.4</span> Оффлайн базовая карта</h2>
+<p>При сборе плевых данных не всегда есть доступ к интернету, поэтому полезно иметь часть базовой карты в режиме оффлайн. Для сохранения части карты Google Satellite расположите главное окно программы над интересующей вас областью (не нужно выбирать слишком большой участок, оптимальный масштаб 1:10 000). Теперь перейдите в пункт <strong>“Модули” &gt; “QField Sync” &gt; “Configure current project”</strong>, в подпункте “Area of Interest and Base Map” &gt; “Area of Interest” выберите “Текущий охват карты”, поле будет заполнено координатами, ограничивающими область загрузки карты. Поставьте чек-бокс в подпункте “Base Map”, ниже задаются настройки загрузки базовой карты: выберите режим “Single layer”; в поле “Layer” выберите слой “Google Satellite”. Пункты “Tiles min zoom levels” и “Tiles max zoom levels” влияют на детальнотость загруженной карты. Всего карты Google Satellite поддерживают уровни от 0 до 22, где 22 - наиболее детальный. В этих пунктах зададим “Tiles min zoom levels” - 14, “Tiles max zoom levels” - 18. Настройка закончена, нажмите “Применить” &gt; “ОК”.</p>
+</section>
+<section id="импорт-проекта-в-qfield-android" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="импорт-проекта-в-qfield-android"><span class="header-section-number">9.5</span> Импорт проекта в QField (Android)</h2>
+<p>После настройки проекта, выполним экспорт. По сути это будет копия текущего проекта с настройками для приложения QField, которыю мы в последствии скопируем на мобильное устройство. Перейдите в пункт <strong>“Модули” &gt; “QField Sync” &gt; “Package for QField”</strong>, выберите папку для сохранения проекта и нажмите <strong>“Create”</strong>. Копия проекта, сконфигурированная для использования в QField, будет сохранена в указанную папку.</p>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;9.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Экспортируйте проект в папку на рабочем столе. Экспорт может занять некоторое время из-за загрузки базовой карты.</p>
+</div>
+</div>
+<p>Сконфирурированную копию проекта необходимо скопировать на мобильное устройство (например в папку “Downloads”). Сделать это можно через проводное соединение или облачный сервис. Далее работа проводится на мобильном устройстве, откройте приложение QField. На главном экране выберите пункт “Local projects and datasets” &gt; нажмите на символ “+” в правом нижнем углу &gt; “Импорт проекта из папки” &gt; выберите папку с проектом и нажмите “Использовать эту папку” &gt; “Разрешить” &gt; “Нажмите на файл проекта”. Проект успешно импортирован в приложение QField.</p>
+<div id="fig-home_screen" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-home_screen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/13/13_8_home_screen.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Рисунок&nbsp;9.8: Главный экран приложения QField"><img src="./pictures2/13/13_8_home_screen.jpg" class="border img-fluid figure-img" style="width:50.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-home_screen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.8: Главный экран приложения QField
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="qfield---навигация-и-сбор-данных" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="qfield---навигация-и-сбор-данных"><span class="header-section-number">9.6</span> QField - Навигация и сбор данных</h2>
+<p>Приложение QField позволяет решить две основные задачи: ориентирование на местности (навигация) и сбор полевых данных. В соответствии с этими задачами приложение имеет 2 режима: просмотра <img src="./QField_icons/ic_map_white_24dp.svg" class="image-bg img-fluid" alt="1"> и оцифровки (редактирования) <img src="./QField_icons/ic_create_white_24dp.svg" class="image-bg img-fluid" alt="1">. Переключатель режимов находится в нижней части панели слоев (нажмите на иконку с тремя горизонтальными линиями в левом верхнем углу). Эти режимы аналогичны таковым в QGIS. В панеле слоев возможно настроить отображение слоя (иконка <img src="./QField_icons/ic_view_black_24dp.svg" class="img-fluid" alt="1"> напротив каждого слоя) а так же задать некоторые дополнительные насатройки (длительное нажатие на слой). Иконка “<img src="./QField_icons/ic_home_black_24dp.svg" class="img-fluid" alt="1"> Return home” возвращает на главный экран.</p>
+<div id="fig-qfield_layers" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-qfield_layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/13/13_9_qfield_layers.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Рисунок&nbsp;9.9: Панель слоев приложения QField"><img src="./pictures2/13/13_9_qfield_layers.jpg" class="border img-fluid figure-img" style="width:50.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-qfield_layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.9: Панель слоев приложения QField
+</figcaption>
+</figure>
+</div>
+<div id="fig-menu" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-menu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/13/13_10_menu.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Рисунок&nbsp;9.10: Меню слоя приложения QField"><img src="./pictures2/13/13_10_menu.jpg" class="border img-fluid figure-img" style="width:50.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-menu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.10: Меню слоя приложения QField
+</figcaption>
+</figure>
+</div>
+<p>В основном окне, нажатие на иконку <img src="./QField_icons/ic_location_valid_white_24dp.svg" class="image-bg img-fluid" alt="1"> перемещает охват карты к вашему местположению (определяется по GPS). Нажание на точку с вашим местоположением открывает круговое меню настроек:</p>
+<ul>
+<li>Блокировка / разблокировка курсора ввода <img src="./QField_icons/ic_location_cursor_lock_white_24dp.svg" class="image-bg img-fluid" alt="1"> - важная функция при оцифровке (добавлении новых объектов), заблокированный курсор добавляет новый объект (или вершину) в точке вашего текущего местположения. Разблокированный курсор позволяет добавить объект (вершину) в произвольном месте.</li>
+<li>Блокировка / разблокировка охвата карты <img src="./QField_icons/ic_location_canvas_lock_white_24dp.svg" class="image-bg img-fluid" alt="1"> - при заблокированном охвате, карта будет возвращаться к вашему текущему положению. Эта функция удобна если вы следуете по маршруту и хотите быстро осмотреть окрестности на карте.</li>
+<li>Добавление закладки <img src="./QField_icons/ic_add_bookmark_black_24dp.svg" class="img-fluid" alt="1"> - позволяет добавить закладку с комментарием. Такими закладками удобно помечать временные точки, например местоположение машины на которой вы приехали или вашего лагеря.</li>
+<li>Копировать координаты <img src="./QField_icons/ic_copy_black_24dp.svg" class="img-fluid" alt="1"> - копирует ваши координаты в буфер обмена. Их можно вставить в сообщение.</li>
+<li>Информация о местоположении <img src="./QField_icons/ic_error_outline_24dp.svg" class="img-fluid" alt="1"> - выводит на экран расширенную информацию о текущем местоположении.</li>
+<li>Трекинг <img src="./QField_icons/directions_walk_24dp.svg" class="img-fluid" alt="1"> - позволяет записывать маршрут (трек). Запись может происходить в фоновом режиме.</li>
+</ul>
+<div id="fig-circle_menu" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-circle_menu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/13/13_13_circle_menu.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Рисунок&nbsp;9.11: Круговое меню настроек"><img src="./pictures2/13/13_13_circle_menu.jpg" class="border img-fluid figure-img" style="width:50.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-circle_menu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.11: Круговое меню настроек
+</figcaption>
+</figure>
+</div>
+<p>Как уже упоминалось, режим редактирования имеет два подрежима. Когда курсор ввода разблокирован вы можете добавить новый объект (вершину) в любую точку на карте, достаточно навести на эту точку перекрестие <img src="./QField_icons/ic_coordinate_locator_white_24dp.svg" class="image-bg img-fluid" alt="1"> и нажать на иконку <img src="./QField_icons/ic_add_white_24dp.svg" class="image-bg img-fluid" alt="1"> в правом нижнем углу. Когда курсор ввода заблокирован, при нажатии на иконку <img src="./QField_icons/ic_add_white_24dp.svg" class="image-bg img-fluid" alt="1"> объект (вершина) добавляется в текущем местоположении.</p>
+<div id="fig-cursor" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cursor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/13/13_11_cursor.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Рисунок&nbsp;9.12: Курсор ввода в режиме редактирования"><img src="./pictures2/13/13_11_cursor.jpg" class="border img-fluid figure-img" style="width:50.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cursor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.12: Курсор ввода в режиме редактирования
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Уведомление</span>Обратите внимание!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>По аналогии с QGIS, новый объект добавляется в выделенный слой в панеле слоев.</p>
+</div>
+</div>
+<p>После добавления обьекта в приложении появится форма ввода атрибутов, которую нужно заполнить. В нашем случае обязательно для заполнения поле “Вид дерева” (без его заполнения сохранить объект не получится). Ранее мы настроили для этого поля режим выпадающего списка, поэтому значения ограничены предзаданными категориями. После заполнения поля “Вид дерева” иконка <img src="./QField_icons/ic_check_white_24dp.svg" class="image-bg img-fluid" alt="1"> в левом верхнем углу станет зеленой, это значит что все обязательные поля заполнены и, нажав на иконку, можно сохранить объект. Так же объект можно удалить, нажав на иконку <img src="./QField_icons/ic_delete_forever_white_24dp.svg" class="image-bg img-fluid" alt="1"> в правом верхнем углу.</p>
+<div id="fig-forma" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-forma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./pictures2/13/13_12_forma.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Рисунок&nbsp;9.13: Форма ввода атрибутов"><img src="./pictures2/13/13_12_forma.jpg" class="border img-fluid figure-img" style="width:50.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-forma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.13: Форма ввода атрибутов
+</figcaption>
+</figure>
+</div>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;9.5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Добавьте 3 дерева в приложение QField. Заполните все поля (характеристики) для каждого дерева.</p>
+</div>
+</div>
+</section>
+<section id="экспорт-в-qgis" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="экспорт-в-qgis"><span class="header-section-number">9.7</span> Экспорт в QGIS</h2>
+<p>После сбора данных, проект необходимо экспортировать обратно в QGIS. Для этого с главного экрана приложения QField перейдите в пункт “Local projects and datasets” &gt; “Импортированные проекты”, напротив проекта нажмите на иконку <img src="./QField_icons/ic_dot_menu_black_24dp.svg" class="img-fluid" alt="1">, выберите пункт “Экспорт в папку…” и сохраните проект в папку “Downloads” на вашем телефоне. Эту папку необходимо скопировать на компьютер. Экспорт завершен</p>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;9.6
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Экспортируйте проект из QField в QGIS. Откройте проект в QGIS и убедитесь что в файле “data.gpkg” появлились новые, добавленные вами, объекты и атрибуты к этим объектам. Убедитесь что фотографии находятся в папке “DCIM”.</p>
+</div>
+</div>
+<p>Мы рассмотрели базовые возможности приложения QField. Для более глубокого изучения возможностей обратитесь к руководству на официальном сайте приложения.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Скопировано");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Скопировано");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./chapter8_DEM.html" class="pagination-link" aria-label="Цифровая модель рельефа">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./chapter14_coordinates.html" class="pagination-link" aria-label="Каталог координат">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Каталог координат</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

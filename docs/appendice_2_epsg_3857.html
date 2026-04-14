@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Приложение B — Система координат Pseudo-Mercator (EPSG:3857) – Основы геоинформационных систем в QGIS</title>
+<title>Приложение B — Системы координат – Основы геоинформационных систем в QGIS</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -34,19 +37,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="./appendice_1_geopackage.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-14cbc709409b9607cfe384ca3dce8273.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-bce977a10065f1546ac742a2ca57dec9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,6 +78,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -266,7 +269,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendice_1_geopackage.html">Приложения</a></li><li class="breadcrumb-item"><a href="./appendice_2_epsg_3857.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Система координат Pseudo-Mercator (EPSG:3857)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendice_1_geopackage.html">Приложения</a></li><li class="breadcrumb-item"><a href="./appendice_2_epsg_3857.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Системы координат</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -340,8 +343,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter12_homework.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Домашнее задание - оцифровка</span></span></a>
+  <a href="./chapter13_qfield.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Мобильное приложение QField</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter14_coordinates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Каталог координат</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -368,7 +377,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendice_2_epsg_3857.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Система координат Pseudo-Mercator (EPSG:3857)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Системы координат</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -383,6 +392,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Создание плана лесонасаждений</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter12_homework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Домашнее задание - оцифровка</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -390,16 +405,24 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Содержание</h2>
+   
+  <ul>
+  <li><a href="#описание-ск-wgs-84-pseudo-mercator-epsg3857" id="toc-описание-ск-wgs-84-pseudo-mercator-epsg3857" class="nav-link active" data-scroll-target="#описание-ск-wgs-84-pseudo-mercator-epsg3857"><span class="header-section-number">B.1</span> Описание СК WGS 84 / Pseudo-Mercator (EPSG:3857)</a></li>
+  <li><a href="#гск-2011" id="toc-гск-2011" class="nav-link" data-scroll-target="#гск-2011"><span class="header-section-number">B.2</span> ГСК 2011</a></li>
+  <li><a href="#местные-системы-координат" id="toc-местные-системы-координат" class="nav-link" data-scroll-target="#местные-системы-координат"><span class="header-section-number">B.3</span> Местные системы координат</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendice_1_geopackage.html">Приложения</a></li><li class="breadcrumb-item"><a href="./appendice_2_epsg_3857.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Система координат Pseudo-Mercator (EPSG:3857)</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendice_1_geopackage.html">Приложения</a></li><li class="breadcrumb-item"><a href="./appendice_2_epsg_3857.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Системы координат</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-epsg3857" class="quarto-section-identifier">Приложение B — Система координат Pseudo-Mercator (EPSG:3857)</span></h1>
+<h1 class="title"><span id="sec-crs" class="quarto-section-identifier">Приложение B — Системы координат</span></h1>
 </div>
 
 
@@ -416,9 +439,49 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Описание СК WGS 84 / Pseudo-Mercator (EPSG:3857)</p>
+<section id="описание-ск-wgs-84-pseudo-mercator-epsg3857" class="level2" data-number="B.1">
+<h2 data-number="B.1" class="anchored" data-anchor-id="описание-ск-wgs-84-pseudo-mercator-epsg3857"><span class="header-section-number">B.1</span> Описание СК WGS 84 / Pseudo-Mercator (EPSG:3857)</h2>
+</section>
+<section id="гск-2011" class="level2" data-number="B.2">
+<h2 data-number="B.2" class="anchored" data-anchor-id="гск-2011"><span class="header-section-number">B.2</span> ГСК 2011</h2>
+</section>
+<section id="местные-системы-координат" class="level2" data-number="B.3">
+<h2 data-number="B.3" class="anchored" data-anchor-id="местные-системы-координат"><span class="header-section-number">B.3</span> Местные системы координат</h2>
+<p>Местные системы координат (МСК) используются при кадастровых работах. Список МСК для Красноярского края приведен ниже (источник https://terraingis.ru/msk-24.html).</p>
+<p>Распределение кадастровых районов по расчетным местным системам координат и зонам следующее:</p>
+<pre><code>Диксонский (84:01), Усть-Енисейский (84:04) – MCK-163, Зона 1;
+Typyxaнский (24:37) – МCK-164, Зона 1;
+Диксонский (84:01), Дудинский (84:02), Усть-Енисейский (84:04) – MCK-164, Зона 2;
+Typyxaнский (24:37), г. Игарка (24:49), г. Hopильск (24:55) – MCK-165, Зона 2;
+Диксонский (84:01), Дудинский (84:02), г. Дудинка (84:03), Усть-Енисейский (84:04) – MCK-165, Зона 3;
+Ачинский (24:02), Балахтинский (24:03), Бирилюсский (24:05), Боготольский (24:06), Большеулуйский (24:09), Енисейский (24:12), Козульский (24:21), Назаровский (24:27), Новоселовский (24:29), Typyxaнский (24:37), Тюхтетский (24:38), Ужурский (24:39), Шарыповский (24:41), г. Aчинск (24:43), г. Боготол (24:44), г. Haзарово (24:54), г. Шарыпово (24:57), 3ATO п. Солнечный (24:61) – MCK-166, Зона 3;
+Дудинский (84:02) – MCK-166, Зона 4;
+Условный кадастровый (24:00), Балахтинский (24:03), Березовский (24:04), Енисейский (24:12), Ермаковский (24:13), Идринский (24:14), Казачинский (24:17), Каратузский (24:19), Краснотуранский (24:22), Курагинский (24:23), Манский (24:24), Минусинский (24:25), Мотыгинский (24:26), Партизанский (24:30), Пировский (24:31), Север-Енисейский (24:34), Cyxo6yзимский (24:35), Уярский (24:40), Шушенский (24:42), г. Дивногорск (24:46), г. Eнисейск (24:47), г. Красноярск (24:50), г. Лесосибирск (24:52), г. Минусинск (24:53), г. Cocнoвo6opcк (24:56), 3ATO г. Железногорск (24:58), п. Кeдровый (24:60), Диксонский (84:01), Дудинский (84:02), Илимпийский (88:01), Байкитский (88:02), Большемуртинский (24:08), Емельяновский (24:11) – MCK-167, Зона 4;
+Абанский (24:01), Богучанский (24:07), Дзержинский (24:10), Иланский (24:15), Ирбейский (24:16), Канский (24:18), Мотыгинский (24:26), Нижнеингашский (24:28), Рыбинский (24:32), Саянский (24:33), Tacаевский (24:36), г. Бородино (24:45), г. 3aoзерный (24:48), г. Kaнск (24:51), 3ATO г. Зеленогорск (24:59) — MCK-168, Зона 5;
+Условный кадастровый (84:00), Диксонский (84:01), Дудинский (84:02) – MCK-168, Зона 6;
+Илимпийский ( 88:01), Байкитский (88:02) – MCK-168, Зона 2;
+Богучанский (24:07), Кужемский (24:20) – MCK-169, Зона 6;
+Диксонский (84:01), Хатангский (84:05) – MCK-169, Зона 7;
+Условный кадастровый (88 :00), Илимпийский (88:01), Илимпийский (88:01), Байкитский (88:02) – MCK-169, Зона 3;
+Кужемский (24:20) – MCK-170, Зона 7;
+Хатангский (84:05) – MCK-170, Зона 8;
+Илимпийский ( 88:01), Тунгусско-Чунский (88:03) – MCK-170, Зона 4;
+Диксонский (84:01), Хатангский (84:05) – MCK-171, Зона 9;
+Илимпийский (88:01), Тунгусско-Чунский (88:03) – MCK-171, Зона 5;
+Хатангский (84:05) – MCK-172, Зона 10;
+Хатангский (84:05) — MCK-173, Зона 11.</code></pre>
+<p>МСК г. Красноярска +proj=tmerc +lat_0=0 +lon_0=93 +k=1 +x_0=54304.47 +y_0=-6196680.59 +ellps=krass +towgs84=23.57,-140.95,-79.8,0,0.35,0.79,-0.22 +units=m +no_defs</p>
+<p>МСК-163 +proj=tmerc +lat_0=0 +lon_0=81 +k=1 +x_0=65425.7 +y_0=-7434483.2 +ellps=krass +towgs84=23.57,-140.95,-79.8,0,0.35,0.79,-0.22 +units=m +no_defs</p>
+<p>МСК-164 +proj=tmerc +lat_0=0 +lon_0=84 +k=1 +x_0=86209.8 +y_0=-6542783.5 +ellps=krass +towgs84=23.57,-140.95,-79.8,0,0.35,0.79,-0.22 +units=m +no_defs</p>
+<p>МСК-165 +proj=tmerc +lat_0=0 +lon_0=87 +k=1 +x_0=105295.8 +y_0=-5652185. +ellps=krass +towgs84=23.57,-140.95,-79.8,0,0.35,0.79,-0.22 +units=m +no_defs</p>
+<p>МСК-166 +proj=tmerc +lat_0=0 +lon_0=90 +k=1 +x_0=107543.3 +y_0=-5540944.5 +ellps=krass +towgs84=23.57,-140.95,-79.8,0,0.35,0.79,-0.22 +units=m +no_defs</p>
+<p>МСК-167 +proj=tmerc +lat_0=0 +lon_0=93 +k=1 +x_0=106797.8 +y_0=-5578022.5 +ellps=krass +towgs84=23.57,-140.95,-79.8,0,0.35,0.79,-0.22 +units=m +no_defs</p>
+<p>МСК-168 +proj=tmerc +lat_0=0 +lon_0=96 +k=1 +x_0=108285.2 +y_0=-5503868.6 +ellps=krass +towgs84=23.57,-140.95,-79.8,0,0.35,0.79,-0.22 +units=m +no_defs</p>
+<p>МСК-169 +proj=tmerc +lat_0=0 +lon_0=99 +k=1 +x_0=117308.6 +y_0=-5503868.6 +ellps=krass +towgs84=23.57,-140.95,-79.8,0,0.35,0.79,-0.22 +units=m +no_defs</p>
+<p>МСК-170 +proj=tmerc +lat_0=0 +lon_0=102 +k=1 +x_0=90338.90 +y_0=-6357146.10 +ellps=krass +towgs84=23.57,-140.95,-79.8,0,0.35,0.79,-0.22 +units=m +no_defs</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

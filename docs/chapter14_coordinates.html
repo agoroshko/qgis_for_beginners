@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; Каталог координат – Основы геоинформационных систем в QGIS</title>
+<title>10&nbsp; Каталог координат – Основы геоинформационных систем в QGIS</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -31,22 +34,21 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./references.html" rel="next">
-<link href="./chapter8_DEM.html" rel="prev">
+<link href="./chapter13_qfield.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-14cbc709409b9607cfe384ca3dce8273.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-bce977a10065f1546ac742a2ca57dec9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -79,6 +81,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -269,7 +272,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter14_coordinates.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Каталог координат</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter14_coordinates.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Каталог координат</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -343,8 +346,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./chapter13_qfield.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Мобильное приложение QField</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./chapter14_coordinates.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Каталог координат</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Каталог координат</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -371,7 +380,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendice_2_epsg_3857.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Система координат Pseudo-Mercator (EPSG:3857)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Системы координат</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -404,9 +413,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Содержание</h2>
    
   <ul>
-  <li><a href="#импорт-каталога-координат" id="toc-импорт-каталога-координат" class="nav-link active" data-scroll-target="#импорт-каталога-координат"><span class="header-section-number">9.1</span> Импорт каталога координат</a></li>
-  <li><a href="#экспорт-в-каталог-координат" id="toc-экспорт-в-каталог-координат" class="nav-link" data-scroll-target="#экспорт-в-каталог-координат"><span class="header-section-number">9.2</span> Экспорт в каталог координат</a></li>
-  <li><a href="#полярная-система-координат" id="toc-полярная-система-координат" class="nav-link" data-scroll-target="#полярная-система-координат"><span class="header-section-number">9.3</span> Полярная система координат</a></li>
+  <li><a href="#импорт-каталога-координат" id="toc-импорт-каталога-координат" class="nav-link active" data-scroll-target="#импорт-каталога-координат"><span class="header-section-number">10.1</span> Импорт каталога координат</a></li>
+  <li><a href="#экспорт-в-каталог-координат" id="toc-экспорт-в-каталог-координат" class="nav-link" data-scroll-target="#экспорт-в-каталог-координат"><span class="header-section-number">10.2</span> Экспорт в каталог координат</a></li>
+  <li><a href="#полярная-система-координат" id="toc-полярная-система-координат" class="nav-link" data-scroll-target="#полярная-система-координат"><span class="header-section-number">10.3</span> Полярная система координат</a></li>
   </ul>
 </nav>
     </div>
@@ -416,7 +425,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Каталог координат</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Каталог координат</span></h1>
 </div>
 
 
@@ -433,11 +442,11 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Каталог координат - это таблица, содержащая координаты поворотных точек объекта. Объект может иметь геометрическую форму точки (в этом случае достаточно пары координат), линии или полигона (см. <a href="#tbl-coords_example" class="quarto-xref">Таблица&nbsp;<span>9.1</span></a>). Так же каталог координат может содержать сразу несклько объектов. В этом случае кроме координат должен присутствовать столбец, позволяющий идентифицировать объекты. Геометрическая форма объектов а так же система координат должны быть известны заранее или прописаны в заголовке каталога координат. Без этой информации использовать каталог в ГИС невозможно.</p>
+<p>Каталог координат - это таблица, содержащая координаты поворотных точек объекта. Объект может иметь геометрическую форму точки (в этом случае достаточно пары координат), линии или полигона (см. <a href="#tbl-coords_example" class="quarto-xref">Таблица&nbsp;<span>10.1</span></a>). Так же каталог координат может содержать сразу несклько объектов. В этом случае кроме координат должен присутствовать столбец, позволяющий идентифицировать объекты. Геометрическая форма объектов а так же система координат должны быть известны заранее или прописаны в заголовке каталога координат. Без этой информации использовать каталог в ГИС невозможно.</p>
 <div id="tbl-coords_example" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-coords_example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Таблица&nbsp;9.1: Пример каталога координат (Система координат WGS84)
+Таблица&nbsp;10.1: Пример каталога координат (Система координат WGS84)
 </figcaption>
 <div aria-describedby="tbl-coords_example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -497,8 +506,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </div>
 </div>
-<section id="импорт-каталога-координат" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="импорт-каталога-координат"><span class="header-section-number">9.1</span> Импорт каталога координат</h2>
+<section id="импорт-каталога-координат" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="импорт-каталога-координат"><span class="header-section-number">10.1</span> Импорт каталога координат</h2>
 <p>Файл “Полигон.xlsx” содержит каталог координат поворотных точек лесосеки в системе координат WGS84 (EPSG:4326). Каталог координат имеет следующие столбцы:</p>
 <ul>
 <li>n - порядковый номер точки;</li>
@@ -512,21 +521,21 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;9.1
+Задание&nbsp;10.1
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Изучите каталог координат. Для этого откройте файл <strong>“Полигон.xlsx”</strong> в табличном редакторе (Excel, LibreОffice Calc и др.).</p>
 </div>
 </div>
-<p>Теперь сохраним таблицу в файл с расширением .csv (Comma-Separated Values). При сохранении нужно выбрать символ разелителя полей (англ. field delimiter). Самый надежный вариант - использовать символ табуляции (см. <a href="#fig-export_to_csv" class="quarto-xref">Рисунок&nbsp;<span>9.1</span></a>).</p>
+<p>Теперь сохраним таблицу в файл с расширением .csv (Comma-Separated Values). При сохранении нужно выбрать символ разелителя полей (англ. field delimiter). Самый надежный вариант - использовать символ табуляции (см. <a href="#fig-export_to_csv" class="quarto-xref">Рисунок&nbsp;<span>10.1</span></a>).</p>
 <div id="fig-export_to_csv" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-export_to_csv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/14/14_1_export_to_csv.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Рисунок&nbsp;9.1: Настройки экспорта в файл .csv, программа LibreOffice Calc"><img src="./pictures2/14/14_1_export_to_csv.png" class="img-fluid figure-img" style="width:50.0%"></a>
+<a href="./pictures2/14/14_1_export_to_csv.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Рисунок&nbsp;10.1: Настройки экспорта в файл .csv, программа LibreOffice Calc"><img src="./pictures2/14/14_1_export_to_csv.png" class="img-fluid figure-img" style="width:50.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-export_to_csv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;9.1: Настройки экспорта в файл .csv, программа LibreOffice Calc
+Рисунок&nbsp;10.1: Настройки экспорта в файл .csv, программа LibreOffice Calc
 </figcaption>
 </figure>
 </div>
@@ -536,14 +545,14 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;9.2
+Задание&nbsp;10.2
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Экспортируйте файл <strong>“Полигон.xlsx”</strong> в формат <strong>.csv</strong>.</p>
 </div>
 </div>
-<p>Теперь можно приступать к импорту <strong>“.csv”</strong> файла в QGIS. Перейдите в пункт меню <strong>“Слой” &gt; “Добавить слой” &gt; “Добавить слой из текста с разделителями…”</strong>. В открывшемся окне необходимо задать параметры импорта файла (см. <a href="#fig-import_csv" class="quarto-xref">Рисунок&nbsp;<span>9.2</span></a>):</p>
+<p>Теперь можно приступать к импорту <strong>“.csv”</strong> файла в QGIS. Перейдите в пункт меню <strong>“Слой” &gt; “Добавить слой” &gt; “Добавить слой из текста с разделителями…”</strong>. В открывшемся окне необходимо задать параметры импорта файла (см. <a href="#fig-import_csv" class="quarto-xref">Рисунок&nbsp;<span>10.2</span></a>):</p>
 <ul>
 <li>“Имя файла” - указывается путь к файлу .csv;</li>
 <li>“Формат файла” - указывается пункт “Другие разделители” т.к. мы использовали не стандартный разделитель, запятую, а знак табуляции (поставить чек-бокс напротив пункта “Табуляция”).</li>
@@ -555,10 +564,10 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-import_csv" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-import_csv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/14/14_2_import_csv.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Рисунок&nbsp;9.2: Окно настроек импорта файла .csv в QGIS"><img src="./pictures2/14/14_2_import_csv.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/14/14_2_import_csv.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Рисунок&nbsp;10.2: Окно настроек импорта файла .csv в QGIS"><img src="./pictures2/14/14_2_import_csv.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-import_csv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;9.2: Окно настроек импорта файла .csv в QGIS
+Рисунок&nbsp;10.2: Окно настроек импорта файла .csv в QGIS
 </figcaption>
 </figure>
 </div>
@@ -568,7 +577,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;9.3
+Задание&nbsp;10.3
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -588,14 +597,14 @@ ul.task-list li input[type="checkbox"] {
 <p>Каталог координат может содержать неограниченное количество столбцов. Кроме обязательной пары столбцов с координатам, могут присутствовать дополнительные столбцы с характеристиками точек. В нашем примере такой дополнительный столбец (“n”) содержит порядковый номер точки. При импорте в QGIS дополнительные столбцы сохраняются и становятся частью таблицы атрибутов слоя точек. Это может быть полезно при решении некоторых задач.</p>
 </div>
 </div>
-<p>Мы успешно импортировали поворотные точки лесосеки, однако, что бы рассчитать площадь объект должен быть полигоном а не набором точек. Теперь задача состоит в том, что бы превратить точки в полигон. В QGIS такое преобразование включает промежуточный этап: точки конвертируются в линию после чего линия конвертируется в полигон. Используем инструмент <strong>“Точки в контур”</strong> в панеле инструментов для создания замкнутой линии. В настройках исходного слоя выберите слой с точками, поставьте чек-бокс <strong>“Создать замкнутые контуры”</strong> (в этом случае первая и последняя точки будут соединены). Поле <strong>“Выражение порядка”</strong> позволяет задать порядок соединения точек. Для этого в таблице атрибутов у каждой точки должен быть порядковый номер (в нашем случае это поле <strong>“n”</strong>). Если выражение порядка не задано, точки будут соединены в той последовательности в которой они представлены в таблицы атрибутов. После всех настроек нажмите “Выполнить”, в панеле слоев появится новый временный слой с линией (<a href="#fig-points_to_line" class="quarto-xref">Рисунок&nbsp;<span>9.3</span></a>).</p>
+<p>Мы успешно импортировали поворотные точки лесосеки, однако, что бы рассчитать площадь объект должен быть полигоном а не набором точек. Теперь задача состоит в том, что бы превратить точки в полигон. В QGIS такое преобразование включает промежуточный этап: точки конвертируются в линию после чего линия конвертируется в полигон. Используем инструмент <strong>“Точки в контур”</strong> в панеле инструментов для создания замкнутой линии. В настройках исходного слоя выберите слой с точками, поставьте чек-бокс <strong>“Создать замкнутые контуры”</strong> (в этом случае первая и последняя точки будут соединены). Поле <strong>“Выражение порядка”</strong> позволяет задать порядок соединения точек. Для этого в таблице атрибутов у каждой точки должен быть порядковый номер (в нашем случае это поле <strong>“n”</strong>). Если выражение порядка не задано, точки будут соединены в той последовательности в которой они представлены в таблицы атрибутов. После всех настроек нажмите “Выполнить”, в панеле слоев появится новый временный слой с линией (<a href="#fig-points_to_line" class="quarto-xref">Рисунок&nbsp;<span>10.3</span></a>).</p>
 <div id="fig-points_to_line" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-points_to_line-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/14/14_3_точки в контур.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Рисунок&nbsp;9.3: Окно настроек инструмента “Точки в контур”"><img src="./pictures2/14/14_3_точки в контур.png" class="img-fluid figure-img"></a>
+<a href="./pictures2/14/14_3_точки в контур.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Рисунок&nbsp;10.3: Окно настроек инструмента “Точки в контур”"><img src="./pictures2/14/14_3_точки в контур.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-points_to_line-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;9.3: Окно настроек инструмента “Точки в контур”
+Рисунок&nbsp;10.3: Окно настроек инструмента “Точки в контур”
 </figcaption>
 </figure>
 </div>
@@ -605,7 +614,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;9.4
+Задание&nbsp;10.4
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -613,23 +622,23 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-points_to_line_result" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-points_to_line_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/14/14_4_точки в контур результат.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Рисунок&nbsp;9.4: Пример выполненного задания"><img src="./pictures2/14/14_4_точки в контур результат.png" class="img-fluid figure-img" style="width:50.0%"></a>
+<a href="./pictures2/14/14_4_точки в контур результат.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Рисунок&nbsp;10.4: Пример выполненного задания"><img src="./pictures2/14/14_4_точки в контур результат.png" class="img-fluid figure-img" style="width:50.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-points_to_line_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;9.4: Пример выполненного задания
+Рисунок&nbsp;10.4: Пример выполненного задания
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Преобразование линии в полигон выполняется при помощи инструмента <strong>“Линии в полигоны”</strong>. В качестве исходного слоя задается слой с линией (<a href="#fig-line_to_poly" class="quarto-xref">Рисунок&nbsp;<span>9.7</span></a>).</p>
+<p>Преобразование линии в полигон выполняется при помощи инструмента <strong>“Линии в полигоны”</strong>. В качестве исходного слоя задается слой с линией (<a href="#fig-line_to_poly" class="quarto-xref">Рисунок&nbsp;<span>10.7</span></a>).</p>
 <div id="fig-line_to_poly" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-line_to_poly-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/14/14_5_линии в полигоны.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Рисунок&nbsp;9.5: Окно настроек инструмента “Линии в полигоны”"><img src="./pictures2/14/14_5_линии в полигоны.png" class="img-fluid figure-img" style="width:80.0%"></a>
+<a href="./pictures2/14/14_5_линии в полигоны.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Рисунок&nbsp;10.5: Окно настроек инструмента “Линии в полигоны”"><img src="./pictures2/14/14_5_линии в полигоны.png" class="img-fluid figure-img" style="width:80.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-line_to_poly-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;9.5: Окно настроек инструмента “Линии в полигоны”
+Рисунок&nbsp;10.5: Окно настроек инструмента “Линии в полигоны”
 </figcaption>
 </figure>
 </div>
@@ -639,7 +648,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;9.5
+Задание&nbsp;10.5
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -648,10 +657,10 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-points_to_line_result" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-points_to_line_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/14/14_5_линии в полигоны результат.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Рисунок&nbsp;9.6: Пример выполненного задания"><img src="./pictures2/14/14_5_линии в полигоны результат.png" class="img-fluid figure-img" style="width:50.0%"></a>
+<a href="./pictures2/14/14_5_линии в полигоны результат.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Рисунок&nbsp;10.6: Пример выполненного задания"><img src="./pictures2/14/14_5_линии в полигоны результат.png" class="img-fluid figure-img" style="width:50.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-points_to_line_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;9.6: Пример выполненного задания
+Рисунок&nbsp;10.6: Пример выполненного задания
 </figcaption>
 </figure>
 </div>
@@ -664,7 +673,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;9.6
+Задание&nbsp;10.6
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -675,10 +684,10 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-line_to_poly" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-line_to_poly-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/14/14_6_инструмент обрезать.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Рисунок&nbsp;9.7: Окно настроек инструмента “Обрезать…”"><img src="./pictures2/14/14_6_инструмент обрезать.png" class="img-fluid figure-img" style="width:80.0%"></a>
+<a href="./pictures2/14/14_6_инструмент обрезать.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Рисунок&nbsp;10.7: Окно настроек инструмента “Обрезать…”"><img src="./pictures2/14/14_6_инструмент обрезать.png" class="img-fluid figure-img" style="width:80.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-line_to_poly-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;9.7: Окно настроек инструмента “Обрезать…”
+Рисунок&nbsp;10.7: Окно настроек инструмента “Обрезать…”
 </figcaption>
 </figure>
 </div>
@@ -688,7 +697,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;9.7
+Задание&nbsp;10.7
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -696,32 +705,32 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-points_to_line_result" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-points_to_line_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/14/14_6_части выделов.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Рисунок&nbsp;9.8: Пример выполненного задания"><img src="./pictures2/14/14_6_части выделов.png" class="img-fluid figure-img" style="width:50.0%"></a>
+<a href="./pictures2/14/14_6_части выделов.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Рисунок&nbsp;10.8: Пример выполненного задания"><img src="./pictures2/14/14_6_части выделов.png" class="img-fluid figure-img" style="width:50.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-points_to_line_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;9.8: Пример выполненного задания
+Рисунок&nbsp;10.8: Пример выполненного задания
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="экспорт-в-каталог-координат" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="экспорт-в-каталог-координат"><span class="header-section-number">9.2</span> Экспорт в каталог координат</h2>
+<section id="экспорт-в-каталог-координат" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="экспорт-в-каталог-координат"><span class="header-section-number">10.2</span> Экспорт в каталог координат</h2>
 <p>В предыдущем разделе мы рассмотрели как построить полигон по координатам поворотных точек. Обратная задача - конвертирование полигона, линии или точек в каталог координат. Если мы работаем с линией или полигоном, задача состоит из 3-х этапов:</p>
 <ol type="1">
 <li>Конвертирование в точечную геометрию;</li>
 <li>Расчет координат для каждой точки;</li>
 <li>Экспорт в табличный формат (например Excel).</li>
 </ol>
-<p>В случае с точечной геометрией первый этап пропускается. В этом разделе мы преобразуем границу выдела в каталог координат. Испольуйте инструмент <strong>“Выбрать объекты в прямоугольнике или точке”</strong> <img src="./QGIS_icons/mActionSelectRectangle.svg" class="img-fluid" alt="1"> что бы выбрать один выдел в слое “videla” (см. <a href="chapter2_vectorization.html#sec-pickobj" class="quarto-xref"><span>Глава 2.5</span></a>). После чего выбранный выдел будет обозначен желтым цветом. Используйте инструмент <strong>“Извлечь вершины”</strong> в панеле инструментов анализа что бы получить точечный слой поворотных точек выбранного выдела. В качестве исходного слоя задается слой “videla”, так же необходимо поставить чек-бокс “Только выделенные объекты” что бы конвертировать в поворотные точки не все объекты слоя а только выделенные (для этого вначале нами был выбран один выдел) (<a href="#fig-extract_vertexes" class="quarto-xref">Рисунок&nbsp;<span>9.9</span></a>). В результате появится новый временный точечный слой содержащий поворотные точки (вершины) полигона.</p>
+<p>В случае с точечной геометрией первый этап пропускается. В этом разделе мы преобразуем границу выдела в каталог координат. Испольуйте инструмент <strong>“Выбрать объекты в прямоугольнике или точке”</strong> <img src="./QGIS_icons/mActionSelectRectangle.svg" class="img-fluid" alt="1"> что бы выбрать один выдел в слое “videla” (см. <a href="chapter2_vectorization.html#sec-pickobj" class="quarto-xref"><span>Глава 2.5</span></a>). После чего выбранный выдел будет обозначен желтым цветом. Используйте инструмент <strong>“Извлечь вершины”</strong> в панеле инструментов анализа что бы получить точечный слой поворотных точек выбранного выдела. В качестве исходного слоя задается слой “videla”, так же необходимо поставить чек-бокс “Только выделенные объекты” что бы конвертировать в поворотные точки не все объекты слоя а только выделенные (для этого вначале нами был выбран один выдел) (<a href="#fig-extract_vertexes" class="quarto-xref">Рисунок&nbsp;<span>10.9</span></a>). В результате появится новый временный точечный слой содержащий поворотные точки (вершины) полигона.</p>
 <div id="fig-extract_vertexes" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-extract_vertexes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/14/14_7_Извлечь вершины.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Рисунок&nbsp;9.9: Окно настроек инструмента “Извлечь вершины”"><img src="./pictures2/14/14_7_Извлечь вершины.png" class="img-fluid figure-img" style="width:85.0%"></a>
+<a href="./pictures2/14/14_7_Извлечь вершины.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Рисунок&nbsp;10.9: Окно настроек инструмента “Извлечь вершины”"><img src="./pictures2/14/14_7_Извлечь вершины.png" class="img-fluid figure-img" style="width:85.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-extract_vertexes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;9.9: Окно настроек инструмента “Извлечь вершины”
+Рисунок&nbsp;10.9: Окно настроек инструмента “Извлечь вершины”
 </figcaption>
 </figure>
 </div>
@@ -731,18 +740,18 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;9.8
+Задание&nbsp;10.8
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>По примеру выше выделите один любой выдел и конвертируйте его в точечный слой (см. <a href="#fig-poly_to_vertex_result" class="quarto-xref">Рисунок&nbsp;<span>9.10</span></a>).</p>
+<p>По примеру выше выделите один любой выдел и конвертируйте его в точечный слой (см. <a href="#fig-poly_to_vertex_result" class="quarto-xref">Рисунок&nbsp;<span>10.10</span></a>).</p>
 <div id="fig-poly_to_vertex_result" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-poly_to_vertex_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/14/14_8_Вершины полигона.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Рисунок&nbsp;9.10: Пример выполненного задания"><img src="./pictures2/14/14_8_Вершины полигона.png" class="img-fluid figure-img" style="width:50.0%"></a>
+<a href="./pictures2/14/14_8_Вершины полигона.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Рисунок&nbsp;10.10: Пример выполненного задания"><img src="./pictures2/14/14_8_Вершины полигона.png" class="img-fluid figure-img" style="width:50.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-poly_to_vertex_result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;9.10: Пример выполненного задания
+Рисунок&nbsp;10.10: Пример выполненного задания
 </figcaption>
 </figure>
 </div>
@@ -754,14 +763,14 @@ ul.task-list li input[type="checkbox"] {
 <li>“distance” - кумулятивное (накопленное) расстояние между вершинами начиная с 0 точки, зависит от системы координат слоя. В нашем случае слой “videla” имел географическую систему координат WGS84, поэтому расстояние было рассчитано в градусах.</li>
 <li>“angle” -</li>
 </ul>
-<p>Последний этап, добавление координат в таблицу атрибутов, выполняется при помощи инструмента <strong>“Добавить к слою поля X/Y”</strong>. В качестве исходного слоя задается точечный слой с поворотными точками, пункт <strong>“Система координат”</strong> определяет в какой системе будут рассчитаны координаты (см. <a href="#fig-add_coords" class="quarto-xref">Рисунок&nbsp;<span>9.11</span></a>). В результате будет создан временный слой в атрибутах которого будут указаны координаты для каждой точки (столбцы “x” и “y” в таблице атрибутов).</p>
+<p>Последний этап, добавление координат в таблицу атрибутов, выполняется при помощи инструмента <strong>“Добавить к слою поля X/Y”</strong>. В качестве исходного слоя задается точечный слой с поворотными точками, пункт <strong>“Система координат”</strong> определяет в какой системе будут рассчитаны координаты (см. <a href="#fig-add_coords" class="quarto-xref">Рисунок&nbsp;<span>10.11</span></a>). В результате будет создан временный слой в атрибутах которого будут указаны координаты для каждой точки (столбцы “x” и “y” в таблице атрибутов).</p>
 <div id="fig-add_coords" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-add_coords-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/14/14_9_add_coords.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Рисунок&nbsp;9.11: Окно настроек инструмента “Добавить к слою поля X/Y”"><img src="./pictures2/14/14_9_add_coords.png" class="img-fluid figure-img" style="width:85.0%"></a>
+<a href="./pictures2/14/14_9_add_coords.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Рисунок&nbsp;10.11: Окно настроек инструмента “Добавить к слою поля X/Y”"><img src="./pictures2/14/14_9_add_coords.png" class="img-fluid figure-img" style="width:85.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-add_coords-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;9.11: Окно настроек инструмента “Добавить к слою поля X/Y”
+Рисунок&nbsp;10.11: Окно настроек инструмента “Добавить к слою поля X/Y”
 </figcaption>
 </figure>
 </div>
@@ -779,23 +788,23 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-fig" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/14/14_10_round.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Рисунок&nbsp;9.12: Справка по функции “round()”"><img src="./pictures2/14/14_10_round.png" class="img-fluid figure-img" style="width:70.0%"></a>
+<a href="./pictures2/14/14_10_round.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Рисунок&nbsp;10.12: Справка по функции “round()”"><img src="./pictures2/14/14_10_round.png" class="img-fluid figure-img" style="width:70.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;9.12: Справка по функции “round()”
+Рисунок&nbsp;10.12: Справка по функции “round()”
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>После того как получены координаты для каждой точки, остается сохранить слой в таблицу. Для этого нажмите правой кнопкой мыше по слою в панеле слоев &gt; “Экспорт” &gt; “Сохранить объекты как…”. В появившемся окне выберите “Формат” - “XLSX - электронная таблица MS Office Open XML”, в пункте “Имя файла” нажмите на “…” и укажите место сохранения таблицы и ее название. В пункте “Выберите поля для экспорта” вы можете выбрать те поля, которые будут сохранены в таблицу (см. <a href="#fig-save_table" class="quarto-xref">Рисунок&nbsp;<span>9.13</span></a>). Нажмите ОК и таблица с каталогом координат будет создана.</p>
+<p>После того как получены координаты для каждой точки, остается сохранить слой в таблицу. Для этого нажмите правой кнопкой мыше по слою в панеле слоев &gt; “Экспорт” &gt; “Сохранить объекты как…”. В появившемся окне выберите “Формат” - “XLSX - электронная таблица MS Office Open XML”, в пункте “Имя файла” нажмите на “…” и укажите место сохранения таблицы и ее название. В пункте “Выберите поля для экспорта” вы можете выбрать те поля, которые будут сохранены в таблицу (см. <a href="#fig-save_table" class="quarto-xref">Рисунок&nbsp;<span>10.13</span></a>). Нажмите ОК и таблица с каталогом координат будет создана.</p>
 <div id="fig-save_table" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-save_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/14/14_11_Экспорт в таблицу.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Рисунок&nbsp;9.13: Окно настроек инструмента “Добавить к слою поля X/Y”"><img src="./pictures2/14/14_11_Экспорт в таблицу.png" class="img-fluid figure-img" style="width:65.0%"></a>
+<a href="./pictures2/14/14_11_Экспорт в таблицу.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Рисунок&nbsp;10.13: Окно настроек инструмента “Добавить к слою поля X/Y”"><img src="./pictures2/14/14_11_Экспорт в таблицу.png" class="img-fluid figure-img" style="width:65.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-save_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;9.13: Окно настроек инструмента “Добавить к слою поля X/Y”
+Рисунок&nbsp;10.13: Окно настроек инструмента “Добавить к слою поля X/Y”
 </figcaption>
 </figure>
 </div>
@@ -805,7 +814,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Задание&nbsp;9.9
+Задание&nbsp;10.9
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -813,18 +822,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-coords_table" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-coords_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./pictures2/14/14_12_Каталог координат.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Рисунок&nbsp;9.14: Пример выполненного задания"><img src="./pictures2/14/14_12_Каталог координат.png" class="img-fluid figure-img" style="width:50.0%"></a>
+<a href="./pictures2/14/14_12_Каталог координат.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Рисунок&nbsp;10.14: Пример выполненного задания"><img src="./pictures2/14/14_12_Каталог координат.png" class="img-fluid figure-img" style="width:50.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coords_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Рисунок&nbsp;9.14: Пример выполненного задания
+Рисунок&nbsp;10.14: Пример выполненного задания
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="полярная-система-координат" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="полярная-система-координат"><span class="header-section-number">9.3</span> Полярная система координат</h2>
+<section id="полярная-система-координат" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="полярная-система-координат"><span class="header-section-number">10.3</span> Полярная система координат</h2>
 
 
 </section>
@@ -1245,8 +1254,8 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter8_DEM.html" class="pagination-link" aria-label="Цифровая модель рельефа">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Цифровая модель рельефа</span></span>
+      <a href="./chapter13_qfield.html" class="pagination-link" aria-label="Мобильное приложение QField">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Мобильное приложение QField</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
