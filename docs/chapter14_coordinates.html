@@ -415,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#импорт-каталога-координат" id="toc-импорт-каталога-координат" class="nav-link active" data-scroll-target="#импорт-каталога-координат"><span class="header-section-number">10.1</span> Импорт каталога координат</a></li>
   <li><a href="#экспорт-в-каталог-координат" id="toc-экспорт-в-каталог-координат" class="nav-link" data-scroll-target="#экспорт-в-каталог-координат"><span class="header-section-number">10.2</span> Экспорт в каталог координат</a></li>
-  <li><a href="#полярная-система-координат" id="toc-полярная-система-координат" class="nav-link" data-scroll-target="#полярная-система-координат"><span class="header-section-number">10.3</span> Полярная система координат</a></li>
+  <li><a href="#расчет-азимутов" id="toc-расчет-азимутов" class="nav-link" data-scroll-target="#расчет-азимутов"><span class="header-section-number">10.3</span> Расчет азимутов</a></li>
   </ul>
 </nav>
     </div>
@@ -666,7 +666,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>Остается рассчитать площадь полученного полигона. Такую операцию вы уже проводили в предыдущем разделе (см. <a href="chapter3_attributes.html#task-task_area" class="quarto-xref">Задание&nbsp;<span>3.5</span></a>)</p>
+<p>Остается рассчитать площадь полученного полигона. Такую операцию вы уже проводили в предыдущем разделе (см. <span class="quarto-unresolved-ref">?task-task_area</span>)</p>
 <div id="task-task" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -677,7 +677,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Рассчитайте площадь полигона в гектарах (см. <a href="chapter3_attributes.html#task-task_area" class="quarto-xref">Задание&nbsp;<span>3.5</span></a>).</p>
+<p>Рассчитайте площадь полигона в гектарах (см. <span class="quarto-unresolved-ref">?task-task_area</span>).</p>
 </div>
 </div>
 <p>Теперь вы можете использовать лесосеку как любой полигональный объект. Например, если нужно узнать какие выделы подлежат рубке, вы можете использовать инструмент “Обрезать…” на слое выделов. В результате будут получены части выделов, попадающие в лесосеку.</p>
@@ -723,7 +723,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Расчет координат для каждой точки;</li>
 <li>Экспорт в табличный формат (например Excel).</li>
 </ol>
-<p>В случае с точечной геометрией первый этап пропускается. В этом разделе мы преобразуем границу выдела в каталог координат. Испольуйте инструмент <strong>“Выбрать объекты в прямоугольнике или точке”</strong> <img src="./QGIS_icons/mActionSelectRectangle.svg" class="img-fluid" alt="1"> что бы выбрать один выдел в слое “videla” (см. <a href="chapter2_vectorization.html#sec-pickobj" class="quarto-xref"><span>Глава 2.5</span></a>). После чего выбранный выдел будет обозначен желтым цветом. Используйте инструмент <strong>“Извлечь вершины”</strong> в панеле инструментов анализа что бы получить точечный слой поворотных точек выбранного выдела. В качестве исходного слоя задается слой “videla”, так же необходимо поставить чек-бокс “Только выделенные объекты” что бы конвертировать в поворотные точки не все объекты слоя а только выделенные (для этого вначале нами был выбран один выдел) (<a href="#fig-extract_vertexes" class="quarto-xref">Рисунок&nbsp;<span>10.9</span></a>). В результате появится новый временный точечный слой содержащий поворотные точки (вершины) полигона.</p>
+<p>В случае с точечной геометрией первый этап пропускается. В этом разделе мы преобразуем границу выдела в каталог координат. Испольуйте инструмент <strong>“Выбрать объекты в прямоугольнике или точке”</strong> <img src="./QGIS_icons/mActionSelectRectangle.svg" class="img-fluid" alt="1"> что бы выбрать один выдел в слое “videla” (см. <span class="quarto-unresolved-ref">?sec-pickobj</span>). После чего выбранный выдел будет обозначен желтым цветом. Используйте инструмент <strong>“Извлечь вершины”</strong> в панеле инструментов анализа что бы получить точечный слой поворотных точек выбранного выдела. В качестве исходного слоя задается слой “videla”, так же необходимо поставить чек-бокс “Только выделенные объекты” что бы конвертировать в поворотные точки не все объекты слоя а только выделенные (для этого вначале нами был выбран один выдел) (<a href="#fig-extract_vertexes" class="quarto-xref">Рисунок&nbsp;<span>10.9</span></a>). В результате появится новый временный точечный слой содержащий поворотные точки (вершины) полигона.</p>
 <div id="fig-extract_vertexes" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-extract_vertexes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -797,7 +797,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>После того как получены координаты для каждой точки, остается сохранить слой в таблицу. Для этого нажмите правой кнопкой мыше по слою в панеле слоев &gt; “Экспорт” &gt; “Сохранить объекты как…”. В появившемся окне выберите “Формат” - “XLSX - электронная таблица MS Office Open XML”, в пункте “Имя файла” нажмите на “…” и укажите место сохранения таблицы и ее название. В пункте “Выберите поля для экспорта” вы можете выбрать те поля, которые будут сохранены в таблицу (см. <a href="#fig-save_table" class="quarto-xref">Рисунок&nbsp;<span>10.13</span></a>). Нажмите ОК и таблица с каталогом координат будет создана.</p>
+<p>После того как получены координаты для каждой точки, остается сохранить слой в таблицу. Для этого нажмите правой кнопкой мыши по слою в панеле слоев &gt; “Экспорт” &gt; “Сохранить объекты как…”. В появившемся окне выберите “Формат” - “XLSX - электронная таблица MS Office Open XML”, в пункте “Имя файла” нажмите на “…” и укажите место сохранения таблицы и ее название. В пункте “Выберите поля для экспорта” вы можете выбрать те поля, которые будут сохранены в таблицу (см. <a href="#fig-save_table" class="quarto-xref">Рисунок&nbsp;<span>10.13</span></a>). Нажмите ОК и таблица с каталогом координат будет создана.</p>
 <div id="fig-save_table" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-save_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -832,8 +832,43 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="полярная-система-координат" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="полярная-система-координат"><span class="header-section-number">10.3</span> Полярная система координат</h2>
+<section id="расчет-азимутов" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="расчет-азимутов"><span class="header-section-number">10.3</span> Расчет азимутов</h2>
+<p>Буссольная съемка широко распространена в лесном хозяйстве при отводе лесосек. Она основана на полярной системе координат при которой определяется длина и направление линии (румб или азимут). Знание этих величин для каждой из линий необходимо для вынесения границ участка на местность при помощи буссоли.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Уведомление</span>Загрузите файлы!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Для выполнения заданий из подраздела “Расчет азимутов”, загрузите файл полигона в существующий проект QGIS. Файл можно загрузить по ссылке ()</p>
+</div>
+</div>
+<p>Решение задачи будет состоять из следующих этапов:</p>
+<ul>
+<li>Конвертирование границы полигона в линию</li>
+<li>Разделение линии на отрезки</li>
+<li>Расчет длины и азимута для каждого отрезка в таблице атрибутов</li>
+</ul>
+<p>В качестве исходных данных используется полигон условной лесосеки. Для конвертирования его границы в линию применяется инструмент “Полигоны в линии”. В результате граница полигона будет представлена в виде линии, которую необходимо разбить на отрезки инструментом “Разбить линии на отрезки”. Для каждого из полученных отрезков необходимо добавить 2 поля в которые записать длину и азимут. С расчетом длины при помощи функции <code>$length</code> вы уже сталкивались (см. <a href="chapter6_spatial_operations.html#task-length" class="quarto-xref">Задание&nbsp;<span>6.8</span></a>). Расчет азимутов линий несколько сложнее и включает в себя несколько функций. Для расчета азимутов линий используется функция <code>azimuth(point_a, point_b)</code>, где <code>point_a</code> - начальная точка отрезка; <code>point_b</code> - конечная точка отрезка. Произвести расчет начальной а конечно точек возможно при помощи функций <code>start_point(@geometry)</code> и <code>end_point(@geometry)</code>. В результате получаем следующее выражение: <code>azimuth(start_point(@geometry), end_point(@geometry))</code>. Однако полученное выражение будет рассчитывать направление линии в радианах. Для пересчета радиан в градусы поместим выражение в фукцию <code>degrees()</code>. Итоговое выражение будет выгрядеть как: <code>degrees(azimuth(start_point(@geometry), end_point(@geometry)))</code>.</p>
+<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Задание&nbsp;10.10
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>По описанию выше рассчитайте длины линий и азимуты для полигона. Сохраните их в таблицу Excel. Результат выполнения задания приведен на рисунке ниже.</p>
+<p>!! Рис - Таблица азимутов и длин линий.</p>
+</div>
+</div>
 
 
 </section>

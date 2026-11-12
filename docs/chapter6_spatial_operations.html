@@ -450,9 +450,6 @@ window.Quarto = {
   <li><a href="#арифметические-операции-с-атрибутами" id="toc-арифметические-операции-с-атрибутами" class="nav-link" data-scroll-target="#арифметические-операции-с-атрибутами"><span class="header-section-number">6.6</span> Арифметические операции с атрибутами</a></li>
   <li><a href="#ситуационное-задание-1" id="toc-ситуационное-задание-1" class="nav-link" data-scroll-target="#ситуационное-задание-1"><span class="header-section-number">6.7</span> Ситуационное задание №1</a></li>
   <li><a href="#ситуационное-задание-2" id="toc-ситуационное-задание-2" class="nav-link" data-scroll-target="#ситуационное-задание-2"><span class="header-section-number">6.8</span> Ситуационное задание №2</a></li>
-  <li><a href="#построение-полигона-по-координатам" id="toc-построение-полигона-по-координатам" class="nav-link" data-scroll-target="#построение-полигона-по-координатам"><span class="header-section-number">6.9</span> Построение полигона по координатам</a></li>
-  <li><a href="#создание-каталога-координат" id="toc-создание-каталога-координат" class="nav-link" data-scroll-target="#создание-каталога-координат"><span class="header-section-number">6.10</span> Создание каталога координат</a></li>
-  <li><a href="#расчет-азимутов" id="toc-расчет-азимутов" class="nav-link" data-scroll-target="#расчет-азимутов"><span class="header-section-number">6.11</span> Расчет азимутов</a></li>
   </ul>
 </nav>
     </div>
@@ -498,7 +495,7 @@ window.Quarto = {
 </ul>
 </div>
 </div>
-<p>Панель меню <strong>“Вектор” &gt; “Геообработка”</strong> содержит основные инстументы для изменения векторных объектов (<a href="chapter7_OSM.html#fig-geotools" class="quarto-xref">Рисунок&nbsp;<span>7.4</span></a>).</p>
+<p>Панель меню <strong>“Вектор” &gt; “Геообработка”</strong> содержит основные инстументы для изменения векторных объектов (<a href="#fig-geotools" class="quarto-xref">Рисунок&nbsp;<span>6.1</span></a>).</p>
 <div id="fig-geotools" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-geotools-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -982,7 +979,7 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p>Постройте карту разрядов такс для части Караульного лесничества. Пунктом отгрузки будет служить здание речного вокзала в г. Красноярск. Для решения задачи выполните следующие этапы задания:</p>
 <ul>
-<li>Создайте новый векторный точечный слой и отметьте пункт отгрузки (поскольку в последующем вокруг пункта придется строить буферные зоны, выберите для слоя систему координат UTM (см. <a href="chapter4_thematic_maps.html#task-task_utm" class="quarto-xref">Задание&nbsp;<span>4.2</span></a>)). Поставить пункт отгрузки вам поможет Гугл карта (см. <a href="chapter1_georeferencing.html#task-google_map" class="quarto-xref">Задание&nbsp;<span>1.14</span></a>).</li>
+<li>Создайте новый векторный точечный слой и отметьте пункт отгрузки (поскольку в последующем вокруг пункта придется строить буферные зоны, выберите для слоя систему координат UTM (см. <span class="quarto-unresolved-ref">?task-task_utm</span>)). Поставить пункт отгрузки вам поможет Гугл карта (см. <span class="quarto-unresolved-ref">?task-google_map</span>).</li>
 <li>Постройте буферные зоны разрядов такс вокруг пункта отгрузки (см. <a href="#task-task_buffer" class="quarto-xref">Задание&nbsp;<span>6.2</span></a>).</li>
 <li>Что бы удалить артефакты на квартальной сети, используйте инструмент “Удалить отверстия” в панеле “Инструменты анализа” (в поле “Удалить отверстия площадью меньше чем” укажите значение 0.01 квадратный градус).</li>
 <li>Оформите карту в виде макета и сохраните в изображение (цвета выберите произвольно).</li>
@@ -999,170 +996,6 @@ window.Quarto = {
 Рисунок&nbsp;6.18: Результат выполнения задания №2
 </figcaption>
 </figure>
-</div>
-</section>
-<section id="построение-полигона-по-координатам" class="level2" data-number="6.9">
-<h2 data-number="6.9" class="anchored" data-anchor-id="построение-полигона-по-координатам"><span class="header-section-number">6.9</span> Построение полигона по координатам</h2>
-<p>В лесном хозяйстве не редко приходится рещать задачу построения полигона по каталогу координат. Решение такой задачи можно разбить на два этапа:</p>
-<ul>
-<li>Импорт каталога координат в QGIS и отображение его в виде точек на карте;</li>
-<li>Преобразование точек в линию а затем в полигон.</li>
-</ul>
-<p>Каталог координат представляет из себя таблицу с координатами и порядковыми номерами точек. Так же в таблице должна быть указана система координат. Рассмотрим каталог координат в файле <strong>“Координаты.xlsx”</strong>, представленный таблицей Excel.</p>
-<p>!! Рис - Каталог координат в программе LibreOffice Calc</p>
-<p>Файл состоит из заголовка (перва строка) в котором указана система координат и таблицы (каталога координат) с 3 столбцами: n - порядковый номер точки, lat_wgs84 - широта точки, град., lon_wgs84 - долгота точки, град. Так же обратите внимание на то, что в координатах целая часть от дробной отделена запятой (это понадобится при настройке импорта файла). Сохраним таблицу в формат <strong>.csv (Comma-Separated Values, значения разделенные запятой)</strong>, позволяющий хранить табличные данные в текстовом формате. Разделителем полей может служить не только запятая, основное условие - символ-разделитель не должен присутствовать в данных таблицы. В нашем случае использовать запятую не самое лучшее решение т.к. запятая присутствует в данных таблицы в виде десятичного разделителя. Лучшим решением будет использовать в качестве разделителя полей символ табуляции.</p>
-<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Задание&nbsp;6.15
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Воспользуйтесь табличным редактором и откройте файл “Координаты.xlsx”. Сохраните содержимое таблицы в формат .csv “Координаты.csv”. В качестве разделителя полей используйте символ табуляции.</p>
-</div>
-</div>
-<p>Теперь пришло время импортировать файл “Координаты<strong>.csv</strong>” в прорамму QGIS. Перейдите в пункт меню <strong>“Слой” &gt; “Добавить слой” &gt; “Добавить слой из текста с разделителями…”</strong>. В пункте <strong>“Имя файла”</strong> выберите файл <strong>“Координаты.csv”</strong>. Настроим параметры импорта: <strong>“Формат файла” &gt; “Другие разделители” &gt; поставьте чек-бокс напротив пункта “Табуляция”</strong> (здесь задается разделитель полей, который был выбран при сохранении файла .csv - табуляция). “Параметры записей и полей” &gt; “Игнорировать строки в начале файла” &gt; укажите значение 1 (первая строка содержит название системы координат, поэтому при чтении файла будет пропущена). Так же сообщим программе о том, что наша таблица имеет заголовки в 1 строке (по счету это 2 строка, но в настройке выше первая строка была пропущена): чек-бокс “Загружать имена полей из первой строки”. Вкладка <strong>“Формат геометрии”</strong> определяет настройки системы координат а так же поля, из которых эти координаты будут извлечены. Выбирается режим “Координаты точки”, “Поле х” &gt; “lon_wgs84” (указывается столбец с долготой точки), “Поле y” &gt; “lat_wgs84” (указывается столбец с широтой точки), “Система координат геометрии” &gt; “EPSG:4326 WGS84”. Убедитесь в том, что в пункте “Примеры данных” таблица выглядит корректно, после чего нажмите “Добавить”, новый точечный векторный слой появится в панеле слоев.</p>
-<p>После добавления слоя следует пересохранить его в Shape-file или GeoPackage.</p>
-<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Задание&nbsp;6.16
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>По примеру выше, импортируйте координаты точек (файл .csv). Сохраните импортированный слой точек в файл.</p>
-</div>
-</div>
-<p>Путь преобразования точек в полигон проходит через промежуточный этап: создание линий. Для этого в панеле “Инструменты анализа” выберите инструмент “Точки в контур”.</p>
-<p>“Исходный слой” &gt; точечный слой “Координаты”, поставьте чек-бокс “Создать замкнутые контуры”. Так же при желании можно задать поле, определяющее порядок вершин в линии (поле “Выражение порядка”). По умолчанию порядок будет определяться номером строки в таблице атрибутов. После всех настроек нажмите “Выполнить”, новый линейный слой (“Пути”) появится в панеле слоев.</p>
-<p>Осталось линейный слой трансформировать в полигональный. Для этого используют инструмент “Построить полигоны” или “Линии в полигоны”.</p>
-<p>!! Рис - Полигон, построенный из линий</p>
-<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Задание&nbsp;6.17
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>По примеру выше, трансформируйте точки в линии а затем в полигон. Сохраните полигон как новый векторный слой.</p>
-</div>
-</div>
-</section>
-<section id="создание-каталога-координат" class="level2" data-number="6.10">
-<h2 data-number="6.10" class="anchored" data-anchor-id="создание-каталога-координат"><span class="header-section-number">6.10</span> Создание каталога координат</h2>
-<p>В некоторых случаях необходимо решить обратную задачу - получить каталог координат поворотных точек полигонального слоя. При этом получить координаты точек часто необходимо в СК отличной от СК полигонального слоя, или сразу в нескольких СК. Рассмотрим второй случай, когда дан полигон (СК WGS84) и нужно получить координаты его поворотных точек в двух СК: WGS84 и GSK2011.</p>
-<p>!!Рис - Пример каталога координат (каждая поворотная точка записана в двух СК)</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Уведомление</span>Загрузите файлы!
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Для выполнения заданий из подраздела “Создание каталога координат”, загрузите файл полигона в существующий проект QGIS. Файл можно загрузить по ссылке ()</p>
-</div>
-</div>
-<p>Решение задачи будет состоять из следующих этапов:</p>
-<ul>
-<li>Извлечение вершин из полигона</li>
-<li>Добавление полей (широта, долгота) и расчет координат в СК WGS84</li>
-<li>Перепроецирование слоя в СК GSK2011</li>
-<li>Добавление полей (широта, долгота) и расчет координат в СК GSK2011</li>
-<li>Сохранение координат в таблицу</li>
-</ul>
-<p>Инструмент “Извлечь вершины” создает новый точечный слой, содержащий вершины геометрий исходного линейного или полигонального слоя.</p>
-<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Задание&nbsp;6.18
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Примените инструмент “Извлечь вершины” к полигону.</p>
-</div>
-</div>
-<p>Системы координат исходного полигонального и созданного точечного слоев совпадают (WGS84). Для записи координат, создадим дополнительные 2 поля в атрибутах слоя (широта - lat, долгота - lon), тип поля - десятичное (real). Заполним каждое из полей функциями <code>round(x($geometry), 6)</code> для долготы и <code>round(y($geometry), 6)</code> для широты. Функции <code>x($geometry)</code>, <code>y($geometry)</code> возвращают координату точки по долготе и широте, соответственно. Функция <code>round(value, digit)</code> используется для округления координат до 6 знаков после запятой. Она требует два аргумента: value - число, которое нужно округлить; digit - количество знаков после запятой. Функция <code>round(value, digit)</code> часто используется вместе с такими функциями как <code>$length</code> и <code>$area</code>.</p>
-<div id="task-task_calc_coords" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Задание&nbsp;6.19
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Рассчитайте координаты в таблице атрибутов точечного слоя (СК WGS84).</p>
-<p>!! Рис - Результат выполнения задания.</p>
-</div>
-</div>
-<p>Для того, что бы получить координаты тех же объектов в другой СК, необходимо перепроецировать слой (см. <a href="#task-task_rivers_reproj" class="quarto-xref">Задание&nbsp;<span>6.1</span></a>) и повторить действие выше т.е. создать еще два поля и заполнить их функциями <code>round(x($geometry), 6)</code> и <code>round(y($geometry), 6)</code>.</p>
-<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Задание&nbsp;6.20
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Перепроецируйте слой в СК GSK2011. Создайте два новых поля (lat_gsk2011 и lon_gsk2011) и заполните их координатами (см. <a href="#task-task_calc_coords" class="quarto-xref">Задание&nbsp;<span>6.19</span></a>). Сохраните таблицу атрибутов в файл Excel (см. <a href="#task-task_6_1" class="quarto-xref">Задание&nbsp;<span>6.13</span></a>).</p>
-<p>!! Рис - Cохраненная таблица атрибутов.</p>
-</div>
-</div>
-</section>
-<section id="расчет-азимутов" class="level2" data-number="6.11">
-<h2 data-number="6.11" class="anchored" data-anchor-id="расчет-азимутов"><span class="header-section-number">6.11</span> Расчет азимутов</h2>
-<p>Буссольная съемка широко распространена в лесном хозяйстве при отводе лесосек. Она основана на полярной системе координат при которой определяется длина и направление линии (румб или азимут). Знание этих величин для каждой из линий необходимо для вынесения границ участка на местность при помощи буссоли.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Уведомление</span>Загрузите файлы!
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Для выполнения заданий из подраздела “Расчет азимутов”, загрузите файл полигона в существующий проект QGIS. Файл можно загрузить по ссылке ()</p>
-</div>
-</div>
-<p>Решение задачи будет состоять из следующих этапов:</p>
-<ul>
-<li>Конвертирование границы полигона в линию</li>
-<li>Разделение линии на отрезки</li>
-<li>Расчет длины и азимута для каждого отрезка в таблице атрибутов</li>
-</ul>
-<p>В качестве исходных данных используется полигон условной лесосеки. Для конвертирования его границы в линию применяется инструмент “Полигоны в линии”. В результате граница полигона будет представлена в виде линии, которую необходимо разбить на отрезки инструментом “Разбить линии на отрезки”. Для каждого из полученных отрезков необходимо добавить 2 поля в которые записать длину и азимут. С расчетом длины при помощи функции <code>$length</code> вы уже сталкивались (см. <a href="#task-length" class="quarto-xref">Задание&nbsp;<span>6.8</span></a>). Расчет азимутов линий несколько сложнее и включает в себя несколько функций. Для расчета азимутов линий используется функция <code>azimuth(point_a, point_b)</code>, где <code>point_a</code> - начальная точка отрезка; <code>point_b</code> - конечная точка отрезка. Произвести расчет начальной а конечно точек возможно при помощи функций <code>start_point(@geometry)</code> и <code>end_point(@geometry)</code>. В результате получаем следующее выражение: <code>azimuth(start_point(@geometry), end_point(@geometry))</code>. Однако полученное выражение будет рассчитывать направление линии в радианах. Для пересчета радиан в градусы поместим выражение в фукцию <code>degrees()</code>. Итоговое выражение будет выгрядеть как: <code>degrees(azimuth(start_point(@geometry), end_point(@geometry)))</code>.</p>
-<div id="task-task" class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Задание&nbsp;6.21
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>По описанию выше рассчитайте длины линий и азимуты для полигона. Сохраните их в таблицу Excel. Результат выполнения задания приведен на рисунке ниже.</p>
-<p>!! Рис - Таблица азимутов и длин линий.</p>
-</div>
 </div>
 
 
