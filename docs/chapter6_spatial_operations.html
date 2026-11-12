@@ -446,10 +446,11 @@ window.Quarto = {
   <li><a href="#sec-buffer" id="toc-sec-buffer" class="nav-link" data-scroll-target="#sec-buffer"><span class="header-section-number">6.2</span> Создание буферной зоны</a></li>
   <li><a href="#инструменты-обрезать-и-пересечение" id="toc-инструменты-обрезать-и-пересечение" class="nav-link" data-scroll-target="#инструменты-обрезать-и-пересечение"><span class="header-section-number">6.3</span> Инструменты “Обрезать…” и “Пересечение…”</a></li>
   <li><a href="#инструмент-разность" id="toc-инструмент-разность" class="nav-link" data-scroll-target="#инструмент-разность"><span class="header-section-number">6.4</span> Инструмент “Разность…”</a></li>
-  <li><a href="#подсчет-длины-площади-и-периметра-геометрий." id="toc-подсчет-длины-площади-и-периметра-геометрий." class="nav-link" data-scroll-target="#подсчет-длины-площади-и-периметра-геометрий."><span class="header-section-number">6.5</span> Подсчет длины, площади и периметра геометрий.</a></li>
-  <li><a href="#арифметические-операции-с-атрибутами" id="toc-арифметические-операции-с-атрибутами" class="nav-link" data-scroll-target="#арифметические-операции-с-атрибутами"><span class="header-section-number">6.6</span> Арифметические операции с атрибутами</a></li>
-  <li><a href="#ситуационное-задание-1" id="toc-ситуационное-задание-1" class="nav-link" data-scroll-target="#ситуационное-задание-1"><span class="header-section-number">6.7</span> Ситуационное задание №1</a></li>
-  <li><a href="#ситуационное-задание-2" id="toc-ситуационное-задание-2" class="nav-link" data-scroll-target="#ситуационное-задание-2"><span class="header-section-number">6.8</span> Ситуационное задание №2</a></li>
+  <li><a href="#объединение-по-признаку" id="toc-объединение-по-признаку" class="nav-link" data-scroll-target="#объединение-по-признаку"><span class="header-section-number">6.5</span> “Объединение по признаку…”</a></li>
+  <li><a href="#подсчет-длины-площади-и-периметра-геометрий." id="toc-подсчет-длины-площади-и-периметра-геометрий." class="nav-link" data-scroll-target="#подсчет-длины-площади-и-периметра-геометрий."><span class="header-section-number">6.6</span> Подсчет длины, площади и периметра геометрий.</a></li>
+  <li><a href="#арифметические-операции-с-атрибутами" id="toc-арифметические-операции-с-атрибутами" class="nav-link" data-scroll-target="#арифметические-операции-с-атрибутами"><span class="header-section-number">6.7</span> Арифметические операции с атрибутами</a></li>
+  <li><a href="#ситуационное-задание-1" id="toc-ситуационное-задание-1" class="nav-link" data-scroll-target="#ситуационное-задание-1"><span class="header-section-number">6.8</span> Ситуационное задание №1</a></li>
+  <li><a href="#ситуационное-задание-2" id="toc-ситуационное-задание-2" class="nav-link" data-scroll-target="#ситуационное-задание-2"><span class="header-section-number">6.9</span> Ситуационное задание №2</a></li>
   </ul>
 </nav>
     </div>
@@ -756,6 +757,9 @@ window.Quarto = {
 </div>
 </div>
 </div>
+</section>
+<section id="объединение-по-признаку" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="объединение-по-признаку"><span class="header-section-number">6.5</span> “Объединение по признаку…”</h2>
 <p>Инструмент <strong>“Вектор” &gt; “Геообработка” &gt; “Объединение по признаку…”</strong> позволяет объединить объекты с одинаковыми атрибутами. Например, он дает возможность создать границы лесных кварталов из слоя выделов. Для этого в качестве <strong>“Исходного слоя”</strong> выбирают слой выделов, в пункте <strong>“Поля классификации”</strong> выбирают поле для объединения объектов (“kvartal”) (<a href="#fig-merge_by_attr" class="quarto-xref">Рисунок&nbsp;<span>6.13</span></a>). В результате применения инструмента, границы выделов с одинаковым номером квартала будут стерты и таким образом образуют квартальную сеть.</p>
 <div id="fig-merge_by_attr" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -791,8 +795,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="подсчет-длины-площади-и-периметра-геометрий." class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="подсчет-длины-площади-и-периметра-геометрий."><span class="header-section-number">6.5</span> Подсчет длины, площади и периметра геометрий.</h2>
+<section id="подсчет-длины-площади-и-периметра-геометрий." class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="подсчет-длины-площади-и-периметра-геометрий."><span class="header-section-number">6.6</span> Подсчет длины, площади и периметра геометрий.</h2>
 <p>Программа QGIS позволяет совершить автоматический расчет площади, периметра и длины геометрий. При таком расчете важно обратить внимание на единицы измерения величин. Единицы измерения длины (так же как периметра и площади) зависят от настроек проекта. Для их изменения перейдите в пункт меню <strong>“Проект” &gt; “Свойства” &gt; во вкладке “Общие” найдите раздел “Измерения”</strong>. Пункты <strong>“Единицы измерения расстояния”</strong> и <strong>“Единицы измерения площади”</strong> задают соответствующие единицы измерения.</p>
 <div id="task-task_measure_units" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -871,8 +875,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="арифметические-операции-с-атрибутами" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="арифметические-операции-с-атрибутами"><span class="header-section-number">6.6</span> Арифметические операции с атрибутами</h2>
+<section id="арифметические-операции-с-атрибутами" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="арифметические-операции-с-атрибутами"><span class="header-section-number">6.7</span> Арифметические операции с атрибутами</h2>
 <p>После выполнения <a href="#task-calc_area" class="quarto-xref">Задание&nbsp;<span>6.10</span></a> в слое “videla” будут находиться два поля с площадью. Поле “s_ha” это данные площади выдела по таксационным описаниям. Второе поле “area_ha” было создано при выполнении <a href="#task-calc_area" class="quarto-xref">Задание&nbsp;<span>6.10</span></a> и содержит площади геометрий, рассчитанные автоматически. Отличаются ли эти две площади? Для сравнения двух значений создайте новое поле “diff_area” (десятичное) куда будет записана разность значений двух полей (выражение <code>"s_ga" -  "area"</code>). По разнице можно оценить насколько значения двух полей различаются.</p>
 <div id="task-task_diff_area" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -930,8 +934,8 @@ window.Quarto = {
 </figure>
 </div>
 </section>
-<section id="ситуационное-задание-1" class="level2" data-number="6.7">
-<h2 data-number="6.7" class="anchored" data-anchor-id="ситуационное-задание-1"><span class="header-section-number">6.7</span> Ситуационное задание №1</h2>
+<section id="ситуационное-задание-1" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="ситуационное-задание-1"><span class="header-section-number">6.8</span> Ситуационное задание №1</h2>
 <p>Этой задание является обобщением полученных навыков. Последовательно применяйте изученные в этом разделе инструменты и решите практическую задачу.</p>
 <div id="task-task_6_1" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -945,6 +949,7 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p>Рассчитайте запас насаждений в водоохранных зонах Караульного лесничества. Выполните следующие этапы задания:</p>
 <ul>
+<li>Создайте новый проект, необходимые слои перенесите из предыдущего проекта.</li>
 <li>Постройте буферные зоны радиусом 50 метров вокруг рек (см. <a href="#task-task_buffer" class="quarto-xref">Задание&nbsp;<span>6.2</span></a>).</li>
 <li>Создайте новый слой, содержащий части выделов, попадающих в водоохранные зоны (см. <a href="#task-task_cut" class="quarto-xref">Задание&nbsp;<span>6.4</span></a>).</li>
 <li>Рассчитайте площади частей выделов, попадающих в водоохранные зоны. Для этого создайте новое поле “area_buffer_ha”, заполните его площадью частей выделов (в гектарах) (см. <a href="#task-calc_area" class="quarto-xref">Задание&nbsp;<span>6.10</span></a>).</li>
@@ -955,9 +960,9 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="ситуационное-задание-2" class="level2" data-number="6.8">
-<h2 data-number="6.8" class="anchored" data-anchor-id="ситуационное-задание-2"><span class="header-section-number">6.8</span> Ситуационное задание №2</h2>
-<p>Для расчета стоимости аренды лесных участков для заготовки древесины, используется система таксовых раздядов. Каждый из разрядов покрывает зону определенного радиуса от пункта отгрузки древесины:</p>
+<section id="ситуационное-задание-2" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="ситуационное-задание-2"><span class="header-section-number">6.9</span> Ситуационное задание №2</h2>
+<p>Для расчета стоимости аренды лесных участков для заготовки древесины, используются лесотаксовые разряды. Каждый из разрядов покрывает зону определенного радиуса от пункта отгрузки древесины:</p>
 <ul>
 <li>1 разряд от 0 до 10 км</li>
 <li>2 разряд от 10,1 до 25 км</li>
@@ -979,8 +984,10 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p>Постройте карту разрядов такс для части Караульного лесничества. Пунктом отгрузки будет служить здание речного вокзала в г. Красноярск. Для решения задачи выполните следующие этапы задания:</p>
 <ul>
-<li>Создайте новый векторный точечный слой и отметьте пункт отгрузки (поскольку в последующем вокруг пункта придется строить буферные зоны, выберите для слоя систему координат UTM (см. <span class="quarto-unresolved-ref">?task-task_utm</span>)). Поставить пункт отгрузки вам поможет Гугл карта (см. <span class="quarto-unresolved-ref">?task-google_map</span>).</li>
+<li>Создайте новый проект, необходимые слои перенесите из предыдущего проекта.</li>
+<li>Создайте новый векторный точечный слой и отметьте пункт отгрузки. Для расчета буферных зон в метрах при создании слоя выберите систему координат UTM (см. <a href="#task-task_rivers_reproj" class="quarto-xref">Задание&nbsp;<span>6.1</span></a>). Найти пункт отгрузки вам поможет Гугл карта (см. <a href="chapter1_georeferencing.html#task-google_map" class="quarto-xref">Задание&nbsp;<span>1.14</span></a>).</li>
 <li>Постройте буферные зоны разрядов такс вокруг пункта отгрузки (см. <a href="#task-task_buffer" class="quarto-xref">Задание&nbsp;<span>6.2</span></a>).</li>
+<li>Создайте квартальную сеть из контуров выделов (см. <a href="#task-merge_videls" class="quarto-xref">Задание&nbsp;<span>6.6</span></a>).</li>
 <li>Что бы удалить артефакты на квартальной сети, используйте инструмент “Удалить отверстия” в панеле “Инструменты анализа” (в поле “Удалить отверстия площадью меньше чем” укажите значение 0.01 квадратный градус).</li>
 <li>Оформите карту в виде макета и сохраните в изображение (цвета выберите произвольно).</li>
 </ul>
